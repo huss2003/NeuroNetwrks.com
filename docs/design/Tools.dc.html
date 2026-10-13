@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<title>Tools and Stack</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F9FD;color:#0B1F3F;font-family:'IBM Plex Sans',system-ui,sans-serif}
+a{color:#0856BC}a:hover{color:#0B1F3F}
+.tw{overflow-x:auto;border:1px solid #0B1F3F;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px;line-height:1.45}
+th{background:#0B1F3F;color:#F4F9FD;text-align:left;padding:10px 12px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.04em}
+td{padding:10px 12px;border-top:1px solid #C9D9EC;vertical-align:top}
+td:first-child{font-weight:600}
+h2{margin:0 0 20px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1.05;letter-spacing:-0.03em}
+.k{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px}
+code{font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#E2EEFC;padding:1px 5px;word-break:break-word}
+.s{display:block;padding:72px 48px;max-width:1344px;margin:0 auto;box-sizing:border-box}
+.v{background:#49B716;color:#0B1F3F;padding:1px 8px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500}
+.u{background:#F2C94C;color:#0B1F3F;padding:1px 8px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500}
+.c{background:#0B1F3F;color:#fff;padding:1px 8px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500}
+li{margin-bottom:8px}
+</style>
+</helmet>
+<div style="background:#F4F9FD;color:#0B1F3F;font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.55">
+
+<header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:8px 48px;border-bottom:1px solid #0B1F3F;background:#FFFFFF">
+<a href="Main.dc.html" aria-label="NeuroNetworks AI Ed home" style="display:flex;align-items:center;text-decoration:none"><img src="/_blob/114385866de5a1bb12e6dfe0d2ac7331" alt="NeuroNetworks AI Ed: Learn, Develop, Create" style="height:84px;width:auto;display:block"></a>
+<nav aria-label="Breadcrumb" style="font-size:15px;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center"><a href="Main.dc.html" style="min-height:44px;display:inline-flex;align-items:center">Home</a><span aria-hidden="true">/</span><span aria-current="page" style="font-weight:600">Tools and stack</span></nav>
+</header>
+
+<section class="s" style="padding-top:80px">
+<p class="k">Build reference · TOOLS.md</p>
+<h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:64px;line-height:1;letter-spacing:-0.035em;max-width:980px">Repos, skills, plugins, MCP servers and setup for neuronetwrks.com</h1>
+<p style="margin:24px 0 20px;font-size:19px;max-width:760px">Everything in TOOLS.md, for Claude Max and Claude Code on the web. Read the status before you run anything.</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:14px"><span class="v">V</span> verified against official docs or the repo <span class="u">U</span> exists, install command or stars not re-verified (check the README first) <span class="c">C</span> community, not screened by Anthropic (read the code before granting access)</p>
+</section>
+
+<section class="s" style="padding-top:24px">
+<p class="k">1</p><h2>Setup for Claude Code on the web</h2>
+<ol style="margin:0;padding-left:22px;max-width:960px">
+<li>Create the private GitHub repo <code>neuronetwrks</code>, commit <code>CLAUDE.md</code>, <code>docs/PLAN.md</code>, <code>docs/BUILD_PROMPT.md</code>, <code>docs/TOOLS.md</code>, and the owner files in <code>docs/source/</code>.</li>
+<li>Open claude.ai/code, connect GitHub, select the repo, start a session.</li>
+<li>First commands: <code>/model opusplan</code>, then <code>/mcp</code> (see which servers connected), then <code>/plugin</code> (install the plugins in section 3).</li>
+<li>Paste the start prompt from the top of <code>docs/BUILD_PROMPT.md</code>.</li>
+<li>Keep production secrets out of the session. Claude works with test keys and a test Sheet; real secrets live in Cloudflare and GitHub secrets, set by the owner.</li>
+<li>The web sandbox restricts network access to an allowlist (npm and GitHub normally work; arbitrary sites may not). Self-host fonts and avoid build-time fetches from other domains. Some stdio MCP servers may be unavailable on the web; Claude falls back to the Playwright and Lighthouse command-line tools.</li>
+<li>Deploys run from GitHub Actions after you merge a pull request. Claude opens PRs; you (or Claude, if you ask) merge when CI is green.</li>
+</ol>
+</section>
+
+<section class="s" style="padding-top:24px">
+<p class="k">2</p><h2>Claude Max plan: how to make it last</h2>
+<ul style="margin:0;padding-left:22px;max-width:980px">
+<li><strong>Plan <span class="v">V</span> (Anthropic support pages):</strong> Max 5x is $100/month and Max 20x is $200/month. Usage limits are shared across Claude and Claude Code; the session limit resets every five hours; there is also a weekly limit across models; Max also has a separate weekly limit for Fable. Monthly API credits included with Max cannot be used in Claude Code. Anthropic has doubled Claude Code's five-hour limits for Max and other plans.</li>
+<li><strong>Models <span class="v">V</span>:</strong> Claude Opus 5.5 (released 22 Sep 2026) and Sonnet 5.5 (28 Sep 2026), both with 1M context; Haiku 5.5 reported 7 Oct 2026 (secondary sources). <strong>Conflict:</strong> Anthropic's model-config page says Max defaults to Opus 5 while a third-party guide says Opus 5.5 is the default from v2.1.280; run <code>/model</code> to see yours.</li>
+<li><strong>Recommended use:</strong> <code>/model opusplan</code> (Opus plans in plan mode, Sonnet builds). Switch to Opus for design direction, animation choreography and hard debugging (<code>/model claude-opus-5-5</code>). Use Haiku for repetitive passes (meta descriptions, alt text, FAQ drafts).</li>
+<li><strong>Habits that save limits:</strong> plan mode first; one phase per session; <code>/compact</code> between phases and <code>/clear</code> between topics; keep <code>CLAUDE.md</code> short; let scripts do heavy lifting (Lighthouse, pa11y, link check) and have Claude read only summaries; use subagents for broad research or audits so the main context stays small; never paste whole documents (point to files); stop and review at the end of each phase.</li>
+<li><strong>Check usage</strong> in Claude settings and with <code>/status</code> or <code>/usage</code> (commands may differ by version).</li>
+</ul>
+</section>
+
+<section class="s" style="padding-top:24px">
+<p class="k">3</p><h2>Anthropic and Claude Code ecosystem</h2>
+<div class="tw"><table>
+<thead><tr><th>ITEM</th><th>WHAT IT DOES HERE</th><th>INSTALL / LINK</th><th>STATUS</th></tr></thead>
+<tbody>
+<tr><td>anthropics/skills</td><td>Official skills: <code>frontend-design</code> (avoids templated looks), <code>skill-creator</code> (build our own SEO and voice skills)</td><td><code>/plugin marketplace add anthropics/skills</code> or <code>npx skills add anthropics/skills --skill frontend-design</code>; <a href="https://github.com/anthropics/skills">github.com/anthropics/skills</a></td><td><span class="v">V</span> (frontend-design, skill-creator); other skills <span class="u">U</span></td></tr>
+<tr><td>anthropics/claude-plugins-official</td><td>Official marketplace: <code>frontend-design</code>, <code>code-review</code>, <code>security-guidance</code>, <code>commit-commands</code>, <code>feature-dev</code>, <code>plugin-dev</code>, partner plugins</td><td>Added by default; <code>/plugin install frontend-design@claude-plugins-official</code>; <a href="https://github.com/anthropics/claude-plugins-official">github.com/anthropics/claude-plugins-official</a></td><td><span class="v">V</span></td></tr>
+<tr><td>anthropics/claude-plugins-community</td><td>Screened community marketplace</td><td><code>/plugin marketplace add anthropics/claude-plugins-community</code></td><td><span class="v">V</span></td></tr>
+<tr><td>anthropics/claude-code</td><td>Demo marketplace and CLI repo</td><td><code>/plugin marketplace add anthropics/claude-code</code>; <a href="https://github.com/anthropics/claude-code">github.com/anthropics/claude-code</a></td><td><span class="v">V</span></td></tr>
+<tr><td>obra/superpowers</td><td>Workflow skills (brainstorm, plan, TDD, review); ~298k stars at research time</td><td><code>superpowers@claude-plugins-official</code>; <a href="https://github.com/obra/superpowers">github.com/obra/superpowers</a></td><td><span class="v">V</span></td></tr>
+<tr><td>hesreallyhim/awesome-claude-code</td><td>Curated index of skills, hooks, commands, CLAUDE.md examples; ~55.5k stars</td><td><a href="https://github.com/hesreallyhim/awesome-claude-code">github.com/hesreallyhim/awesome-claude-code</a></td><td><span class="v">V</span></td></tr>
+<tr><td>wshobson/agents</td><td>Large set of subagents and skills; review before installing</td><td><a href="https://github.com/wshobson/agents">github.com/wshobson/agents</a></td><td><span class="u">U</span> <span class="c">C</span></td></tr>
+<tr><td>awesome-claude-skills (travisvn or ComposioHQ)</td><td>Skill directories</td><td>search GitHub</td><td><span class="u">U</span></td></tr>
+<tr><td>Astro Docs MCP and Astro agent rules</td><td>Official Astro docs for agents (announced April 2026); copy its rules into CLAUDE.md</td><td><a href="https://astro.build/blog/whats-new-april-2026/">astro.build/blog/whats-new-april-2026</a></td><td><span class="u">U</span> for Claude Code</td></tr>
+<tr><td>SEO-specific Claude skills</td><td>No authoritative public one found; build <code>neuronetworks-seo</code> with <code>skill-creator</code></td><td>n/a</td><td>gap</td></tr>
+</tbody></table></div>
+<p style="margin:24px 0 0;max-width:980px"><strong>Skills already visible in your Claude workspace</strong> (confirm with <code>/skills</code> in Claude Code; account skills may not sync to the web): <code>frontend-design</code>, <code>searchfit-seo:technical-seo</code>, <code>on-page-seo</code>, <code>schema-markup</code>, <code>ai-visibility</code>, <code>keyword-clustering</code>, <code>content-strategy</code>, <code>content-brief</code>, <code>internal-linking</code>, <code>broken-links</code>, <code>seo-audit</code>; <code>marketing:seo-audit</code>, <code>content-creation</code>, <code>draft-content</code>; <code>design:accessibility-review</code>, <code>design-critique</code>, <code>design-system</code>, <code>ux-copy</code>; <code>engineering:code-review</code>, <code>deploy-checklist</code>, <code>testing-strategy</code>, <code>documentation</code>; <code>anthropic-skills:skill-creator</code>, <code>web-artifacts-builder</code>, <code>docx</code>, <code>pdf</code>.</p>
+</section>
+
+<section class="s" style="padding-top:24px">
+<p class="k">4</p><h2>MCP servers (project scope in .mcp.json)</h2>
+<div class="tw"><table>
+<thead><tr><th>SERVER</th><th>PURPOSE</th><th>COMMAND</th><th>STATUS</th></tr></thead>
+<tbody>
+<tr><td>Context7 (Upstash)</td><td>Current docs for Astro 7, GSAP, Tailwind v4, Lenis, Three.js</td><td><code>claude mcp add --transport http context7 https://mcp.context7.com/mcp</code> (or <code>npx -y @upstash/context7-mcp</code>); <a href="https://github.com/upstash/context7">github.com/upstash/context7</a></td><td><span class="u">U</span> (listed in research; verify README)</td></tr>
+<tr><td>Playwright MCP (Microsoft)</td><td>Click-through tests, screenshots at mobile and desktop</td><td><code>claude mcp add playwright npx @playwright/mcp@latest</code>; <a href="https://github.com/microsoft/playwright-mcp">github.com/microsoft/playwright-mcp</a></td><td><span class="v">V</span></td></tr>
+<tr><td>Chrome DevTools MCP (Google)</td><td>Performance traces, INP/LCP, console and network</td><td><code>claude mcp add chrome-devtools --scope user npx chrome-devtools-mcp@latest</code>; <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">github.com/ChromeDevTools/chrome-devtools-mcp</a></td><td><span class="v">V</span></td></tr>
+<tr><td>GitHub MCP</td><td>Issues and PRs</td><td><code>claude mcp add --transport http github https://api.githubcopilot.com/mcp/</code> or <code>github@claude-plugins-official</code></td><td><span class="u">U</span></td></tr>
+<tr><td>Cloudflare MCP servers</td><td>Docs, Workers, observability, DNS analytics</td><td><code>claude mcp add --transport http cloudflare-docs https://docs.mcp.cloudflare.com/mcp</code>; <a href="https://github.com/cloudflare/mcp-server-cloudflare">github.com/cloudflare/mcp-server-cloudflare</a></td><td><span class="u">U</span> (check README for the current endpoint list)</td></tr>
+<tr><td>Figma MCP</td><td>Pull tokens/frames if you later use Figma</td><td><code>claude mcp add --transport http figma https://mcp.figma.com/mcp</code></td><td><span class="u">U</span></td></tr>
+<tr><td>Google Analytics MCP</td><td>Query GA4 from Claude after launch</td><td><a href="https://github.com/googleanalytics/google-analytics-mcp">github.com/googleanalytics/google-analytics-mcp</a></td><td><span class="u">U</span></td></tr>
+<tr><td>Google Search Console MCP</td><td>Query clicks and queries (community only)</td><td>search GitHub for <code>mcp-gsc</code></td><td><span class="c">C</span></td></tr>
+<tr><td>Firecrawl MCP</td><td>Competitor page structure audits (paid API key)</td><td><code>claude mcp add firecrawl -e FIRECRAWL_API_KEY=… -- npx -y firecrawl-mcp</code></td><td><span class="u">U</span></td></tr>
+<tr><td>Lighthouse MCP</td><td>Optional; Chrome DevTools MCP plus Lighthouse CI cover this</td><td>community</td><td><span class="c">C</span></td></tr>
+</tbody></table></div>
+<p style="margin:16px 0 0">Treat every <span class="u">U</span> command as "read the repo README before running it". Never put API keys in <code>.mcp.json</code>; use environment variables.</p>
+</section>
+
+<section class="s" style="padding-top:24px">
+<p class="k">5</p><h2>Build libraries (npm)</h2>
+<div class="tw"><table>
+<thead><tr><th>PACKAGE</th><th>WHY</th><th>LINK</th><th>STATUS</th></tr></thead>
+<tbody>
+<tr><td>astro (7.x)</td><td>Framework; static HTML; agent-aware dev server</td><td><a href="https://docs.astro.build">docs.astro.build</a>; <a href="https://astro.build/blog/astro-7/">release notes</a></td><td><span class="v">V</span> (7.0 on 22 Jun 2026; patch version via third-party tracker, check <code>npm view astro version</code>)</td></tr>
+<tr><td>@astrojs/cloudflare</td><td>Adapter for the <code>/api</code> route; v13+ no longer supports Pages</td><td><a href="https://docs.astro.build/en/guides/integrations-guide/cloudflare/">integration guide</a></td><td><span class="v">V</span></td></tr>
+<tr><td>@astrojs/sitemap, @astrojs/mdx</td><td>Sitemap; MDX content</td><td><a href="https://docs.astro.build/en/guides/integrations-guide/">integrations</a></td><td><span class="v">V</span></td></tr>
+<tr><td>tailwindcss + @tailwindcss/vite</td><td>Tailwind v4</td><td><a href="https://tailwindcss.com/docs/installation/framework-guides/astro">tailwindcss.com</a></td><td><span class="v">V</span></td></tr>
+<tr><td>gsap (ScrollTrigger, SplitText)</td><td>Core animation; all plugins free since 3.13 (29 Apr 2025)</td><td><a href="https://gsap.com/blog/3-13/">gsap.com/blog/3-13</a></td><td><span class="v">V</span></td></tr>
+<tr><td>lenis</td><td>Smooth scroll on native scroll; official GSAP sync pattern</td><td><a href="https://github.com/darkroomengineering/lenis">github.com/darkroomengineering/lenis</a></td><td><span class="v">V</span></td></tr>
+<tr><td>three</td><td>The one lazy 3D ribbon</td><td><a href="https://threejs.org">threejs.org</a></td><td><span class="u">U</span></td></tr>
+<tr><td>ogl (alternative)</td><td>Much smaller WebGL if the ribbon is simplified</td><td><a href="https://github.com/oframe/ogl">github.com/oframe/ogl</a></td><td><span class="u">U</span></td></tr>
+<tr><td>motion (motion.dev)</td><td>Optional micro-interactions</td><td><a href="https://motion.dev">motion.dev</a></td><td><span class="u">U</span></td></tr>
+<tr><td>astro-seo</td><td>Typed SEO head component</td><td><a href="https://github.com/jonasmerlin/astro-seo">github.com/jonasmerlin/astro-seo</a></td><td><span class="u">U</span></td></tr>
+<tr><td>schema-dts or astro-seo-schema</td><td>Typed JSON-LD</td><td><a href="https://github.com/codiume/orbit">github.com/codiume/orbit</a> (verify package location)</td><td><span class="u">U</span></td></tr>
+<tr><td>astro-og-canvas</td><td>Build-time OG images</td><td><a href="https://github.com/delucis/astro-og-canvas">github.com/delucis/astro-og-canvas</a></td><td><span class="u">U</span></td></tr>
+<tr><td>satori + @resvg/resvg-js</td><td>Fully designed OG images</td><td><a href="https://github.com/vercel/satori">github.com/vercel/satori</a></td><td><span class="u">U</span></td></tr>
+<tr><td>astro-icon</td><td>Inline SVG icons, no runtime JS</td><td><a href="https://github.com/natemoo-re/astro-icon">github.com/natemoo-re/astro-icon</a></td><td><span class="u">U</span></td></tr>
+<tr><td>@astrojs/partytown</td><td>Run GA4 off the main thread</td><td><a href="https://docs.astro.build/en/guides/integrations-guide/partytown/">integration guide</a></td><td><span class="v">V</span></td></tr>
+<tr><td>@fontsource-variable/*</td><td>Self-hosted variable fonts</td><td><a href="https://fontsource.org">fontsource.org</a></td><td><span class="u">U</span></td></tr>
+<tr><td>@casoon/astro-crawler-policy</td><td>robots.txt and llms.txt with per-bot AI rules</td><td>listed in <a href="https://astro.build/blog/whats-new-april-2026/">astro.build/blog/whats-new-april-2026</a></td><td><span class="u">U</span></td></tr>
+</tbody></table></div>
+<p style="margin:16px 0 0;max-width:980px"><strong>Rejected on purpose:</strong> tsParticles and similar particle backgrounds (reads as generic AI aesthetic, costs main-thread time), Spline runtime on the home page (heavy), <code>&lt;ClientRouter /&gt;</code> (forces motion re-initialisation) unless approved.</p>
+</section>
+
+<section class="s" style="padding-top:24px">
+<p class="k">6</p><h2>Starter templates to study</h2>
+<p style="margin:0 0 16px;max-width:980px">Structure only; do not copy the look. Stars and last-updated dates were not re-verified; check before relying on them.</p>
+<ul style="margin:0;padding-left:22px">
+<li>AstroWind: <a href="https://github.com/onwidget/astrowind">github.com/onwidget/astrowind</a></li>
+<li>Astroship: <a href="https://github.com/surjithctly/astroship">github.com/surjithctly/astroship</a></li>
+<li>ScrewFast: <a href="https://github.com/mearashadowfax/ScrewFast">github.com/mearashadowfax/ScrewFast</a></li>
+<li>AstroPaper, for blog structure: <a href="https://github.com/satnaing/astro-paper">github.com/satnaing/astro-paper</a></li>
+<li>Official theme catalogue: <a href="https://astro.build/themes/">astro.build/themes</a></li>
+</ul>
+</section>
+
+<section class="s" style="padding-top:24px">
+<p class="k">7</p><h2>Quality, audit and SEO tooling</h2>
+<div class="tw"><table>
+<thead><tr><th>TOOL</th><th>USE</th><th>LINK</th><th>STATUS</th></tr></thead>
+<tbody>
+<tr><td>Lighthouse CI</td><td>Budgets in CI</td><td><a href="https://github.com/GoogleChrome/lighthouse-ci">github.com/GoogleChrome/lighthouse-ci</a></td><td><span class="u">U</span></td></tr>
+<tr><td>Unlighthouse</td><td>Crawl all pages</td><td><a href="https://github.com/unlighthouse/unlighthouse">github.com/unlighthouse/unlighthouse</a></td><td><span class="u">U</span></td></tr>
+<tr><td>pa11y / pa11y-ci</td><td>Accessibility regression</td><td><a href="https://github.com/pa11y/pa11y">github.com/pa11y/pa11y</a></td><td><span class="u">U</span></td></tr>
+<tr><td>Rich Results Test, Schema Markup Validator</td><td>Validate JSON-LD</td><td><a href="https://search.google.com/test/rich-results">Rich Results Test</a>; <a href="https://validator.schema.org">validator.schema.org</a></td><td><span class="v">V</span></td></tr>
+<tr><td>PageSpeed Insights / CrUX</td><td>Field data (INP)</td><td><a href="https://pagespeed.web.dev">pagespeed.web.dev</a></td><td><span class="v">V</span></td></tr>
+<tr><td>Web Vitals thresholds</td><td>LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1 (we use stricter targets)</td><td><a href="https://web.dev/articles/vitals">web.dev/articles/vitals</a></td><td><span class="v">V</span></td></tr>
+<tr><td>IndexNow</td><td>Bing/Yandex instant indexing</td><td><a href="https://www.indexnow.org">indexnow.org</a></td><td><span class="v">V</span></td></tr>
+<tr><td>Google Search Console, Bing Webmaster Tools, GA4</td><td>Search and traffic data</td><td>Google and Microsoft consoles</td><td><span class="v">V</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section class="s" style="padding-top:24px">
+<p class="k">8</p><h2>Forms and operations</h2>
+<ul style="margin:0;padding-left:22px;max-width:980px">
+<li>Turnstile server-side validation (required; tokens single use): <a href="https://developers.cloudflare.com/turnstile/get-started/server-side-validation/">developers.cloudflare.com/turnstile</a> <span class="v">V</span></li>
+<li>Reference Worker + Sheets API service-account implementation: <a href="https://github.com/awbauer/gsheet-form-handler">github.com/awbauer/gsheet-form-handler</a> <span class="u">U</span> (it gates by Cloudflare Access, remove that for a public form)</li>
+<li>Google auth on Workers without the Node SDK (JWT with Web Crypto): see the guide cited in the research (Medium, "How to authenticate Google APIs on Cloudflare Workers") <span class="u">U</span></li>
+<li>Cloudflare Google Workspace DNS guide: <a href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/set-up-google-workspace/">developers.cloudflare.com/dns</a> <span class="v">V</span></li>
+<li>Squarespace domain transfer / DNS notes: <a href="https://support.squarespace.com/hc/en-us/articles/205812338-Transferring-a-domain-away-from-Squarespace">support.squarespace.com</a> <span class="v">V</span></li>
+<li>DPDP background (not legal advice): see the research notes; have a lawyer review.</li>
+</ul>
+</section>
+
+<section style="background:#0B1F3F;color:#F4F9FD">
+<div class="s" style="padding-top:72px;padding-bottom:72px">
+<p class="k">9</p>
+<h2>Install order: do this in the first session</h2>
+<ol style="margin:0;padding-left:22px;max-width:980px;font-size:17px">
+<li><code style="background:#173464;color:#F4F9FD">/model opusplan</code></li>
+<li><code style="background:#173464;color:#F4F9FD">/plugin install frontend-design@claude-plugins-official</code>, <code style="background:#173464;color:#F4F9FD">code-review</code>, <code style="background:#173464;color:#F4F9FD">security-guidance</code></li>
+<li><code style="background:#173464;color:#F4F9FD">/plugin marketplace add anthropics/skills</code> then add <code style="background:#173464;color:#F4F9FD">skill-creator</code></li>
+<li>Add MCP: Context7, Playwright, Chrome DevTools, GitHub, Cloudflare docs; run <code style="background:#173464;color:#F4F9FD">/mcp</code></li>
+<li>Create project skills <code style="background:#173464;color:#F4F9FD">neuronetworks-seo</code> and <code style="background:#173464;color:#F4F9FD">neuronetworks-voice</code> with <code style="background:#173464;color:#F4F9FD">skill-creator</code></li>
+<li>Start Phase 0</li>
+</ol>
+</div>
+</section>
+
+<footer style="border-top:1px solid #0B1F3F;padding:32px 48px;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;font-size:14px;background:#fff">
+<span>NeuroNetworks AI Ed · Learn, Develop, Create</span>
+<a href="Main.dc.html">Back to home</a>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6200}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

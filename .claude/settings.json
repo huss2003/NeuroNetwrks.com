@@ -1,0 +1,18 @@
+{
+  "model": "opusplan",
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": { "source": "github", "repo": "anthropics/skills" }
+    },
+    "claude-plugins-community": {
+      "source": { "source": "github", "repo": "anthropics/claude-plugins-community" }
+    }
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "enableAllProjectMcpServers": true
+}
