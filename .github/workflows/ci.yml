@@ -1,0 +1,25 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run check
+      - run: npm run lint
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - run: npx lhci autorun
+      - name: pa11y
+        run: |
+          node scripts/serve-static.mjs 4321 &
+          npx wait-on http://localhost:4321 && npx pa11y-ci
+      - name: Link check
+        run: npx --yes linkinator dist/client --recurse --skip "^(?!file:)"

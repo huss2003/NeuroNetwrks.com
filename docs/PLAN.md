@@ -107,7 +107,7 @@ Automated: Playwright (mobile, tablet, desktop; keyboard; reduced motion; no-JS)
 Effort: S = under a day of Claude sessions, M = 1–3 days, L = 3+ days (depends on owner reply speed and asset availability).
 | Phase | Scope | Effort | Exit criteria | Status |
 |---|---|---|---|---|
-| 0 | Setup, CI, MCP, Claude config | S | check/build pass, CI green, MCP report | ☐ |
+| 0 | Setup, CI, MCP, Claude config | S | check/build pass, CI green, MCP report | ◐ built and checked locally; CI and MCP not yet run |
 | 1 | Brand, fonts, components | M | contrast report, font choice with screenshots, styleguide reviewed | ☐ |
 | 2 | Content model, curriculum extraction | M | all collections valid; curriculum summary approved | ☐ |
 | 3 | All pages, static | L | all routes render; Lighthouse ≥ 95 before motion | ☐ |
@@ -169,3 +169,16 @@ Menu names may change slightly; ask Claude if a screen looks different.
 - Claude Code's default model on Max is reported inconsistently; check `/model`.
 - Official public names of the six programs and whether "Neuromind" is a public brand.
 - Real assets: vector logo, photography, team, outcomes, admissions process, contact details.
+
+## 19. Phase 0 record
+**Pinned versions (npm view, 13 Oct 2026):** astro 7.3.8, @astrojs/cloudflare 14.3.4, @astrojs/mdx 8.0.3, @astrojs/sitemap 3.7.4, @astrojs/check 0.9.10, tailwindcss and @tailwindcss/vite 4.3.3, typescript 6.0.3, eslint 10.12.0, typescript-eslint 8.71.2, eslint-plugin-astro 1.7.0, prettier 3.9.10, prettier-plugin-astro 1.1.1, @playwright/test 1.64.0, @lhci/cli 0.15.1, pa11y-ci 5.0.0. Not installed yet (verified to exist, installed in their phases): gsap 3.15.0, lenis 1.3.26, three 0.186.1, astro-seo 1.2.0, astro-og-canvas 0.13.2, astro-icon 1.2.0, @astrojs/partytown 2.1.8, @fontsource-variable/* 5.3.0.
+
+**Deviations from BUILD_PROMPT, with reasons**
+- `npm create astro@latest --template minimal` failed here (template download blocked), so the skeleton was written by hand with the same layout and options.
+- The Cloudflare adapter writes static files to `dist/client` and server code to `dist/server`; scripts and Lighthouse CI use `dist/client`.
+- `astro preview` needs workerd network access, which this sandbox blocks, so e2e and audits use `scripts/serve-static.mjs`.
+- The adapter adds `SESSION` (KV) and `IMAGES` bindings by default; review in Phase 8 and disable what is unused.
+- `wrangler.jsonc` is minimal; confirm the final shape against the Astro deploy guide in Phase 8.
+
+**Verified locally:** `npm run check` (0 errors), `npm run lint`, `npm run build` (staging and production), `{{CONFIRM` guard fails the build when a placeholder is present, staging emits disallow-all robots and `X-Robots-Tag: noindex`, production emits the AI-bot policy, dev server returns 200, Playwright e2e passes at 390 and 1440 wide, Lighthouse CI assertions pass on the skeleton.
+**Not run:** GitHub Actions (needs the branch on GitHub CI), pa11y-ci, link check, `/mcp` connections (this session cannot run `/mcp`; `.mcp.json` is committed and `enableAllProjectMcpServers` is on, so a new session will attempt Context7, Playwright, Chrome DevTools, GitHub and Cloudflare docs; status unverified), Context7 version lookups (used `npm view`).

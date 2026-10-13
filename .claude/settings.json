@@ -1,9 +1,40 @@
 {
   "model": "opusplan",
+  "permissions": {
+    "allow": ["Bash(npm run *)", "Bash(npx astro *)", "Bash(git *)"],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Read(./.env*)",
+      "Read(./.dev.vars)",
+      "Read(./**/*.pem)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(jq -r '.tool_input.file_path // empty'); [ -n \"$f\" ] && npx prettier --write \"$f\" >/dev/null 2>&1 || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm run check --silent >/dev/null 2>&1 || echo 'npm run check failed' >&2"
+          }
+        ]
+      }
+    ]
+  },
   "extraKnownMarketplaces": {
-    "anthropic-agent-skills": {
-      "source": { "source": "github", "repo": "anthropics/skills" }
-    },
+    "anthropic-agent-skills": { "source": { "source": "github", "repo": "anthropics/skills" } },
     "claude-plugins-community": {
       "source": { "source": "github", "repo": "anthropics/claude-plugins-community" }
     }
