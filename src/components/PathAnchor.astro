@@ -1,0 +1,9 @@
+---
+// Marks where the signature line passes (Learn, Develop, Create). Motion attaches in Phase 4.
+interface Props {
+  name: 'learn' | 'develop' | 'create';
+}
+const { name } = Astro.props;
+---
+
+<div data-path-anchor={name} aria-hidden="true" class="h-px"></div>

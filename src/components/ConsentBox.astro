@@ -1,0 +1,15 @@
+---
+interface Props {
+  name: string;
+  required?: boolean;
+}
+const { name, required = false } = Astro.props;
+---
+
+<label class="flex min-h-11 cursor-pointer items-start gap-3">
+  <!-- Never pre-ticked (DPDP). -->
+  <input type="checkbox" name={name} required={required} class="mt-1 size-5 accent-blue-600" />
+  <span>
+    <slot />
+  </span>
+</label>

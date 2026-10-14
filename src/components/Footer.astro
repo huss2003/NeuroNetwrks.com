@@ -1,0 +1,49 @@
+---
+import Logo from './Logo.astro';
+const cols = [
+  { title: 'Programs', links: [{ href: '/programs/', label: 'All programs' }] },
+  {
+    title: 'For',
+    links: [
+      { href: '/for-students/', label: 'Students' },
+      { href: '/for-parents/', label: 'Parents' },
+      { href: '/for-schools/', label: 'Schools' },
+      { href: '/for-professionals/', label: 'Professionals' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { href: '/about/', label: 'About' },
+      { href: '/contact/', label: 'Contact' },
+      { href: '/privacy/', label: 'Privacy notice' },
+    ],
+  },
+];
+---
+
+<footer class="mt-24 border-t border-line bg-bg-soft py-14">
+  <div class="container-page grid gap-10 md:grid-cols-[1.2fr_2fr]">
+    <div>
+      <Logo variant="horizontal" />
+      <p class="mt-4 font-display text-lg font-bold">Learn · Develop · Create</p>
+    </div>
+    <div class="grid gap-8 sm:grid-cols-3">
+      {cols.map((c) => (
+        <nav aria-label={c.title}>
+          <h2 class="mb-3 font-display text-base font-bold">{c.title}</h2>
+          <ul class="grid gap-1">
+            {c.links.map((l) => (
+              <li>
+                <a href={l.href} class="inline-flex min-h-11 items-center text-ink">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))}
+    </div>
+  </div>
+  <p class="container-page mt-10 text-sm text-slate">© NeuroNetworks AI Ed</p>
+</footer>

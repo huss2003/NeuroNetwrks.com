@@ -1,0 +1,18 @@
+---
+interface Props {
+  /** vertical rhythm: varied on purpose, do not use one value everywhere */
+  space?: 'tight' | 'normal' | 'loose';
+  tone?: 'plain' | 'soft' | 'ink';
+  id?: string;
+  'aria-labelledby'?: string;
+}
+const { space = 'normal', tone = 'plain', id, 'aria-labelledby': labelledby } = Astro.props;
+const pad = { tight: 'py-10 md:py-14', normal: 'py-16 md:py-24', loose: 'py-24 md:py-40' };
+const bg = { plain: '', soft: 'bg-bg-soft', ink: 'bg-ink text-white' };
+---
+
+<section id={id} aria-labelledby={labelledby} class:list={[pad[space], bg[tone]]}>
+  <div class="container-page">
+    <slot />
+  </div>
+</section>

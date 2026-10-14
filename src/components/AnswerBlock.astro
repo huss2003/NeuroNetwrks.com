@@ -1,0 +1,15 @@
+---
+// The answer-first paragraph under an H2: 40 to 60 words that answer the heading directly.
+const words = (await Astro.slots.render('default'))
+  .replace(/<[^>]+>/g, ' ')
+  .trim()
+  .split(/\s+/)
+  .filter(Boolean).length;
+if (import.meta.env.DEV && (words < 40 || words > 60)) {
+  console.warn(`[AnswerBlock] ${words} words; aim for 40 to 60.`);
+}
+---
+
+<p class="max-w-[62ch] text-lg leading-relaxed text-ink md:text-xl">
+  <slot />
+</p>

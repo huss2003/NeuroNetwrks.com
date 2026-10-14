@@ -108,7 +108,7 @@ Effort: S = under a day of Claude sessions, M = 1–3 days, L = 3+ days (depends
 | Phase | Scope | Effort | Exit criteria | Status |
 |---|---|---|---|---|
 | 0 | Setup, CI, MCP, Claude config | S | check/build pass, CI green, MCP report | ✔ local (CI and MCP report pending repo) |
-| 1 | Brand, fonts, components | M | contrast report, font choice with screenshots, styleguide reviewed | ◐ tokens, contrast report and font choice done; logo set and components in progress |
+| 1 | Brand, fonts, components | M | contrast report, font choice with screenshots, styleguide reviewed | ◐ done except owner review: tokens, contrast report, font choice, traced logo set (provisional), icons, 15 components + `/dev/styleguide`; ApplyForm, PostCard, Picture deferred to Phases 6, 7, 3 |
 | 2 | Content model, curriculum extraction | M | all collections valid; curriculum summary approved | ☐ |
 | 3 | All pages, static | L | all routes render; Lighthouse ≥ 95 before motion | ☐ |
 | 4 | Motion and 3D | M | signature line and ribbon work; budgets met with motion | ☐ |
@@ -178,3 +178,9 @@ Node 24.20.0 · npm 11.19.0 · astro 7.3.8 · @astrojs/cloudflare 14.3.4 · @ast
 **Font pairing (chosen): Bricolage Grotesque (display) + IBM Plex Sans (body).** Specimen screenshots: `docs/design/phase1/type-desktop.png` and `type-mobile.png`. All three candidates rendered "·", "₹", curly quotes and en-dashes. B won because it is a sans like the logo wordmark, matches the owner's mockups in `docs/design/`, holds up at 8 rem display size with tight tracking, and avoids the Fraunces look that is now common on template sites. Rejected: A (Fraunces + Instrument Sans), C (Newsreader + Source Sans 3). The `/dev/type` page and unused font packages were removed.
 
 **Contrast:** `node scripts/contrast.mjs` writes `docs/contrast-report.md`; every text pair passes AA. `--green-700` was darkened to `#2b7f0a` (5.07:1 on white). Brand green on white is 2.6:1, so it is decorative only.
+
+**Logo:** traced from the JPG with `scripts/vectorize-logo.py` into `src/assets/brand/` (full, mark, ink mark, wordmark) plus favicon, 32 px, apple-touch 180, icon-192 and icon-512 in `public/`. Provisional until a vector original arrives (open question 1). `favicon.svg` is about 37 KB and should be simplified once the vector original exists.
+
+**Components:** Header, Footer, Logo, Button, Section, Eyebrow, AnswerBlock, FactList, ProgramRow, AudienceLink, CurriculumYear, FAQ (with FAQPage JSON-LD), Breadcrumbs (with BreadcrumbList), JsonLd, ConsentBox, PathAnchor. Screenshots: `docs/design/phase1/styleguide-*.png`. `/dev/styleguide` is temporary; delete before launch.
+
+**Known exceptions to "no raw hex outside global.css":** `<meta name="theme-color">` in `Base.astro` and the logo SVG artwork.

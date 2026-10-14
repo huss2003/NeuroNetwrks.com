@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  question: string;
+}
+const { href, label, question } = Astro.props;
+---
+
+<a
+  href={href}
+  class="block min-h-11 border-l-2 border-blue-600 py-1 pl-4 text-ink no-underline hover:border-green-600"
+>
+  <span class="font-display text-lg font-bold">{label}</span>
+  <span class="block text-slate">{question}</span>
+</a>

@@ -1,0 +1,20 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  summary: string;
+  meta: string;
+}
+const { href, title, summary, meta } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group grid items-baseline gap-2 border-t border-line py-6 text-ink no-underline hover:bg-bg-soft md:grid-cols-[1fr_2fr_auto] md:gap-8"
+>
+  <h3 class="font-display text-xl font-bold md:text-2xl">{title}</h3>
+  <p class="text-slate">{summary}</p>
+  <span class="text-sm font-semibold text-blue-700 group-hover:underline">
+    {meta} <span aria-hidden="true">→</span>
+  </span>
+</a>

@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import mark from '../assets/brand/logo-mark.svg';
+import wordmark from '../assets/brand/logo-wordmark.svg';
+interface Props {
+  /** horizontal = mark + wordmark side by side; mark = mark only */
+  variant?: 'horizontal' | 'mark';
+  class?: string;
+}
+const { variant = 'horizontal', class: className = '' } = Astro.props;
+---
+
+<span class:list={['inline-flex items-center gap-3', className]}>
+  <Image src={mark} alt="" width={48} height={42} class="h-10 w-auto" />
+  {variant === 'horizontal' && (
+    <Image
+      src={wordmark}
+      alt="NeuroNetworks AI Ed"
+      width={190}
+      height={44}
+      class="hidden h-9 w-auto sm:block"
+    />
+  )}
+  {variant === 'mark' && <span class="sr-only">NeuroNetworks AI Ed</span>}
+</span>

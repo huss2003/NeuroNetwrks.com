@@ -1,0 +1,131 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Button from '../../components/Button.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import AnswerBlock from '../../components/AnswerBlock.astro';
+import FactList from '../../components/FactList.astro';
+import ProgramRow from '../../components/ProgramRow.astro';
+import AudienceLink from '../../components/AudienceLink.astro';
+import CurriculumYear from '../../components/CurriculumYear.astro';
+import FAQ from '../../components/FAQ.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ConsentBox from '../../components/ConsentBox.astro';
+import PathAnchor from '../../components/PathAnchor.astro';
+import Logo from '../../components/Logo.astro';
+---
+
+<Base
+  title="Styleguide (temporary)"
+  description="Temporary component styleguide. Delete before launch."
+  noindex
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Styleguide', href: '/dev/styleguide/' },
+      ]}
+    />
+    <h1 class="mt-6 text-[length:var(--text-display)] leading-[0.95] tracking-[-0.035em]">
+      AI, data and software careers, taught from zero.
+    </h1>
+    <p class="mt-6 max-w-[56ch] text-lg text-slate">
+      Sample copy for layout only. Facts shown here are placeholders from the curriculum file names.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/apply/">Apply</Button>
+      <Button href="/contact/" variant="secondary">
+        Talk to us
+      </Button>
+      <Button variant="text">Text link</Button>
+    </div>
+  </Section>
+
+  <Section tone="soft" aria-labelledby="sg-answer">
+    <Eyebrow>Answer-first block</Eyebrow>
+    <h2 id="sg-answer" class="mb-4 text-[length:var(--text-2xl)]">
+      What is a 624-hour professional program?
+    </h2>
+    <AnswerBlock>
+      A 624-hour professional program is a three-year course in which students study one subject in
+      depth, with exams and projects built into every month. This sample paragraph exists only to
+      test the answer-first block, line length, and the word-count warning during development
+      builds.
+    </AnswerBlock>
+    <div class="mt-8">
+      <FactList
+        items={[
+          { label: 'Duration', value: '3 years' },
+          { label: 'Hours', value: '624' },
+          { label: 'Entry', value: 'Class 10' },
+          { label: 'Mode', value: 'Placeholder' },
+        ]}
+      />
+    </div>
+  </Section>
+
+  <Section aria-labelledby="sg-programs">
+    <h2 id="sg-programs" class="mb-8 text-[length:var(--text-2xl)]">
+      Program rows and audience links
+    </h2>
+    <ProgramRow
+      href="#"
+      title="AI / ML Engineering"
+      summary="Placeholder summary line for the row layout."
+      meta="3 years · 624 hours"
+    />
+    <ProgramRow
+      href="#"
+      title="Cybersecurity"
+      summary="Placeholder summary line for the row layout."
+      meta="3 years · 624 hours"
+    />
+    <div class="mt-12 grid gap-6 sm:grid-cols-2">
+      <AudienceLink href="#" label="Parents" question="How is my child's data handled?" />
+      <AudienceLink href="#" label="Schools" question="Can this sit beside our timetable?" />
+    </div>
+  </Section>
+
+  <Section tone="soft" aria-labelledby="sg-curr">
+    <h2 id="sg-curr" class="mb-8 text-[length:var(--text-2xl)]">
+      Curriculum year
+    </h2>
+    <CurriculumYear
+      year="Year 1"
+      hours="Placeholder"
+      topics={['Topic one', 'Topic two', 'Topic three', 'Topic four']}
+    />
+    <PathAnchor name="learn" />
+  </Section>
+
+  <Section aria-labelledby="sg-faq">
+    <h2 id="sg-faq" class="mb-8 text-[length:var(--text-2xl)]">
+      FAQ
+    </h2>
+    <FAQ
+      items={[
+        { q: 'Sample question one?', a: 'Sample answer one.' },
+        { q: 'Sample question two?', a: 'Sample answer two.' },
+      ]}
+    />
+  </Section>
+
+  <Section tone="ink" space="loose">
+    <h2 class="max-w-[16ch] text-[length:var(--text-3xl)]">Closing statement on an ink band.</h2>
+    <div class="mt-8 flex flex-wrap items-center gap-6">
+      <Button href="/apply/">Apply</Button>
+      <Logo variant="mark" />
+    </div>
+  </Section>
+
+  <Section tone="soft" space="tight">
+    <h2 class="mb-4 text-[length:var(--text-xl)]">Consent boxes (never pre-ticked)</h2>
+    <div class="grid max-w-prose gap-2">
+      <ConsentBox name="notice" required>
+        I have read the privacy notice and agree to be contacted.
+      </ConsentBox>
+      <ConsentBox name="updates">Send me occasional updates (optional).</ConsentBox>
+    </div>
+  </Section>
+</Base>
