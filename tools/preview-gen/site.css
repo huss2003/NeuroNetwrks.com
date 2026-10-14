@@ -421,3 +421,5 @@ html.js .pp-grid.in .pt:hover .pt-ico,html.js .pp-grid.in .pt.tilting .pt-ico{tr
 @media (prefers-reduced-motion:reduce){.pt-ico{transform:none!important}.pt-obj,.pt-dot,.pp-b-dot{animation:none!important}html.js .pp-head:not(.in) .ln>span,html.js .pp-banner:not(.in),html.js .pp-grid:not(.in) .pt,html.js .pp-grid:not(.in) .pt-ico,html.js .pp-filters:not(.in),html.js .pp-head:not(.in) .pp-lead,html.js .pp-head:not(.in) .pp-eyebrow{opacity:1;transform:none}html.js .pp-banner:not(.in) .pp-b-art img{opacity:1}}
 .pcard.pt .pt-stats{display:flex;grid-template-columns:none;align-items:flex-end;gap:0;margin:6px 0 0;padding:0 52px 0 0;border:0}
 .pcard.pt .pt-stats dt{color:#5B6B82}
+
+.folio{align-items:start}.folio .big .shot .ph{min-height:0}

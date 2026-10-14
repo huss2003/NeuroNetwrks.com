@@ -93,6 +93,9 @@ DESC = {
  "/contact": "Talk to NeuroNetworks AI Ed. Ask about a program, fees or how to apply.",
 }
 
+import hashlib as _h
+ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.css"), "rb").read() + open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.js"), "rb").read())).hexdigest()[:10]
+
 def layout(route, title, body, active="none", desc=None, jsonld=None):
     t = title if route == "/" else f"{title} | NeuroNetworks AI Ed"
     d = desc or DESC.get(route) or DESC["/programs"]
@@ -104,9 +107,9 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
 <meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">{ld}</head>
+<link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">{ld}</head>
 <body><a class="skip" href="#main">Skip to content</a><aside class="pvb" aria-label="Preview notice">Preview build. Not the final site.</aside>
-{header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js" defer></script></body></html>'''
+{header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js?v={ASSET_V}" defer></script></body></html>'''
 
 def stair(blob, alt, opts, cid=None, tags=False):
     cid_attr = f' id="{cid}"' if cid else ""
@@ -416,7 +419,7 @@ def main():
     open(OUT + "/robots.txt", "w").write("User-agent: *\nDisallow: /\n")
     open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "headers": [
         {"source": "/(.*)", "headers": [{"key": "X-Robots-Tag", "value": "noindex, nofollow"}, {"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]},
-        {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, must-revalidate"}]}]}, indent=1))
+        {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, must-revalidate"}]}, {"source": "/((?!assets/).*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=0, must-revalidate"}]}]}, indent=1))
     open(OUT + "/404.html", "w").write('<!doctype html><html lang="en-IN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | NeuroNetworks AI Ed</title><meta name="robots" content="noindex"><body style="font-family:system-ui;padding:80px 24px;background:#F6F9FD;color:#0B1B33"><h1>Page not found</h1><p><a href="/" style="color:#006DEE">Go to the home page</a></p></body></html>')
     print("built", len(glob.glob(OUT + "/**/*.html", recursive=True)), "pages")
 
