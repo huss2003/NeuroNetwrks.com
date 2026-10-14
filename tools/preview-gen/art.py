@@ -87,4 +87,39 @@ def shot(i):
                 + "".join(f'<rect x="{40+k*140}" y="{60+(k%2)*60}" width="116" height="52" fill="#fff" stroke="{B}"/>' + bar(52 + k * 140, 78 + (k % 2) * 60, 70, N) + bar(52 + k * 140, 94 + (k % 2) * 60, 90) for k in range(3))
                 + f'<path d="M156 86 H180 V146 H196 M296 146 H320 V86 H336" fill="none" stroke="{B}" stroke-width="2"/>'
                 + f'<rect x="40" y="196" width="408" height="44" fill="#fff" stroke="#D9E8FF"/>' + bar(54, 212, 190, B) + bar(54, 226, 140) + f'<circle cx="420" cy="218" r="9" fill="{L}"/>')
-    return f'<svg viewBox="0 0 488 280" role="presentation" aria-hidden="true" focusable="false" style="display:block;width:100%;height:auto"><rect width="488" height="280" fill="#EEF5FF"/>{body}</svg>'
+    return f'<svg viewBox="0 0 488 280" role="presentation" aria-hidden="true" focusable="false" class="shotsvg" preserveAspectRatio="xMidYMid slice"><rect width="488" height="280" fill="#EEF5FF"/>{body}</svg>'
+
+
+def stage_pv(i):
+    """Interface previews for the five learning stages (decorative inline SVG)."""
+    B, N, L, P, M = "#006DEE", "#0B1B33", "#49B716", "#D9E8FF", "#B3D0FF"
+    def r(x, y, w, h, f="#fff", s=None, rx=0):
+        return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{f}"' + (f' stroke="{s}"' if s else "") + "/>"
+    def b(x, y, w, c=P, h=8): return r(x, y, w, h, c, None, 3)
+    chrome = r(0, 0, 520, 34, "#EAF2FF", M) + "".join(f'<circle cx="{18+k*16}" cy="17" r="4.5" fill="{M}"/>' for k in range(3))
+    if i == 0:
+        body = (r(20, 52, 140, 228, "#F2F7FF", P) + b(34, 70, 70, B) + "".join(b(34, 96 + k * 24, 96 - (k % 3) * 14) for k in range(7))
+                + b(184, 62, 200, N, 12) + b(184, 90, 300) + b(184, 108, 270) + b(184, 126, 150)
+                + r(184, 156, 316, 100, "#fff", L) + b(200, 172, 70, L, 6) + b(200, 192, 270, N) + b(200, 210, 230) + b(200, 228, 180))
+    elif i == 1:
+        body = (r(20, 52, 190, 228, "#fff", P) + "".join(f'<circle cx="40" cy="{80+k*40}" r="9" fill="{L if k<2 else "#fff"}" stroke="{L if k<2 else B}" stroke-width="2"/>' + b(60, 76 + k * 40, 120 - k * 14, N if k < 2 else P) for k in range(5))
+                + r(228, 52, 272, 228, N) + "".join(b(246, 74 + k * 24, w, c, 7) for k, (w, c) in enumerate([(90, L), (180, M), (150, M), (200, "#7FB1F7"), (110, M), (160, M), (60, L)])))
+    elif i == 2:
+        body = (r(20, 52, 120, 228, "#F2F7FF", P) + "".join(b(34 + (k % 2) * 12, 72 + k * 26, 70 - (k % 2) * 8, B if k == 2 else P) for k in range(7))
+                + r(158, 52, 342, 228, "#fff", P) + r(176, 70, 306, 30, "#EAF2FF") + r(176, 112, 96, 74, B) + r(284, 112, 198, 34, "#fff", M) + r(284, 152, 198, 34, "#fff", M)
+                + r(176, 198, 306, 62, "#EAF2FF") + b(190, 214, 150, B) + b(190, 232, 220))
+    elif i == 3:
+        body = (r(20, 52, 190, 228, "#fff", P) + f'<circle cx="115" cy="140" r="56" fill="none" stroke="{P}" stroke-width="12"/><path d="M115 84 A56 56 0 1 1 61 154" fill="none" stroke="{B}" stroke-width="12" stroke-linecap="round"/>' + b(80, 222, 70, N, 10)
+                + r(228, 52, 272, 228, "#fff", P) + "".join(r(244, 70 + k * 52, 240, 38, "#fff", M if k != 1 else B) + b(256, 84 + k * 52, 150, N) + f'<circle cx="466" cy="{89+k*52}" r="7" fill="{B if k==1 else "#fff"}" stroke="{B}" stroke-width="2"/>' for k in range(4)))
+    else:
+        body = (r(20, 52, 230, 228, "#fff", P) + b(36, 70, 90, N, 10) + "".join(r(36, 100 + k * 36, 198, 12, "#EAF2FF") + r(36, 100 + k * 36, w, 12, L if k == 0 else B) for k, w in enumerate([198, 158, 120]))
+                + r(36, 214, 90, 44, B) + b(48, 232, 66, "#fff")
+                + r(268, 52, 232, 110, "#F2F7FF", L) + b(284, 70, 60, L, 6) + b(284, 90, 190, N) + b(284, 108, 150) + b(284, 126, 110)
+                + r(268, 176, 232, 104, "#fff", P) + f'<path d="M286 250 L330 224 L372 238 L420 206 L482 190" fill="none" stroke="{B}" stroke-width="3"/>' + "".join(f'<circle cx="{x}" cy="{y}" r="4.5" fill="{L}"/>' for x, y in [(330, 224), (420, 206), (482, 190)]))
+    return f'<svg viewBox="0 0 520 300" aria-hidden="true" focusable="false" class="pvs"><rect width="520" height="300" fill="#fff"/>{chrome}{body}</svg>'
+
+
+def programs_motif():
+    """Small geometric motif for the programs listing: one short bar then five tall bars."""
+    bars = "".join(f'<rect x="{20+k*58}" y="{150-h}" width="46" height="{h}" fill="{"#49B716" if k==0 else "#006DEE"}" fill-opacity="{1 if k==0 else .22+.1*k}"/>' for k, h in enumerate([34, 70, 96, 122, 98, 134]))
+    return f'<svg viewBox="0 0 380 170" role="img" aria-label="Illustration: one short bar for the beginner course and five taller bars for the three-year programs" style="width:100%;height:auto">{bars}<path d="M0 154 H380" stroke="#0B1B33" stroke-width="2"/></svg>'

@@ -3,6 +3,7 @@
   'use strict';
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  document.documentElement.classList.add('js');
   var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
 
@@ -21,7 +22,78 @@
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
     $$('.rv').forEach(function (el) { if (!rm && el.getBoundingClientRect().top > innerHeight) { el.classList.add('pend'); io.observe(el); } });
+    window.__pending = $$('.rv.pend');
   }
+
+
+  /* ---- Scroll system: one passive listener, one rAF, transforms and CSS variables only ---- */
+  (function () {
+    var root = document.documentElement, hd = $('.hd'), hero = $('[data-hero]'), story = $('[data-story]');
+    var tags = $$('.lab-tag'), stages = story ? $$('.stage', story) : [], nodes = story ? $$('.nd', story) : [], rls = story ? $$('.rl', story) : [];
+    var pinMQ = matchMedia('(min-width: 1000px) and (min-height: 700px)'), pinned = false, tick = false, last = -1;
+    function clamp(v) { return Math.max(0, Math.min(1, v)); }
+    function setMode() {
+      if (!story) return;
+      var want = pinMQ.matches && !rm;
+      if (want !== pinned) { pinned = want; story.classList.toggle('is-pinned', pinned); stages.forEach(function (s) { s.classList.remove('is-on', 'on'); }); last = -1; }
+      frame();
+    }
+    function setActive(i) {
+      if (i === last) return; last = i;
+      stages.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+      nodes.forEach(function (n, k) { n.classList.toggle('on', k <= i); });
+      rls.forEach(function (n, k) { n.classList.toggle('on', k <= i); });
+    }
+    function frame() {
+      tick = false;
+      var y = window.pageYOffset, max = root.scrollHeight - innerHeight;
+      root.style.setProperty('--rp', max > 0 ? (y / max).toFixed(4) : 0);
+      if (hd) hd.classList.toggle('is-scrolled', y > 8);
+      var pl = window.__pending; if (pl && pl.length) { window.__pending = pl.filter(function (el) { if (el.getBoundingClientRect().top < innerHeight * 0.96) { el.classList.add('in'); return false; } return true; }); }
+      var ol = window.__once; if (ol && ol.length) { window.__once = ol.filter(function (el) { if (el.getBoundingClientRect().top < innerHeight * 0.7) { el.classList.add('in'); return false; } return true; }); }
+      if (hero && !rm) {
+        var h = hero.offsetHeight, hp = clamp(y / (h * 0.9));
+        hero.style.setProperty('--hp', hp.toFixed(3));
+        var on = Math.min(tags.length - 1, Math.floor(hp * tags.length * 0.999));
+        tags.forEach(function (t, k) { t.classList.toggle('on', k === on); });
+      }
+      if (story) {
+        var r = story.getBoundingClientRect();
+        if (pinned) {
+          var p = clamp(-r.top / Math.max(1, r.height - innerHeight));
+          story.style.setProperty('--sp', p.toFixed(4));
+          setActive(Math.min(stages.length - 1, Math.floor(p * stages.length * 0.999)));
+        } else {
+          var list = $('.story-stages', story), lr = list.getBoundingClientRect();
+          story.style.setProperty('--sp', clamp((innerHeight * 0.6 - lr.top) / lr.height).toFixed(3));
+          stages.forEach(function (s) { s.classList.toggle('on', s.getBoundingClientRect().top < innerHeight * 0.62); });
+        }
+      }
+    }
+    function req() { if (!tick) { tick = true; requestAnimationFrame(frame); } }
+    addEventListener('scroll', req, { passive: true });
+    addEventListener('resize', setMode);
+    addEventListener('load', setMode);
+    if (pinMQ.addEventListener) pinMQ.addEventListener('change', setMode);
+    setMode();
+  })();
+
+  /* ---- Sequences: highlight the step nearest the middle of the screen ---- */
+  if ('IntersectionObserver' in window) {
+    $$('[data-seq]').forEach(function (list) {
+      var items = $$(':scope > li', list);
+      var so = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var idx = items.indexOf(e.target);
+          items.forEach(function (it, k) { it.classList.toggle('on', k === idx); it.classList.toggle('done', k < idx); });
+        });
+      }, { rootMargin: '-42% 0px -42% 0px' });
+      items.forEach(function (it) { so.observe(it); });
+    });
+    var once = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); once.unobserve(e.target); } }); }, { threshold: 0.35 });
+    window.__once = $$('[data-seq-lane], .pend-lab'); window.__once.forEach(function (el) { once.observe(el); });
+  } else { $$('[data-seq-lane], .pend-lab').forEach(function (el) { el.classList.add('in'); }); }
 
   /* ---- Generic chip filter (programs list) ---- */
   $$('[data-filter-group]').forEach(function (g) {
