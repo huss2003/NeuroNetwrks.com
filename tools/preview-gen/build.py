@@ -361,19 +361,6 @@ def projects_page():
 <p id="pj-count" class="mono muted" role="status" style="margin:28px 0 16px">&nbsp;</p><div class="pj-list">{items}</div><div class="more"><button id="pj-more" class="btn btn-secondary" type="button">Show more projects</button></div></div></section>''' + cta_panel("Build yours.", "Tell us which program interests you. Ask us about fees and intake dates.")
     return layout("/projects", "Projects", body, "projects")
 
-def about_page():
-    pr = [("Practical first", "Every program is built around hands-on labs and projects, not lectures alone.", "Learners finish something real in every month."), ("Measured, not guessed", "Every month closes with a one-hour exam, and AI Foundation uses an 80% pass mark with review and a retry.", "Progress is checked, and mistakes lead to review and another try."),
-          ("Honest about outcomes", "No program guarantees a job, internship or salary.", "We teach skills and help you build a portfolio and a GitHub record."), ("Open to beginners", "Programs start from Class 10 and assume no prior coding, AI or design experience.", "Each program begins at the beginning.")]
-    prs = "".join(f'<li class="principle rv"><span class="n">0{i+1}</span><h3>{a}</h3><p>{b} {c}</p></li>' for i, (a, b, c) in enumerate(pr))
-    body = f'''<section class="page-hero"><div class="wrap split"><div><p class="crumbs"><a href="/">Home</a> / About</p><h1>{headline("Learn.", "Develop. Create.")}</h1></div><div><p class="statement">NeuroNetworks AI Ed teaches practical AI and technology skills to students after Class 10.</p><div class="actions" style="margin-top:28px">{btn("primary", "/programs", "Explore programs")}{btn("secondary", "/contact", "Talk to us", False)}</div></div></div></section>
-<section class="sec"><div class="wrap split"><div><p class="eyebrow">Who we are</p><h2>Our story.</h2></div><div class="stack"><div class="panel" style="padding:clamp(24px,4vw,48px)"><p class="lead" style="max-width:none">[Founding story and mission statement to be supplied by the institute. This space is reserved for two or three honest sentences, written by the people behind the programs.]</p></div>
-<dl class="facts panel"><div><dt>Programs</dt><dd>6</dd></div><div><dt>Hours</dt><dd>104 to 624</dd></div><div><dt>Entry</dt><dd>Class 10 pass</dd></div></dl></div></div></section>
-<section class="sec sec--tint"><div class="wrap">{sec_head("How we teach", "Four principles.")}<ol>{prs}</ol></div></section>
-<section class="sec"><div class="wrap">{sec_head("Who it is for", "Students first,<br>parents informed.")}<div class="dual"><div><h3>For students</h3><p class="muted" style="margin-top:12px">Programs start after Class 10 and assume no earlier coding, AI or design experience. Every month ends with something you built and an exam that shows what you know.</p><div class="actions" style="margin-top:20px"><a class="tl" href="/programs">Choose a program <i aria-hidden="true">→</i></a></div></div><div><h3>For parents and guardians</h3><p class="muted" style="margin-top:12px">Students under 18 apply through a parent or guardian, who gives consent. Hours, assessments and projects are published in full, so you can see what your child will do.</p><div class="actions" style="margin-top:20px"><a class="tl" href="/admissions">Admissions for parents <i aria-hidden="true">→</i></a></div></div></div></div></section>
-<section class="sec sec--tint"><div class="wrap"><div class="tri"><div class="panel" style="padding:28px"><p class="mono muted">Accreditation</p><p style="margin-top:10px" class="muted">[To be confirmed. Nothing is claimed until verified.]</p></div><div class="panel" style="padding:28px"><p class="mono muted">Location</p><p style="margin-top:10px" class="muted">[Address and delivery mode to be confirmed]</p></div><div class="panel" style="padding:28px"><p class="mono muted">Partners</p><p style="margin-top:10px" class="muted">[None shown until confirmed in writing]</p></div></div>
-<div class="actions" style="margin-top:32px"><a class="tl" href="/learning-experience">See how learning works <i aria-hidden="true">→</i></a><a class="tl" href="/faculty-and-team">Meet the faculty <i aria-hidden="true">→</i></a></div></div></section>''' + cta_panel("Talk to the people behind it.", "Ask us anything about the programs. Ask us about fees and intake dates.")
-    return layout("/about", "About", body, "about")
-
 def team_page():
     people = "".join('<article class="person rv"><div class="ph">[PHOTO TO BE SUPPLIED]</div><div class="t"><h3>[Name]</h3><p>[Role and subject]</p><p class="small">[Two-line background, verified credentials only]</p></div></article>' for _ in range(8))
     chips = "".join(f'<a class="chip" style="display:inline-flex;align-items:center;text-decoration:none" href="/programs/{p[0]}">{name_of(p)}</a>' for p in PROGRAMS)
@@ -434,6 +421,35 @@ def contact_page():
 
 # ---------------------------------------------------------------- write
 exec(open(os.path.join(HERE, 'projects_pages.py')).read())
+
+def about_page():
+    tags = [("Curious minds", 6, 78), ("Practical learning", 22, 44), ("Real projects", 74, 34), ("A stronger tomorrow", 60, 4)]
+    tg = "".join(f'<span class="ab-tag" style="left:{x}%;top:{y}%;--k:{i}"><i></i>{t}</span>' for i, (t, x, y) in enumerate(tags))
+    hero = f'''<section class="ab-hero" data-pd><div class="wrap ab-hero-grid"><div class="ab-hero-copy"><p class="pd-eb">About NeuroNetworks AI Ed</p>
+<h1 class="ab-h1"><span class="ln"><span>Learn.</span></span><span class="ln"><span>Develop.</span></span><span class="ln"><span>Create.</span></span></h1>
+<p class="ab-lead">NeuroNetworks AI Ed teaches practical AI and technology skills to students after Class 10, so they can build real things and be ready for what comes next.</p>
+<div class="pd-actions"><a class="le-btn le-btn--p" href="/learning-experience">Our approach {ARW}</a><a class="le-btn le-btn--s" href="/programs">Explore programs</a></div></div>
+<div class="ab-hero-art" aria-hidden="true"><span class="ab-glow"></span><img class="ab-stair" src="/assets/r-hero.webp" alt="" width="1000" height="1000" fetchpriority="high">{tg}</div></div></section>'''
+    stats = "".join(f'<div style="--k:{i}"><b>{a}</b><small>{b}</small></div>' for i, (a, b) in enumerate([("6", "Programs"), ("104 to 624", "Learning hours"), ("Class 10", "Minimum eligibility"), ("Real projects", "In every program")]))
+    story = f'''<section class="ab-sec ab-story" data-pd><img class="ab-wind ab-wind--1" src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy" aria-hidden="true"><div class="wrap"><div class="ab-story-grid"><div>{eb("Our story")}<h2>Built by educators.<br>For doers.</h2></div>
+<div class="ab-story-p"><p>NeuroNetworks AI Ed was set up to make practical technology education open to any motivated student after Class 10.</p><p>Every program combines structured learning, hands-on labs and real projects, so you go from curious to capable one month at a time.</p><p class="le-small">[Founding story and mission statement to be supplied by the institute.]</p></div>
+<div class="ab-photo"><img src="/assets/g-panels.webp" alt="" width="900" height="590" loading="lazy"><span class="ab-photo-ph">[Campus photo to be supplied]</span><div class="ab-chip"><i></i>A place to learn, build and grow.</div></div></div>
+<div class="ab-stats">{stats}</div></div></section>'''
+    pr = [("box", "Hands-on learning", "Learn by doing, with labs and projects in every month."), ("check", "Checked progress", "A one-hour exam closes every module, with review and a retry."), ("chart", "Real-world skills", "Build a portfolio that shows what you can do."), ("bolt", "Open to beginners", "Start after Class 10. No prior coding or AI experience needed.")]
+    cards = "".join(f'<li style="--k:{i}"><span class="n">{i+1:02d}</span><span class="ic">{pi(ic,24)}</span><h3>{a}</h3><p>{b}</p></li>' for i, (ic, a, b) in enumerate(pr))
+    principles = f'''<section class="ab-sec ab-sec--tint" data-pd><div class="wrap ab-pr-grid"><div>{eb("Our principles")}<h2>Practical.<br>Measured.<br>Future-ready.</h2><p class="pd-p">Four principles guide everything we do at NeuroNetworks AI Ed.</p></div><ol class="ab-cards">{cards}</ol></div></section>'''
+    env = f'''<section class="ab-sec" data-pd><img class="ab-wind ab-wind--2" src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy" aria-hidden="true"><div class="wrap ab-env-grid"><div>{eb("Students first")}<h2>A clear learning<br>environment.</h2>
+<p class="pd-p">Hours, assessments and projects are published in full, so students and parents can see exactly what each month involves. Students under 18 apply through a parent or guardian.</p>
+<div class="pd-actions"><a class="le-link" href="/admissions">Admissions for parents {ARW}</a></div><p class="le-small">[Class sizes and mentor support to be confirmed with the institute.]</p></div>
+<div class="ab-photo ab-photo--wide"><img src="/assets/lap-23.webp" alt="" width="640" height="494" loading="lazy"><span class="ab-photo-ph">[Student photo to be supplied]</span><div class="ab-chip ab-chip--r"><i></i>Learn together.<br>Build together.</div></div></div></section>'''
+    big = [("cap", "Real skills", "For higher education and careers"), ("target", "Greater opportunities", "In a technology-driven world"), ("user", "Capable people", "Curious, confident builders")]
+    PI.setdefault("cap", '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>')
+    bg = "".join(f'<li style="--k:{i}"><span class="ic">{pi(ic,26)}</span><b>{a}</b><small>{b}</small></li>' for i, (ic, a, b) in enumerate(big))
+    bigger = f'''<section class="ab-sec ab-sec--tint" data-pd><div class="wrap ab-big-grid"><div>{eb("The bigger picture")}<h2>Better people.<br>A brighter tomorrow.</h2><p class="pd-p">We believe technology education can open doors and help build a more capable, confident generation. No program guarantees a job, internship or salary: we teach skills and help you build a portfolio.</p></div><ul class="ab-big">{bg}</ul></div></section>'''
+    cta = f'''<section class="ab-cta" data-pd><div class="wrap"><div class="ab-cta-in"><div>{eb("Be part of our story")}<h2>Talk to the people behind it.</h2><p>Ask us about our approach, programs, fees and intake dates.</p>
+<div class="pd-actions"><a class="le-btn le-btn--w" href="/admissions">Apply now {ARW}</a><a class="le-btn le-btn--g" href="/contact">Talk to us</a></div></div><img class="ab-cta-art" src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy" aria-hidden="true"></div></div></section>'''
+    return layout("/about", "About", hero + story + principles + env + bigger + cta, "about")
+
 
 def link_projects(html):
     for href, name in [("/projects/image-classification", "Image classification application"), ("/projects/document-rag-assistant", "Document RAG assistant"), ("/projects/agentflow-ai", "Tool-using AI agent")]:
