@@ -1,0 +1,3318 @@
+{
+ "ai-ml-engineering": {
+  "source": "3-Year_AI_ML_Engineering_Professional_Program_624_Hours1.md",
+  "purpose": [
+   "Program purpose. A three-year specialization for a student entering after Class 10. The student has a basic understanding of mathematics and Computers. The student chooses AI/ML Engineering as one specialization and progresses from computer and Python fundamentals to machine learning, deep learning, generative AI, production AI systems, MLOps and portfolio-ready projects."
+  ],
+  "months": [
+   {
+    "n": 1,
+    "title": "Computer + AI Foundations",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Computers, files, OS basics, CPU/GPU/RAM, Python setup, AI vs ML vs DL, datasets and basic command line."
+    ],
+    "labs": [],
+    "project": "AI concept map + Python mini exercises",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 2,
+    "title": "Python Fundamentals",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Variables, types, conditions, loops, functions, collections, modules, errors and debugging."
+    ],
+    "labs": [],
+    "project": "CLI utility collection",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 3,
+    "title": "Python for AI",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "OOP basics, virtual environments, packages, notebooks, NumPy introduction, Git basics."
+    ],
+    "labs": [],
+    "project": "Python data-processing toolkit",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 4,
+    "title": "Math for ML I",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Arithmetic, functions, graphs, vectors, matrices, probability and descriptive statistics."
+    ],
+    "labs": [],
+    "project": "Math-for-ML notebook",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 5,
+    "title": "Math for ML II",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Distributions, correlation, hypothesis basics, linear algebra operations, gradients and optimization intuition."
+    ],
+    "labs": [],
+    "project": "Statistical experiment notebook",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 6,
+    "title": "Data Preparation",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "NumPy, Pandas, missing values, outliers, categorical data, scaling, splitting datasets and visualization."
+    ],
+    "labs": [],
+    "project": "Messy-dataset cleaning project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 7,
+    "title": "AI Fundamentals + Google AI Essentials",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "AI use cases, prompting, AI limitations, responsible use and practical AI workflows."
+    ],
+    "labs": [],
+    "project": "AI productivity + evaluation project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 8,
+    "title": "ML Foundations",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Supervised learning, regression, classification, training/testing and baseline models."
+    ],
+    "labs": [],
+    "project": "House-price/regression project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 9,
+    "title": "Model Evaluation + Azure AI",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Metrics, confusion matrix, precision/recall, cross-validation and Azure AI fundamentals."
+    ],
+    "labs": [],
+    "project": "Azure AI mini solution",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 10,
+    "title": "Classical ML",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Decision trees, ensembles, kNN, SVM concepts and feature engineering."
+    ],
+    "labs": [],
+    "project": "Customer-risk classifier",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 11,
+    "title": "Unsupervised ML",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Clustering, PCA, anomaly detection and model interpretation."
+    ],
+    "labs": [],
+    "project": "Customer segmentation project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 12,
+    "title": "Year-1 AI Capstone + AI-900/AI-901",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "End-to-end dataset → model → evaluation → documentation",
+     "certification revision."
+    ],
+    "labs": [],
+    "project": "Year-1 production-style ML project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 13,
+    "title": "Advanced ML + AWS AI Practitioner",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Model selection, pipelines, regularization, imbalance and AWS AI concepts."
+    ],
+    "labs": [],
+    "project": "AWS AI service architecture project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 14,
+    "title": "Feature Engineering + Explainability",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Feature selection, leakage, interpretability, SHAP-style concepts and robust validation."
+    ],
+    "labs": [],
+    "project": "Explainable ML project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 15,
+    "title": "Time Series + Recommendation",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Forecasting concepts, feature windows, recommendation basics and evaluation."
+    ],
+    "labs": [],
+    "project": "Demand forecasting project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 16,
+    "title": "ML Systems Foundations",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Data/model pipelines, APIs, serialization, experiment tracking and deployment concepts."
+    ],
+    "labs": [],
+    "project": "ML inference API",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 17,
+    "title": "Deep Learning Fundamentals",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Neurons, activations, loss, backpropagation, optimizers and training loops."
+    ],
+    "labs": [],
+    "project": "Neural-network from-scratch exercise",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 18,
+    "title": "PyTorch/TensorFlow Practice",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Tensors, datasets, dataloaders, training, validation, checkpoints and GPU basics."
+    ],
+    "labs": [],
+    "project": "Deep-learning classifier",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 19,
+    "title": "Computer Vision",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "CNNs, augmentation, transfer learning, image classification and object-detection concepts."
+    ],
+    "labs": [],
+    "project": "Image classification application",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 20,
+    "title": "NLP Fundamentals + NVIDIA DLI",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Text preprocessing, embeddings, sequence models, attention and GPU-oriented deep learning practice."
+    ],
+    "labs": [],
+    "project": "NLP classifier + DLI lab portfolio",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 21,
+    "title": "Transformers + IBM AI Engineering I",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Attention, transformer architecture, tokenization, pretrained models and fine-tuning concepts."
+    ],
+    "labs": [],
+    "project": "Transformer text application",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 22,
+    "title": "IBM AI Engineering II",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Deep learning engineering, model pipelines, deployment patterns and integration."
+    ],
+    "labs": [],
+    "project": "End-to-end AI service",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 23,
+    "title": "MLOps I",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Docker, model packaging, APIs, experiment tracking, model registry concepts and CI basics."
+    ],
+    "labs": [],
+    "project": "Containerized ML service",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 24,
+    "title": "MLOps II + Year-2 Capstone",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Automated training/deployment concepts, monitoring and reproducibility."
+    ],
+    "labs": [],
+    "project": "Production ML platform prototype",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 25,
+    "title": "Generative AI Foundations",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "LLMs, tokens, context windows, prompting, structured output and hallucination analysis."
+    ],
+    "labs": [],
+    "project": "LLM evaluation playground",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 26,
+    "title": "Embeddings + RAG",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Embeddings, vector databases, chunking, retrieval, reranking and citation-aware RAG."
+    ],
+    "labs": [],
+    "project": "Document RAG assistant",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 27,
+    "title": "Agents + AI Engineering",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Tools, function calling, agent loops, memory concepts, guardrails and evaluation",
+     "IBM integration."
+    ],
+    "labs": [],
+    "project": "Tool-using AI agent",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 28,
+    "title": "Fine-Tuning + PEFT",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Dataset design, supervised fine-tuning concepts, LoRA/PEFT, evaluation and model selection."
+    ],
+    "labs": [],
+    "project": "Small-model adaptation project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 29,
+    "title": "Computer Vision + Multimodal AI",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Vision-language concepts, OCR, multimodal workflows and evaluation."
+    ],
+    "labs": [],
+    "project": "Multimodal document assistant",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 30,
+    "title": "AI Safety + Responsible AI",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Privacy, security, bias, toxicity, prompt injection, data leakage, red teaming and human oversight."
+    ],
+    "labs": [],
+    "project": "AI safety test suite",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 31,
+    "title": "Cloud AI Engineering",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Cloud deployment patterns, managed AI services, storage, queues, secrets and cost-aware architecture."
+    ],
+    "labs": [],
+    "project": "Cloud AI application",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 32,
+    "title": "Advanced MLOps + Observability",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Monitoring, drift, latency, quality metrics, rollback, incident handling and reproducibility."
+    ],
+    "labs": [],
+    "project": "Monitored ML/LLM service",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 33,
+    "title": "AI System Design",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Scalable inference, caching, batching, async processing, model routing and architecture trade-offs."
+    ],
+    "labs": [],
+    "project": "AI platform architecture project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 34,
+    "title": "Real-World AI Product",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Requirements, data pipeline, model/LLM selection, evaluation, deployment and documentation."
+    ],
+    "labs": [],
+    "project": "End-to-end AI product",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 35,
+    "title": "GitHub + Portfolio Engineering",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Clean repositories, READMEs, architecture diagrams, demos, tests, experiment logs and project storytelling."
+    ],
+    "labs": [],
+    "project": "Portfolio with 6–10 flagship projects",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 36,
+    "title": "Final Professional AI/ML Capstone",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Full production-style AI/ML system",
+     "final practical assessment and portfolio audit."
+    ],
+    "labs": [],
+    "project": "Flagship AI/ML engineering capstone",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   }
+  ],
+  "certifications": [
+   "Microsoft Azure AI Fundamentals (AI-900 / AI-901)",
+   "AWS Certified AI Practitioner",
+   "Google AI Essentials",
+   "NVIDIA DLI Fundamentals of Deep Learning",
+   "IBM AI Engineering Professional Certificate",
+   "DeepLearning.AI Machine Learning Specialization"
+  ],
+  "roles": [
+   "Junior AI/ML Engineer",
+   "Junior Machine Learning Engineer",
+   "Applied AI Engineer",
+   "GenAI Engineer / Developer",
+   "Junior Data Scientist",
+   "Computer Vision Engineer (Junior)",
+   "NLP Engineer (Junior)",
+   "Junior MLOps Engineer",
+   "AI Solutions Developer",
+   "AI Automation Developer"
+  ],
+  "tools": [
+   "Python",
+   "Git",
+   "GitHub",
+   "Docker",
+   "Linux",
+   "NumPy",
+   "Pandas",
+   "Scikit-learn",
+   "PyTorch",
+   "TensorFlow",
+   "AWS",
+   "Azure"
+  ],
+  "hardware": [
+   "> Minimum practical specs",
+   "- CPU: Intel i5 / Ryzen 5 or better",
+   "- RAM: 16 GB minimum, 32 GB recommended",
+   "- Storage: 512 GB SSD minimum, 1 TB recommended",
+   "- GPU: Integrated GPU for basic ML; NVIDIA RTX 4060 8 GB+ recommended for the full roadmap",
+   "- OS: Windows 11 + WSL2 or Linux",
+   "13. Important Program Notes",
+   "- 4 hours/week is the total program allocation, including practical work and the monthly 1-hour exam.",
+   "- Every month contains a major assessment; students should not advance by memorization alone.",
+   "- The roadmap deliberately starts with programming, math and data fundamentals before advanced AI topics.",
+   "- External certification costs are approximate and can change. Confirm current pricing, exam codes and eligibility before purchase.",
+   "- The supplied certification roadmap states that 'no experience required' means no mandatory work experience, not that every employer will waive education or experience requirements.",
+   "- Completing this curriculum does not automatically grant any external certification; the student must complete the provider's required course/exam process.",
+   "AI / ML Engineering • 3 Years • 624 Hours • Professional Portfolio Path"
+  ],
+  "notes": []
+ },
+ "cybersecurity": {
+  "source": "3-Year_Cybersecurity_Professional_Program_624_Hours1.md",
+  "purpose": [
+   "This is a three-year, 624-hour Cybersecurity specialization designed for a student entering after Class 10 with no assumed technical background. The program is structured to move from absolute beginner knowledge to practical, professional-level cybersecurity capability. The objective is job readiness in entry-level cybersecurity roles through skills, hands-on laboratories, projects, GitHub evidence and a professional portfolio. No internship or employment placement is guaranteed by the program."
+  ],
+  "months": [
+   {
+    "n": 1,
+    "title": "Computer & Cybersecurity Foundations",
+    "stage": "Absolute Beginner",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Computer hardware and operating systems",
+     "Files, folders, users, permissions and processes",
+     "Internet, browser, DNS and basic client/server concepts",
+     "Cybersecurity purpose, ethics, legal boundaries and responsible lab use"
+    ],
+    "labs": [
+     "Create a personal cyber lab map",
+     "Build a secure password and account-management exercise",
+     "Identify processes, files, users and permissions on a test machine"
+    ],
+    "project": "Cybersecurity concept map + lab notebook + GitHub repository setup",
+    "assessment": "Internal Exam 1: Computer, Internet, Cybersecurity & Ethics"
+   },
+   {
+    "n": 2,
+    "title": "Networking Fundamentals I",
+    "stage": "Absolute Beginner",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "LAN/WAN, devices, switches, routers, access points",
+     "MAC vs IP addresses",
+     "IPv4, private/public addressing and ports",
+     "TCP vs UDP and common protocols: HTTP/HTTPS, DNS, SSH, DHCP"
+    ],
+    "labs": [
+     "Build a two-host virtual network",
+     "Capture and inspect basic traffic with Wireshark",
+     "Map a small office network"
+    ],
+    "project": "Office Network Diagram + Wireshark Packet Analysis Report",
+    "assessment": "Internal Exam 2: Networking Fundamentals I"
+   },
+   {
+    "n": 3,
+    "title": "Networking Fundamentals II & Subnetting",
+    "stage": "Absolute Beginner",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "OSI and TCP/IP models",
+     "IPv4 subnetting and CIDR",
+     "Routing, NAT, VLAN concepts",
+     "IPv6 awareness and troubleshooting"
+    ],
+    "labs": [
+     "Subnet real-world address plans",
+     "Create VLAN/routing scenarios in a lab simulator",
+     "Diagnose connectivity problems with ping, traceroute and packet capture"
+    ],
+    "project": "Small Business Network Design + Subnetting Workbook + Troubleshooting Report",
+    "assessment": "Internal Exam 3: Networking Fundamentals II"
+   },
+   {
+    "n": 4,
+    "title": "Linux Fundamentals",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Linux filesystem, shell and package management",
+     "Users, groups, permissions and sudo",
+     "Processes, services, logs and networking commands",
+     "Bash scripting fundamentals"
+    ],
+    "labs": [
+     "Build a Linux security workstation",
+     "Create users and least-privilege permissions",
+     "Write scripts for system inventory and log collection"
+    ],
+    "project": "Linux Hardening Checklist + Bash Security Toolkit",
+    "assessment": "Internal Exam 4: Linux Fundamentals"
+   },
+   {
+    "n": 5,
+    "title": "Windows & System Administration Fundamentals",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Windows architecture, accounts and services",
+     "PowerShell fundamentals",
+     "Event Viewer and Windows logs",
+     "Basic endpoint configuration and administration"
+    ],
+    "labs": [
+     "Create a Windows test environment",
+     "Collect and analyze Windows event logs",
+     "Automate administrative/security checks with PowerShell"
+    ],
+    "project": "Windows Security Baseline + PowerShell Audit Script",
+    "assessment": "Internal Exam 5: Windows & Administration"
+   },
+   {
+    "n": 6,
+    "title": "Cybersecurity Fundamentals & Security Principles",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "CIA triad, assets, threats, vulnerabilities and risk",
+     "Security controls and defense in depth",
+     "Malware, phishing, social engineering and common attacks",
+     "Security policies, acceptable use and incident basics"
+    ],
+    "labs": [
+     "Build a risk register",
+     "Analyze simulated phishing messages",
+     "Map threats to controls"
+    ],
+    "project": "Mini Enterprise Risk Register + Phishing Investigation Pack",
+    "assessment": "Internal Exam 6: Security Principles & Threat Fundamentals"
+   },
+   {
+    "n": 7,
+    "title": "Identity, Access Control & Cryptography",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Authentication, authorization and accounting",
+     "MFA, RBAC, least privilege and privileged accounts",
+     "Hashing, encryption, symmetric/asymmetric cryptography",
+     "Certificates, TLS and PKI concepts"
+    ],
+    "labs": [
+     "Configure role-based access in a lab",
+     "Compare hashes and encryption",
+     "Inspect TLS certificates",
+     "Design a basic IAM policy"
+    ],
+    "project": "IAM Design + Cryptography Demonstration Report",
+    "assessment": "Internal Exam 7: Identity, Access & Cryptography"
+   },
+   {
+    "n": 8,
+    "title": "Security Operations Foundations + ISC2 CC Readiness",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Security operations, monitoring and alerting",
+     "Incident response lifecycle",
+     "Business continuity and disaster recovery concepts",
+     "Network security and security operations review"
+    ],
+    "labs": [
+     "Run a basic incident triage exercise",
+     "Create an incident ticket and timeline",
+     "Build a basic security monitoring checklist"
+    ],
+    "project": "SOC Starter Playbook + Incident Case File",
+    "assessment": "Internal Exam 8 + ISC2 CC Readiness Assessment; optional external CC exam window"
+   },
+   {
+    "n": 9,
+    "title": "Python, Bash & PowerShell for Security",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Python syntax, variables, loops, functions and files",
+     "Parsing text/CSV/JSON and regular expressions",
+     "Bash and PowerShell automation",
+     "Defensive scripting, error handling and safe automation"
+    ],
+    "labs": [
+     "Build an IP/port utility for authorized lab hosts",
+     "Parse security logs with Python",
+     "Automate Windows/Linux inventory"
+    ],
+    "project": "Security Automation Toolkit v1 (Python + Bash + PowerShell)",
+    "assessment": "Internal Exam 9: Security Scripting"
+   },
+   {
+    "n": 10,
+    "title": "Logs, SIEM & Security Monitoring + Google Certificate",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Log sources and normalization",
+     "SIEM concepts, searches, dashboards and alerts",
+     "Splunk/Chronicle concepts and basic SIEM workflow",
+     "Security monitoring, triage and documentation"
+    ],
+    "labs": [
+     "Ingest sample logs into a SIEM lab",
+     "Create detection searches",
+     "Investigate a simulated brute-force event"
+    ],
+    "project": "Mini SOC Dashboard + Brute-Force Investigation Report",
+    "assessment": "Internal Exam 10 + Google Cybersecurity Certificate readiness checkpoint"
+   },
+   {
+    "n": 11,
+    "title": "Network Defense: Firewalls, IDS/IPS & Secure Networking",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Firewalls and rule design",
+     "IDS/IPS concepts and Suricata",
+     "Secure protocols and network segmentation",
+     "VPN, secure remote access and wireless security"
+    ],
+    "labs": [
+     "Create firewall rules in a lab",
+     "Deploy Suricata and inspect alerts",
+     "Segment a simulated office network"
+    ],
+    "project": "Network Defense Lab + IDS Alert Investigation",
+    "assessment": "Internal Exam 11: Network Defense"
+   },
+   {
+    "n": 12,
+    "title": "Endpoint Security & Year-1 SOC Project",
+    "stage": "Beginner",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Endpoint protection, EDR concepts and baselines",
+     "Secure configuration and patching",
+     "Account compromise and endpoint incident triage",
+     "Year-1 integrated SOC workflow"
+    ],
+    "labs": [
+     "Investigate a simulated compromised endpoint",
+     "Create endpoint hardening checklist",
+     "Complete a full alert-to-report workflow"
+    ],
+    "project": "Year-1 SOC Simulation Project + Portfolio Review",
+    "assessment": "Internal Exam 12: Year-1 Comprehensive Exam; Google certificate completion/attempt window"
+   },
+   {
+    "n": 13,
+    "title": "Threats, Vulnerabilities & Security+ Domain 1",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Attack surfaces and threat actors",
+     "Vulnerability concepts and CVE/CVSS",
+     "Common endpoint, network and application attacks",
+     "Security+ attack/threat/vulnerability objectives"
+    ],
+    "labs": [
+     "Perform authorized vulnerability discovery in a lab",
+     "Prioritize findings with CVSS",
+     "Write remediation recommendations"
+    ],
+    "project": "Vulnerability Assessment Report v1",
+    "assessment": "Internal Exam 13: Threats & Vulnerabilities"
+   },
+   {
+    "n": 14,
+    "title": "Security Architecture & Design",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Secure network architecture",
+     "Cloud/on-premises/hybrid security concepts",
+     "Zero Trust, segmentation and secure design",
+     "Resilience, redundancy and secure infrastructure"
+    ],
+    "labs": [
+     "Design a secure enterprise network",
+     "Create a Zero Trust access model",
+     "Document security architecture decisions"
+    ],
+    "project": "Secure Enterprise Architecture Blueprint",
+    "assessment": "Internal Exam 14: Architecture & Design"
+   },
+   {
+    "n": 15,
+    "title": "Security Implementation & Hardening",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Secure protocols, certificates and PKI",
+     "Endpoint, server and application hardening",
+     "Identity and access implementation",
+     "Security controls and configuration management"
+    ],
+    "labs": [
+     "Harden Linux and Windows systems",
+     "Implement least privilege",
+     "Create secure configuration baselines"
+    ],
+    "project": "Cross-Platform Hardening Project",
+    "assessment": "Internal Exam 15: Security Implementation"
+   },
+   {
+    "n": 16,
+    "title": "Security Operations, Incident Response & Security+ Readiness",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Security monitoring and detection",
+     "Incident response preparation, containment, eradication and recovery",
+     "Governance, risk, privacy and compliance fundamentals",
+     "Security+ full-domain review"
+    ],
+    "labs": [
+     "Run a tabletop incident",
+     "Analyze evidence and build an incident timeline",
+     "Create an incident response report"
+    ],
+    "project": "Enterprise Incident Response Exercise",
+    "assessment": "Internal Exam 16 + Security+ Readiness Assessment; optional Security+ exam window"
+   },
+   {
+    "n": 17,
+    "title": "Vulnerability Management & Security Testing",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Vulnerability scanning methodology",
+     "Authenticated vs unauthenticated scans",
+     "Remediation validation and reporting",
+     "Security testing ethics and scope"
+    ],
+    "labs": [
+     "Run an authorized vulnerability scanner against a lab",
+     "Validate fixes",
+     "Build executive and technical reports"
+    ],
+    "project": "Continuous Vulnerability Management Dashboard",
+    "assessment": "Internal Exam 17: Vulnerability Management"
+   },
+   {
+    "n": 18,
+    "title": "Ethical Hacking & CEH Foundations",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Ethical hacking lifecycle",
+     "Reconnaissance and information gathering",
+     "Scanning and enumeration",
+     "Security assessment methodology and scope"
+    ],
+    "labs": [
+     "Perform passive/authorized reconnaissance",
+     "Enumerate a deliberately vulnerable lab",
+     "Create a rules-of-engagement document"
+    ],
+    "project": "Authorized Recon & Enumeration Assessment",
+    "assessment": "Internal Exam 18: Ethical Hacking Foundations"
+   },
+   {
+    "n": 19,
+    "title": "Web Application Security",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "HTTP/HTTPS and web architecture",
+     "OWASP-style vulnerability concepts",
+     "Authentication/session issues",
+     "Input validation, injection and access-control flaws"
+    ],
+    "labs": [
+     "Use a deliberately vulnerable web application",
+     "Intercept traffic with Burp Suite in the lab",
+     "Document vulnerabilities and remediation"
+    ],
+    "project": "Web Application Security Assessment",
+    "assessment": "Internal Exam 19: Web Security"
+   },
+   {
+    "n": 20,
+    "title": "Network Penetration Testing",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Network discovery and service enumeration",
+     "Common network attack paths",
+     "Password attacks in controlled labs",
+     "Exploitation workflow and evidence handling"
+    ],
+    "labs": [
+     "Assess a lab network",
+     "Validate vulnerabilities without damaging systems",
+     "Produce a penetration-testing report"
+    ],
+    "project": "Internal Network Penetration Test Report",
+    "assessment": "Internal Exam 20: Network Pentesting"
+   },
+   {
+    "n": 21,
+    "title": "Active Directory & Internal Security Testing",
+    "stage": "Intermediate",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Domains, users, groups, GPOs and Kerberos concepts",
+     "Windows enterprise attack paths",
+     "Privilege escalation concepts",
+     "Defensive hardening for Active Directory"
+    ],
+    "labs": [
+     "Build a small AD lab",
+     "Perform authorized enumeration",
+     "Map an attack path and recommend mitigations"
+    ],
+    "project": "Active Directory Attack-Path & Hardening Project",
+    "assessment": "Internal Exam 21: Active Directory Security"
+   },
+   {
+    "n": 22,
+    "title": "Exploitation, Post-Exploitation & Privilege Escalation",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Exploitation concepts and payloads",
+     "Linux and Windows privilege escalation",
+     "Persistence concepts and defensive detection",
+     "Evidence collection and safe cleanup"
+    ],
+    "labs": [
+     "Exploit deliberately vulnerable machines",
+     "Demonstrate privilege escalation in a sandbox",
+     "Write detections for the observed behavior"
+    ],
+    "project": "Red-Team/Blue-Team Privilege Escalation Lab",
+    "assessment": "Internal Exam 22: Exploitation & Privilege Escalation"
+   },
+   {
+    "n": 23,
+    "title": "CEH Domains, Reporting & Attack Simulation",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "CEH-aligned reconnaissance, scanning, enumeration and vulnerability analysis",
+     "Web, network and system attack concepts",
+     "Malware, social engineering and denial-of-service concepts at a defensive level",
+     "Professional reporting and remediation"
+    ],
+    "labs": [
+     "Run a multi-stage authorized attack simulation",
+     "Create evidence packages",
+     "Produce executive and technical reports"
+    ],
+    "project": "End-to-End Ethical Hacking Assessment",
+    "assessment": "Internal Exam 23: CEH Integrated Assessment"
+   },
+   {
+    "n": 24,
+    "title": "CEH Capstone + Professional Ethical Hacking Readiness",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Full CEH-domain revision",
+     "Attack-chain reasoning",
+     "Reporting and remediation quality",
+     "Professional ethics and legal boundaries"
+    ],
+    "labs": [
+     "Complete a timed lab assessment",
+     "Present findings",
+     "Remediate selected findings and verify fixes"
+    ],
+    "project": "Year-2 Ethical Hacking Capstone",
+    "assessment": "Internal Exam 24 + CEH Readiness Assessment; optional CEH exam window (eligibility must be checked with EC-Council)"
+   },
+   {
+    "n": 25,
+    "title": "SOC Engineering & SIEM Architecture",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "SOC roles, workflows and escalation",
+     "SIEM architecture and data sources",
+     "Detection lifecycle and alert quality",
+     "Case management and operational metrics"
+    ],
+    "labs": [
+     "Design a small SOC",
+     "Onboard multiple log sources",
+     "Create escalation procedures"
+    ],
+    "project": "SOC Architecture & Operations Blueprint",
+    "assessment": "Internal Exam 25: SOC Engineering"
+   },
+   {
+    "n": 26,
+    "title": "Splunk: Detection, Investigation & Dashboards",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Search concepts and log analysis",
+     "Detection searches and correlation",
+     "Dashboards and triage",
+     "Investigation documentation"
+    ],
+    "labs": [
+     "Build Splunk searches and dashboards in a permitted lab",
+     "Investigate simulated authentication and malware alerts",
+     "Tune noisy detections"
+    ],
+    "project": "Splunk SOC Investigation Portfolio",
+    "assessment": "Internal Exam 26: Splunk Detection & Investigation"
+   },
+   {
+    "n": 27,
+    "title": "Microsoft Sentinel & KQL",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Azure Sentinel/Sentinel concepts",
+     "Log Analytics and data connectors",
+     "KQL basics to advanced investigation",
+     "Analytics rules and workbooks"
+    ],
+    "labs": [
+     "Connect sample data",
+     "Write KQL investigation queries",
+     "Create analytics rules and dashboards"
+    ],
+    "project": "Microsoft Sentinel Detection Pack",
+    "assessment": "Internal Exam 27: Sentinel & KQL"
+   },
+   {
+    "n": 28,
+    "title": "Microsoft Defender XDR & Endpoint Investigation",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Defender XDR architecture",
+     "Endpoint alerts and device timelines",
+     "Identity, email and cloud security signals",
+     "Investigation and remediation workflows"
+    ],
+    "labs": [
+     "Investigate simulated endpoint compromise",
+     "Trace identity and email activity",
+     "Create remediation actions"
+    ],
+    "project": "Defender XDR Incident Investigation Case",
+    "assessment": "Internal Exam 28: Defender XDR"
+   },
+   {
+    "n": 29,
+    "title": "Threat Hunting & MITRE ATT&CK",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Threat hunting hypothesis",
+     "MITRE ATT&CK tactics, techniques and procedures",
+     "Indicators, behaviors and attack chains",
+     "Hunt documentation and validation"
+    ],
+    "labs": [
+     "Build hunts from realistic scenarios",
+     "Map detections to ATT&CK",
+     "Identify coverage gaps"
+    ],
+    "project": "Threat Hunting Report + ATT&CK Coverage Matrix",
+    "assessment": "Internal Exam 29: Threat Hunting"
+   },
+   {
+    "n": 30,
+    "title": "CySA+ Readiness: Security Operations & Vulnerability Analysis",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Security operations and vulnerability management",
+     "Threat intelligence and analytics",
+     "Incident response and reporting",
+     "Performance-based scenario practice"
+    ],
+    "labs": [
+     "Perform a full vulnerability triage",
+     "Investigate a multi-alert incident",
+     "Create a risk-prioritized remediation plan"
+    ],
+    "project": "CySA+ Style Analyst Assessment",
+    "assessment": "Internal Exam 30 + CySA+ Readiness Assessment; optional CySA+ exam window (recommended experience should be considered)"
+   },
+   {
+    "n": 31,
+    "title": "Incident Response & Digital Forensics",
+    "stage": "Advanced",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Forensic principles and evidence handling",
+     "Disk and memory evidence concepts",
+     "Timeline analysis and root cause",
+     "Incident containment, eradication and lessons learned"
+    ],
+    "labs": [
+     "Analyze a provided forensic image in a lab",
+     "Build an incident timeline",
+     "Write a post-incident report"
+    ],
+    "project": "Digital Forensics Case File + Incident Report",
+    "assessment": "Internal Exam 31: DFIR"
+   },
+   {
+    "n": 32,
+    "title": "Cloud Security: Azure/AWS Fundamentals & IAM",
+    "stage": "Professional / Job-ready",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Cloud service models and shared responsibility",
+     "Cloud IAM and least privilege",
+     "Network security in cloud environments",
+     "Secure storage and compute"
+    ],
+    "labs": [
+     "Secure a cloud lab environment",
+     "Implement IAM roles/policies",
+     "Review cloud security posture"
+    ],
+    "project": "Cloud Security Baseline Assessment",
+    "assessment": "Internal Exam 32: Cloud Security"
+   },
+   {
+    "n": 33,
+    "title": "Cloud Detection, Logging & Security Automation",
+    "stage": "Professional / Job-ready",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "Cloud logging and monitoring",
+     "Security alerts and cloud-native controls",
+     "Automation concepts",
+     "Security operations across hybrid environments"
+    ],
+    "labs": [
+     "Build a cloud logging pipeline",
+     "Create automated response logic in a lab",
+     "Investigate cloud activity logs"
+    ],
+    "project": "Cloud Detection & Response Automation Project",
+    "assessment": "Internal Exam 33: Cloud Security Operations"
+   },
+   {
+    "n": 34,
+    "title": "SC-200 Preparation: Defender, Sentinel & KQL",
+    "stage": "Professional / Job-ready",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Manage a security operations environment",
+     "Respond to security incidents",
+     "Threat hunting with KQL",
+     "Defender XDR, Sentinel, Entra ID and Defender for Cloud"
+    ],
+    "labs": [
+     "Configure Sentinel detections",
+     "Investigate Defender incidents",
+     "Create KQL hunting queries"
+    ],
+    "project": "SC-200 End-to-End Security Operations Lab",
+    "assessment": "Internal Exam 34 + SC-200 Readiness Assessment"
+   },
+   {
+    "n": 35,
+    "title": "Advanced Detection Engineering & SOC Simulation",
+    "stage": "Professional / Job-ready",
+    "weeks": null,
+    "hours": 16,
+    "topics": [
+     "Detection engineering lifecycle",
+     "Correlation and analytics rules",
+     "Threat hunting and response automation",
+     "SOC metrics, tuning and documentation"
+    ],
+    "labs": [
+     "Build a complete detection pack",
+     "Run a 24-hour simulated SOC incident cycle",
+     "Tune detections and document lessons learned"
+    ],
+    "project": "Production-Style Detection Engineering Portfolio",
+    "assessment": "Internal Exam 35: Advanced SOC Simulation"
+   },
+   {
+    "n": 36,
+    "title": "Final Enterprise Cybersecurity Capstone & Job Portfolio",
+    "stage": "Professional / Job-ready",
+    "weeks": null,
+    "hours": 20,
+    "topics": [
+     "End-to-end enterprise defense",
+     "Security architecture, SOC, detection, response and reporting integration",
+     "Portfolio/GitHub completion",
+     "Technical interview and practical job-readiness assessment"
+    ],
+    "labs": [
+     "Complete a full enterprise security scenario",
+     "Publish sanitized project evidence to GitHub",
+     "Create final cybersecurity portfolio",
+     "Perform final practical interview simulation"
+    ],
+    "project": "Final Enterprise Cybersecurity Defense & Response Capstone",
+    "assessment": "Internal Exam 36: Final Professional / Job-Readiness Examination; SC-200 certification window"
+   }
+  ],
+  "certifications": [
+   "ISC² Certified in Cybersecurity (CC)",
+   "Google Cybersecurity Professional Certificate",
+   "CompTIA Security+",
+   "CEH v13",
+   "CompTIA CySA+",
+   "Microsoft Security Operations Analyst Associate (SC-200)"
+  ],
+  "roles": [
+   "SOC Analyst / SOC Analyst L1",
+   "Cybersecurity Analyst / Security Analyst",
+   "Information Security Analyst",
+   "Cyber Defense Analyst",
+   "Security Operations Engineer — Junior/L1",
+   "Vulnerability Analyst / Vulnerability Management Analyst",
+   "Junior Penetration Tester / Ethical Hacker",
+   "Junior Security Engineer",
+   "Threat Intelligence Analyst — Junior",
+   "Junior Incident Response Analyst",
+   "GRC / Security Compliance Analyst — Junior",
+   "Cloud Security Analyst — Junior",
+   "Detection Engineering Trainee / Junior"
+  ],
+  "tools": [
+   "Python",
+   "SQL",
+   "Git",
+   "GitHub",
+   "Linux",
+   "Bash",
+   "PowerShell",
+   "Wireshark",
+   "Burp Suite",
+   "Splunk",
+   "Microsoft Sentinel",
+   "KQL",
+   "AWS",
+   "Azure",
+   "Suricata"
+  ],
+  "hardware": [
+   "Minimum requirements -",
+   "- CPU: Intel Core i5 / Ryzen 5 or better",
+   "- RAM: 16 GB minimum; 32 GB recommended",
+   "- Storage: 512 GB SSD minimum; 1 TB recommended",
+   "- GPU: Integrated graphics is sufficient — no dedicated GPU required",
+   "- Network: Wi-Fi 6 + Gigabit Ethernet preferred",
+   "- OS: Windows 11 + VMware/VirtualBox + Linux VMs"
+  ],
+  "notes": [
+   "All 624 hours include learning, practical labs, hands-on projects, assignments, and the 36 one-hour monthly exams.",
+   "The program starts from absolute zero and does not assume prior knowledge of networking, Linux, cybersecurity, or ethical hacking.",
+   "The curriculum progresses from networking and system hardening to vulnerability assessment, penetration testing, SOC operations, threat hunting, DFIR, cloud security, and enterprise security.",
+   "The program includes extensive hands-on labs, simulations, security assessments, and portfolio-ready projects.",
+   "Industry tools and platforms covered may include Splunk, Microsoft Sentinel, KQL, Defender XDR, and SC-200-oriented labs.",
+   "External certifications such as CySA+ and SC-200 are treated as preparation milestones; completing the curriculum does not automatically award the certifications.",
+   "Certification fees, exam costs, cloud-lab costs, and third-party pricing are approximate and subject to change.",
+   "All offensive-security activities are intended for authorized, controlled lab environments and legitimate security testing.",
+   "No internship or job-placement guarantee is included.",
+   "The program culminates in detection engineering, cloud security, threat hunting, SOC operations, and a final enterprise cybersecurity capstone."
+  ]
+ },
+ "data-science-ai": {
+  "source": "3-Year_Data_Science_and_AI_Professional_Program_624_Hours1.md",
+  "purpose": [
+   "A three-year, 624-hour Data Science & AI specialization for a Class-10-pass absolute beginner. The course progresses from computing, Python, SQL and statistics into analytics, machine learning, data engineering, deep learning, generative AI, MLOps and production-style projects. The target is job readiness through demonstrated skills, extensive hands-on work, GitHub and a professional portfolio. Internship, employment, salary and external certification are not guaranteed."
+  ],
+  "months": [
+   {
+    "n": 1,
+    "title": "Computer, Data & Python Foundations",
+    "stage": "Absolute Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Computers, files, OS, command line",
+     "what data is",
+     "variables, types and basic Python"
+    ],
+    "labs": [
+     "Python/Jupyter setup",
+     "inspect a dataset"
+    ],
+    "project": "Data Notebook + Python Repository",
+    "assessment": "Exam 1: Foundations"
+   },
+   {
+    "n": 2,
+    "title": "Python Programming for Data",
+    "stage": "Absolute Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Functions, lists, dictionaries, loops, files, CSV/JSON, exceptions"
+    ],
+    "labs": [
+     "Data-cleaning scripts",
+     "reusable functions"
+    ],
+    "project": "Python Data Utilities Pack",
+    "assessment": "Exam 2: Python"
+   },
+   {
+    "n": 3,
+    "title": "SQL Fundamentals",
+    "stage": "Absolute Beginner",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Tables, keys, SELECT, filters, aggregation, JOINs, subqueries"
+    ],
+    "labs": [
+     "Create database",
+     "solve SQL analysis tasks"
+    ],
+    "project": "SQL Analytics Repository",
+    "assessment": "Exam 3: SQL"
+   },
+   {
+    "n": 4,
+    "title": "Statistics I",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Mean, median, dispersion, distributions, sampling, percentiles, outliers"
+    ],
+    "labs": [
+     "Statistical summaries of datasets"
+    ],
+    "project": "Exploratory Statistics Report",
+    "assessment": "Exam 4: Statistics I"
+   },
+   {
+    "n": 5,
+    "title": "Statistics II",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Probability, correlation, covariance, confidence intervals, hypothesis-testing concepts"
+    ],
+    "labs": [
+     "Statistical investigation",
+     "interpret uncertainty"
+    ],
+    "project": "Statistical Investigation",
+    "assessment": "Exam 5: Statistics II"
+   },
+   {
+    "n": 6,
+    "title": "NumPy & Pandas",
+    "stage": "Beginner",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Arrays, vectorization, DataFrames, cleaning, missing values, transformations"
+    ],
+    "labs": [
+     "Clean and transform datasets"
+    ],
+    "project": "Data Cleaning Notebook Portfolio",
+    "assessment": "Exam 6: NumPy/Pandas"
+   },
+   {
+    "n": 7,
+    "title": "Data Visualization",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Chart selection, visualization principles, analytical storytelling, misleading charts"
+    ],
+    "labs": [
+     "Build analytical charts and a data story"
+    ],
+    "project": "Data Storytelling Report",
+    "assessment": "Exam 7: Visualization"
+   },
+   {
+    "n": 8,
+    "title": "Exploratory Data Analysis",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "EDA workflow",
+     "univariate/bivariate/multivariate analysis",
+     "data-quality investigation"
+    ],
+    "labs": [
+     "Complete EDA on multiple datasets"
+    ],
+    "project": "End-to-End EDA Project",
+    "assessment": "Exam 8: EDA"
+   },
+   {
+    "n": 9,
+    "title": "Business Analytics",
+    "stage": "Beginner",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Business questions, KPIs, segmentation, descriptive vs diagnostic analytics"
+    ],
+    "labs": [
+     "Analyze sales/customer/operations data"
+    ],
+    "project": "Business Analytics Case Study",
+    "assessment": "Exam 9: Analytics"
+   },
+   {
+    "n": 10,
+    "title": "Dashboarding",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Data models, measures, dashboard design and storytelling"
+    ],
+    "labs": [
+     "Build interactive dashboard"
+    ],
+    "project": "Analytics Dashboard",
+    "assessment": "Exam 10: Dashboarding"
+   },
+   {
+    "n": 11,
+    "title": "Google Data Analytics Preparation",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Analytics workflow, case studies, communication, ethics"
+    ],
+    "labs": [
+     "Timed analytics case + portfolio case study"
+    ],
+    "project": "Google-Style Analytics Capstone",
+    "assessment": "Exam 11: Analytics Readiness"
+   },
+   {
+    "n": 12,
+    "title": "Year-1 Capstone & DP-900",
+    "stage": "Beginner",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Cloud data concepts, Azure data vocabulary, integrated analytics"
+    ],
+    "labs": [
+     "End-to-end analysis + data architecture"
+    ],
+    "project": "Year-1 Analytics Capstone",
+    "assessment": "Exam 12: Year-1 + DP-900 Readiness"
+   },
+   {
+    "n": 13,
+    "title": "Machine Learning Foundations",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Supervised/unsupervised learning, train/test split, regression, classification"
+    ],
+    "labs": [
+     "Train baseline models"
+    ],
+    "project": "Regression & Classification Project",
+    "assessment": "Exam 13: ML Foundations"
+   },
+   {
+    "n": 14,
+    "title": "Feature Engineering & Evaluation",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Encoding, scaling, cross-validation, precision/recall/F1/ROC-AUC"
+    ],
+    "labs": [
+     "Build feature pipelines",
+     "error analysis"
+    ],
+    "project": "Model Evaluation Portfolio",
+    "assessment": "Exam 14: Evaluation"
+   },
+   {
+    "n": 15,
+    "title": "Classification & Ensembles",
+    "stage": "Intermediate",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Logistic regression, trees, ensembles, imbalanced data"
+    ],
+    "labs": [
+     "Tune classification models"
+    ],
+    "project": "Classification System",
+    "assessment": "Exam 15: Classification"
+   },
+   {
+    "n": 16,
+    "title": "Unsupervised Learning",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Clustering, dimensionality reduction concepts, anomaly detection"
+    ],
+    "labs": [
+     "Segmentation + anomaly experiment"
+    ],
+    "project": "Segmentation/Anomaly Project",
+    "assessment": "Exam 16: Unsupervised"
+   },
+   {
+    "n": 17,
+    "title": "Time Series",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Time-series structure, baselines, moving averages, forecast evaluation"
+    ],
+    "labs": [
+     "Forecast demand/sales"
+    ],
+    "project": "Forecasting Case Study",
+    "assessment": "Exam 17: Time Series"
+   },
+   {
+    "n": 18,
+    "title": "Data Engineering Foundations",
+    "stage": "Intermediate",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "ETL/ELT, pipelines, batch/streaming concepts, warehouses/lakes"
+    ],
+    "labs": [
+     "Build simple ETL pipeline"
+    ],
+    "project": "End-to-End Data Pipeline",
+    "assessment": "Exam 18: Data Engineering"
+   },
+   {
+    "n": 19,
+    "title": "Python Data Engineering",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "APIs, ingestion, transformation, logging, pipeline testing"
+    ],
+    "labs": [
+     "Automated API ingestion"
+    ],
+    "project": "Data Ingestion Pipeline",
+    "assessment": "Exam 19: Data Engineering"
+   },
+   {
+    "n": 20,
+    "title": "Azure ML & DP-100 Preparation",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Azure ML, datasets, experiments, compute, deployment concepts"
+    ],
+    "labs": [
+     "Train/deploy cloud model",
+     "track experiments"
+    ],
+    "project": "Azure ML Experiment",
+    "assessment": "Exam 20: Applied Azure ML"
+   },
+   {
+    "n": 21,
+    "title": "ML Deployment & MLOps",
+    "stage": "Advanced",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Packaging, APIs, batch inference, model lifecycle, monitoring"
+    ],
+    "labs": [
+     "Deploy model API",
+     "basic monitoring"
+    ],
+    "project": "Production ML API",
+    "assessment": "Exam 21: ML Deployment"
+   },
+   {
+    "n": 22,
+    "title": "IBM Data Science Integration",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Python/SQL/ML workflow, professional case-study communication"
+    ],
+    "labs": [
+     "Integrated case study"
+    ],
+    "project": "Data Science Professional Case",
+    "assessment": "Exam 22: Data Science"
+   },
+   {
+    "n": 23,
+    "title": "IBM Data Engineering Integration",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "ETL, storage, data quality, orchestration concepts"
+    ],
+    "labs": [
+     "Multi-stage pipeline with validation"
+    ],
+    "project": "Data Engineering Capstone",
+    "assessment": "Exam 23: Data Engineering"
+   },
+   {
+    "n": 24,
+    "title": "Year-2 Integrated Capstone",
+    "stage": "Advanced",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Analytics → ML → pipeline → deployment"
+    ],
+    "labs": [
+     "Full data platform + model"
+    ],
+    "project": "Production-Style Data Platform",
+    "assessment": "Exam 24: Year-2 + DP-100 Readiness"
+   },
+   {
+    "n": 25,
+    "title": "Advanced Machine Learning",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Ensembles, model selection, hyperparameter optimization"
+    ],
+    "labs": [
+     "Tune and compare models"
+    ],
+    "project": "Advanced ML Experiment Suite",
+    "assessment": "Exam 25: Advanced ML"
+   },
+   {
+    "n": 26,
+    "title": "Deep Learning",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Neural networks, backpropagation, training, regularization"
+    ],
+    "labs": [
+     "Train neural models"
+    ],
+    "project": "Deep Learning Project",
+    "assessment": "Exam 26: Deep Learning"
+   },
+   {
+    "n": 27,
+    "title": "NLP",
+    "stage": "Advanced",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Text preprocessing, embeddings concepts, text classification"
+    ],
+    "labs": [
+     "Build/evaluate text classifier"
+    ],
+    "project": "NLP Project",
+    "assessment": "Exam 27: NLP"
+   },
+   {
+    "n": 28,
+    "title": "Computer Vision",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Images/tensors, CNN concepts, image classification"
+    ],
+    "labs": [
+     "Train image model"
+    ],
+    "project": "Computer Vision Project",
+    "assessment": "Exam 28: Computer Vision"
+   },
+   {
+    "n": 29,
+    "title": "Generative AI & RAG",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "LLMs, prompting, structured outputs, embeddings, vector search, RAG, evaluation"
+    ],
+    "labs": [
+     "Build source-grounded RAG/data assistant"
+    ],
+    "project": "RAG Application",
+    "assessment": "Exam 29: GenAI"
+   },
+   {
+    "n": 30,
+    "title": "Data Engineering at Scale",
+    "stage": "Advanced",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Distributed processing concepts, cloud architectures, orchestration, governance"
+    ],
+    "labs": [
+     "Design scalable pipeline"
+    ],
+    "project": "Scalable Data Platform",
+    "assessment": "Exam 30: Scale"
+   },
+   {
+    "n": 31,
+    "title": "Advanced Analytics & Experimentation",
+    "stage": "Professional / Job-ready",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "A/B testing, causal reasoning concepts, experimentation"
+    ],
+    "labs": [
+     "Design and analyze experiment"
+    ],
+    "project": "Product Experimentation Case",
+    "assessment": "Exam 31: Experimentation"
+   },
+   {
+    "n": 32,
+    "title": "Responsible AI",
+    "stage": "Professional / Job-ready",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Bias, fairness, privacy, explainability, governance"
+    ],
+    "labs": [
+     "Model audit, model card, data sheet"
+    ],
+    "project": "Responsible AI Audit",
+    "assessment": "Exam 32: Responsible AI"
+   },
+   {
+    "n": 33,
+    "title": "MLOps",
+    "stage": "Professional / Job-ready",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "CI/CD for ML, model registry concepts, monitoring, drift, retraining"
+    ],
+    "labs": [
+     "Build MLOps workflow"
+    ],
+    "project": "MLOps Pipeline",
+    "assessment": "Exam 33: MLOps"
+   },
+   {
+    "n": 34,
+    "title": "Real-World Data Project",
+    "stage": "Professional / Job-ready",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Requirements, stakeholder questions, pipeline, analytics and ML"
+    ],
+    "labs": [
+     "Raw data to recommendation"
+    ],
+    "project": "Major End-to-End Data Science Project",
+    "assessment": "Exam 34: Professional Data Science"
+   },
+   {
+    "n": 35,
+    "title": "GitHub, Portfolio & Interviews",
+    "stage": "Professional / Job-ready",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Repository quality, storytelling, SQL/Python/ML interviews"
+    ],
+    "labs": [
+     "Polish portfolio",
+     "timed assessments"
+    ],
+    "project": "Professional Data/AI Portfolio",
+    "assessment": "Exam 35: Job Readiness"
+   },
+   {
+    "n": 36,
+    "title": "Final Data Science & AI Capstone",
+    "stage": "Professional / Job-ready",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Problem → data → pipeline → analysis → ML → deployment → communication"
+    ],
+    "labs": [
+     "Production-style data/AI solution"
+    ],
+    "project": "Final Data Science & AI Capstone",
+    "assessment": "Exam 36: Final Professional Assessment"
+   }
+  ],
+  "certifications": [
+   "Microsoft Certified: Azure Data Fundamentals (DP-900)",
+   "HackerRank SQL / Python Certificate",
+   "Google Data Analytics Professional Certificate",
+   "IBM Data Science Professional Certificate",
+   "Microsoft Certified: Azure Data Scientist Associate (DP-100)",
+   "IBM Data Engineering Professional Certificate"
+  ],
+  "roles": [
+   "Junior Data Analyst",
+   "Data Analyst",
+   "BI Analyst / Junior BI Developer",
+   "Junior Data Scientist",
+   "Associate Data Scientist",
+   "Junior ML Engineer",
+   "Junior Data Engineer",
+   "Analytics Engineer — Junior",
+   "ML/AI Analyst",
+   "Junior MLOps Engineer",
+   "AI/GenAI Data Analyst",
+   "Freelance Data Analyst"
+  ],
+  "tools": [
+   "Python",
+   "SQL",
+   "Git",
+   "GitHub",
+   "Linux",
+   "NumPy",
+   "Pandas",
+   "Jupyter",
+   "Azure"
+  ],
+  "hardware": [
+   "Minimum laptop specs — Data Science & AI/ML",
+   "- CPU: Intel Core i7 / Ryzen 7 or equivalent",
+   "- RAM: 32 GB",
+   "- Storage: 1 TB NVMe SSD",
+   "- GPU: NVIDIA RTX 4060/5060, 8 GB VRAM+",
+   "- Display: 14–16\" Full HD/2K IPS",
+   "- OS: Windows 11 + WSL2 / Linux"
+  ],
+  "notes": [
+   "All 624 hours include learning, practical work, projects, assignments, and the 36 one-hour monthly exams.",
+   "The program starts from absolute zero and does not assume prior knowledge of programming, statistics, data science, or AI/ML. ( Basic 10<sup>th</sup> Grade math knowledge is expected).",
+   "The curriculum progresses from Python, SQL, statistics and data analysis to machine learning, data engineering, deep learning, NLP, computer vision, RAG and MLOps.",
+   "The program includes hands-on projects, portfolio work, real-world case studies, and capstone projects to demonstrate practical skills.",
+   "Cloud platforms such as Azure ML may involve additional usage costs, depending on usage, region, and current pricing.",
+   "External certifications, where applicable, are treated as preparation milestones; completing the curriculum does not automatically award external credentials.",
+   "Certification fees, cloud costs, and third-party pricing are approximate and subject to change.",
+   "Larger AI/ML workloads may require cloud GPU resources, particularly for deep learning, LLMs and advanced model training.",
+   "No internship or job-placement guarantee is included.",
+   "The final stages focus on production-oriented AI/ML, scalable data platforms, responsible AI, MLOps, real-world implementation, and a professional portfolio."
+  ]
+ },
+ "product-ux-ai-design": {
+  "source": "3-Year_Product_and_UX_AI_Design_Professional_Program_624_Hours1.md",
+  "purpose": [
+   "Program purpose. A three-year specialization for a student entering after Class 10 who chooses Product & UX / AI Design. The path begins with visual and UX fundamentals, progresses through product thinking and project management, and ends with AI-assisted product design, research, systems, prototyping and a professional portfolio."
+  ],
+  "months": [
+   {
+    "n": 1,
+    "title": "Design + Computer Foundations",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Digital products, files, browsers, pixels, screens, design vocabulary, visual observation and basic design exercises."
+    ],
+    "labs": [],
+    "project": "Recreate 5 familiar app screens",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 2,
+    "title": "Visual Design Fundamentals",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Color, typography, contrast, hierarchy, alignment, spacing, grids and composition."
+    ],
+    "labs": [],
+    "project": "Visual design mini-library",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 3,
+    "title": "UX Foundations + IxDF",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Human-centered design, usability, user needs, UX process and basic research."
+    ],
+    "labs": [],
+    "project": "UX audit of a real product",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 4,
+    "title": "User Research I",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Interview planning, questions, observation, surveys and qualitative notes."
+    ],
+    "labs": [],
+    "project": "User-research study",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 5,
+    "title": "User Research II",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Personas, journey maps, pain points, synthesis and opportunity statements."
+    ],
+    "labs": [],
+    "project": "Research-to-insight case study",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 6,
+    "title": "Information Architecture",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Sitemaps, navigation, content structure, user flows and task analysis."
+    ],
+    "labs": [],
+    "project": "Information architecture project",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 7,
+    "title": "Wireframing",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Low-fidelity sketches, screen structure, responsive thinking and rapid iteration."
+    ],
+    "labs": [],
+    "project": "Mobile app wireframe set",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 8,
+    "title": "Interaction Design",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Flows, states, feedback, forms, errors, loading and empty states."
+    ],
+    "labs": [],
+    "project": "Interactive flow prototype",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 9,
+    "title": "UI Design I + CalArts",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Typography systems, color systems, components, visual consistency and UI patterns."
+    ],
+    "labs": [],
+    "project": "Web UI kit",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 10,
+    "title": "UI Design II",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Responsive layouts, mobile patterns, dashboards, tables, forms and design QA."
+    ],
+    "labs": [],
+    "project": "Responsive product interface",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 11,
+    "title": "Prototyping",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "High-fidelity prototypes, micro-interactions, transitions and usability scenarios."
+    ],
+    "labs": [],
+    "project": "Clickable product prototype",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 12,
+    "title": "Year-1 UX Capstone + Google UX",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Research → IA → wireframes → UI → prototype → usability testing."
+    ],
+    "labs": [],
+    "project": "Complete Year-1 UX case study",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 13,
+    "title": "Product Fundamentals + Google PM",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Product lifecycle, stakeholders, requirements, scope and product goals."
+    ],
+    "labs": [],
+    "project": "Product brief + requirements",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 14,
+    "title": "Product Discovery",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Problem statements, hypotheses, opportunity mapping, competitive research and prioritization."
+    ],
+    "labs": [],
+    "project": "Product discovery case study",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 15,
+    "title": "Agile + Project Planning",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Backlogs, user stories, acceptance criteria, sprint planning and delivery tracking."
+    ],
+    "labs": [],
+    "project": "Agile product simulation",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 16,
+    "title": "Roadmaps + Metrics",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Roadmaps, OKRs, product metrics, funnels and basic experimentation."
+    ],
+    "labs": [],
+    "project": "Product roadmap + KPI plan",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 17,
+    "title": "Design Systems I",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Tokens, components, variants, states, naming and documentation."
+    ],
+    "labs": [],
+    "project": "Mini design system",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 18,
+    "title": "Design Systems II",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Responsive components, accessibility, governance and developer handoff."
+    ],
+    "labs": [],
+    "project": "Production-style design system",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 19,
+    "title": "AI Product Fundamentals",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "AI vs traditional software, AI capabilities/limits, model uncertainty and AI product lifecycle."
+    ],
+    "labs": [],
+    "project": "AI product opportunity study",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 20,
+    "title": "AI UX Patterns",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Prompt interfaces, conversational UI, generated content, citations, confidence and correction flows."
+    ],
+    "labs": [],
+    "project": "AI assistant UX prototype",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 21,
+    "title": "AI Product Discovery",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "AI use-case selection, human-in-loop design, risk mapping and requirements."
+    ],
+    "labs": [],
+    "project": "AI product requirements document",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 22,
+    "title": "AI Prototyping",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "LLM-assisted prototyping, realistic AI states, tool flows and evaluation planning."
+    ],
+    "labs": [],
+    "project": "AI workflow prototype",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 23,
+    "title": "Microsoft AI Product Manager I",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "AI product strategy, stakeholders, use cases, requirements and responsible AI considerations."
+    ],
+    "labs": [],
+    "project": "AI product strategy case",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 24,
+    "title": "Microsoft AI Product Manager II",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Roadmap, metrics, experimentation, launch planning and lifecycle management."
+    ],
+    "labs": [],
+    "project": "AI product launch plan",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 25,
+    "title": "AI Research + Evaluation",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Evaluating AI UX, task success, hallucination/user-trust issues, qualitative and quantitative testing."
+    ],
+    "labs": [],
+    "project": "AI usability evaluation",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 26,
+    "title": "Advanced UX Research",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Moderated testing, unmoderated testing, synthesis, evidence quality and research reporting."
+    ],
+    "labs": [],
+    "project": "Advanced research case study",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 27,
+    "title": "AI Product Capstone",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Research → requirements → architecture collaboration → prototype → evaluation."
+    ],
+    "labs": [],
+    "project": "End-to-end AI product case",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 28,
+    "title": "Advanced UX + NN/g Preparation",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Usability principles, interaction patterns, heuristics and advanced UX practice."
+    ],
+    "labs": [],
+    "project": "Heuristic evaluation portfolio",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 29,
+    "title": "Accessibility + Inclusive AI",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "WCAG concepts, keyboard flows, screen-reader considerations, bias and inclusive AI design."
+    ],
+    "labs": [],
+    "project": "Accessible AI interface",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 30,
+    "title": "Complex Product Design",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Enterprise workflows, permissions, dashboards, multi-role systems and edge cases."
+    ],
+    "labs": [],
+    "project": "Enterprise product prototype",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 31,
+    "title": "AI Design Systems",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "AI-specific components, prompt patterns, model states, citations, safety and feedback components."
+    ],
+    "labs": [],
+    "project": "AI design system",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 32,
+    "title": "Product Analytics + Experimentation",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Funnel analysis, usability metrics, A/B testing concepts and product decisions from evidence."
+    ],
+    "labs": [],
+    "project": "Experimentation case study",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 33,
+    "title": "AI Product Strategy",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Market/problem framing, product differentiation, prioritization and responsible launch decisions."
+    ],
+    "labs": [],
+    "project": "AI product strategy portfolio",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 34,
+    "title": "NN/g / Advanced UX Portfolio",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Advanced case-study refinement, heuristic evaluation and optional NN/g preparation/certification."
+    ],
+    "labs": [],
+    "project": "Advanced UX case study",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 35,
+    "title": "GitHub + Portfolio Engineering",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Portfolio structure, case-study writing, design rationale, prototypes, research evidence and documentation."
+    ],
+    "labs": [],
+    "project": "6–10 flagship portfolio projects",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   },
+   {
+    "n": 36,
+    "title": "Final Professional Product + UX Capstone",
+    "stage": null,
+    "weeks": null,
+    "hours": null,
+    "topics": [
+     "Full product discovery → research → UX → UI → AI interaction → testing → product strategy."
+    ],
+    "labs": [],
+    "project": "Flagship AI product design capstone",
+    "assessment": "1-hour theory + practical assessment covering the month's major outcomes."
+   }
+  ],
+  "certifications": [
+   "IxDF UX Certification",
+   "Google UX Design Professional Certificate",
+   "CalArts UI/UX Design Specialization",
+   "Google Project Management Professional Certificate",
+   "Microsoft AI Product Manager Professional Certificate",
+   "NN/g UX Certification"
+  ],
+  "roles": [
+   "Junior UX Designer",
+   "Junior UI Designer",
+   "UX Research Assistant / Junior UX Researcher",
+   "Product Designer — Junior",
+   "AI Product Designer — Junior",
+   "AI UX Designer",
+   "Junior Product Manager",
+   "AI Product Management Associate",
+   "UX/UI Freelancer",
+   "Design Systems Junior / Associate"
+  ],
+  "tools": [
+   "GitHub"
+  ],
+  "hardware": [
+   "> Minimum specs for needed UX/Product + AI projects",
+   "- CPU: Intel Core i5 / Ryzen 5 or better",
+   "- RAM: 16 GB minimum",
+   "- Storage: 512 GB SSD",
+   "- GPU: Integrated graphics is sufficient — no dedicated GPU needed",
+   "- Display: 14–16\" Full HD, preferably IPS",
+   "- OS: Windows 11 / macOS"
+  ],
+  "notes": [
+   "All 624 hours include learning, practical work and the 36 one-hour monthly exams.",
+   "The program starts from absolute zero and does not assume prior design or product knowledge.",
+   "The six external certification paths are embedded as preparation milestones; completing the curriculum does not automatically award the external credentials.",
+   "The source gives approximate India costs and explicitly warns that prices and certification details can change.",
+   "NN/g is treated as optional because the supplied source identifies it as a very expensive certification.",
+   "No internship guarantee is included.",
+   "*Product & UX / AI Design • 3 Years • 624 Hours • Professional Portfolio Path"
+  ]
+ },
+ "software-development": {
+  "source": "3-Year_Software_Development_Professional_Program_624_Hours1.md",
+  "purpose": [
+   "This three-year, 624-hour Software Development specialization is designed for a Class-10-pass student with no assumed programming knowledge. It progresses from computer and programming fundamentals to professional full-stack, cloud and software-engineering capability. The target is job readiness through practical skills, a high volume of hands-on work, GitHub evidence and a professional portfolio. Employment or internship placement is not guaranteed."
+  ],
+  "months": [
+   {
+    "n": 1,
+    "title": "Computer & Software Foundations",
+    "stage": "Absolute Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "What software is",
+     "hardware vs software",
+     "operating systems",
+     "files/folders",
+     "applications",
+     "browsers",
+     "basic command line",
+     "safe computing"
+    ],
+    "labs": [
+     "Install/use a development environment",
+     "create folders/projects",
+     "run first program",
+     "basic terminal navigation"
+    ],
+    "project": "Personal Developer Setup + First Program Portfolio",
+    "assessment": "Exam 1: Computer, OS, Software & Development Basics"
+   },
+   {
+    "n": 2,
+    "title": "Programming Logic & Problem Solving",
+    "stage": "Absolute Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Algorithms",
+     "variables",
+     "data types",
+     "conditions",
+     "loops",
+     "functions",
+     "debugging",
+     "pseudocode",
+     "flowcharts"
+    ],
+    "labs": [
+     "Solve beginner programming problems",
+     "trace programs",
+     "debug broken code"
+    ],
+    "project": "50-Problem Programming Logic Repository",
+    "assessment": "Exam 2: Programming Logic & Problem Solving"
+   },
+   {
+    "n": 3,
+    "title": "Java Fundamentals I",
+    "stage": "Absolute Beginner",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Java syntax",
+     "variables",
+     "operators",
+     "conditionals",
+     "loops",
+     "methods",
+     "arrays",
+     "console I/O"
+    ],
+    "labs": [
+     "Build calculators, menu programs and small utilities"
+    ],
+    "project": "Java CLI Utility Pack",
+    "assessment": "Exam 3: Java Fundamentals I"
+   },
+   {
+    "n": 4,
+    "title": "Java Fundamentals II & OOP",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Classes/objects",
+     "constructors",
+     "encapsulation",
+     "inheritance",
+     "polymorphism",
+     "interfaces",
+     "exceptions"
+    ],
+    "labs": [
+     "Build an object-oriented application",
+     "unit-test core classes"
+    ],
+    "project": "Java OOP Management Application",
+    "assessment": "Exam 4: Java OOP"
+   },
+   {
+    "n": 5,
+    "title": "Git, GitHub & Software Collaboration",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Git concepts",
+     "commits",
+     "branches",
+     "merges",
+     "pull requests",
+     "issues",
+     "README",
+     "versioning",
+     "collaboration"
+    ],
+    "labs": [
+     "Create GitHub repositories",
+     "branch workflow",
+     "pull request simulation",
+     "resolve merge conflicts"
+    ],
+    "project": "Collaborative GitHub Project",
+    "assessment": "Exam 5: Git & Collaboration"
+   },
+   {
+    "n": 6,
+    "title": "HTML & Web Fundamentals",
+    "stage": "Beginner",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "HTML structure",
+     "semantic HTML",
+     "forms",
+     "accessibility",
+     "browser basics",
+     "HTTP overview"
+    ],
+    "labs": [
+     "Build multi-page websites",
+     "forms",
+     "accessible semantic layouts"
+    ],
+    "project": "Personal Developer Website v1",
+    "assessment": "Exam 6: Web Fundamentals"
+   },
+   {
+    "n": 7,
+    "title": "CSS & Responsive Design",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Selectors",
+     "box model",
+     "flexbox",
+     "grid",
+     "typography",
+     "responsive layouts",
+     "basic UI principles"
+    ],
+    "labs": [
+     "Recreate interfaces",
+     "responsive landing page",
+     "mobile/desktop testing"
+    ],
+    "project": "Responsive Portfolio Website",
+    "assessment": "Exam 7: CSS & Responsive Web Design"
+   },
+   {
+    "n": 8,
+    "title": "JavaScript Fundamentals",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Variables",
+     "functions",
+     "arrays",
+     "objects",
+     "DOM",
+     "events",
+     "modules",
+     "error handling"
+    ],
+    "labs": [
+     "Build interactive browser applications"
+    ],
+    "project": "JavaScript Interactive App",
+    "assessment": "Exam 8: JavaScript Fundamentals"
+   },
+   {
+    "n": 9,
+    "title": "JavaScript Advanced & APIs",
+    "stage": "Beginner",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Async programming",
+     "promises",
+     "fetch",
+     "JSON",
+     "REST basics",
+     "local storage",
+     "modules"
+    ],
+    "labs": [
+     "Consume public APIs",
+     "build async UI",
+     "handle API errors"
+    ],
+    "project": "API-Driven Web Application",
+    "assessment": "Exam 9: JavaScript, Async & APIs"
+   },
+   {
+    "n": 10,
+    "title": "SQL & Relational Databases",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Tables",
+     "keys",
+     "relationships",
+     "CRUD",
+     "SELECT",
+     "JOIN",
+     "aggregation",
+     "normalization basics"
+    ],
+    "labs": [
+     "Design a database",
+     "write queries",
+     "connect sample data"
+    ],
+    "project": "Relational Database Project",
+    "assessment": "Exam 10: SQL & Databases"
+   },
+   {
+    "n": 11,
+    "title": "Frontend Development with React",
+    "stage": "Beginner",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Components",
+     "JSX",
+     "props",
+     "state",
+     "hooks",
+     "forms",
+     "routing",
+     "component architecture"
+    ],
+    "labs": [
+     "Build a multi-page React application"
+    ],
+    "project": "React Application v1",
+    "assessment": "Exam 11: React Fundamentals"
+   },
+   {
+    "n": 12,
+    "title": "Year-1 Full Web Project & AZ-900 Readiness",
+    "stage": "Beginner",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Full-stack concepts",
+     "deployment concepts",
+     "cloud vocabulary",
+     "Azure fundamentals",
+     "security/reliability basics"
+    ],
+    "labs": [
+     "Deploy a frontend",
+     "connect database/API",
+     "document architecture"
+    ],
+    "project": "Year-1 Full Web Application + GitHub Portfolio Review",
+    "assessment": "Exam 12: Year-1 Comprehensive + AZ-900 Readiness; optional AZ-900 exam window"
+   },
+   {
+    "n": 13,
+    "title": "Data Structures & Algorithms I",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Arrays",
+     "strings",
+     "linked lists",
+     "stacks",
+     "queues",
+     "complexity",
+     "searching",
+     "sorting"
+    ],
+    "labs": [
+     "Solve timed coding problems",
+     "implement structures from scratch"
+    ],
+    "project": "DSA Repository I",
+    "assessment": "Exam 13: DSA I"
+   },
+   {
+    "n": 14,
+    "title": "Data Structures & Algorithms II",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Trees",
+     "heaps",
+     "hash tables",
+     "recursion",
+     "graphs",
+     "BFS/DFS"
+    ],
+    "labs": [
+     "Implement algorithms",
+     "solve practical search/path problems"
+    ],
+    "project": "DSA Repository II",
+    "assessment": "Exam 14: DSA II"
+   },
+   {
+    "n": 15,
+    "title": "Java Backend with Spring Boot",
+    "stage": "Intermediate",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Spring Boot",
+     "REST controllers",
+     "services",
+     "repositories",
+     "dependency injection",
+     "validation"
+    ],
+    "labs": [
+     "Build REST APIs",
+     "structure a production-style backend"
+    ],
+    "project": "Spring Boot REST API",
+    "assessment": "Exam 15: Spring Boot Backend"
+   },
+   {
+    "n": 16,
+    "title": "Advanced Java & OCP Preparation",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Collections",
+     "streams",
+     "generics",
+     "concurrency concepts",
+     "I/O",
+     "testing",
+     "JVM concepts"
+    ],
+    "labs": [
+     "Build tested Java services",
+     "concurrency exercises"
+    ],
+    "project": "Java Professional Backend Project",
+    "assessment": "Exam 16: Advanced Java + OCP Readiness; optional OCP Java exam window"
+   },
+   {
+    "n": 17,
+    "title": "Backend APIs, Authentication & Security",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "REST design",
+     "HTTP status codes",
+     "JWT",
+     "sessions",
+     "OAuth concepts",
+     "input validation",
+     "secure API design"
+    ],
+    "labs": [
+     "Build authenticated API",
+     "role-based access",
+     "API testing"
+    ],
+    "project": "Secure REST API",
+    "assessment": "Exam 17: APIs, Authentication & Security"
+   },
+   {
+    "n": 18,
+    "title": "NoSQL & Data Access",
+    "stage": "Intermediate",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Document databases",
+     "caching concepts",
+     "SQL vs NoSQL",
+     "ORM",
+     "transactions",
+     "indexes"
+    ],
+    "labs": [
+     "Add NoSQL storage",
+     "optimize queries",
+     "design hybrid persistence"
+    ],
+    "project": "Hybrid Data Application",
+    "assessment": "Exam 18: Data Access & Persistence"
+   },
+   {
+    "n": 19,
+    "title": "Testing & Software Quality",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Unit/integration/end-to-end testing",
+     "mocks",
+     "test strategy",
+     "debugging",
+     "code quality"
+    ],
+    "labs": [
+     "Build test suites",
+     "automate regression tests",
+     "test API/UI"
+    ],
+    "project": "Tested Production-Style Application",
+    "assessment": "Exam 19: Software Testing"
+   },
+   {
+    "n": 20,
+    "title": "TypeScript & Modern Frontend Engineering",
+    "stage": "Intermediate",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "TypeScript types",
+     "interfaces",
+     "generics",
+     "advanced React patterns",
+     "state management",
+     "reusable components"
+    ],
+    "labs": [
+     "Convert React app to TypeScript",
+     "build reusable component library"
+    ],
+    "project": "TypeScript React Application",
+    "assessment": "Exam 20: TypeScript & Modern Frontend"
+   },
+   {
+    "n": 21,
+    "title": "Full-Stack Architecture",
+    "stage": "Intermediate",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Frontend/backend boundaries",
+     "API contracts",
+     "authentication",
+     "database design",
+     "error handling",
+     "scalability basics"
+    ],
+    "labs": [
+     "Design and build complete application architecture"
+    ],
+    "project": "Full-Stack SaaS Application",
+    "assessment": "Exam 21: Full-Stack Architecture"
+   },
+   {
+    "n": 22,
+    "title": "AWS Developer Foundations",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "AWS compute",
+     "storage",
+     "databases",
+     "IAM",
+     "networking basics",
+     "monitoring",
+     "serverless concepts"
+    ],
+    "labs": [
+     "Deploy a backend to AWS",
+     "use managed services"
+    ],
+    "project": "AWS-Deployed Application",
+    "assessment": "Exam 22: AWS Developer Foundations"
+   },
+   {
+    "n": 23,
+    "title": "CI/CD & DevOps for Developers",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Build pipelines",
+     "automated tests",
+     "GitHub Actions",
+     "containers",
+     "Docker",
+     "environment management"
+    ],
+    "labs": [
+     "Containerize application",
+     "create CI/CD pipeline",
+     "automated deployment"
+    ],
+    "project": "Containerized CI/CD Project",
+    "assessment": "Exam 23: CI/CD & DevOps"
+   },
+   {
+    "n": 24,
+    "title": "Year-2 Capstone & AWS Developer Readiness",
+    "stage": "Advanced",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Production deployment",
+     "observability",
+     "cloud security",
+     "performance",
+     "release management"
+    ],
+    "labs": [
+     "Deploy complete full-stack product",
+     "monitor and troubleshoot"
+    ],
+    "project": "Year-2 Production SaaS Capstone",
+    "assessment": "Exam 24: Year-2 Comprehensive + AWS Developer Readiness; optional AWS Developer Associate exam window"
+   },
+   {
+    "n": 25,
+    "title": "System Design I",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Requirements",
+     "APIs",
+     "load",
+     "databases",
+     "caching",
+     "queues",
+     "scaling",
+     "availability"
+    ],
+    "labs": [
+     "Design systems from requirements",
+     "defend architecture choices"
+    ],
+    "project": "System Design Casebook I",
+    "assessment": "Exam 25: System Design I"
+   },
+   {
+    "n": 26,
+    "title": "System Design II & Distributed Systems",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Microservices",
+     "event-driven architecture",
+     "consistency",
+     "fault tolerance",
+     "service discovery",
+     "observability"
+    ],
+    "labs": [
+     "Design distributed systems",
+     "analyze trade-offs"
+    ],
+    "project": "Distributed Systems Architecture Project",
+    "assessment": "Exam 26: Distributed Systems"
+   },
+   {
+    "n": 27,
+    "title": "Cloud-Native Application Engineering",
+    "stage": "Advanced",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Containers",
+     "serverless",
+     "managed databases",
+     "cloud networking",
+     "IAM",
+     "secrets",
+     "monitoring"
+    ],
+    "labs": [
+     "Build cloud-native service",
+     "secure deployment",
+     "monitor production-like workload"
+    ],
+    "project": "Cloud-Native Application",
+    "assessment": "Exam 27: Cloud-Native Engineering"
+   },
+   {
+    "n": 28,
+    "title": "Performance, Scalability & Reliability",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Profiling",
+     "caching",
+     "database optimization",
+     "concurrency",
+     "rate limiting",
+     "resilience",
+     "SLO concepts"
+    ],
+    "labs": [
+     "Load-test application",
+     "optimize bottlenecks",
+     "implement resilience"
+    ],
+    "project": "Performance Engineering Report",
+    "assessment": "Exam 28: Performance & Reliability"
+   },
+   {
+    "n": 29,
+    "title": "Application Security",
+    "stage": "Advanced",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "OWASP concepts",
+     "secure coding",
+     "dependency security",
+     "secrets",
+     "auth",
+     "authorization",
+     "threat modeling"
+    ],
+    "labs": [
+     "Threat-model an application",
+     "remediate vulnerable code",
+     "dependency scanning"
+    ],
+    "project": "Secure Software Development Project",
+    "assessment": "Exam 29: Application Security"
+   },
+   {
+    "n": 30,
+    "title": "AI-Assisted Software Development",
+    "stage": "Advanced",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "AI coding assistants",
+     "prompt-driven development",
+     "code review with AI",
+     "testing AI-generated code",
+     "hallucination/quality control",
+     "responsible use"
+    ],
+    "labs": [
+     "Use AI to accelerate development while independently verifying outputs"
+    ],
+    "project": "AI-Assisted Developer Workflow + Audit Report",
+    "assessment": "Exam 30: AI-Assisted Development"
+   },
+   {
+    "n": 31,
+    "title": "Advanced Full-Stack Engineering",
+    "stage": "Professional / Job-ready",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Production architecture",
+     "clean code",
+     "domain modeling",
+     "observability",
+     "deployment",
+     "maintainability"
+    ],
+    "labs": [
+     "Build a substantial full-stack product from requirements to deployment"
+    ],
+    "project": "Major Full-Stack Product v1",
+    "assessment": "Exam 31: Advanced Full-Stack Engineering"
+   },
+   {
+    "n": 32,
+    "title": "Software Engineering Practices",
+    "stage": "Professional / Job-ready",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Agile",
+     "issue tracking",
+     "code reviews",
+     "documentation",
+     "versioning",
+     "technical debt",
+     "teamwork"
+    ],
+    "labs": [
+     "Run a simulated development sprint",
+     "review code",
+     "manage issues"
+    ],
+    "project": "Team Software Engineering Simulation",
+    "assessment": "Exam 32: Professional Software Engineering"
+   },
+   {
+    "n": 33,
+    "title": "AWS Developer Associate Deep Practice",
+    "stage": "Professional / Job-ready",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "AWS application architecture",
+     "deployment",
+     "security",
+     "monitoring",
+     "storage",
+     "databases",
+     "serverless",
+     "troubleshooting"
+    ],
+    "labs": [
+     "Build and troubleshoot a cloud-native application under timed scenarios"
+    ],
+    "project": "AWS Production Engineering Lab",
+    "assessment": "Exam 33: AWS Developer Associate Readiness"
+   },
+   {
+    "n": 34,
+    "title": "Meta Front-End Portfolio Mastery",
+    "stage": "Professional / Job-ready",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "Advanced frontend architecture",
+     "accessibility",
+     "performance",
+     "UX implementation",
+     "testing",
+     "portfolio presentation"
+    ],
+    "labs": [
+     "Polish a production-quality frontend",
+     "accessibility and performance audit"
+    ],
+    "project": "Professional Front-End Portfolio Project",
+    "assessment": "Exam 34: Front-End Engineering"
+   },
+   {
+    "n": 35,
+    "title": "Final Engineering Portfolio & Interview Engineering",
+    "stage": "Professional / Job-ready",
+    "weeks": 4,
+    "hours": 16,
+    "topics": [
+     "DSA revision",
+     "debugging interviews",
+     "API/system-design interviews",
+     "GitHub presentation",
+     "technical writing"
+    ],
+    "labs": [
+     "Timed coding assessments",
+     "code review",
+     "architecture interview simulation"
+    ],
+    "project": "Developer Portfolio + Interview Challenge Set",
+    "assessment": "Exam 35: Professional Developer Assessment"
+   },
+   {
+    "n": 36,
+    "title": "Final Production Software Capstone",
+    "stage": "Professional / Job-ready",
+    "weeks": 5,
+    "hours": 20,
+    "topics": [
+     "Requirements-to-production workflow",
+     "architecture",
+     "development",
+     "testing",
+     "security",
+     "CI/CD",
+     "cloud deployment",
+     "documentation"
+    ],
+    "labs": [
+     "Build, deploy, test and present an end-to-end production-style application"
+    ],
+    "project": "Final Production Software Product + Complete GitHub Portfolio",
+    "assessment": "Exam 36: Final Professional / Job-Readiness Examination; certification completion/attempt window as selected"
+   }
+  ],
+  "certifications": [
+   "Microsoft Certified: Azure Fundamentals (AZ-900)",
+   "Oracle Certified Foundations Associate (Java)",
+   "HackerRank Skills Certification (SQL / Problem Solving)",
+   "Meta Front-End Developer Professional Certificate",
+   "Oracle Certified Professional, Java SE (OCPJP)",
+   "AWS Certified Developer – Associate"
+  ],
+  "roles": [
+   "Junior Software Developer",
+   "Junior Software Engineer",
+   "Frontend Developer — Junior",
+   "Backend Developer — Junior",
+   "Full-Stack Developer — Junior",
+   "Java Developer — Junior",
+   "Web Developer",
+   "React Developer — Junior",
+   "Application Developer",
+   "Cloud Application Developer — Junior",
+   "Software QA / Test Automation Trainee",
+   "DevOps / Cloud Developer Trainee",
+   "Technical Support / Application Support Developer",
+   "Freelance Web Developer",
+   "Freelance Full-Stack Developer"
+  ],
+  "tools": [
+   "Java",
+   "JavaScript",
+   "TypeScript",
+   "React",
+   "SQL",
+   "Git",
+   "GitHub",
+   "Docker",
+   "Linux",
+   "Spring Boot",
+   "AWS",
+   "Azure"
+  ],
+  "hardware": [
+   "Minimum laptop specs for these projects",
+   "- CPU: Intel Core i5 / Ryzen 5 (recent generation)",
+   "- RAM: 16 GB",
+   "- Storage: 512 GB NVMe SSD",
+   "- GPU: Integrated graphics is sufficient — dedicated GPU not required",
+   "- Display: 14–16\" Full HD IPS",
+   "- OS: Windows 11 / macOS / Linux"
+  ],
+  "notes": [
+   "All 624 hours include learning, practical work, projects, coding exercises, and the 36 one-hour monthly exams.",
+   "The program starts from absolute zero and does not assume prior programming or computer-science knowledge.",
+   "The curriculum covers Java, DSA, web development, React, Spring Boot, databases, APIs, cloud, AWS, Docker, CI/CD, system design, and production-level software development.",
+   "External certifications, where applicable, are treated as preparation milestones; completing the curriculum does not automatically award external credentials.",
+   "The program includes hands-on projects and portfolio-ready capstone projects designed to demonstrate practical software-development skills.",
+   "Cloud services such as AWS may involve additional usage costs, which can vary depending on usage, region, and current pricing.",
+   "Certification fees, cloud costs, and other third-party pricing are approximate and subject to change.",
+   "No internship or job-placement guarantee is included.",
+   "The final stages focus on production-oriented development, system design, deployment, security, performance, and professional software-engineering practices."
+  ]
+ }
+}
