@@ -330,3 +330,67 @@ textarea.inp{padding:14px 16px;min-height:130px;resize:vertical}
 @media (max-width:900px){.prog-feature{max-height:none}.prog-feature .art{min-height:260px}.pcard--lead{max-height:none}.pcard--lead .art{min-height:240px}.prog-feature .art::after{display:none}}
 @media (prefers-reduced-motion:reduce){.prog-feature .art img,.pcard--lead .art img{transform:translate(-50%,-50%)!important}.prog-rows .prog-row.pend{opacity:1;transform:none}}
 .prog-row{grid-template-columns:minmax(0,2.2fr) minmax(0,3fr) 150px 110px 32px}@media (max-width:1100px){.prog-row{grid-template-columns:minmax(0,2fr) minmax(0,2fr) 90px 28px}}@media (max-width:900px){.prog-row{grid-template-columns:1fr auto}}
+/* ================= Program tiles ================= */
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.pcard.tile{position:relative;display:flex;flex-direction:column;padding:clamp(22px,2vw,30px);min-height:430px;background:linear-gradient(160deg,#fff 0,#F1F7FF 100%);border:1px solid var(--blue-100);box-shadow:0 20px 44px -34px rgba(10,42,102,.45);overflow:hidden;isolation:isolate;transition:transform .45s var(--ease),border-color .3s,box-shadow .45s}
+.pcard.tile:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 34px 60px -34px rgba(0,109,238,.55)}
+.tile-glow{position:absolute;z-index:-1;width:260px;height:260px;right:-70px;top:-70px;border-radius:50%;background:radial-gradient(circle,rgba(0,109,238,.2),rgba(0,109,238,0) 68%);transition:transform .6s var(--ease),opacity .4s;opacity:.8}
+.pcard.tile:hover .tile-glow{transform:scale(1.25);opacity:1}
+.tile-top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s3);min-height:150px}.tile-top .tag{white-space:nowrap}
+.tile-art{width:min(66%,210px);margin:-6px -6px 0 auto;transform:translate3d(calc(var(--mx,0)*7px),calc(var(--my,0)*7px),0);transition:transform .35s var(--ease)}
+.tile-art .ta{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 16px 18px rgba(10,42,102,.22))}
+.pcard.tile h3{margin-top:var(--s5);font-size:clamp(1.4rem,1.15rem + .8vw,1.85rem);letter-spacing:-.035em}
+.pcard.tile p{margin-top:var(--s2);font-size:.9375rem;color:var(--blue-900);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tile-stats{display:grid;grid-template-columns:auto auto 1fr;gap:clamp(18px,2vw,30px);margin-top:auto;padding-top:var(--s5);border-top:1px solid var(--blue-100);align-items:end;padding-right:56px}
+.tile-stats dt{font:500 .6875rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--blue-900)}
+.tile-stats dd{font:600 1rem var(--font-body);margin-top:2px}.tile-stats div:first-child dd{font:600 clamp(1.8rem,1.4rem + 1vw,2.4rem)/1 var(--font-display);letter-spacing:-.05em;color:var(--blue-text)}
+.tile-go{position:absolute;right:clamp(20px,2vw,28px);bottom:clamp(20px,2vw,28px);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--blue-200);color:var(--blue);font-size:1.15rem;transition:background .25s,color .25s,transform .35s var(--ease),border-color .25s}
+.pcard.tile:hover .tile-go{background:var(--blue);color:#fff;border-color:var(--blue);transform:translateX(4px)}
+.pcard.tile.tile--lead{background:linear-gradient(150deg,#0A4FC0 0,var(--blue) 70%);border-color:var(--blue);color:#fff}
+.pcard.tile.tile--lead p,.tile--lead .tile-stats dt,.tile--lead .tile-stats dd,.pcard.tile.tile--lead h3{color:#fff}.tile--lead .tile-stats{border-color:rgba(255,255,255,.3)}
+.tile--lead .tile-stats div:first-child dd{color:#fff}.tile--lead .tag{background:rgba(0,40,110,.5);border-color:rgba(255,255,255,.3);color:#fff}
+.tile--lead .tile-glow{background:radial-gradient(circle,rgba(255,255,255,.3),rgba(255,255,255,0) 68%)}
+.tile--lead .tile-go{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.14);color:#fff}.tile--lead:hover .tile-go{background:#fff;color:var(--blue)}
+/* entrance: tiles rise in a wave and their art assembles */
+html.js .tiles:not(.in) .pcard.tile{opacity:0;transform:translateY(26px)}
+html.js .tiles .pcard.tile{transition:opacity .7s var(--ease),transform .7s var(--ease),border-color .3s,box-shadow .45s;transition-delay:calc(var(--ti,0)*.09s),calc(var(--ti,0)*.09s),0s,0s}
+html.js .tiles:not(.in) .tile-art{opacity:0;transform:scale(.82) translateY(14px)}
+html.js .tiles.in .tile-art{opacity:1;transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--ti,0)*.09s + .2s)}
+html.js .tiles.in .pcard.tile:hover{transform:translateY(-6px);transition-delay:0s}
+/* illustrations: paused until the tile is in view, faster on hover */
+.ta *{animation-play-state:paused}.tile.live .ta *{animation-play-state:running}
+.ta-step{animation:taStep 3.6s ease-in-out infinite;animation-delay:calc(var(--i)*.55s)}
+@keyframes taStep{0%,100%{opacity:.78}35%{opacity:1}}
+.ta-ball{animation:taHop 3.6s cubic-bezier(.45,0,.3,1) infinite}
+@keyframes taHop{0%{transform:translate(34px,100px);opacity:1}18%{transform:translate(60px,84px)}36%{transform:translate(86px,68px)}54%{transform:translate(112px,52px)}72%{transform:translate(138px,36px);opacity:1}86%{transform:translate(138px,30px);opacity:0}100%{transform:translate(34px,100px);opacity:0}}
+.ta-node{animation:taNode 2.8s ease-in-out infinite;animation-delay:calc(var(--i)*.14s);transform-box:fill-box;transform-origin:center}
+@keyframes taNode{0%,100%{transform:scale(1)}40%{transform:scale(1.28)}}
+.ta-edge{animation:taEdge 2.8s ease-in-out infinite;animation-delay:calc(var(--i)*.05s)}
+@keyframes taEdge{0%,100%{stroke-opacity:.5}50%{stroke-opacity:1}}
+.ta-spark{animation:taSpark 3s ease-in-out infinite}
+@keyframes taSpark{0%{transform:translate(30px,70px)}33%{transform:translate(80px,55px)}66%{transform:translate(130px,85px)}100%{transform:translate(130px,85px);opacity:0}}
+.ta-layer{animation:taFloat 3.4s ease-in-out infinite;animation-delay:calc(var(--i)*-.8s)}
+@keyframes taFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.ta-dot{animation:taFloat 2.6s ease-in-out infinite}
+.ta-bar{transform-box:fill-box;transform-origin:50% 100%;animation:taBar 3s ease-in-out infinite;animation-delay:calc(var(--i)*.18s)}
+@keyframes taBar{0%,100%{transform:scaleY(.55)}45%{transform:scaleY(1)}}
+.ta-line{stroke-dasharray:1;animation:taDraw 3s ease-in-out infinite}
+@keyframes taDraw{0%{stroke-dashoffset:1}60%,100%{stroke-dashoffset:0}}
+.ta-pt{animation:taPt 3s ease-in-out infinite}
+@keyframes taPt{0%{transform:translate(31px,78px)}15%{transform:translate(57px,58px)}30%{transform:translate(83px,66px)}45%{transform:translate(109px,38px)}60%,100%{transform:translate(135px,22px)}}
+.ta-spin{transform-box:fill-box;transform-origin:center;animation:taSpin 14s linear infinite}
+.ta-spin2{transform-box:fill-box;transform-origin:center;animation:taPulse 3s ease-in-out infinite}
+@keyframes taSpin{to{transform:rotate(360deg)}}
+@keyframes taPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+.ta-orb{transform-box:fill-box;transform-origin:center;animation:taOrbit 4.5s linear infinite}
+@keyframes taOrbit{from{transform:rotate(0) translateX(40px)}to{transform:rotate(360deg) translateX(40px)}}
+.ta-ring{transform-box:fill-box;transform-origin:center;animation:taRing 3s ease-out infinite;opacity:0}
+.ta-ring.r2{animation-delay:1.5s}
+@keyframes taRing{0%{transform:scale(.8);opacity:.7}100%{transform:scale(1.7);opacity:0}}
+.ta-scan{animation:taScan 2.6s ease-in-out infinite}
+@keyframes taScan{0%{transform:translateY(0)}100%{transform:translateY(100px)}}
+.tile:hover .ta *{animation-duration:calc(var(--d,1)*.7s)}
+@media (max-width:1100px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.tiles{grid-template-columns:1fr}.pcard.tile{min-height:0}.tile-top{min-height:130px}}
+@media (prefers-reduced-motion:reduce){.ta *{animation:none!important}html.js .tiles:not(.in) .pcard.tile,html.js .tiles:not(.in) .tile-art{opacity:1;transform:none}.tile-art{transform:none!important}}
+.pcard.tile .tile-stats{grid-template-columns:repeat(3,auto);justify-content:start;column-gap:clamp(16px,1.8vw,28px)}.tile-stats dd{white-space:nowrap}

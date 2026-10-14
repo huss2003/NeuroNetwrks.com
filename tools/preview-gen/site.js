@@ -40,6 +40,25 @@
     });
   })();
 
+
+  /* ---- Program tiles: reveal wave, animation only while visible, light pointer parallax ---- */
+  (function () {
+    var grids = $$('.tiles'); if (!grids.length) return;
+    var tiles = $$('.tile');
+    if ('IntersectionObserver' in window) {
+      var gi = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); gi.unobserve(e.target); } }); }, { threshold: 0.12 });
+      grids.forEach(function (g) { gi.observe(g); });
+      var ti = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('live', e.isIntersecting); }); }, { threshold: 0.25 });
+      tiles.forEach(function (t) { ti.observe(t); });
+    } else { grids.forEach(function (g) { g.classList.add('in'); }); tiles.forEach(function (t) { t.classList.add('live'); }); }
+    if (!rm && matchMedia('(hover: hover)').matches) {
+      tiles.forEach(function (t) {
+        t.addEventListener('pointermove', function (e) { var r = t.getBoundingClientRect(); t.style.setProperty('--mx', ((e.clientX - r.left) / r.width - 0.5).toFixed(2)); t.style.setProperty('--my', ((e.clientY - r.top) / r.height - 0.5).toFixed(2)); });
+        t.addEventListener('pointerleave', function () { t.style.setProperty('--mx', 0); t.style.setProperty('--my', 0); });
+      });
+    }
+  })();
+
   /* ---- Generic chip filter (programs list) ---- */
   $$('[data-filter-group]').forEach(function (g) {
     var chips = $$('[data-filter]', g), items = $$('[data-cat]', document), out = $('[data-count]');

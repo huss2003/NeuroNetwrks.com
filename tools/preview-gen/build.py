@@ -5,7 +5,7 @@ Placeholder strings are kept exactly as before: they are out of scope for this p
 import os, re, sys, json, html, shutil, glob
 import yaml
 sys.path.insert(0, os.path.dirname(__file__))
-from art import ART, shot
+from art import ART, shot, tile_art
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -160,6 +160,17 @@ print(result)</pre></div>
 <div class="box"><span class="mono">Evaluation result · design sample</span><p style="font:600 1.1rem var(--font-display);margin-bottom:12px">Task checked <span class="muted small" style="font-family:var(--font-body);font-weight:500">[Score shown here]</span></p>
 <div class="score"><div><span>Correctness</span><span class="bar-track"><i style="width:100%"></i></span></div><div><span>Code quality</span><span class="bar-track"><i style="width:80%"></i></span></div><div><span>Best practices</span><span class="bar-track"><i style="width:65%"></i></span></div></div></div></div></div>'''
 
+
+def program_tile(p, i, cat=None):
+    d = D[p[0]]; lead = i == 0
+    tag = "Start here" if lead else "Specialisation"
+    cat_attr = f' data-cat="{cat}"' if cat else ""
+    return f'''<a class="pcard tile{" tile--lead" if lead else ""}"{cat_attr} href="/programs/{p[0]}" style="--ti:{i}"><span class="tile-glow" aria-hidden="true"></span>
+<div class="tile-top"><span class="tag">{tag}</span><div class="tile-art" aria-hidden="true">{tile_art(p[0])}</div></div>
+<h3>{name_of(p)}</h3><p>{E(d["summary"])}</p>
+<dl class="tile-stats"><div><dt>Hours</dt><dd>{p[3]}</dd></div><div><dt>Length</dt><dd>{p[4]}</dd></div><div><dt>Entry</dt><dd>Class 10</dd></div></dl>
+<span class="tile-go" aria-hidden="true">→</span></a>'''
+
 # ---------------------------------------------------------------- pages
 def home():
     hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
@@ -175,16 +186,9 @@ def home():
 <li><span class="ic">{icon("clock")}</span><span><b>1-hour exams</b><span>After each module</span></span></li>
 <li><span class="ic">{icon("layers")}</span><span><b>Hands-on labs</b><span>In every month</span></span></li>
 <li><span class="ic">{icon("bars")}</span><span><b>Step-by-step</b><span>Start with Class 10</span></span></li></ul></div>'''
-    f = D["ai-foundation"]
-    feature = f'''<a class="prog-feature rv" href="/programs/ai-foundation"><div class="body"><span class="tag">Start here · 1 year</span><h3>AI Foundation</h3><p>{E(f["summary"])}</p>
-<div class="meta"><div><b>104</b><small>Hours</small></div><div><b>Beginner</b><small>Level</small></div></div><span class="go">View program <i aria-hidden="true" style="font-style:normal">→</i></span></div>
-<div class="art"><img src="/assets/p-found.webp" alt="" width="700" height="875" loading="lazy"></div></a>'''
-    rows = ""
-    for p in PROGRAMS[1:]:
-        d = D[p[0]]
-        rows += f'<a class="prog-row rv" href="/programs/{p[0]}"><h3>{name_of(p)}</h3><p>{E(d["summary"])}</p><span class="lv tag">{LV[d["level"]]}</span><span class="hrs">{p[3]}<small> hours</small></span><span class="arr" aria-hidden="true">→</span></a>'
+    tiles = "".join(program_tile(p, i) for i, p in enumerate(PROGRAMS))
     programs = f'''<section class="sec"><div class="wrap">{sec_head("Our programs", "Choose a path.<br>Build your future.", "Six programs, all open to students who have passed Class 10. One beginner course and five three-year specialisations. Ask us about fees and intake dates.")}
-{feature}<div class="prog-rows">{rows}</div><div class="actions" style="margin-top:32px">{btn("secondary", "/programs", "View all programs and compare")}</div></div></section>'''
+<div class="tiles">{tiles}</div><div class="actions" style="margin-top:36px">{btn("secondary", "/programs", "Compare all six programs")}</div></div></section>'''
     method = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Our approach", "Learn. Build. Test.<br>Improve. Repeat.", "Gain real technical skills through structured learning, hands-on practice, projects and a one-hour exam at the end of each module.")}{path_diagram()}
 <div class="actions" style="margin-top:40px">{btn("primary", "/learning-experience", "See the learning experience")}{btn("secondary", "/curriculum", "Explore the curriculum", False)}</div></div></section>'''
     lab = f'''<section class="sec"><div class="wrap">{sec_head("Real practice environment", "Hands-on labs<br>with real tools", "Practise in a lab environment with real tasks, checked work and clear feedback.")}{lab_showcase()}
@@ -202,21 +206,13 @@ def home():
     return layout("/", "NeuroNetworks AI Ed: AI and technology education after Class 10", hero + programs + method + lab + projects + faq + cta_panel(), "none", jsonld=ld)
 
 def programs_page():
-    cards = ""
-    for i, p in enumerate(PROGRAMS):
-        d = D[p[0]]; lead = i == 0
-        cat = "start" if lead else "three"
-        dl = f'<dl><div><dt>Duration</dt><dd>{p[4]}</dd></div><div><dt>Total hours</dt><dd class="big">{p[3]}</dd></div><div><dt>Level</dt><dd>{LV[d["level"]]}</dd></div><div><dt>Entry</dt><dd>Class 10 pass</dd></div></dl>'
-        if lead:
-            cards += f'''<a class="pcard pcard--lead rv" data-cat="{cat}" href="/programs/{p[0]}"><div><span class="tag">Start here · {p[4]}</span><h2 class="h3" style="margin-top:16px;font-size:var(--fs-h2)">{name_of(p)}</h2><p style="font-size:1.0625rem">{E(d["summary"])}</p>{dl}<p class="small" style="margin-top:12px;color:#fff">{FEE_LINE}</p><span class="go">View program <i aria-hidden="true" style="font-style:normal">→</i></span></div><div class="art"><img src="/assets/p-found.webp" alt="" width="700" height="875" loading="lazy"></div></a>'''
-        else:
-            cards += f'''<a class="pcard rv" data-cat="{cat}" href="/programs/{p[0]}"><span class="tag" style="align-self:flex-start">{p[4]}</span><h2 class="h3">{name_of(p)}</h2><p>{E(d["summary"])}</p>{dl}<p class="small muted" style="margin-top:12px">{FEE_LINE}</p><span class="go">View program <i aria-hidden="true" style="font-style:normal">→</i></span></a>'''
+    cards = "".join(program_tile(p, i, "start" if i == 0 else "three") for i, p in enumerate(PROGRAMS))
     rows = "".join(f'<tr><td data-l="Program"><a href="/programs/{p[0]}">{name_of(p)}</a></td><td data-l="Length">{p[4]}</td><td data-l="Hours">{p[3]}</td><td data-l="Level">{LV[D[p[0]]["level"]]}</td><td data-l="Entry">Class 10 pass</td><td data-l="Fees"><a class="tl" href="/contact?topic=fees">Enquire</a></td></tr>' for p in PROGRAMS)
     body = page_hero("Programs", "Choose a path.", "Build your future.", "One beginner course and five three-year specialisations. Every program is open to students who have passed Class 10.",
                      btn("primary", "#all", "See all six") + btn("secondary", "/contact", "Talk to us", False),
                      f'<div class="hero-art">{stair("r-hero", "Module Stack", {"n": 36, "lit": 0.6, "yaw": -0.7, "dist": 15.2, "dy": -0.1})}</div>')
     body += f'''<section class="sec sec--tight" id="all"><div class="wrap"><div class="sec-head" style="margin-bottom:28px"><div role="group" aria-label="Filter programs" data-filter-group class="chips"><button class="chip" type="button" data-filter="all" aria-pressed="true">All 6</button><button class="chip" type="button" data-filter="start" aria-pressed="false">Start here</button><button class="chip" type="button" data-filter="three" aria-pressed="false">Three-year specialisations</button></div><p class="mono" data-count role="status">Showing 6 programs</p></div>
-<div class="pgrid">{cards}</div></div></section>
+<div class="tiles">{cards}</div></div></section>
 <section class="sec sec--tint" id="compare"><div class="wrap">{sec_head("Compare at a glance", "Same entry.<br>Different depth.", "The same six programs, side by side. Every program is open to students who have passed Class 10. Pick by length and subject, then open the program page for modules and projects.")}
 <div class="tablewrap"><table class="cmp"><caption class="sr">Comparison of the six programs</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Level</th><th scope="col">Entry</th><th scope="col">Fee</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
 <section class="sec"><div class="wrap">{sec_head("How every month works", "The same five beats<br>in every three-year program.")}{beats()}</div></section>

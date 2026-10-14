@@ -88,3 +88,34 @@ def shot(i):
                 + f'<path d="M156 86 H180 V146 H196 M296 146 H320 V86 H336" fill="none" stroke="{B}" stroke-width="2"/>'
                 + f'<rect x="40" y="196" width="408" height="44" fill="#fff" stroke="#D9E8FF"/>' + bar(54, 212, 190, B) + bar(54, 226, 140) + f'<circle cx="420" cy="218" r="9" fill="{L}"/>')
     return f'<svg viewBox="0 0 488 280" role="presentation" aria-hidden="true" focusable="false" style="display:block;width:100%;height:auto"><rect width="488" height="280" fill="#EEF5FF"/>{body}</svg>'
+
+
+def tile_art(slug):
+    """Animated glass-style illustration for a program tile. Decorative; animation is CSS and paused until the tile is in view."""
+    B, L = "#006DEE", "#49B716"
+    g = f'<defs><linearGradient id="g-{slug}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#7FB1F7" stop-opacity=".55"/></linearGradient><linearGradient id="d-{slug}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D8CF5"/><stop offset="1" stop-color="#0A55C8"/></linearGradient></defs>'
+    G, D = f"url(#g-{slug})", f"url(#d-{slug})"
+    if slug == "ai-foundation":
+        steps = "".join(f'<g class="ta-step" style="--i:{i}"><path d="M{14+i*26} {112-i*16} h30 l10 -7 h-30z" fill="#fff" fill-opacity=".9"/><path d="M{14+i*26} {112-i*16} h30 v10 h-30z" fill="{D}" fill-opacity=".85"/><path d="M{44+i*26} {112-i*16} l10 -7 v10 l-10 7z" fill="#0A55C8" fill-opacity=".7"/></g>' for i in range(5))
+        body = steps + f'<circle class="ta-ball" cx="0" cy="0" r="7" fill="{L}"/>'
+    elif slug == "ai-ml-engineering":
+        layers = [(30, [40, 70, 100]), (80, [30, 55, 85, 110]), (130, [55, 85])]
+        edges = "".join(f'<line class="ta-edge" style="--i:{k}" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}"/>' for k, (x1, y1, x2, y2) in enumerate([(a, ya, b, yb) for (a, ys), (b, ys2) in zip(layers, layers[1:]) for ya in ys for yb in ys2]))
+        nodes = "".join(f'<circle class="ta-node" style="--i:{li*3+ni}" cx="{x}" cy="{y}" r="7" fill="{G}" stroke="{B}" stroke-width="2"/>' for li, (x, ys) in enumerate(layers) for ni, y in enumerate(ys))
+        body = f'<g stroke="{B}" stroke-opacity=".35" stroke-width="1.5">{edges}</g>{nodes}<circle class="ta-spark" r="5" fill="{L}"/>'
+    elif slug == "software-development":
+        lay = "".join(f'<g class="ta-layer" style="--i:{i}"><path d="M80 {96-i*28} l46 -20 l46 20 l-46 20z" fill="{G if i else D}" stroke="#fff" stroke-opacity=".8" stroke-width="1.5"/><path d="M34 {96-i*28} l46 20 v10 l-46 -20z" fill="#0A55C8" fill-opacity=".55"/><path d="M80 {116-i*28} l46 -20 v10 l-46 20z" fill="#0A55C8" fill-opacity=".35"/></g>' for i in range(3))
+        body = f'<g transform="translate(-14,10)">{lay}</g><circle class="ta-dot" cx="112" cy="40" r="6" fill="{L}"/>'
+    elif slug == "data-science-ai":
+        bars = "".join(f'<rect class="ta-bar" style="--i:{i}" x="{22+i*26}" y="{120-h}" width="18" height="{h}" rx="3" fill="{D if i%2==0 else G}" stroke="{B}" stroke-opacity=".4"/>' for i, h in enumerate([36, 58, 46, 80, 98]))
+        body = bars + f'<polyline class="ta-line" points="31,78 57,58 83,66 109,38 135,22" fill="none" stroke="{L}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/><circle class="ta-pt" r="5" fill="{L}"/>'
+    elif slug == "product-ux-ai-design":
+        body = (f'<g class="ta-spin"><rect x="38" y="22" width="84" height="84" rx="26" fill="none" stroke="{B}" stroke-width="3" stroke-opacity=".5"/><rect x="48" y="32" width="64" height="64" rx="20" fill="{G}" stroke="{B}" stroke-width="2"/></g>'
+                f'<g class="ta-spin2"><circle cx="80" cy="64" r="22" fill="{D}" fill-opacity=".9"/><circle cx="80" cy="64" r="9" fill="#fff"/></g><circle class="ta-orb" cx="80" cy="64" r="7" fill="{L}"/>')
+    else:
+        body = (f'<circle class="ta-ring" cx="80" cy="66" r="34" fill="none" stroke="{B}" stroke-width="2"/><circle class="ta-ring r2" cx="80" cy="66" r="34" fill="none" stroke="{B}" stroke-width="2"/>'
+                f'<clipPath id="c-{slug}"><path id="sh-{slug}" d="M80 18 L120 32 V68 C120 94 102 110 80 120 C58 110 40 94 40 68 V32Z"/></clipPath>'
+                f'<path d="M80 18 L120 32 V68 C120 94 102 110 80 120 C58 110 40 94 40 68 V32Z" fill="{G}" stroke="{B}" stroke-width="3" stroke-linejoin="round"/>'
+                f'<g clip-path="url(#c-{slug})"><rect class="ta-scan" x="36" y="14" width="88" height="14" fill="{L}" fill-opacity=".55"/></g>'
+                f'<rect x="66" y="62" width="28" height="22" rx="4" fill="{D}"/><path d="M71 62 v-7 a9 9 0 0 1 18 0 v7" fill="none" stroke="{D}" stroke-width="4"/><circle cx="80" cy="72" r="3" fill="#fff"/>')
+    return f'<svg class="ta" viewBox="0 0 160 140" aria-hidden="true" focusable="false">{g}{body}</svg>'
