@@ -23,6 +23,8 @@ jobs:
       # which stays on the real production build until the owner supplies the facts.
       - name: Production-mode build for audits
         run: PUBLIC_ENV=production npx astro build
+      - name: SEO check (production-mode build)
+        run: PUBLIC_ENV=production npm run seo
       - name: Lighthouse and pa11y
         run: |
           node scripts/serve-static.mjs 4322 &

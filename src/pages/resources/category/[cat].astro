@@ -15,7 +15,7 @@ const { cat } = Astro.params;
 const posts = (await getPublishedPosts()).filter((p) => p.data.category === cat);
 const name = cat.charAt(0).toUpperCase() + cat.slice(1);
 const title = `${name} Guides | NeuroNetworks AI Ed`;
-const description = `Guides in the ${cat} category from NeuroNetworks AI Ed.`;
+const description = `${name} guides on learning AI, Python, data, cybersecurity and design after Class 10, from NeuroNetworks AI Ed.`;
 ---
 
 <Base

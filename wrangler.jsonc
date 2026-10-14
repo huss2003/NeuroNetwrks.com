@@ -1,5 +1,10 @@
 {
   "name": "neuronetwrks",
   "compatibility_date": "2026-10-13",
-  "assets": { "directory": "./dist" },
+  "assets": {
+    "directory": "./dist",
+    // Redirect /page/ to /page (matches trailingSlash: 'never'). Verify against Cloudflare docs in Phase 8.
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page",
+  },
 }

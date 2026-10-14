@@ -6,7 +6,15 @@ export default [
   { ignores: ['dist/', '.astro/', '.wrangler/', 'node_modules/', 'docs/'] },
   {
     files: ['scripts/**/*.mjs', '*.config.*'],
-    languageOptions: { globals: { console: 'readonly', process: 'readonly' } },
+    languageOptions: {
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        URL: 'readonly',
+        fetch: 'readonly',
+        globalThis: 'readonly',
+      },
+    },
   },
   {
     // Rule from CLAUDE.md: only src/scripts/motion may import gsap, lenis or three.

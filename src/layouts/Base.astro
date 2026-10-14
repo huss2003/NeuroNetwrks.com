@@ -2,8 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import JsonLd from '../components/JsonLd.astro';
-import { abs, checkSeo } from '../lib/seo';
+import Seo from '../components/Seo.astro';
 import '@fontsource-variable/bricolage-grotesque';
 import '@fontsource-variable/ibm-plex-sans';
 import displayFont from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url';
@@ -16,12 +15,17 @@ interface Props {
   /** JSON-LD documents for this page (use graph() from src/lib/schema.ts) */
   jsonLd?: Record<string, unknown>[];
   ogType?: 'website' | 'article';
+  ogSlug?: string;
 }
 
-const { title, description, noindex = false, jsonLd = [], ogType = 'website' } = Astro.props;
-checkSeo(Astro.url.pathname, title, description);
-const isStaging = import.meta.env.PUBLIC_ENV !== 'production';
-const canonical = abs(Astro.url.pathname);
+const {
+  title,
+  description,
+  noindex = false,
+  jsonLd = [],
+  ogType = 'website',
+  ogSlug,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -34,28 +38,9 @@ const canonical = abs(Astro.url.pathname);
         document.documentElement.classList.add('js-motion');
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <Seo {title} {description} {noindex} {jsonLd} {ogType} {ogSlug} />
     <link rel="preload" as="font" type="font/woff2" href={displayFont} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={bodyFont} crossorigin />
-    <link rel="canonical" href={canonical} />
-    {(noindex || isStaging) && <meta name="robots" content="noindex, nofollow" />}
-    <meta property="og:locale" content="en_IN" />
-    <meta property="og:site_name" content="NeuroNetworks AI Ed" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:type" content={ogType} />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="theme-color" content="#006DEE" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    {jsonLd.map((d) => (
-      <JsonLd data={d} />
-    ))}
   </head>
   <body>
     <a

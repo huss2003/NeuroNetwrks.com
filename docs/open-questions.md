@@ -31,3 +31,10 @@ _None yet._
 18. **Delivery mode** (online, in person, hybrid), batch timings and who responds to enquiries: not in the documents.
 19. **Professionals and schools offers:** the documents are for Class 10 entrants and a teacher-ready foundation course. Is there an offer for working professionals, and may schools adopt the foundation course? Both pages hold `{{CONFIRM}}` placeholders until answered.
 20. **Faculty:** who teaches? The FAQ holds a placeholder.
+
+## Added in Phase 5 (SEO)
+
+21. **Social profile URLs** (LinkedIn, YouTube, Instagram, X) for `sameAs` and entity clarity. None are emitted until confirmed.
+22. **AI training bots:** the site currently allows GPTBot, ClaudeBot and Google-Extended (default in the plan). Confirm or tell me to block them (open question 9 still stands).
+23. **Named authors and short bios** for guides and the About page (E-E-A-T). Nothing is invented.
+24. **Google Business Profile:** only if there is a physical centre. Is there?

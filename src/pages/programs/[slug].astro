@@ -80,14 +80,27 @@ const certLabel =
       Who is it for?
     </h2>
     <p class="max-w-[62ch] text-lg">
-      {d.entry}. It runs at {d.hoursPerWeek} hours a week.
+      The {d.shortName} program is for students who have passed Class 10. {d.entry}. It runs at{' '}
+      {d.hoursPerWeek} hours a week for {d.totalHours} hours in total, and each month closes with an
+      exam.
+    </p>
+    <p class="mt-4 max-w-[62ch] text-slate">
+      Read the guide for <a href="/for/students">students</a> or for{' '}
+      <a href="/for/parents">parents</a>, or see how <a href="/admissions">admissions</a> work.
     </p>
   </Section>
 
   <Section tone="soft" aria-labelledby="learn">
-    <h2 id="learn" class="mb-8 text-[length:var(--text-2xl)]">
+    <h2 id="learn" class="mb-4 text-[length:var(--text-2xl)]">
       What will students learn, year by year?
     </h2>
+    <p class="mb-8 max-w-[62ch] text-lg">
+      The program has {d.years.reduce((n, y) => n + y.modules.length, 0)} monthly modules, each
+      ending with an exam and a project.{' '}
+      {d.years.length > 1
+        ? `Year 1 opens with ${d.years[0].modules[0]} and the final year ends with ${d.years[d.years.length - 1].modules.at(-1)}.`
+        : `It opens with ${d.years[0].modules[0]} and ends with ${d.years[0].modules.at(-1)}.`}
+    </p>
     {d.years.map((y) => (
       <CurriculumYear
         year={y.title}

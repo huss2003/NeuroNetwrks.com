@@ -8,6 +8,34 @@ import { brotliCompressSync } from 'node:zlib';
 
 const root = 'dist/client';
 const port = Number(process.argv[2] ?? 4321);
+// Apply dist/client/_headers the way Cloudflare does, so CSP and caching are exercised locally.
+const rules = [];
+try {
+  let cur = null;
+  for (const line of (await readFile(join(root, '_headers'), 'utf8')).split('\n')) {
+    if (!line.trim()) continue;
+    if (/^\S/.test(line)) {
+      cur = { pattern: line.trim(), headers: {} };
+      rules.push(cur);
+    } else if (cur) {
+      const i = line.indexOf(':');
+      cur.headers[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+    }
+  }
+} catch {
+  /* no _headers: nothing to apply */
+}
+const headersFor = (path) => {
+  const out = {};
+  for (const r of rules) {
+    const re = new RegExp(
+      '^' + r.pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$',
+    );
+    if (re.test(path)) Object.assign(out, r.headers);
+  }
+  return out;
+};
+
 const types = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css',
@@ -34,6 +62,7 @@ createServer(async (req, res) => {
         /br/.test(req.headers['accept-encoding'] ?? '');
       res.writeHead(200, {
         'Content-Type': type,
+        ...headersFor(path),
         ...(compress ? { 'Content-Encoding': 'br' } : {}),
       });
       return res.end(compress ? brotliCompressSync(body) : body);

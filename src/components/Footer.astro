@@ -1,7 +1,16 @@
 ---
 import Logo from './Logo.astro';
+import { getPrograms } from '../lib/content';
+
+const programs = await getPrograms();
 const cols = [
-  { title: 'Programs', links: [{ href: '/programs', label: 'All programs' }] },
+  {
+    title: 'Programs',
+    links: [
+      { href: '/programs', label: 'All programs' },
+      ...programs.map((p) => ({ href: `/programs/${p.data.slug}`, label: p.data.shortName })),
+    ],
+  },
   {
     title: 'For',
     links: [
