@@ -13,6 +13,17 @@ When the owner asks "what's pending?", answer from this file.
   - sitemap, robots.txt allowing AI search bots, llms.txt;
   - favicons.
 - [x] Google Analytics live (ID G-1D2KJQ9RCF) behind the cookie banner; loads only after "Allow analytics".
+- [x] AI training bots explicitly allowed in robots.txt (owner decision, 14 Oct 2026): GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, CCBot and others.
+- [x] Search Console verified (Domain property). Sitemap submitted with the full URL.
+- [x] SEO growth push (14 Oct 2026):
+  - 10 answer-first guides at /guides, chosen from India keyword research (`docs/seo/keyword-map.md`);
+  - "after 10th" titles on program pages;
+  - guide links on the home and program pages;
+  - organisation schema with knowsAbout and a course catalogue;
+  - llms-full.txt for AI engines;
+  - a smaller hero image for phones.
+  The guides use an organisation byline ("NeuroNetworks AI Ed team"), chosen by the owner. CLAUDE.md asks for a named author; switch to a named person later for stronger trust signals.
+- [x] Promotion kit in `docs/marketing/`: launch plan, social setup, first posts, listings, PR and partnerships, banner images.
 - [x] IndexNow set up. The key file is served from the site, and `python3 tools/preview-gen/indexnow.py` notifies Bing after each deploy.
 
 ## Waiting on the owner
@@ -56,10 +67,14 @@ Claude then sets `GA_ID` in `tools/preview-gen/build.py`, rebuilds and deploys. 
 7. Send Claude the profile link. Claude adds the address, phone and profile link to the site's structured data.
 
 ## Still to do before promoting the site
+- [ ] Claim the social profiles (`docs/marketing/social-setup.md`) and send Claude the links, so they can be added to the site's `SAME_AS` list in build.py.
+- [ ] In Search Console, request indexing for /guides and the 10 guide pages.
+- [ ] Create the free directory listings (`docs/marketing/listings.md`).
+- [ ] Post on the 30-day plan (`docs/marketing/launch-campaign.md`). Refresh the guides in February–March, before the April–May "after 10th" search peak.
+- [ ] Confirm whether the programs award a diploma or certificate. "Diploma after 10th" is the most-searched phrase.
 - [ ] Replace the "[to be confirmed]" placeholders: postal address, phone, faculty and team, intake dates, social profiles, founding story, admissions steps.
 - [ ] Wire the enquiry form to the Google Sheet and email (it does not send yet). This is the most important item.
 - [ ] Have a lawyer review the privacy notice and consent flow (DPDP). The footer's Privacy Policy and Terms links point to /contact for now.
-- [ ] Owner decision: allow or block AI training bots (GPTBot, ClaudeBot, Google-Extended). They are currently allowed by default.
 - [ ] Optional: replace the Unsplash classroom photo with real photos of your students.
 - [ ] Optional: move hosting to Cloudflare, as in the original plan (the site is currently on Vercel).
 - [ ] After the GSC and Bing steps: Claude checks the TXT record and sitemap status.

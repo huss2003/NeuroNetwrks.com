@@ -1,0 +1,170 @@
+# NeuroNetworks AI Ed: full program reference
+
+> Practical AI and technology programs for students who have passed Class 10, from a one-year AI Foundation course to three-year specialisations. Tagline: Learn · Develop · Create. Website: https://neuronetwrks.com. Contact: Hussain@neuronetwrks.com. Fees are shared on enquiry.
+
+## AI Foundation (1 year, 104 hours, 2 hours a week)
+URL: https://neuronetwrks.com/programs/ai-foundation
+
+AI Foundations is a one-year, 104-hour beginner course for learners who have passed Class 10. It moves from AI literacy to Python, data, machine learning, generative AI and a basic RAG prototype, and includes preparation for the Microsoft AI-901 and AWS AIF-C01 exams without promising a pass.
+
+Entry: Class 10 pass (or equivalent); no prior coding, AI or cloud experience required.
+Assessment: 104 one-hour guided lectures; recommended pass mark 80%, with targeted remediation and a retry below the threshold. No assessment hours are added outside the 104.
+
+- Year 1 (104 hours): AI Foundations & How Modern AI Works; AI Tools, Safety, Ethics & Responsible AI; Python Programming Fundamentals I; Python Programming Fundamentals II & Data Science; Machine Learning Fundamentals with Python; Computer Vision, NLP & Multimodal AI; Generative AI, LLMs & Foundation Models; Prompt Engineering, RAG & AI Application Foundations; Microsoft Azure AI Fundamentals AI-901: Concepts & Workloads; Microsoft Azure AI Fundamentals AI-901: Foundry & Exam Readiness; AWS Certified AI Practitioner AIF-C01: AI/GenAI & Services; AWS Certified AI Practitioner AIF-C01: Governance & Exam Readiness
+
+Projects: AI observation and task audit; Responsible AI audit; Python mini-program; CSV data workflow; ML mini-project; Vision/NLP evaluation; Generative AI mini-app; Prompt/RAG prototype plan; Azure AI-901 revision evidence; AWS AIF-C01 revision evidence
+
+Tools: Python, Pandas, scikit-learn, Microsoft Foundry, AWS
+
+Certification preparation (awarded by the certifying organisations; passing not guaranteed): Microsoft Azure AI Fundamentals AI-901; AWS Certified AI Practitioner AIF-C01
+
+FAQs:
+- Q: Who is the AI Foundations course for? A: It is for learners who have passed Class 10 or equivalent, with no prior coding, AI or cloud experience. Learners should be able to read simple English instructions, use a browser and manage files.
+- Q: How long is the course? A: It is 104 guided hours over 52 weeks, at 2 hours a week. Months 1 to 8 are core learning (64 hours), Months 9 and 10 prepare for Microsoft AI-901 (20 hours), and Months 11 and 12 prepare for AWS AIF-C01 (20 hours).
+- Q: Will I be certified, and does the course guarantee a pass? A: The course prepares learners for two external exams, Microsoft AI-901 and AWS AIF-C01, but does not guarantee passing. Certification is awarded by Microsoft or AWS only after the learner passes their exam.
+- Q: Does this make me an AI/ML engineer? A: No. It is a beginner applied-AI foundation, not a full software engineering course, and it does not qualify a learner as an AI/ML engineer.
+- Q: What do I need to take part? A: A laptop or desktop with internet and a browser, able to install Python or use a browser-based notebook. A phone alone is not enough for the programming labs. Plan 10 to 15 minutes of homework after each lecture.
+
+## AI/ML Engineering (3 years, 624 hours, 4 hours a week)
+URL: https://neuronetwrks.com/programs/ai-ml-engineering
+
+AI/ML Engineering is a three-year, 624-hour specialisation for students who have passed Class 10. It starts with computer and Python basics and builds up to machine learning, deep learning, generative AI and MLOps, with a one-hour exam after each of 36 monthly modules and a project in every month.
+
+Entry: Class 10 pass; basic school-level mathematics and computer familiarity.
+Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
+
+- Year 1 (208 hours): Computer + AI Foundations; Python Fundamentals; Python for AI; Math for ML I; Math for ML II; Data Preparation; AI Fundamentals + Google AI Essentials; ML Foundations; Model Evaluation + Azure AI; Classical ML; Unsupervised ML; Year-1 AI Capstone + AI-900/AI-901
+- Year 2 (208 hours): Advanced ML + AWS AI Practitioner; Feature Engineering + Explainability; Time Series + Recommendation; ML Systems Foundations; Deep Learning Fundamentals; PyTorch/TensorFlow Practice; Computer Vision; NLP Fundamentals + NVIDIA DLI; Transformers + IBM AI Engineering I; IBM AI Engineering II; MLOps I; MLOps II + Year-2 Capstone
+- Year 3 (208 hours): Generative AI Foundations; Embeddings + RAG; Agents + AI Engineering; Fine-Tuning + PEFT; Computer Vision + Multimodal AI; AI Safety + Responsible AI; Cloud AI Engineering; Advanced MLOps + Observability; AI System Design; Real-World AI Product; GitHub + Portfolio Engineering; Final Professional AI/ML Capstone
+
+Projects: AI concept map + Python mini exercises; CLI utility collection; Python data-processing toolkit; Math-for-ML notebook; Statistical experiment notebook; Messy-dataset cleaning project; AI productivity + evaluation project; House-price/regression project; Azure AI mini solution; Customer-risk classifier; Customer segmentation project; Year-1 production-style ML project; AWS AI service architecture project; Explainable ML project; Demand forecasting project; ML inference API; Neural-network from-scratch exercise; Deep-learning classifier; Image classification application; NLP classifier + DLI lab portfolio; Transformer text application; End-to-end AI service; Containerized ML service; Production ML platform prototype; LLM evaluation playground; Document RAG assistant; Tool-using AI agent; Small-model adaptation project; Multimodal document assistant; AI safety test suite; Cloud AI application; Monitored ML/LLM service; AI platform architecture project; End-to-end AI product; Portfolio with 6–10 flagship projects; Flagship AI/ML engineering capstone
+
+Tools: Python, Git, GitHub, Docker, Linux, NumPy, Pandas, Scikit-learn, PyTorch, TensorFlow, AWS, Azure
+
+Certification preparation (awarded by the certifying organisations; passing not guaranteed): Microsoft Azure AI Fundamentals (AI-900 / AI-901); AWS Certified AI Practitioner; Google AI Essentials; NVIDIA DLI Fundamentals of Deep Learning; IBM AI Engineering Professional Certificate; DeepLearning.AI Machine Learning Specialization
+
+Roles the curriculum is designed around (directions, not guarantees): Junior AI/ML Engineer; Junior Machine Learning Engineer; Applied AI Engineer; GenAI Engineer / Developer; Junior Data Scientist; Computer Vision Engineer (Junior); NLP Engineer (Junior); Junior MLOps Engineer; AI Solutions Developer; AI Automation Developer
+
+FAQs:
+- Q: Who can join this program? A: Class 10 pass; basic school-level mathematics and computer familiarity. The program is designed for students entering after Class 10.
+- Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
+- Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
+- Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: Microsoft Azure AI Fundamentals (AI-900 / AI-901); AWS Certified AI Practitioner; Google AI Essentials; NVIDIA DLI Fundamentals of Deep Learning; IBM AI Engineering Professional Certificate; DeepLearning.AI Machine Learning Specialization. They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
+- Q: What laptop do students need? A: The curriculum document gives minimum specifications: CPU: Intel i5 / Ryzen 5 or better; RAM: 16 GB minimum, 32 GB recommended; Storage: 512 GB SSD minimum, 1 TB recommended; GPU: Integrated GPU for basic ML; NVIDIA RTX 4060 8 GB+ recommended for the full roadmap; OS: Windows 11 + WSL2 or Linux.
+- Q: What kinds of roles does this program prepare students for? A: The curriculum lists entry-level roles such as Junior AI/ML Engineer, Junior Machine Learning Engineer, Applied AI Engineer, GenAI Engineer / Developer. Fit depends on the student's portfolio and on each employer's requirements.
+
+## Software Development (3 years, 624 hours, 4 hours a week)
+URL: https://neuronetwrks.com/programs/software-development
+
+The Software Development program is a three-year, 624-hour specialisation for students who have passed Class 10, with no programming knowledge assumed. It progresses from computer and programming fundamentals to professional full-stack, cloud and software-engineering capability, with a one-hour exam after each of 36 monthly modules.
+
+Entry: Class 10 pass; no programming knowledge assumed.
+Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
+
+- Year 1 (208 hours): Computer & Software Foundations; Programming Logic & Problem Solving; Java Fundamentals I; Java Fundamentals II & OOP; Git, GitHub & Software Collaboration; HTML & Web Fundamentals; CSS & Responsive Design; JavaScript Fundamentals; JavaScript Advanced & APIs; SQL & Relational Databases; Frontend Development with React; Year-1 Full Web Project & AZ-900 Readiness
+- Year 2 (208 hours): Data Structures & Algorithms I; Data Structures & Algorithms II; Java Backend with Spring Boot; Advanced Java & OCP Preparation; Backend APIs, Authentication & Security; NoSQL & Data Access; Testing & Software Quality; TypeScript & Modern Frontend Engineering; Full-Stack Architecture; AWS Developer Foundations; CI/CD & DevOps for Developers; Year-2 Capstone & AWS Developer Readiness
+- Year 3 (208 hours): System Design I; System Design II & Distributed Systems; Cloud-Native Application Engineering; Performance, Scalability & Reliability; Application Security; AI-Assisted Software Development; Advanced Full-Stack Engineering; Software Engineering Practices; AWS Developer Associate Deep Practice; Meta Front-End Portfolio Mastery; Final Engineering Portfolio & Interview Engineering; Final Production Software Capstone
+
+Projects: Personal Developer Setup + First Program Portfolio; 50-Problem Programming Logic Repository; Java CLI Utility Pack; Java OOP Management Application; Collaborative GitHub Project; Personal Developer Website v1; Responsive Portfolio Website; JavaScript Interactive App; API-Driven Web Application; Relational Database Project; React Application v1; Year-1 Full Web Application + GitHub Portfolio Review; DSA Repository I; DSA Repository II; Spring Boot REST API; Java Professional Backend Project; Secure REST API; Hybrid Data Application; Tested Production-Style Application; TypeScript React Application; Full-Stack SaaS Application; AWS-Deployed Application; Containerized CI/CD Project; Year-2 Production SaaS Capstone; System Design Casebook I; Distributed Systems Architecture Project; Cloud-Native Application; Performance Engineering Report; Secure Software Development Project; AI-Assisted Developer Workflow + Audit Report; Major Full-Stack Product v1; Team Software Engineering Simulation; AWS Production Engineering Lab; Professional Front-End Portfolio Project; Developer Portfolio + Interview Challenge Set; Final Production Software Product + Complete GitHub Portfolio
+
+Tools: Java, JavaScript, TypeScript, React, SQL, Git, GitHub, Docker, Linux, Spring Boot, AWS, Azure
+
+Certification preparation (awarded by the certifying organisations; passing not guaranteed): Microsoft Certified: Azure Fundamentals (AZ-900); Oracle Certified Foundations Associate (Java); HackerRank Skills Certification (SQL / Problem Solving); Meta Front-End Developer Professional Certificate; Oracle Certified Professional, Java SE (OCPJP); AWS Certified Developer – Associate
+
+Roles the curriculum is designed around (directions, not guarantees): Junior Software Developer; Junior Software Engineer; Frontend Developer — Junior; Backend Developer — Junior; Full-Stack Developer — Junior; Java Developer — Junior; Web Developer; React Developer — Junior; Application Developer; Cloud Application Developer — Junior; Software QA / Test Automation Trainee; DevOps / Cloud Developer Trainee; Technical Support / Application Support Developer; Freelance Web Developer; Freelance Full-Stack Developer
+
+FAQs:
+- Q: Who can join this program? A: Class 10 pass; no programming knowledge assumed. The program is designed for students entering after Class 10.
+- Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
+- Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
+- Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: Microsoft Certified: Azure Fundamentals (AZ-900); Oracle Certified Foundations Associate (Java); HackerRank Skills Certification (SQL / Problem Solving); Meta Front-End Developer Professional Certificate; Oracle Certified Professional, Java SE (OCPJP); AWS Certified Developer – Associate. They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
+- Q: What laptop do students need? A: The curriculum document gives minimum specifications: CPU: Intel Core i5 / Ryzen 5 (recent generation); RAM: 16 GB; Storage: 512 GB NVMe SSD; GPU: Integrated graphics is sufficient — dedicated GPU not required; Display: 14–16" Full HD IPS.
+- Q: What kinds of roles does this program prepare students for? A: The curriculum lists entry-level roles such as Junior Software Developer, Junior Software Engineer, Frontend Developer — Junior, Backend Developer — Junior. Fit depends on the student's portfolio and on each employer's requirements.
+
+## Data Science & AI (3 years, 624 hours, 4 hours a week)
+URL: https://neuronetwrks.com/programs/data-science-ai
+
+The Data Science & AI program is a three-year, 624-hour specialisation for Class 10 pass students who are absolute beginners. It progresses from computing, Python, SQL and statistics into analytics, machine learning, data engineering, deep learning, generative AI and MLOps, with a one-hour exam after every monthly module.
+
+Entry: Class 10 pass; absolute beginners welcome.
+Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
+
+- Year 1 (208 hours): Computer, Data & Python Foundations; Python Programming for Data; SQL Fundamentals; Statistics I; Statistics II; NumPy & Pandas; Data Visualization; Exploratory Data Analysis; Business Analytics; Dashboarding; Google Data Analytics Preparation; Year-1 Capstone & DP-900
+- Year 2 (208 hours): Machine Learning Foundations; Feature Engineering & Evaluation; Classification & Ensembles; Unsupervised Learning; Time Series; Data Engineering Foundations; Python Data Engineering; Azure ML & DP-100 Preparation; ML Deployment & MLOps; IBM Data Science Integration; IBM Data Engineering Integration; Year-2 Integrated Capstone
+- Year 3 (208 hours): Advanced Machine Learning; Deep Learning; NLP; Computer Vision; Generative AI & RAG; Data Engineering at Scale; Advanced Analytics & Experimentation; Responsible AI; MLOps; Real-World Data Project; GitHub, Portfolio & Interviews; Final Data Science & AI Capstone
+
+Projects: Data Notebook + Python Repository; Python Data Utilities Pack; SQL Analytics Repository; Exploratory Statistics Report; Statistical Investigation; Data Cleaning Notebook Portfolio; Data Storytelling Report; End-to-End EDA Project; Business Analytics Case Study; Analytics Dashboard; Google-Style Analytics Capstone; Year-1 Analytics Capstone; Regression & Classification Project; Model Evaluation Portfolio; Classification System; Segmentation/Anomaly Project; Forecasting Case Study; End-to-End Data Pipeline; Data Ingestion Pipeline; Azure ML Experiment; Production ML API; Data Science Professional Case; Data Engineering Capstone; Production-Style Data Platform; Advanced ML Experiment Suite; Deep Learning Project; NLP Project; Computer Vision Project; RAG Application; Scalable Data Platform; Product Experimentation Case; Responsible AI Audit; MLOps Pipeline; Major End-to-End Data Science Project; Professional Data/AI Portfolio; Final Data Science & AI Capstone
+
+Tools: Python, SQL, Git, GitHub, Linux, NumPy, Pandas, Jupyter, Azure
+
+Certification preparation (awarded by the certifying organisations; passing not guaranteed): Microsoft Certified: Azure Data Fundamentals (DP-900); HackerRank SQL / Python Certificate; Google Data Analytics Professional Certificate; IBM Data Science Professional Certificate; Microsoft Certified: Azure Data Scientist Associate (DP-100); IBM Data Engineering Professional Certificate
+
+Roles the curriculum is designed around (directions, not guarantees): Junior Data Analyst; Data Analyst; BI Analyst / Junior BI Developer; Junior Data Scientist; Associate Data Scientist; Junior ML Engineer; Junior Data Engineer; Analytics Engineer — Junior; ML/AI Analyst; Junior MLOps Engineer; AI/GenAI Data Analyst; Freelance Data Analyst
+
+FAQs:
+- Q: Who can join this program? A: Class 10 pass; absolute beginners welcome. The program is designed for students entering after Class 10.
+- Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
+- Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
+- Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: Microsoft Certified: Azure Data Fundamentals (DP-900); HackerRank SQL / Python Certificate; Google Data Analytics Professional Certificate; IBM Data Science Professional Certificate; Microsoft Certified: Azure Data Scientist Associate (DP-100); IBM Data Engineering Professional Certificate. They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
+- Q: What laptop do students need? A: The curriculum document gives minimum specifications: CPU: Intel Core i7 / Ryzen 7 or equivalent; RAM: 32 GB; Storage: 1 TB NVMe SSD; GPU: NVIDIA RTX 4060/5060, 8 GB VRAM+; Display: 14–16" Full HD/2K IPS.
+- Q: What kinds of roles does this program prepare students for? A: The curriculum lists entry-level roles such as Junior Data Analyst, Data Analyst, BI Analyst / Junior BI Developer, Junior Data Scientist. Fit depends on the student's portfolio and on each employer's requirements.
+
+## Product & UX / AI Design (3 years, 624 hours, 4 hours a week)
+URL: https://neuronetwrks.com/programs/product-ux-ai-design
+
+The Product & UX / AI Design program is a three-year, 624-hour specialisation for students who have passed Class 10. It begins with visual and UX fundamentals, moves through product thinking and project management, and ends with AI-assisted product design, research, design systems, prototyping and a professional portfolio.
+
+Entry: Class 10 pass; no design background assumed.
+Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
+
+- Year 1 (208 hours): Design + Computer Foundations; Visual Design Fundamentals; UX Foundations + IxDF; User Research I; User Research II; Information Architecture; Wireframing; Interaction Design; UI Design I + CalArts; UI Design II; Prototyping; Year-1 UX Capstone + Google UX
+- Year 2 (208 hours): Product Fundamentals + Google PM; Product Discovery; Agile + Project Planning; Roadmaps + Metrics; Design Systems I; Design Systems II; AI Product Fundamentals; AI UX Patterns; AI Product Discovery; AI Prototyping; Microsoft AI Product Manager I; Microsoft AI Product Manager II
+- Year 3 (208 hours): AI Research + Evaluation; Advanced UX Research; AI Product Capstone; Advanced UX + NN/g Preparation; Accessibility + Inclusive AI; Complex Product Design; AI Design Systems; Product Analytics + Experimentation; AI Product Strategy; NN/g / Advanced UX Portfolio; GitHub + Portfolio Engineering; Final Professional Product + UX Capstone
+
+Projects: Recreate 5 familiar app screens; Visual design mini-library; UX audit of a real product; User-research study; Research-to-insight case study; Information architecture project; Mobile app wireframe set; Interactive flow prototype; Web UI kit; Responsive product interface; Clickable product prototype; Complete Year-1 UX case study; Product brief + requirements; Product discovery case study; Agile product simulation; Product roadmap + KPI plan; Mini design system; Production-style design system; AI product opportunity study; AI assistant UX prototype; AI product requirements document; AI workflow prototype; AI product strategy case; AI product launch plan; AI usability evaluation; Advanced research case study; End-to-end AI product case; Heuristic evaluation portfolio; Accessible AI interface; Enterprise product prototype; AI design system; Experimentation case study; AI product strategy portfolio; Advanced UX case study; 6–10 flagship portfolio projects; Flagship AI product design capstone
+
+Tools: GitHub
+
+Certification preparation (awarded by the certifying organisations; passing not guaranteed): IxDF UX Certification; Google UX Design Professional Certificate; CalArts UI/UX Design Specialization; Google Project Management Professional Certificate; Microsoft AI Product Manager Professional Certificate; NN/g UX Certification
+
+Roles the curriculum is designed around (directions, not guarantees): Junior UX Designer; Junior UI Designer; UX Research Assistant / Junior UX Researcher; Product Designer — Junior; AI Product Designer — Junior; AI UX Designer; Junior Product Manager; AI Product Management Associate; UX/UI Freelancer; Design Systems Junior / Associate
+
+FAQs:
+- Q: Who can join this program? A: Class 10 pass; no design background assumed. The program is designed for students entering after Class 10.
+- Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
+- Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
+- Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: IxDF UX Certification; Google UX Design Professional Certificate; CalArts UI/UX Design Specialization; Google Project Management Professional Certificate; Microsoft AI Product Manager Professional Certificate; NN/g UX Certification. They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
+- Q: What laptop do students need? A: The curriculum document gives minimum specifications: CPU: Intel Core i5 / Ryzen 5 or better; RAM: 16 GB minimum; Storage: 512 GB SSD; GPU: Integrated graphics is sufficient — no dedicated GPU needed; Display: 14–16" Full HD, preferably IPS.
+- Q: What kinds of roles does this program prepare students for? A: The curriculum lists entry-level roles such as Junior UX Designer, Junior UI Designer, UX Research Assistant / Junior UX Researcher, Product Designer — Junior. Fit depends on the student's portfolio and on each employer's requirements.
+
+## Cybersecurity (3 years, 624 hours, 4 hours a week)
+URL: https://neuronetwrks.com/programs/cybersecurity
+
+The Cybersecurity program is a three-year, 624-hour specialisation for students who have passed Class 10, with no technical background assumed. It moves from computers and networking to Linux, security operations and ethical hacking, practised in authorised lab environments, with a one-hour exam after each of 36 monthly modules.
+
+Entry: Class 10 pass; no technical background assumed.
+Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
+
+- Year 1 (208 hours): Computer & Cybersecurity Foundations; Networking Fundamentals I; Networking Fundamentals II & Subnetting; Linux Fundamentals; Windows & System Administration Fundamentals; Cybersecurity Fundamentals & Security Principles; Identity, Access Control & Cryptography; Security Operations Foundations + ISC2 CC Readiness; Python, Bash & PowerShell for Security; Logs, SIEM & Security Monitoring + Google Certificate; Network Defense: Firewalls, IDS/IPS & Secure Networking; Endpoint Security & Year-1 SOC Project
+- Year 2 (208 hours): Threats, Vulnerabilities & Security+ Domain 1; Security Architecture & Design; Security Implementation & Hardening; Security Operations, Incident Response & Security+ Readiness; Vulnerability Management & Security Testing; Ethical Hacking & CEH Foundations; Web Application Security; Network Penetration Testing; Active Directory & Internal Security Testing; Exploitation, Post-Exploitation & Privilege Escalation; CEH Domains, Reporting & Attack Simulation; CEH Capstone + Professional Ethical Hacking Readiness
+- Year 3 (208 hours): SOC Engineering & SIEM Architecture; Splunk: Detection, Investigation & Dashboards; Microsoft Sentinel & KQL; Microsoft Defender XDR & Endpoint Investigation; Threat Hunting & MITRE ATT&CK; CySA+ Readiness: Security Operations & Vulnerability Analysis; Incident Response & Digital Forensics; Cloud Security: Azure/AWS Fundamentals & IAM; Cloud Detection, Logging & Security Automation; SC-200 Preparation: Defender, Sentinel & KQL; Advanced Detection Engineering & SOC Simulation; Final Enterprise Cybersecurity Capstone & Job Portfolio
+
+Projects: Cybersecurity concept map + lab notebook + GitHub repository setup; Office Network Diagram + Wireshark Packet Analysis Report; Small Business Network Design + Subnetting Workbook + Troubleshooting Report; Linux Hardening Checklist + Bash Security Toolkit; Windows Security Baseline + PowerShell Audit Script; Mini Enterprise Risk Register + Phishing Investigation Pack; IAM Design + Cryptography Demonstration Report; SOC Starter Playbook + Incident Case File; Security Automation Toolkit v1 (Python + Bash + PowerShell); Mini SOC Dashboard + Brute-Force Investigation Report; Network Defense Lab + IDS Alert Investigation; Year-1 SOC Simulation Project + Portfolio Review; Vulnerability Assessment Report v1; Secure Enterprise Architecture Blueprint; Cross-Platform Hardening Project; Enterprise Incident Response Exercise; Continuous Vulnerability Management Dashboard; Authorized Recon & Enumeration Assessment; Web Application Security Assessment; Internal Network Penetration Test Report; Active Directory Attack-Path & Hardening Project; Red-Team/Blue-Team Privilege Escalation Lab; End-to-End Ethical Hacking Assessment; Year-2 Ethical Hacking Capstone; SOC Architecture & Operations Blueprint; Splunk SOC Investigation Portfolio; Microsoft Sentinel Detection Pack; Defender XDR Incident Investigation Case; Threat Hunting Report + ATT&CK Coverage Matrix; CySA+ Style Analyst Assessment; Digital Forensics Case File + Incident Report; Cloud Security Baseline Assessment; Cloud Detection & Response Automation Project; SC-200 End-to-End Security Operations Lab; Production-Style Detection Engineering Portfolio; Final Enterprise Cybersecurity Defense & Response Capstone
+
+Tools: Python, SQL, Git, GitHub, Linux, Bash, PowerShell, Wireshark, Burp Suite, Splunk, Microsoft Sentinel, KQL, AWS, Azure, Suricata
+
+Certification preparation (awarded by the certifying organisations; passing not guaranteed): ISC² Certified in Cybersecurity (CC); Google Cybersecurity Professional Certificate; CompTIA Security+; CEH v13; CompTIA CySA+; Microsoft Security Operations Analyst Associate (SC-200)
+
+Roles the curriculum is designed around (directions, not guarantees): SOC Analyst / SOC Analyst L1; Cybersecurity Analyst / Security Analyst; Information Security Analyst; Cyber Defense Analyst; Security Operations Engineer — Junior/L1; Vulnerability Analyst / Vulnerability Management Analyst; Junior Penetration Tester / Ethical Hacker; Junior Security Engineer; Threat Intelligence Analyst — Junior; Junior Incident Response Analyst; GRC / Security Compliance Analyst — Junior; Cloud Security Analyst — Junior; Detection Engineering Trainee / Junior
+
+FAQs:
+- Q: Who can join this program? A: Class 10 pass; no technical background assumed. The program is designed for students entering after Class 10.
+- Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
+- Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
+- Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: ISC² Certified in Cybersecurity (CC); Google Cybersecurity Professional Certificate; CompTIA Security+; CEH v13; CompTIA CySA+; Microsoft Security Operations Analyst Associate (SC-200). They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
+- Q: What laptop do students need? A: The curriculum document gives minimum specifications: CPU: Intel Core i5 / Ryzen 5 or better; RAM: 16 GB minimum; 32 GB recommended; Storage: 512 GB SSD minimum; 1 TB recommended; GPU: Integrated graphics is sufficient — no dedicated GPU required; Network: Wi-Fi 6 + Gigabit Ethernet preferred.
+- Q: What kinds of roles does this program prepare students for? A: The curriculum lists entry-level roles such as SOC Analyst / SOC Analyst L1, Cybersecurity Analyst / Security Analyst, Information Security Analyst, Cyber Defense Analyst. Fit depends on the student's portfolio and on each employer's requirements.
+
+## Notes
+- No program guarantees a job, internship, salary or exam pass.
+- Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed.

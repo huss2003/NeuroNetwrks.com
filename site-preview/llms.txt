@@ -24,3 +24,15 @@ Contact: Hussain@neuronetwrks.com
 ## Notes
 - No program guarantees a job, internship or salary.
 - Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed.
+
+## Guides
+- [AI courses after 10th: eligibility, duration, projects](https://neuronetwrks.com/guides/ai-courses-after-10th): What an AI course after Class 10 covers, how many hours it takes, what students build, and how to choose between a 1-year and a 3-year path.
+- [Courses after 10th: 6 technology paths compared](https://neuronetwrks.com/guides/courses-after-10th): Compare six technology courses after Class 10: AI, AI/ML, coding, data science, UI/UX design and cyber security, by hours, skills and projects.
+- [Computer and coding courses after 10th: which to choose](https://neuronetwrks.com/guides/computer-coding-courses-after-10th): What a coding course after Class 10 teaches: Java, JavaScript, React, databases and cloud over 3 years and 624 hours, with a project every month.
+- [Cyber security course after 10th: what you study](https://neuronetwrks.com/guides/cyber-security-course-after-10th): A cyber security course after Class 10, explained: networking, Linux, SOC work, ethical hacking in authorised labs, cloud security and 6 certifications.
+- [Data science course after 10th: is it possible?](https://neuronetwrks.com/guides/data-science-after-10th): A data science course after Class 10, explained: Python, SQL, statistics, dashboards, machine learning and generative AI over 3 years and 624 hours.
+- [How to become a UI/UX designer after 10th](https://neuronetwrks.com/guides/ui-ux-designer-after-10th): A UI/UX design course after Class 10: user research, wireframes, prototypes, design systems and AI product design over 3 years and 624 hours.
+- [AI vs software vs data science: a parent's guide](https://neuronetwrks.com/guides/ai-vs-software-vs-data-science): Help your child choose between AI/ML engineering, software development and data science after Class 10: what each teaches, tools, projects and pace.
+- [AI projects for students: from classifier to AI agent](https://neuronetwrks.com/guides/ai-projects-for-students): Real AI projects students build in the AI/ML Engineering program: an image classifier, a document RAG assistant and AgentFlow AI, a tool-using agent.
+- [Career options after 10th in AI and technology](https://neuronetwrks.com/guides/career-options-after-10th): Confused about career options after 10th? A clear map of AI, software, data, design and cyber security paths, the skills each needs and how to start.
+- [How to become an AI engineer after 10th: step by step](https://neuronetwrks.com/guides/become-ai-engineer-after-10th): A step-by-step path to becoming an AI engineer after Class 10: Python, maths for ML, machine learning, deep learning, generative AI, MLOps and a portfolio.
