@@ -39,7 +39,7 @@ Claude then sets `GA_ID` in `tools/preview-gen/build.py`, rebuilds and deploys. 
 4. Back in Search Console, click Verify. If it fails, wait an hour and try again.
 5. Open Sitemaps and enter the **full URL** `https://neuronetwrks.com/sitemap.xml` (a Domain property rejects a bare `sitemap.xml` as "Invalid sitemap address"), then click Submit. "Couldn't fetch" for the first few hours is normal.
 6. In Settings → Associations, link the GA4 property (G-1D2KJQ9RCF).
-6. Optional: use URL inspection on `https://neuronetwrks.com/`, then click Request indexing.
+7. Optional: use URL inspection on `https://neuronetwrks.com/`, then click Request indexing.
 
 ### 3. Bing Webmaster Tools
 1. Go to bing.com/webmasters and sign in. Choose **Import from Google Search Console**, so no DNS record is needed. Do this after step 2.
