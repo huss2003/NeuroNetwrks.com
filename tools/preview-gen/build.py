@@ -5,7 +5,7 @@ Placeholder strings are kept exactly as before: they are out of scope for this p
 import os, re, sys, json, html, shutil, glob
 import yaml
 sys.path.insert(0, os.path.dirname(__file__))
-from art import ART, shot, tile_art
+from art import ART, shot
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -161,15 +161,34 @@ print(result)</pre></div>
 <div class="score"><div><span>Correctness</span><span class="bar-track"><i style="width:100%"></i></span></div><div><span>Code quality</span><span class="bar-track"><i style="width:80%"></i></span></div><div><span>Best practices</span><span class="bar-track"><i style="width:65%"></i></span></div></div></div></div></div>'''
 
 
-def program_tile(p, i, cat=None):
-    d = D[p[0]]; lead = i == 0
-    tag = "Start here" if lead else "Specialisation"
+ICON = {"ai-foundation": "found", "ai-ml-engineering": "aiml", "software-development": "sw", "data-science-ai": "ds", "product-ux-ai-design": "ux", "cybersecurity": "cy"}
+
+def program_tile(p, i, cat=None, hl="h3"):
+    d = D[p[0]]; lead = i == 0; ic = ICON[p[0]]
+    tag = f"Start here · {p[4]}" if lead else f"Specialisation · {p[4]}"
     cat_attr = f' data-cat="{cat}"' if cat else ""
-    return f'''<a class="pcard tile{" tile--lead" if lead else ""}"{cat_attr} href="/programs/{p[0]}" style="--ti:{i}"><span class="tile-glow" aria-hidden="true"></span>
-<div class="tile-top"><span class="tag">{tag}</span><div class="tile-art" aria-hidden="true">{tile_art(p[0])}</div></div>
-<h3>{name_of(p)}</h3><p>{E(d["summary"])}</p>
-<dl class="tile-stats"><div><dt>Hours</dt><dd>{p[3]}</dd></div><div><dt>Length</dt><dd>{p[4]}</dd></div><div><dt>Entry</dt><dd>Class 10</dd></div></dl>
-<span class="tile-go" aria-hidden="true">→</span></a>'''
+    return f"""<a class="pcard pt{' pt--lead' if lead else ''}"{cat_attr} href="/programs/{p[0]}" style="--ti:{i}">
+<div class="pt-body"><span class="pt-tag">{tag}</span><{hl}>{name_of(p)}</{hl}><p>{E(d["summary"])}</p></div>
+<div class="pt-ico ic-{ic}" aria-hidden="true"><img class="pt-obj" src="/assets/i-{ic}.webp" alt="" width="360" height="360" loading="lazy"><img class="pt-dot" src="/assets/i-{ic}-dot.webp" alt="" width="360" height="360" loading="lazy"></div>
+<dl class="pt-stats"><div><dd class="n">{p[3]}</dd><dt>Hours</dt></div><div><dd>{LV[d["level"]]}</dd><dt>Level</dt></div><div><dd>{p[4]}</dd><dt>Duration</dt></div></dl>
+<span class="pt-go" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>"""
+
+def prog_head(level="h2"):
+    return f"""<div class="pp-head"><div><p class="pp-eyebrow">Our programs</p><{level} class="pp-h"><span class="ln"><span>Choose a path.</span></span><span class="ln"><span>Build your future.</span></span></{level}></div>
+<p class="pp-lead">Six programs, all open to students who have passed Class 10. One beginner course and five three-year specialisations. Ask us about fees and intake dates.</p></div>"""
+
+def prog_banner(hl="h3"):
+    d = D["ai-foundation"]
+    return f"""<div class="pp-banner"><div class="pp-b-body"><span class="pt-tag">Start here · 1 year</span><{hl}>AI Foundation</{hl}><p>{E(d["summary"])}</p>
+<div class="pp-b-row"><dl class="pp-b-stats"><div><dd data-count-to="104">104</dd><dt>Hours</dt></div><div><dd>Beginner</dd><dt>Level</dt></div><div><dd>1 year</dd><dt>Duration</dt></div></dl>
+<a class="pp-b-btn" href="/programs/ai-foundation">View program <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+<div class="pp-b-art" aria-hidden="true"><svg class="pp-b-grid" viewBox="0 0 600 400" preserveAspectRatio="none"><path d="M0 330 L600 210 M0 250 L600 130 M120 0 L60 400 M300 0 L250 400 M480 0 L440 400" stroke="#fff" stroke-opacity=".14" fill="none"/></svg><img class="pp-b-obj" src="/assets/i-banner.webp" alt="" width="609" height="419"><img class="pp-b-dot" src="/assets/i-banner-dot.webp" alt="" width="609" height="419"></div></div>"""
+
+def prog_swoosh():
+    return '<svg class="pp-swoosh" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true"><path d="M1440 120 C1180 220 1100 420 1440 560" fill="none" stroke="#D9E8FF" stroke-width="90" stroke-opacity=".45"/><path d="M-40 760 C320 640 620 860 980 720" fill="none" stroke="#E6F0FF" stroke-width="70" stroke-opacity=".6"/></svg>'
+
+def prog_filters():
+    return """<div class="pp-filters"><div role="group" aria-label="Filter programs" data-filter-group class="pp-chips"><button class="pp-chip" type="button" data-filter="all" aria-pressed="true">All programs</button><button class="pp-chip" type="button" data-filter="start" aria-pressed="false">Start here</button><button class="pp-chip" type="button" data-filter="three" aria-pressed="false">Three-year specialisations</button></div><span class="pp-rule" aria-hidden="true"></span><p class="pp-count" data-count role="status">6 programs</p></div>"""
 
 # ---------------------------------------------------------------- pages
 def home():
@@ -187,8 +206,7 @@ def home():
 <li><span class="ic">{icon("layers")}</span><span><b>Hands-on labs</b><span>In every month</span></span></li>
 <li><span class="ic">{icon("bars")}</span><span><b>Step-by-step</b><span>Start with Class 10</span></span></li></ul></div>'''
     tiles = "".join(program_tile(p, i) for i, p in enumerate(PROGRAMS))
-    programs = f'''<section class="sec"><div class="wrap">{sec_head("Our programs", "Choose a path.<br>Build your future.", "Six programs, all open to students who have passed Class 10. One beginner course and five three-year specialisations. Ask us about fees and intake dates.")}
-<div class="tiles">{tiles}</div><div class="actions" style="margin-top:36px">{btn("secondary", "/programs", "Compare all six programs")}</div></div></section>'''
+    programs = f'''<section class="pp" id="programs">{prog_swoosh()}<div class="wrap">{prog_head("h2")}{prog_banner()}<div class="pp-grid">{tiles}</div><div class="actions" style="margin-top:36px">{btn("secondary", "/programs", "Compare all six programs")}</div></div></section>'''
     method = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Our approach", "Learn. Build. Test.<br>Improve. Repeat.", "Gain real technical skills through structured learning, hands-on practice, projects and a one-hour exam at the end of each module.")}{path_diagram()}
 <div class="actions" style="margin-top:40px">{btn("primary", "/learning-experience", "See the learning experience")}{btn("secondary", "/curriculum", "Explore the curriculum", False)}</div></div></section>'''
     lab = f'''<section class="sec"><div class="wrap">{sec_head("Real practice environment", "Hands-on labs<br>with real tools", "Practise in a lab environment with real tasks, checked work and clear feedback.")}{lab_showcase()}
@@ -206,13 +224,9 @@ def home():
     return layout("/", "NeuroNetworks AI Ed: AI and technology education after Class 10", hero + programs + method + lab + projects + faq + cta_panel(), "none", jsonld=ld)
 
 def programs_page():
-    cards = "".join(program_tile(p, i, "start" if i == 0 else "three") for i, p in enumerate(PROGRAMS))
+    cards = "".join(program_tile(p, i, "start" if i == 0 else "three", "h2") for i, p in enumerate(PROGRAMS))
     rows = "".join(f'<tr><td data-l="Program"><a href="/programs/{p[0]}">{name_of(p)}</a></td><td data-l="Length">{p[4]}</td><td data-l="Hours">{p[3]}</td><td data-l="Level">{LV[D[p[0]]["level"]]}</td><td data-l="Entry">Class 10 pass</td><td data-l="Fees"><a class="tl" href="/contact?topic=fees">Enquire</a></td></tr>' for p in PROGRAMS)
-    body = page_hero("Programs", "Choose a path.", "Build your future.", "One beginner course and five three-year specialisations. Every program is open to students who have passed Class 10.",
-                     btn("primary", "#all", "See all six") + btn("secondary", "/contact", "Talk to us", False),
-                     f'<div class="hero-art">{stair("r-hero", "Module Stack", {"n": 36, "lit": 0.6, "yaw": -0.7, "dist": 15.2, "dy": -0.1})}</div>')
-    body += f'''<section class="sec sec--tight" id="all"><div class="wrap"><div class="sec-head" style="margin-bottom:28px"><div role="group" aria-label="Filter programs" data-filter-group class="chips"><button class="chip" type="button" data-filter="all" aria-pressed="true">All 6</button><button class="chip" type="button" data-filter="start" aria-pressed="false">Start here</button><button class="chip" type="button" data-filter="three" aria-pressed="false">Three-year specialisations</button></div><p class="mono" data-count role="status">Showing 6 programs</p></div>
-<div class="tiles">{cards}</div></div></section>
+    body = f'''<section class="pp pp--page" id="all">{prog_swoosh()}<div class="wrap">{prog_head("h1")}{prog_banner("h2")}{prog_filters()}<div class="pp-grid">{cards}</div></div></section>
 <section class="sec sec--tint" id="compare"><div class="wrap">{sec_head("Compare at a glance", "Same entry.<br>Different depth.", "The same six programs, side by side. Every program is open to students who have passed Class 10. Pick by length and subject, then open the program page for modules and projects.")}
 <div class="tablewrap"><table class="cmp"><caption class="sr">Comparison of the six programs</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Level</th><th scope="col">Entry</th><th scope="col">Fee</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
 <section class="sec"><div class="wrap">{sec_head("How every month works", "The same five beats<br>in every three-year program.")}{beats()}</div></section>
