@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 import { URL } from 'node:url';
+import { Buffer } from 'node:buffer';
 import { brotliCompressSync } from 'node:zlib';
 
 const root = 'dist/client';
