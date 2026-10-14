@@ -5,7 +5,7 @@ Placeholder strings are kept exactly as before: they are out of scope for this p
 import os, re, sys, json, html, shutil, glob
 import yaml
 sys.path.insert(0, os.path.dirname(__file__))
-from art import ART, shot, stage_pv, programs_motif
+from art import ART, shot
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -103,9 +103,9 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="{canon}">
 <meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">{ld}</head>
-<body><a class="skip" href="#main">Skip to content</a><div class="rp" aria-hidden="true"><i></i></div><aside class="pvb" aria-label="Preview notice">Preview build. Not the final site.</aside>
+<body><a class="skip" href="#main">Skip to content</a><aside class="pvb" aria-label="Preview notice">Preview build. Not the final site.</aside>
 {header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js" defer></script></body></html>'''
 
 def stair(blob, alt, opts, cid=None, tags=False):
@@ -127,9 +127,9 @@ def btn(kind, href, label, arrow=True):
 
 def cta_panel(h="Ready to ask?", p="Tell us which program interests you. Ask us about fees and intake dates."):
     return f'''<section class="sec"><div class="wrap"><div class="cta-panel"><img class="wm" src="/assets/mark-light.svg" alt="" aria-hidden="true">
-<div style="position:relative"><h2>{h}</h2><p class="lead" style="color:#fff;margin-top:16px">{p}</p>
+<div style="position:relative"><p class="mono eyebrow" style="color:#fff">Your next step</p><h2>{h}</h2><p class="lead" style="color:#fff;margin-top:16px">{p}</p>
 <div class="actions" style="margin-top:28px">{btn("onblue", "/admissions", "Apply")}<a class="btn btn-ghost" href="/contact">Talk to us</a></div></div>
-<div class="art" aria-hidden="true"><img src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy"></div></div></div></section>'''
+<div class="art"><img src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy"></div></div></div></section>'''
 
 def faq_items(items, first_open=True, cat=False):
     out = ""
@@ -140,7 +140,7 @@ def faq_items(items, first_open=True, cat=False):
     return out
 
 def sec_head(eyebrow, h, lead=""):
-    return f'<div class="sec-head"><div><h2>{h}</h2></div>{f"<p class=\"lead\">{lead}</p>" if lead else ""}</div>'
+    return f'<div class="sec-head"><div><p class="eyebrow">{eyebrow}</p><h2>{h}</h2></div>{f"<p class=\"lead\">{lead}</p>" if lead else ""}</div>'
 
 def beats():
     b = [("Theory", "Short, clear explanations"), ("Demonstration", "Watch it worked through"), ("Hands-on lab", "Do it yourself"), ("Project", "Make something real"), ("Exam", "One hour, then move on")]
@@ -149,10 +149,10 @@ def beats():
 def path_diagram():
     s = [("Learn", "A clear concept, then a worked example"), ("Guided practice", "Follow along with support"), ("Independent lab", "Solve real tasks yourself"),
          ("Practical exam", "A one-hour exam after each module"), ("Get feedback", "Review your results and hints"), ("Improve and retry", "Learn from mistakes and try again")]
-    return '<ol class="path rv" data-seq>' + "".join(f'<li><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(s)) + '</ol>'
+    return '<ol class="path rv">' + "".join(f'<li><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(s)) + '</ol>'
 
-def lab_showcase(dark=False):
-    return ('''<div class="lab lab--dark pend-lab">''' if dark else '''<div class="lab pend-lab">''') + '''<div class="win"><div class="bar"><i></i><i></i><i></i><span>lab.py · design sample</span></div><pre tabindex="0" role="region" aria-label="Sample code"><em># [Sample code, placeholder]</em>
+def lab_showcase():
+    return '''<div class="lab rv"><div class="win"><div class="bar"><i></i><i></i><i></i><span>lab.py · design sample</span></div><pre><em># [Sample code, placeholder]</em>
 <b>import</b> data_tools
 <b>result</b> = run_task(<em>"[task name]"</em>)
 print(result)</pre></div>
@@ -161,68 +161,45 @@ print(result)</pre></div>
 <div class="score"><div><span>Correctness</span><span class="bar-track"><i style="width:100%"></i></span></div><div><span>Code quality</span><span class="bar-track"><i style="width:80%"></i></span></div><div><span>Best practices</span><span class="bar-track"><i style="width:65%"></i></span></div></div></div></div></div>'''
 
 # ---------------------------------------------------------------- pages
-def story():
-    stages = [("Learn", "A clear concept, then a worked example. Short explanations, then you watch it worked through."),
-              ("Practise", "Guided practice with support close by, then independent labs where you solve real tasks yourself."),
-              ("Build", "In the three-year programs every month ends in a project you finish and can show."),
-              ("Test", "A one-hour exam closes each module, so you know where you stand before moving on."),
-              ("Improve", "Review your results and hints, learn from mistakes and try again.")]
-    xs = [10, 30, 50, 70, 90]
-    labels = "".join(f'<span class="rl" data-n="{i}" style="left:{x}%;top:{(170-30*i)/2}%">{n[0]}</span>' for i, (x, n) in enumerate(zip(xs, stages)))
-    treads = "".join(f'<rect x="{i*200}" y="{170-i*30}" width="200" height="{30+i*30}" fill="#006DEE" fill-opacity="{.05+.035*i:.3f}"/>' for i in range(5))
-    nodes = "".join(f'<circle class="nd" data-n="{i}" cx="{100+i*200}" cy="{170-i*30}" r="11"/>' for i in range(5))
-    rail = f'''<div class="story-rail" aria-hidden="true"><svg viewBox="0 0 1000 200" preserveAspectRatio="none" focusable="false">{treads}
-<path class="rail-base" d="M0 170 H200 V140 H400 V110 H600 V80 H800 V50 H1000" pathLength="1"/><path class="rail-fill" d="M0 170 H200 V140 H400 V110 H600 V80 H800 V50 H1000" pathLength="1"/></svg>
-<svg class="rail-nodes" viewBox="0 0 1000 200" focusable="false">{nodes}</svg>{labels}</div>'''
-    items = "".join(f'''<li class="stage" data-i="{i}"><div class="stage-text"><span class="num">{i+1:02d}<small> / 05</small></span><h3>{n}</h3><p>{t}</p></div><figure class="pv">{stage_pv(i)}</figure></li>''' for i, (n, t) in enumerate(stages))
-    return f'''<section class="story" id="journey" data-story aria-labelledby="story-h"><div class="story-pin"><div class="wrap story-in">
-<div class="story-head"><h2 id="story-h">Learn. Practise. Build.<br>Test. Improve.</h2><p class="lead">One rhythm, repeated every month. Scroll to follow a learner up the steps.</p></div>{rail}
-<ol class="story-stages">{items}</ol></div></div></section>'''
-
-def format_section():
-    def lane(title, meta, steps, cls):
-        li = "".join(f'<li><span class="dot"></span><b>{a}</b><span>{b}</span></li>' for a, b in steps)
-        return f'<div class="lane {cls}"><div class="lane-h"><h3>{title}</h3><p class="mono">{meta}</p></div><ol class="lane-steps" data-seq-lane>{li}</ol></div>'
-    a = lane("AI Foundation", "1 year · 104 hours · 2 guided hours a week", [("Concept", "One idea, explained simply"), ("Worked example", "See it done first"), ("Scenario question", "Choose in a real situation"), ("Guided practice", "Try it with support"), ("Exit check", "Ready to move on?")], "lane--short")
-    b = lane("Three-year programs", "3 years · 624 hours · 4 hours a week", [("Theory", "Short explanations"), ("Demonstration", "Worked through on screen"), ("Hands-on lab", "Do it yourself"), ("Project", "Finish something real"), ("Exam", "One hour, then move on")], "lane--long")
-    return f'''<section class="sec format"><div class="wrap"><div class="format-head"><h2>Two formats.<br>One way of working.</h2><p class="lead">The beginner course is built around the lesson. The three-year programs are built around the month. Both end every step with a check.</p></div>
-<div class="lanes">{a}{b}</div><div class="actions" style="margin-top:36px">{btn("secondary", "/learning-experience", "How learning works")}{btn("secondary", "/curriculum", "Browse the curriculum", False)}</div></div></section>'''
-
 def home():
-    hero = f'''<section class="hero" data-hero><div class="wrap hero-grid"><div class="hero-copy" data-hero-copy>
-<h1 class="display"><span class="ln"><span style="animation-delay:.15s">Build the skills</span></span><span class="ln"><span style="animation-delay:.27s">to shape what</span></span><span class="ln"><span style="animation-delay:.39s;color:var(--blue)">comes next.</span></span></h1>
+    hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
+<p class="eyebrow">AI and technology education</p>
+<h1 class="display"><span class="ln"><span style="animation-delay:.2s">Build the skills</span></span><span class="ln"><span style="animation-delay:.3s">to shape what</span></span><span class="ln"><span style="animation-delay:.4s;color:var(--blue)">comes next.</span></span></h1>
 <p class="lead fade">Practical, project-based programs for students who have passed Class 10. In the three-year programs every month ends in a project and a one-hour exam, so learning is something you can show.</p>
-<div class="actions fade">{btn("primary", "/programs", "Explore Programs")}<a class="tl" href="#journey">See how it works <i aria-hidden="true">↓</i></a></div></div>
-<div class="hero-vis" data-hero-vis>{stair("r-hero", "Module Stack: a spiral staircase of 36 glass plates, one for each monthly module, with a green bead for each monthly project", {"n": 36, "lit": 0.2, "yaw": -0.7, "dist": 15.2, "dy": -0.1}, "heroStair", True)}</div>
+<div class="actions fade">{btn("primary", "/programs", "Explore Programs")}{btn("secondary", "/learning-experience", "See the learning experience", False)}</div>
+<p class="hero-note fade"><span class="ic" aria-hidden="true">{icon("layers")}</span><span>For students who have passed Class 10.<br>Six programs, from 104 to 624 hours.</span></p></div>
+{stair("r-hero", "Module Stack: a spiral staircase of 36 glass plates, one for each monthly module, with a green bead for each monthly project", {"n": 36, "lit": 0.2, "yaw": -0.7, "dist": 15.2, "dy": -0.1}, "heroStair", True)}
 </div></section>
-<section class="band" aria-label="What to expect"><div class="wrap"><ul class="band-list">
-<li><span class="nd" aria-hidden="true"></span><b>A project<br>every month</b><span>In the three-year programs</span></li>
-<li><span class="nd" aria-hidden="true"></span><b>A one-hour exam<br>after each module</b><span>Then move on, or retry</span></li>
-<li><span class="nd" aria-hidden="true"></span><b>Hands-on labs<br>in every month</b><span>Real tasks, checked work</span></li>
-<li><span class="nd" aria-hidden="true"></span><b>Start after<br>Class 10</b><span>No prior experience assumed</span></li></ul></div></section>'''
+<div class="wrap"><ul class="pillars" aria-label="What to expect">
+<li><span class="ic">{icon("cube")}</span><span><b>Project-based</b><span>A project every month</span></span></li>
+<li><span class="ic">{icon("clock")}</span><span><b>1-hour exams</b><span>After each module</span></span></li>
+<li><span class="ic">{icon("layers")}</span><span><b>Hands-on labs</b><span>In every month</span></span></li>
+<li><span class="ic">{icon("bars")}</span><span><b>Step-by-step</b><span>Start with Class 10</span></span></li></ul></div>'''
     f = D["ai-foundation"]
-    feature = f'''<a class="prog-feature" href="/programs/ai-foundation"><div class="body"><span class="tag">Start here</span><h3>AI Foundation</h3><p>{E(f["summary"])}</p>
-<div class="meta"><div><b>104</b><small>Hours</small></div><div><b>1</b><small>Year</small></div><div><b>Beginner</b><small>Level</small></div></div><span class="go">View program <i aria-hidden="true" style="font-style:normal">→</i></span></div>
+    feature = f'''<a class="prog-feature rv" href="/programs/ai-foundation"><div class="body"><span class="tag">Start here · 1 year</span><h3>AI Foundation</h3><p>{E(f["summary"])}</p>
+<div class="meta"><div><b>104</b><small>Hours</small></div><div><b>Beginner</b><small>Level</small></div></div><span class="go">View program <i aria-hidden="true" style="font-style:normal">→</i></span></div>
 <div class="art"><img src="/assets/p-found.webp" alt="" width="700" height="875" loading="lazy"></div></a>'''
     rows = ""
     for p in PROGRAMS[1:]:
         d = D[p[0]]
-        rows += f'<a class="prog-row" href="/programs/{p[0]}"><h3>{name_of(p)}</h3><p>{E(d["summary"])}</p><span class="lv tag">{LV[d["level"]]}</span><span class="hrs">{p[3]}<small> hours</small></span><span class="arr" aria-hidden="true">→</span></a>'
-    programs = f'''<section class="sec" id="programs"><div class="wrap">{sec_head("", "Choose a path.<br>Build your future.", "Six programs, all open to students who have passed Class 10: one beginner course, then five three-year specialisations. Ask us about fees and intake dates.")}
-{feature}<div class="prog-table" role="group" aria-label="The five three-year specialisations"><div class="prog-head" aria-hidden="true"><span>Three-year specialisations</span><span>What it covers</span><span>Level</span><span>Hours</span><span></span></div>{rows}</div><div class="actions" style="margin-top:32px">{btn("secondary", "/programs", "Compare all six programs")}</div></div></section>'''
-    lab = f'''<section class="sec lab-sec"><div class="wrap"><div class="lab-head"><h2>Hands-on labs<br>with real tools.</h2><div><p class="lead">Practise in a lab environment with real tasks, checked work and clear feedback.</p>
-<ul class="lab-points"><li>Real tools and environments</li><li>Checked tasks</li><li>Feedback and hints</li><li>Labs you can reset and retry</li></ul></div></div>{lab_showcase(True)}<p class="small" style="margin-top:20px;color:var(--blue-200)">[Platform features to be confirmed with the institute.]</p></div></section>'''
+        rows += f'<a class="prog-row rv" href="/programs/{p[0]}"><h3>{name_of(p)}</h3><p>{E(d["summary"])}</p><span class="lv tag">{LV[d["level"]]}</span><span class="hrs">{p[3]}<small> hours</small></span><span class="arr" aria-hidden="true">→</span></a>'
+    programs = f'''<section class="sec"><div class="wrap">{sec_head("Our programs", "Choose a path.<br>Build your future.", "Six programs, all open to students who have passed Class 10. One beginner course and five three-year specialisations. Ask us about fees and intake dates.")}
+{feature}<div class="prog-rows">{rows}</div><div class="actions" style="margin-top:32px">{btn("secondary", "/programs", "View all programs and compare")}</div></div></section>'''
+    method = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Our approach", "Learn. Build. Test.<br>Improve. Repeat.", "Gain real technical skills through structured learning, hands-on practice, projects and a one-hour exam at the end of each module.")}{path_diagram()}
+<div class="actions" style="margin-top:40px">{btn("primary", "/learning-experience", "See the learning experience")}{btn("secondary", "/curriculum", "Explore the curriculum", False)}</div></div></section>'''
+    lab = f'''<section class="sec"><div class="wrap">{sec_head("Real practice environment", "Hands-on labs<br>with real tools", "Practise in a lab environment with real tasks, checked work and clear feedback.")}{lab_showcase()}
+<ul class="lab-points"><li>Real tools and environments</li><li>Checked tasks</li><li>Feedback and hints</li><li>Labs you can reset and retry</li></ul><p class="small muted" style="margin-top:20px">[Platform features to be confirmed with the institute.]</p></div></section>'''
     feats = [("Image classification application", "Year 2 · AI/ML", True), ("Document RAG assistant", "Year 3 · AI/ML", False), ("Tool-using AI agent", "Year 3 · AI/ML", False)]
-    fc = "".join(f'<a class="fcard{" big" if b else ""}" href="/projects#aiml"><div class="shot">{shot(1 if "mage" in n else 2 if "gent" in n else 0)}</div><div class="cap"><span class="tag">{y}</span><h3>{n}</h3></div></a>' for k, (n, y, b) in enumerate(feats))
-    projects = f'''<section class="sec sec--tint"><div class="wrap"><div class="folio-head"><h2>Every month ends<br>with something built.</h2><div><p class="lead">Projects come from the program roadmaps and build into a portfolio you can show.</p><div class="actions" style="margin-top:20px">{btn("primary", "/projects", "View all projects")}</div></div></div><div class="folio">{fc}</div>
-<p class="small muted" style="margin-top:20px">Project names are from the AI/ML Engineering roadmap. Student work is not shown until the institute supplies and approves it.</p></div></section>'''
+    fc = "".join(f'<a class="fcard rv{" big" if b else ""}" href="/projects#aiml"><div class="shot">{shot(1 if "mage" in n else 2 if "gent" in n else 0)}</div><div class="cap"><span class="tag">{y}</span><h3>{n}</h3></div></a>' for k, (n, y, b) in enumerate(feats))
+    projects = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Featured projects", "Build real projects.<br>Showcase your skills.", "Work on practical projects from the program roadmap and build a portfolio you can show.")}<div class="folio">{fc}</div>
+<p class="small muted" style="margin-top:20px">Project names are from the AI/ML Engineering roadmap. Student work is not shown until the institute supplies and approves it.</p><div class="actions" style="margin-top:24px">{btn("primary", "/projects", "View all projects")}</div></div></section>'''
     fq = [("Who can apply?", "<p>Students who have passed Class 10.</p>"),
           ("How many hours is the AI/ML program?", "<p>624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Exam time is counted inside the 624 hours.</p>"),
           ("How are learners assessed?", "<p>Every month ends with a project and a one-hour exam. In AI Foundation the pass mark is 80%, with review and a retry below it.</p>"),
           ("What does it cost?", "<p>We share fees when you enquire, so you get the details for the program you choose. Use the Enquire about fees button and a person will reply.</p><p><a class=\"tl\" href=\"/contact?topic=fees\">Enquire about fees <i aria-hidden=\"true\">→</i></a></p>")]
-    faq = f'''<section class="sec"><div class="wrap split"><div><h2>Got questions?<br>We've got answers.</h2><p class="lead" style="margin-top:16px">Answers about programs, learning format and admissions.</p><div class="actions" style="margin-top:28px">{btn("secondary", "/faqs", "All questions", True)}</div></div><div>{faq_items(fq)}</div></div></section>'''
+    faq = f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Frequently asked questions</p><h2>Got questions?<br>We've got answers.</h2><p class="lead" style="margin-top:16px">Find answers about our programs, learning format and admissions.</p><div class="actions" style="margin-top:28px">{btn("secondary", "/faqs", "All questions", True)}</div></div><div>{faq_items(fq)}</div></div></section>'''
     ld = {"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "NeuroNetworks AI Ed", "url": "https://neuronetwrks.com", "description": DESC["/"]}
-    return layout("/", "NeuroNetworks AI Ed: AI and technology education after Class 10", hero + story() + programs + format_section() + lab + projects + faq + cta_panel(), "none", jsonld=ld)
+    return layout("/", "NeuroNetworks AI Ed: AI and technology education after Class 10", hero + programs + method + lab + projects + faq + cta_panel(), "none", jsonld=ld)
 
 def programs_page():
     cards = ""
@@ -237,13 +214,13 @@ def programs_page():
     rows = "".join(f'<tr><td data-l="Program"><a href="/programs/{p[0]}">{name_of(p)}</a></td><td data-l="Length">{p[4]}</td><td data-l="Hours">{p[3]}</td><td data-l="Level">{LV[D[p[0]]["level"]]}</td><td data-l="Entry">Class 10 pass</td><td data-l="Fees"><a class="tl" href="/contact?topic=fees">Enquire</a></td></tr>' for p in PROGRAMS)
     body = page_hero("Programs", "Choose a path.", "Build your future.", "One beginner course and five three-year specialisations. Every program is open to students who have passed Class 10.",
                      btn("primary", "#all", "See all six") + btn("secondary", "/contact", "Talk to us", False),
-                     f'<div class="hero-art hero-art--motif">{programs_motif()}</div>')
+                     f'<div class="hero-art">{stair("r-hero", "Module Stack", {"n": 36, "lit": 0.6, "yaw": -0.7, "dist": 15.2, "dy": -0.1})}</div>')
     body += f'''<section class="sec sec--tight" id="all"><div class="wrap"><div class="sec-head" style="margin-bottom:28px"><div role="group" aria-label="Filter programs" data-filter-group class="chips"><button class="chip" type="button" data-filter="all" aria-pressed="true">All 6</button><button class="chip" type="button" data-filter="start" aria-pressed="false">Start here</button><button class="chip" type="button" data-filter="three" aria-pressed="false">Three-year specialisations</button></div><p class="mono" data-count role="status">Showing 6 programs</p></div>
 <div class="pgrid">{cards}</div></div></section>
 <section class="sec sec--tint" id="compare"><div class="wrap">{sec_head("Compare at a glance", "Same entry.<br>Different depth.", "The same six programs, side by side. Every program is open to students who have passed Class 10. Pick by length and subject, then open the program page for modules and projects.")}
-<div class="tablewrap"><table class="cmp"><caption class="sr">Comparison of the six programs</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Level</th><th scope="col">Entry</th><th scope="col">Fees</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
+<div class="tablewrap"><table class="cmp"><caption class="sr">Comparison of the six programs</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Level</th><th scope="col">Entry</th><th scope="col">Fee</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
 <section class="sec"><div class="wrap">{sec_head("How every month works", "The same five beats<br>in every three-year program.")}{beats()}</div></section>
-<section class="sec sec--tint"><div class="wrap split"><div><h2>Not sure<br>which to pick?</h2><p class="lead" style="margin-top:16px">Ask us. A person replies with a suggestion based on your interests.</p><div class="actions" style="margin-top:24px">{btn("primary", "/contact", "Talk to us")}</div></div>
+<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Before you choose</p><h2>Not sure<br>which to pick?</h2><p class="lead" style="margin-top:16px">Ask us. A person replies with a suggestion based on your interests.</p><div class="actions" style="margin-top:24px">{btn("primary", "/contact", "Talk to us")}</div></div>
 <div>{faq_items([("Who can apply?", "<p>Students who have passed Class 10.</p>"), ("Where should a beginner start?", "<p>AI Foundation is a beginner course of 104 hours over one year, from AI literacy to Python, data, machine learning and small AI applications.</p>"), ("How long are the specialisations?", "<p>Each is three years and 624 hours: 4 hours a week for 52 weeks a year, or 208 hours a year. Exam time is counted inside those hours.</p>"), ("What does it cost?", "<p>We share fees when you enquire, so you get the details for the program you choose. Use the Enquire about fees button and a person will reply.</p><p><a class=\"tl\" href=\"/contact?topic=fees\">Enquire about fees <i aria-hidden=\"true\">→</i></a></p>")])}</div></div></section>''' + cta_panel()
     return layout("/programs", "Programs", body, "programs")
 
@@ -256,7 +233,7 @@ def program_detail(slug):
     body = page_hero(f'<a href="/programs">Programs</a> / {nm}', l1, l2, E(d["summary"]), btn("primary", "/contact", "Talk to us") + btn("secondary", "/curriculum#" + k + "-y1", "See the curriculum", False), art)
     facts = [("Duration", p[4], 0), ("Total hours", p[3], 0), ("Per week", f'{d["hoursPerWeek"]} hours', 0), ("Entry", "Class 10 pass", 0), ("Fees", FEE_LINK, 0), ("Next intake", FEE, 1)]
     body += '<section class="sec sec--tight" style="padding-top:0"><div class="wrap"><dl class="facts panel">' + "".join(f'<div><dt>{a}</dt><dd{" class=\"ph-text\"" if c else ""}>{b}</dd></div>' for a, b, c in facts) + '</dl></div></section>'
-    body += f'''<section class="sec"><div class="wrap split"><div><h2>What this program is.</h2></div><div class="stack"><p class="lead">{E(d["answer"])}</p>
+    body += f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Overview</p><h2>What this program is.</h2></div><div class="stack"><p class="lead">{E(d["answer"])}</p>
 <div class="dual"><div><p class="mono" style="color:var(--blue-text)">Intended learner</p><p style="margin-top:8px">{E(d["entry"])}.</p></div><div><p class="mono" style="color:var(--blue-text)">How it is assessed</p><p style="margin-top:8px">{E(d["assessment"])}</p></div></div></div></div></section>'''
     yr_html = ""
     for yi, y in enumerate(yrs):
@@ -275,9 +252,9 @@ def program_detail(slug):
     if roles: cols.append(f'<div><h3>Career directions</h3><ul class="list-rule" style="margin-top:16px">{roles}</ul><p class="small muted" style="margin-top:14px">Directions, not promises. No job, internship or salary is guaranteed.</p></div>')
     body += f'<section class="sec sec--tint"><div class="wrap cols3" style="--cols:{len(cols)}">{"".join(cols)}</div></section>'
     hw = "".join(f"<li>{E(x)}</li>" for x in d["hardware"])
-    body += f'''<section class="sec"><div class="wrap split"><div><h2>What you need.</h2><p class="lead" style="margin-top:16px">Entry: {E(d["entry"])}. Recommended setup below.</p><div class="actions" style="margin-top:24px">{btn("secondary", "/admissions", "Admissions details")}</div></div><ul class="panel list-rule" style="padding:8px 28px">{hw}</ul></div></section>'''
+    body += f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Requirements</p><h2>What you need.</h2><p class="lead" style="margin-top:16px">Entry: {E(d["entry"])}. Recommended setup below.</p><div class="actions" style="margin-top:24px">{btn("secondary", "/admissions", "Admissions details")}</div></div><ul class="panel list-rule" style="padding:8px 28px">{hw}</ul></div></section>'''
     fq = [(E(f["q"]), "<p>" + E(conf(f["a"])) + "</p>") for f in d["faqs"]]
-    body += f'<section class="sec sec--tint"><div class="wrap split"><div><h2>About this program.</h2></div><div>{faq_items(fq)}</div></div></section>' + cta_panel()
+    body += f'<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Questions</p><h2>About this program.</h2></div><div>{faq_items(fq)}</div></div></section>' + cta_panel()
     ld = {"@context": "https://schema.org", "@type": "Course", "name": plain, "description": d["summary"], "provider": {"@type": "Organization", "name": "NeuroNetworks AI Ed"}}
     return layout(f"/programs/{slug}", plain, body, "programs", desc=f"{plain}: modules, hours, tools and projects. Open to students who have passed Class 10.", jsonld=ld)
 
@@ -308,7 +285,7 @@ def learning_page():
     found = [("Concept", "One idea, explained simply."), ("Worked example", "See it done before you do it."), ("Scenario question", "Choose the best answer in a real situation."), ("Guided practice", "Try it with support close by."), ("Exit check", "Confirm you are ready to move on.")]
     fr = '<ol class="step-rail rv">' + "".join(f'<li><p class="mono">{i+1:02d}</p><h3>{a}</h3><p>{b}</p></li>' for i, (a, b) in enumerate(found)) + "</ol>"
     month = [("Theory", "Short explanations of the month's topic."), ("Demonstration", "An instructor works through an example on screen."), ("Hands-on lab", "You repeat and extend it yourself."), ("Project", "A piece of work you finish and can show."), ("Exam", "A one-hour exam closes the month.")]
-    ms = '<ol class="steps" data-seq>' + "".join(f'<li class="step rv"><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(month)) + "</ol>"
+    ms = '<ol class="steps">' + "".join(f'<li class="step rv"><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(month)) + "</ol>"
     hw = "".join(f"<li>{E(x)}</li>" for x in D["ai-foundation"]["hardware"])
     body = page_hero("Learning experience", "How you", "will learn.", "A clear pattern in every lesson and every month, so you always know what comes next and how you are doing.", btn("primary", "/curriculum", "See the curriculum") + btn("secondary", "/programs", "All programs", False),
                      '<figure class="art-frame hero-art"><svg viewBox="0 0 520 300" role="img" aria-label="Illustration: the learning cycle, six stages from Learn to Improve and retry" style="width:100%;height:auto" font-family="Manrope,sans-serif"><rect width="520" height="300" fill="#fff"/>' + "".join(f'<circle cx="{50+i*84}" cy="{150+(-1)**i*40}" r="22" fill="{"#49B716" if i==5 else "#006DEE"}"/><text x="{50+i*84}" y="{155+(-1)**i*40}" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">{i+1}</text>' + (f'<path d="M{50+i*84+22} {150+(-1)**i*40} L{50+(i+1)*84-22} {150+(-1)**(i+1)*40}" stroke="#B3D0FF" stroke-width="2.5"/>' if i < 5 else "") for i in range(6)) + '</svg><figcaption>Illustration</figcaption></figure>')
@@ -316,7 +293,7 @@ def learning_page():
 <section class="sec sec--tint"><div class="wrap"><div class="split" style="margin-bottom:48px"><div><p class="eyebrow">AI Foundation · every lesson</p><h2>Five steps<br>in every lesson.</h2></div><p class="lead">AI Foundation runs 2 guided hours a week for 104 hours, plus 10 to 15 minutes of homework after each lecture. Each lesson follows the same five steps.</p></div>{fr}</div></section>
 <section class="sec"><div class="wrap split"><div><p class="eyebrow">Three-year programs · every month</p><h2>Five beats<br>in every month.</h2><p class="lead" style="margin-top:16px">The three-year programs run 4 hours a week for 52 weeks a year. Exam time is counted inside the 624 hours.</p></div>{ms}</div></section>
 <section class="sec sec--tint"><div class="wrap">{sec_head("Practice environment", "Labs with<br>checked work.", "A sample of how a lab task and its feedback can look. [Platform features to be confirmed with the institute.]")}{lab_showcase()}</div></section>
-<section class="sec"><div class="wrap"><div class="dual"><div><h2 class="h3">Checked, then improved.</h2><p style="margin-top:12px" class="muted">AI Foundation: 104 one-hour guided lectures. The recommended pass mark is 80%, with targeted remediation and a retry below the threshold. Three-year programs: a one-hour exam after each monthly module.</p></div><div><h2 class="h3">A laptop and internet.</h2><ul class="list-rule" style="margin-top:12px">{hw}</ul><p class="small muted" style="margin-top:12px">Setup for AI Foundation. Each three-year program lists its own on its program page.</p></div></div>
+<section class="sec"><div class="wrap"><div class="dual"><div><p class="eyebrow">Assessment</p><h2 class="h3">Checked, then improved.</h2><p style="margin-top:12px" class="muted">AI Foundation: 104 one-hour guided lectures. The recommended pass mark is 80%, with targeted remediation and a retry below the threshold. Three-year programs: a one-hour exam after each monthly module.</p></div><div><p class="eyebrow">Requirements</p><h2 class="h3">A laptop and internet.</h2><ul class="list-rule" style="margin-top:12px">{hw}</ul><p class="small muted" style="margin-top:12px">Setup for AI Foundation. Each three-year program lists its own on its program page.</p></div></div>
 <div class="actions" style="margin-top:32px">{btn("primary", "/curriculum", "Explore the curriculum")}{btn("secondary", "/projects", "See the projects", False)}</div></div></section>''' + cta_panel("Want to see it in person?", "Ask us about the learning experience. Delivery mode and timings: [to be confirmed].")
     return layout("/learning-experience", "Learning Experience", body, "learning")
 
@@ -341,11 +318,11 @@ def projects_page():
 def about_page():
     pr = [("Practical first", "Every program is built around hands-on labs and projects, not lectures alone.", "Learners finish something real in every month."), ("Measured, not guessed", "Every month closes with a one-hour exam, and AI Foundation uses an 80% pass mark with review and a retry.", "Progress is checked, and mistakes lead to review and another try."),
           ("Honest about outcomes", "No program guarantees a job, internship or salary.", "We teach skills and help you build a portfolio and a GitHub record."), ("Open to beginners", "Programs start from Class 10 and assume no prior coding, AI or design experience.", "Each program begins at the beginning.")]
-    prs = "".join(f'<li class="principle"><span class="n">0{i+1}</span><h3>{a}</h3><p>{b} {c}</p></li>' for i, (a, b, c) in enumerate(pr))
+    prs = "".join(f'<li class="principle rv"><span class="n">0{i+1}</span><h3>{a}</h3><p>{b} {c}</p></li>' for i, (a, b, c) in enumerate(pr))
     body = f'''<section class="page-hero"><div class="wrap split"><div><p class="crumbs"><a href="/">Home</a> / About</p><h1>{headline("Learn.", "Develop. Create.")}</h1></div><div><p class="statement">NeuroNetworks AI Ed teaches practical AI and technology skills to students after Class 10.</p><div class="actions" style="margin-top:28px">{btn("primary", "/programs", "Explore programs")}{btn("secondary", "/contact", "Talk to us", False)}</div></div></div></section>
-<section class="sec"><div class="wrap split"><div><h2>Our story.</h2></div><div class="stack"><div class="panel" style="padding:clamp(24px,4vw,48px)"><p class="lead" style="max-width:none">[Founding story and mission statement to be supplied by the institute. This space is reserved for two or three honest sentences, written by the people behind the programs.]</p></div>
+<section class="sec"><div class="wrap split"><div><p class="eyebrow">Who we are</p><h2>Our story.</h2></div><div class="stack"><div class="panel" style="padding:clamp(24px,4vw,48px)"><p class="lead" style="max-width:none">[Founding story and mission statement to be supplied by the institute. This space is reserved for two or three honest sentences, written by the people behind the programs.]</p></div>
 <dl class="facts panel"><div><dt>Programs</dt><dd>6</dd></div><div><dt>Hours</dt><dd>104 to 624</dd></div><div><dt>Entry</dt><dd>Class 10 pass</dd></div></dl></div></div></section>
-<section class="sec sec--tint"><div class="wrap">{sec_head("How we teach", "Four principles.")}<ol data-seq>{prs}</ol></div></section>
+<section class="sec sec--tint"><div class="wrap">{sec_head("How we teach", "Four principles.")}<ol>{prs}</ol></div></section>
 <section class="sec"><div class="wrap">{sec_head("Who it is for", "Students first,<br>parents informed.")}<div class="dual"><div><h3>For students</h3><p class="muted" style="margin-top:12px">Programs start after Class 10 and assume no earlier coding, AI or design experience. Every month ends with something you built and an exam that shows what you know.</p><div class="actions" style="margin-top:20px"><a class="tl" href="/programs">Choose a program <i aria-hidden="true">→</i></a></div></div><div><h3>For parents and guardians</h3><p class="muted" style="margin-top:12px">Students under 18 apply through a parent or guardian, who gives consent. Hours, assessments and projects are published in full, so you can see what your child will do.</p><div class="actions" style="margin-top:20px"><a class="tl" href="/admissions">Admissions for parents <i aria-hidden="true">→</i></a></div></div></div></div></section>
 <section class="sec sec--tint"><div class="wrap"><div class="tri"><div class="panel" style="padding:28px"><p class="mono muted">Accreditation</p><p style="margin-top:10px" class="muted">[To be confirmed. Nothing is claimed until verified.]</p></div><div class="panel" style="padding:28px"><p class="mono muted">Location</p><p style="margin-top:10px" class="muted">[Address and delivery mode to be confirmed]</p></div><div class="panel" style="padding:28px"><p class="mono muted">Partners</p><p style="margin-top:10px" class="muted">[None shown until confirmed in writing]</p></div></div>
 <div class="actions" style="margin-top:32px"><a class="tl" href="/learning-experience">See how learning works <i aria-hidden="true">→</i></a><a class="tl" href="/faculty-and-team">Meet the faculty <i aria-hidden="true">→</i></a></div></div></section>''' + cta_panel("Talk to the people behind it.", "Ask us anything about the programs. Ask us about fees and intake dates.")
@@ -355,22 +332,22 @@ def team_page():
     people = "".join('<article class="person rv"><div class="ph">[PHOTO TO BE SUPPLIED]</div><div class="t"><h3>[Name]</h3><p>[Role and subject]</p><p class="small">[Two-line background, verified credentials only]</p></div></article>' for _ in range(8))
     chips = "".join(f'<a class="chip" style="display:inline-flex;align-items:center;text-decoration:none" href="/programs/{p[0]}">{name_of(p)}</a>' for p in PROGRAMS)
     body = f'''<section class="page-hero"><div class="wrap split"><div><p class="crumbs"><a href="/">Home</a> / Faculty and team</p><h1>{headline("The people", "who teach.")}</h1></div><div><p class="lead">Names, roles and credentials appear here once they are confirmed. We do not use stock photos or generated faces.</p><div class="actions" style="margin-top:24px">{btn("primary", "/contact", "Talk to us")}</div></div></div></section>
-<section class="sec sec--tight"><div class="wrap"><div class="lead-person"><div class="ph" style="aspect-ratio:4/5">[PHOTO TO BE SUPPLIED]</div><div><h2 class="h3">[Name]</h2><p class="muted" style="margin-top:8px">[Leadership names, roles and a short note to be supplied.]</p></div></div></div></section>
+<section class="sec sec--tight"><div class="wrap"><p class="eyebrow">Leadership</p><div class="lead-person"><div class="ph" style="aspect-ratio:4/5">[PHOTO TO BE SUPPLIED]</div><div><h2 class="h3">[Name]</h2><p class="muted" style="margin-top:8px">[Leadership names, roles and a short note to be supplied.]</p></div></div></div></section>
 <section class="sec"><div class="wrap">{sec_head("Faculty", "Instructors and mentors.", "[Faculty and mentor names and credentials to be confirmed, or this section is removed.]")}<div class="people">{people}</div></div></section>
-<section class="sec sec--tint"><div class="wrap split"><div><h2>Find the program.</h2></div><div><p class="lead" style="margin-bottom:20px">Each faculty profile will link to the programs they teach. Until then, explore the programs directly.</p><div class="chips">{chips}</div></div></div></section>''' + cta_panel("Want to meet the faculty?", "Ask us. Delivery mode and timings: [to be confirmed].")
+<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Teaching areas</p><h2>Find the program.</h2></div><div><p class="lead" style="margin-bottom:20px">Each faculty profile will link to the programs they teach. Until then, explore the programs directly.</p><div class="chips">{chips}</div></div></div></section>''' + cta_panel("Want to meet the faculty?", "Ask us. Delivery mode and timings: [to be confirmed].")
     return layout("/faculty-and-team", "Faculty and Team", body, "about")
 
 def admissions_page():
     ents = {p[0]: D[p[0]]["entry"] for p in PROGRAMS}
     steps = [("Talk to us", "Ask any question about the programs. A person replies. [Who responds, by what channel and how fast: to be confirmed.]"), ("Apply", "Use the Apply form. Students under 18 apply through a parent or guardian."), ("[What happens next]", "[Admissions steps, intake dates and batch sizes to be confirmed.]")]
-    st = '<ol class="steps" data-seq>' + "".join(f'<li class="step"><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(steps)) + "</ol>"
+    st = '<ol class="adm-steps">' + "".join(f'<li class="rv"><span class="n">{i+1}</span><h3>{a}</h3><p class="muted" style="margin-top:8px">{b}</p></li>' for i, (a, b) in enumerate(steps)) + "</ol>"
     rows = "".join(f'<tr><td data-l="Program"><a href="/programs/{p[0]}">{name_of(p)}</a></td><td data-l="Length">{p[4]}</td><td data-l="Hours">{p[3]}</td><td data-l="Entry">{E(ents[p[0]])}</td><td data-l="Fees"><a class="tl" href="/contact?topic=fees">Enquire</a></td><td data-l="Next intake" class="muted">{FEE}</td></tr>' for p in PROGRAMS)
     body = page_hero("Admissions and fees", "Join", "the next step.", "Every program is open to students who have passed Class 10. Ask us about fees and intake dates.", btn("primary", "/contact", "Apply") + btn("secondary", "/contact", "Talk to us", False))
     body += f'''<section class="sec sec--tight"><div class="wrap">{sec_head("How to apply", "Three steps.")}{st}</div></section>
-<section class="sec sec--tint"><div class="wrap">{sec_head("Eligibility, fees and intakes", "By program.", "Compare entry requirements and intakes, and enquire about fees. Open a program for its modules and projects.")}<div class="tablewrap"><table class="cmp"><caption class="sr">Eligibility, fees and intake by program</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Entry</th><th scope="col">Fees</th><th scope="col">Next intake</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
-<section class="sec"><div class="wrap"><div class="dual"><div><h2 class="h3">Before you apply.</h2><ul class="check" style="margin-top:20px"><li>You have passed Class 10 (AI Foundation also takes an equivalent).</li><li>You have a laptop or desktop with internet. See each program page for its recommended setup.</li><li>You know which program you are interested in, or you are happy to ask us.</li></ul><div class="actions" style="margin-top:24px"><a class="tl" href="/programs">Compare programs <i aria-hidden="true">→</i></a></div></div>
-<div><h2 class="h3">Applying for a student under 18.</h2><ul class="check" style="margin-top:20px"><li>A parent or guardian applies and gives consent.</li><li>We collect only what is needed to respond, use unticked consent boxes, and do not track or advertise to children. [Retention period and grievance contact: to be confirmed after legal review.]</li><li>[Documents required at admission: to be confirmed.]</li></ul><div class="actions" style="margin-top:24px"><a class="tl" href="/faqs#privacy">Privacy questions <i aria-hidden="true">→</i></a></div></div></div></div></section>
-<section class="sec sec--tint"><div class="wrap split"><div><h2>Admissions FAQ.</h2><div class="actions" style="margin-top:20px"><a class="tl" href="/faqs#admissions">All admissions questions <i aria-hidden="true">→</i></a></div></div><div>{faq_items([("Who is eligible to join?", "<p>All five three-year programs are designed for students who have passed Class 10. The one-year AI Foundation course also takes Class 10 pass (or equivalent) learners with no prior coding, AI or cloud experience.</p>"), ("How do I apply?", "<p>Use the Apply form on this site. [What happens after submission and the response time: to be confirmed.]</p>"), ("Do the programs guarantee a job or internship?", "<p>No. The programs aim at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but no internship, employment or salary is guaranteed.</p>")])}</div></div></section>''' + cta_panel("Ready to apply?", "Tell us which program interests you. Ask us about fees and intake dates.")
+<section class="sec sec--tint"><div class="wrap">{sec_head("Eligibility, fees and intakes", "By program.", "Compare entry requirements and intakes, and enquire about fees. Open a program for its modules and projects.")}<div class="tablewrap"><table class="cmp"><caption class="sr">Eligibility, fees and intake by program</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Entry</th><th scope="col">Fee</th><th scope="col">Next intake</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
+<section class="sec"><div class="wrap"><div class="dual"><div><p class="eyebrow">For students</p><h2 class="h3">Before you apply.</h2><ul class="check" style="margin-top:20px"><li>You have passed Class 10 (AI Foundation also takes an equivalent).</li><li>You have a laptop or desktop with internet. See each program page for its recommended setup.</li><li>You know which program you are interested in, or you are happy to ask us.</li></ul><div class="actions" style="margin-top:24px"><a class="tl" href="/programs">Compare programs <i aria-hidden="true">→</i></a></div></div>
+<div><p class="eyebrow">For parents and guardians</p><h2 class="h3">Applying for a student under 18.</h2><ul class="check" style="margin-top:20px"><li>A parent or guardian applies and gives consent.</li><li>We collect only what is needed to respond, use unticked consent boxes, and do not track or advertise to children. [Retention period and grievance contact: to be confirmed after legal review.]</li><li>[Documents required at admission: to be confirmed.]</li></ul><div class="actions" style="margin-top:24px"><a class="tl" href="/faqs#privacy">Privacy questions <i aria-hidden="true">→</i></a></div></div></div></div></section>
+<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Questions</p><h2>Admissions FAQ.</h2><div class="actions" style="margin-top:20px"><a class="tl" href="/faqs#admissions">All admissions questions <i aria-hidden="true">→</i></a></div></div><div>{faq_items([("Who is eligible to join?", "<p>All five three-year programs are designed for students who have passed Class 10. The one-year AI Foundation course also takes Class 10 pass (or equivalent) learners with no prior coding, AI or cloud experience.</p>"), ("How do I apply?", "<p>Use the Apply form on this site. [What happens after submission and the response time: to be confirmed.]</p>"), ("Do the programs guarantee a job or internship?", "<p>No. The programs aim at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but no internship, employment or salary is guaranteed.</p>")])}</div></div></section>''' + cta_panel("Ready to apply?", "Tell us which program interests you. Ask us about fees and intake dates.")
     return layout("/admissions", "Admissions and Fees", body, "admissions")
 
 FAQ_CATS = [("all", "All"), ("admissions", "Admissions"), ("learning", "Learning"), ("certification", "Certification"), ("outcomes", "Outcomes"), ("privacy", "Privacy"), ("program", "AI/ML program")]
