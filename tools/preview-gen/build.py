@@ -96,15 +96,52 @@ DESC = {
 import hashlib as _h
 ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.css"), "rb").read() + open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.js"), "rb").read())).hexdigest()[:10]
 
+SITE = "https://neuronetwrks.com"
+ORG_ID = SITE + "/#organization"
+ORG = {"@type": "EducationalOrganization", "@id": ORG_ID, "name": "NeuroNetworks AI Ed", "alternateName": ["NeuroNetworks", "Neuronetworks", "neuronetwrks"], "url": SITE + "/", "logo": SITE + "/assets/logo-512.png", "email": "Hussain@neuronetwrks.com", "description": "Practical AI and technology programs for students who have passed Class 10, from a one-year AI Foundation course to three-year specialisations.", "areaServed": "IN", "slogan": "Learn · Develop · Create"}
+CRUMB = {"programs": "Programs", "projects": "Projects", "about": "About", "admissions": "Admissions", "faqs": "FAQs", "contact": "Contact", "curriculum": "Curriculum", "learning-experience": "Learning Experience", "faculty-and-team": "Faculty and team"}
+_tagre = re.compile(r"<[^>]+>")
+def _txt(h): return html.unescape(re.sub(r"\s+", " ", _tagre.sub(" ", h))).strip()
+
+def page_graph(route, title, d, body, extra):
+    url = SITE + ("/" if route == "/" else route)
+    g = [ORG]
+    if route == "/":
+        g.append({"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "NeuroNetworks AI Ed", "inLanguage": "en-IN", "publisher": {"@id": ORG_ID}})
+    g.append({"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": title, "description": d, "inLanguage": "en-IN", "isPartOf": {"@id": SITE + "/#website"}, "about": {"@id": ORG_ID}})
+    if route != "/":
+        parts = route.strip("/").split("/"); items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"}]
+        for i in range(len(parts)):
+            p = "/" + "/".join(parts[:i + 1])
+            nm = CRUMB.get(parts[i]) or (title if i == len(parts) - 1 else parts[i].replace("-", " ").title())
+            items.append({"@type": "ListItem", "position": i + 2, "name": nm, "item": SITE + p})
+        g.append({"@type": "BreadcrumbList", "itemListElement": items})
+    qa = re.findall(r"<details[^>]*>\s*<summary>(.*?)</summary>\s*<div class=\"ans\">(.*?)</div>\s*</details>", body, re.S)
+    if qa:
+        seen, ents = set(), []
+        for q, a in qa:
+            q, a = _txt(q), _txt(re.sub(r'<a [^>]*class="le-link"[^>]*>.*?</a>', "", a, flags=re.S))
+            q = re.sub(r"^(Admissions|Learning|Certification|Outcomes|Privacy|AI/ML program) ", "", q) if route == "/faqs" else q
+            if q in seen or not a or "to be confirmed" in a.lower(): continue
+            seen.add(q); ents.append({"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}})
+        if ents: g.append({"@type": "FAQPage", "@id": url + "#faq", "mainEntity": ents})
+    if extra:
+        for x in (extra if isinstance(extra, list) else [extra]):
+            x = dict(x); x.pop("@context", None); g.append(x)
+    return {"@context": "https://schema.org", "@graph": g}
+
 def layout(route, title, body, active="none", desc=None, jsonld=None):
     t = title if route == "/" else f"{title} | NeuroNetworks AI Ed"
     d = desc or DESC.get(route) or DESC["/programs"]
-    canon = "https://neuronetwrks.com" + ("" if route == "/" else route)
-    ld = f'<script type="application/ld+json">{json.dumps(jsonld)}</script>' if jsonld else ""
+    canon = SITE + ("/" if route == "/" else route)
+    ld = '<script type="application/ld+json">' + json.dumps(page_graph(route, t, d, body, jsonld), ensure_ascii=False).replace("</", "<\\/") + "</script>"
+    og = SITE + "/assets/og.png"
     return f'''<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{E(t)}</title><meta name="description" content="{E(d)}"><meta name="theme-color" content="#006DEE">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="{canon}">
-<meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">
+<title>{E(t)}</title><meta name="description" content="{E(d)}"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="theme-color" content="#006DEE">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="canonical" href="{canon}">
+<meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:url" content="{canon}"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">
+<meta property="og:image" content="{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="NeuroNetworks AI Ed: Learn. Develop. Create.">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t)}"><meta name="twitter:description" content="{E(d)}"><meta name="twitter:image" content="{og}">
 <link rel="preload" href="/assets/f-jakarta.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">{ld}</head>
 <body><a class="skip" href="#main">Skip to content</a>
@@ -221,8 +258,8 @@ def home():
           ("How are learners assessed?", "<p>Every month ends with a project and a one-hour exam. In AI Foundation the pass mark is 80%, with review and a retry below it.</p>"),
           ("What does it cost?", "<p>We share fees when you enquire, so you get the details for the program you choose. Use the Enquire about fees button and a person will reply.</p><p><a class=\"tl\" href=\"/contact?topic=fees\">Enquire about fees <i aria-hidden=\"true\">→</i></a></p>")]
     faq = f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Frequently asked questions</p><h2>Got questions?<br>We've got answers.</h2><p class="lead" style="margin-top:16px">Find answers about our programs, learning format and admissions.</p><div class="actions" style="margin-top:28px">{btn("secondary", "/faqs", "All questions", True)}</div></div><div>{faq_items(fq)}</div></div></section>'''
-    ld = {"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "NeuroNetworks AI Ed", "url": "https://neuronetwrks.com", "description": DESC["/"]}
-    return layout("/", "NeuroNetworks AI Ed: AI and technology education after Class 10", hero + programs + method + lab + projects + faq + cta_panel(), "none", jsonld=ld)
+    ld = None
+    return layout("/", "NeuroNetworks AI Ed | AI and tech courses after Class 10", hero + programs + method + lab + projects + faq + cta_panel(), "none", jsonld=ld)
 
 def programs_page():
     cards = "".join(program_tile(p, i, "start" if i == 0 else "three", "h2") for i, p in enumerate(PROGRAMS))
@@ -266,7 +303,7 @@ def program_detail(slug):
     body += f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Requirements</p><h2>What you need.</h2><p class="lead" style="margin-top:16px">Entry: {E(d["entry"])}. Recommended setup below.</p><div class="actions" style="margin-top:24px">{btn("secondary", "/admissions", "Admissions details")}</div></div><ul class="panel list-rule" style="padding:8px 28px">{hw}</ul></div></section>'''
     fq = [(E(f["q"]), "<p>" + E(conf(f["a"])) + "</p>") for f in d["faqs"]]
     body += f'<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Questions</p><h2>About this program.</h2></div><div>{faq_items(fq)}</div></div></section>' + cta_panel()
-    ld = {"@context": "https://schema.org", "@type": "Course", "name": plain, "description": d["summary"], "provider": {"@type": "Organization", "name": "NeuroNetworks AI Ed"}}
+    ld = {"@type": "Course", "@id": f"{SITE}/programs/{slug}#course", "name": plain, "description": d["summary"], "url": f"{SITE}/programs/{slug}", "provider": {"@id": ORG_ID}, "inLanguage": "en-IN", "educationalLevel": "Beginner" if d["level"] == "foundation" else "Beginner to advanced", "coursePrerequisites": "Passed Class 10", "timeRequired": f"PT{p[3]}H", "hasCourseInstance": {"@type": "CourseInstance", "courseWorkload": f"PT{p[3]}H", "inLanguage": "en-IN"}, "teaches": [m for y in yrs for m in y["modules"]][:12]}
     return layout(f"/programs/{slug}", plain, body, "programs", desc=f"{plain}: modules, hours, tools and projects. Open to students who have passed Class 10.", jsonld=ld)
 
 def curriculum_page():
@@ -510,9 +547,16 @@ def main():
     for r, fn in PROJECT_PAGES.items(): write(r, fn())
     write("/about", about_page())
     write("/faculty-and-team", team_page()); write("/admissions", admissions_page()); write("/faqs", faq_page()); write("/contact", contact_page())
-    open(OUT + "/robots.txt", "w").write("User-agent: *\nAllow: /\n\nSitemap: https://neuronetwrks.com/sitemap.xml\n")
+    open(OUT + "/robots.txt", "w").write("User-agent: *\nAllow: /\n\n# AI search and answer engines\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nSitemap: https://neuronetwrks.com/sitemap.xml\n")
+    import datetime as _dt
+    today = _dt.date.today().isoformat()
     urls = sorted("/" + os.path.relpath(f, OUT)[:-5].replace("index", "") for f in glob.glob(OUT + "/**/*.html", recursive=True) if not f.endswith("404.html"))
-    open(OUT + "/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>https://neuronetwrks.com{u.rstrip('/') if u != '/' else '/'}</loc></url>\n" for u in urls) + "</urlset>\n")
+    pri = lambda u: "1.0" if u == "/" else "0.9" if u.startswith("/programs") else "0.7"
+    open(OUT + "/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{SITE}{u if u == '/' else u.rstrip('/')}</loc><lastmod>{today}</lastmod><priority>{pri(u)}</priority></url>\n" for u in urls) + "</urlset>\n")
+    lines = ["# NeuroNetworks AI Ed", "", "> Practical AI and technology education in India for students who have passed Class 10. One-year AI Foundation course (104 hours) and five three-year specialisations (624 hours each). Every three-year month ends with a project and a one-hour exam. Fees are shared on enquiry.", "", "Contact: Hussain@neuronetwrks.com", "", "## Programs"]
+    for p in PROGRAMS: lines.append(f"- [{p[2]}]({SITE}/programs/{p[0]}): {p[4]}, {p[3]} hours. {D[p[0]]['summary']}")
+    lines += ["", "## Key pages", f"- [Curriculum]({SITE}/curriculum): every module and project, month by month.", f"- [Learning experience]({SITE}/learning-experience): how lessons, labs, projects and exams work.", f"- [Admissions]({SITE}/admissions): eligibility, how to apply, parents and guardians.", f"- [FAQs]({SITE}/faqs): straight answers on eligibility, hours, certification and privacy.", f"- [Projects]({SITE}/projects): projects from the program roadmaps.", f"- [About]({SITE}/about)", f"- [Contact]({SITE}/contact)", "", "## Notes", "- No program guarantees a job, internship or salary.", "- Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed."]
+    open(OUT + "/llms.txt", "w").write("\n".join(lines) + "\n")
     open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "headers": [
         {"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]},
         {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, must-revalidate"}]}, {"source": "/((?!assets/).*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=0, must-revalidate"}]}]}, indent=1))

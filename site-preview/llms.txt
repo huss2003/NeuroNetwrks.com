@@ -1,0 +1,26 @@
+# NeuroNetworks AI Ed
+
+> Practical AI and technology education in India for students who have passed Class 10. One-year AI Foundation course (104 hours) and five three-year specialisations (624 hours each). Every three-year month ends with a project and a one-hour exam. Fees are shared on enquiry.
+
+Contact: Hussain@neuronetwrks.com
+
+## Programs
+- [AI Foundation](https://neuronetwrks.com/programs/ai-foundation): 1 year, 104 hours. A beginner course from AI literacy to Python, data, machine learning and small AI applications, with optional certification preparation.
+- [AI/ML Engineering](https://neuronetwrks.com/programs/ai-ml-engineering): 3 years, 624 hours. From Python basics to machine learning, deep learning, generative AI and MLOps, with a portfolio of projects.
+- [Software Development](https://neuronetwrks.com/programs/software-development): 3 years, 624 hours. From programming logic to full-stack, cloud and software engineering, with a high volume of hands-on projects.
+- [Data Science & AI](https://neuronetwrks.com/programs/data-science-ai): 3 years, 624 hours. From Python and SQL to analytics, machine learning, data engineering and generative AI, with a project portfolio.
+- [Product & UX / AI Design](https://neuronetwrks.com/programs/product-ux-ai-design): 3 years, 624 hours. From visual and UX fundamentals to product thinking, AI-assisted design, prototyping and a professional portfolio.
+- [Cybersecurity](https://neuronetwrks.com/programs/cybersecurity): 3 years, 624 hours. From computer and networking basics to security operations and ethical hacking, practised in authorised labs.
+
+## Key pages
+- [Curriculum](https://neuronetwrks.com/curriculum): every module and project, month by month.
+- [Learning experience](https://neuronetwrks.com/learning-experience): how lessons, labs, projects and exams work.
+- [Admissions](https://neuronetwrks.com/admissions): eligibility, how to apply, parents and guardians.
+- [FAQs](https://neuronetwrks.com/faqs): straight answers on eligibility, hours, certification and privacy.
+- [Projects](https://neuronetwrks.com/projects): projects from the program roadmaps.
+- [About](https://neuronetwrks.com/about)
+- [Contact](https://neuronetwrks.com/contact)
+
+## Notes
+- No program guarantees a job, internship or salary.
+- Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed.
