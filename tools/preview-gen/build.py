@@ -105,8 +105,7 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
 <title>{E(t)}</title><meta name="description" content="{E(d)}"><meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#006DEE">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="{canon}">
 <meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/f-jakarta.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">{ld}</head>
 <body><a class="skip" href="#main">Skip to content</a><aside class="pvb" aria-label="Preview notice">Preview build. Not the final site.</aside>
 {header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js?v={ASSET_V}" defer></script></body></html>'''
@@ -315,9 +314,9 @@ def learning_page():
 <div class="wrap le-hero-grid"><div class="le-hero-copy">{le_eyebrow("Learning experience", True)}<h1 class="le-h1"><span class="ln"><span>How you</span></span><span class="ln"><span>will learn.</span></span></h1>
 <p class="le-lead">A structured, project-based learning experience. Learn by doing, get regular practice, sit real exams and build a portfolio that shows what you can do.</p>
 <div class="le-actions"><a class="le-btn le-btn--p" href="/programs">Explore programs {ARW}</a><a class="le-btn le-btn--s" href="/contact">Talk to us</a></div></div>
-<div class="le-hero-art" aria-hidden="true"><img class="le-stair" src="/assets/r-hero.webp" alt="" width="1000" height="1000" fetchpriority="high"><p class="le-note">From concepts<br>to real skills</p><svg class="le-note-arrow" viewBox="0 0 90 40"><path d="M2 8 C30 2 60 6 80 28" fill="none" stroke="#7D8DA6" stroke-width="1.6" pathLength="1"/><path d="M72 28 L81 30 L80 20" fill="none" stroke="#7D8DA6" stroke-width="1.6"/></svg></div></div></section>'''
+<div class="le-hero-art" aria-hidden="true"><span class="le-glow g1"></span><span class="le-glow g2"></span><img class="le-stair" src="/assets/r-hero.webp" alt="" width="1000" height="1000" fetchpriority="high"><p class="le-note">From concepts<br>to real skills</p><svg class="le-note-arrow" viewBox="0 0 90 40"><path d="M2 8 C30 2 60 6 80 28" fill="none" stroke="#7D8DA6" stroke-width="1.6" pathLength="1"/><path d="M72 28 L81 30 L80 20" fill="none" stroke="#7D8DA6" stroke-width="1.6"/></svg></div></div></section>'''
     steps = [("book", "Concept", "One idea, explained simply."), ("play", "Worked example", "See it done before you do it."), ("doc", "Scenario question", "Choose the best answer in a real situation."), ("code", "Guided practice", "Try it with support close by."), ("chart", "Exit check", "Confirm you are ready to move on.")]
-    st = "".join(f'<li class="le-step" style="--i:{i}"><span class="le-step-n">{i+1:02d}</span><span class="le-step-ic">{li(ic)}</span><h3>{t}</h3><p>{d}</p></li>' for i, (ic, t, d) in enumerate(steps))
+    st = "".join(f'<li class="le-step" style="--i:{i}"><span class="le-step-n">Step {i+1:02d}</span><span class="le-step-ic">{li(ic)}</span><h3>{t}</h3><p>{d}</p></li>' for i, (ic, t, d) in enumerate(steps))
     lesson = f'''<section class="le-sec" data-le-steps><div class="wrap"><div class="le-head"><div>{le_eyebrow("From theory to real skills")}<h2>Five steps<br>in every lesson.</h2></div>
 <p class="le-head-p">Every lesson follows the same flow, so you always know what comes next. You learn a concept, see it worked through, practise it, answer a question on your own and finish with a quick check.</p></div>
 <div class="le-track"><div class="le-line" aria-hidden="true"><i></i><b></b></div><span class="le-track-end" aria-hidden="true">{ARW}</span><ol class="le-steps">{st}</ol></div>
@@ -339,7 +338,7 @@ def learning_page():
     rq = "".join(f'<li style="--i:{i}"><span class="tk" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>{E(x)}</li>' for i, x in enumerate(req))
     need = f'''<section class="le-sec" data-le-need><div class="wrap le-need-grid"><div>{le_eyebrow("All you need to start")}<h2>A laptop<br>and internet.</h2><p class="le-head-p" style="margin-top:16px">You need a computer with a browser and a stable connection for lessons, labs and course material.</p></div>
 <div><ul class="le-req">{rq}</ul><a class="le-link" href="/programs/ai-foundation">View detailed requirements {ARW}</a><p class="le-small" style="margin-top:8px">Setup for AI Foundation. Each three-year program lists its own on its program page.</p></div>
-<div class="le-laptop" aria-hidden="true"><img src="/assets/laptop.webp" alt="" width="760" height="605" loading="lazy"></div></div></section>'''
+<div class="le-laptop" aria-hidden="true" data-frames="24"><span class="le-laptop-floor"></span><img src="/assets/lap-23.webp" alt="" width="640" height="494" loading="lazy"></div></div></section>'''
     cta = f'''<section class="le-sec" style="padding-top:0"><div class="wrap"><div class="le-cta" data-le-cta><div class="le-cta-body">{le_eyebrow("See it for yourself", True)}<h2>Want to see it in person?</h2>
 <p>Ask us about the learning experience. Delivery mode and timings: [to be confirmed].</p><div class="le-actions"><a class="le-btn le-btn--w" href="/contact">Book a visit {ARW}</a><a class="le-btn le-btn--g" href="/contact">Talk to us</a></div></div>
 <div class="le-cta-art" aria-hidden="true"><img src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy"></div></div></div></section>'''

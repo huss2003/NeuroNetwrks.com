@@ -97,6 +97,21 @@
     addEventListener('resize', run); run();
   })();
 
+  /* ---- Laptop: lid opens with scroll (prerendered frames) ---- */
+  (function () {
+    var box = $('.le-laptop[data-frames]'); if (!box || rm) return;
+    var img = $('img', box), n = +box.getAttribute('data-frames'), frames = [], loaded = false, cur = n - 1, tick = false;
+    function src(k) { return '/assets/lap-' + (k < 10 ? '0' : '') + k + '.webp'; }
+    function load() { if (loaded) return; loaded = true; var done = 0; for (var k = 0; k < n; k++) { var im = new Image(); im.onload = function () { if (++done === n) { box.classList.add('ready'); run(); } }; im.src = src(k); frames.push(im); } }
+    function run() {
+      tick = false; if (!box.classList.contains('ready')) return;
+      var r = box.getBoundingClientRect(), p = Math.max(0, Math.min(1, (innerHeight * 0.92 - r.top) / (innerHeight * 0.55)));
+      var k = Math.round(p * (n - 1)); if (k !== cur) { cur = k; img.src = frames[k].src; }
+    }
+    if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { load(); io.disconnect(); } }, { rootMargin: '600px 0px' }); io.observe(box); } else load();
+    addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true });
+  })();
+
   /* ---- Generic chip filter (programs list) ---- */
   $$('[data-filter-group]').forEach(function (g) {
     var chips = $$('[data-filter]', g), items = $$('[data-cat]', document), out = $('[data-count]');
