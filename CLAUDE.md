@@ -3,14 +3,17 @@
 Read this file at the start of every session. Rules here beat your defaults. If a rule blocks the task, say so and ask; do not silently work around it.
 
 ## What this project is
+
 Marketing website for **NeuroNetworks AI Ed**, an Indian AI education brand (tagline: **Learn · Develop · Create**, never reworded). Goal: enquiries and applications, investor impression, brand awareness, and top organic/AI-search visibility. Pre-launch. India first. English only (`lang="en-IN"`).
 The site only collects enquiries (Google Sheet + email). No login, no payments, no chatbot, **no prices anywhere**. The Neuromind Practical Lab IDE is a separate product: link or teaser only.
 The owner is not a developer. Explain decisions in plain language, keep changes small, and never ask the owner to edit code.
 
 ## Stack (verify versions with `npm view <pkg> version` and Context7 before installing)
+
 Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@theme`) · MDX · TypeScript strict · GSAP (+ ScrollTrigger, SplitText) · Lenis · Three.js (one lazy island only) · `@astrojs/cloudflare` adapter used only for `src/pages/api/*` · Cloudflare Workers static assets · GitHub Actions for CI and deploy.
 
 ## Commands
+
 - `npm run dev` start dev server
 - `npm run check` = `astro check && tsc --noEmit`
 - `npm run lint` = ESLint + Prettier check
@@ -21,6 +24,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 - Deploy happens from GitHub Actions on merge to `main`. Do not run `wrangler deploy` yourself unless the owner asks.
 
 ## Folder map
+
 - `docs/source/` owner-supplied originals (six curriculum .docx, logo). Read-only. Never edit.
 - `docs/open-questions.md` every fact you could not confirm goes here, not into the site.
 - `src/content/{programs,posts,faqs,audiences}/` content collections (Zod schemas in `src/content.config.ts`).
@@ -31,6 +35,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 - `src/pages/api/enquiry.ts` the only server route (`export const prerender = false`).
 
 ## Hard rules
+
 1. **Static by default.** Every page is prerendered. Only `/api/*` may run on demand.
 2. **No invented facts.** No made-up stats, testimonials, faculty, ratings, partner logos, outcomes, fees, or accreditation. Use text from `docs/source/` or write `{{CONFIRM: ...}}` and log it in `docs/open-questions.md`. A build step fails if `{{CONFIRM` appears in `dist/`.
 3. **No prices.** CTAs are "Apply" and "Talk to us" only.
@@ -46,6 +51,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 13. **Do not add dependencies** casually. Justify each in the PR description with its size cost.
 
 ## Design rules (editorial, premium, bright)
+
 - Colours: brand blue `#006DEE` and brand green `#49B716` plus derived tints from `global.css`. Blue leads; green is rare (≤ 10% of coloured surface). `#49B716` fails contrast as text on white; use the darker `--green-700` for text and ink text on green fills. Compute contrast; do not guess.
 - Neutrals are tinted toward blue (`--ink #0B1B33`, `--bg #FFFFFF`, `--bg-soft #F6F9FD`). No cream backgrounds. No pure grey.
 - Type: self-hosted variable fonts (no Google Fonts request at runtime). Pairing is locked after the specimen test in Phase 1. Type is the main design element.
@@ -55,6 +61,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 - Navigation transitions use native CSS `@view-transition { navigation: auto; }`, not `<ClientRouter />`, unless the owner approves.
 
 ## SEO / AEO / GEO rules
+
 - Under each H2, first sentence answers the heading directly in 40–60 words (answer-first). Use definition lists and tables for facts.
 - FAQ blocks are visible on the page and marked up with `FAQPage` (helps AI answers; Google no longer shows FAQ rich results).
 - Entity consistency: "NeuroNetworks AI Ed" everywhere; `alternateName` includes "NeuroNetworks", "Neuronetworks", "neuronetwrks".
@@ -62,6 +69,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 - Blog posts: real named author, date, `dateModified`, TL;DR, sources, FAQ, internal links to at least 2 program pages. Future `pubDate` posts are excluded from the build until their date (daily rebuild publishes them).
 
 ## Workflow
+
 1. **Plan mode first** for every phase in `docs/BUILD_PROMPT.md`. Use `/model opusplan`.
 2. Build one section/page at a time. Commit small, conventional messages. Work on a branch; open a PR; CI must be green.
 3. After each page: run `npm run check`, take mobile (390×844) and desktop (1440×900) screenshots with Playwright MCP, run Lighthouse via Chrome DevTools MCP, and fix before moving on.
@@ -71,4 +79,5 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 7. Update `docs/PLAN.md` status table at the end of each phase.
 
 ## Definition of done (every page)
+
 Type-checks · builds · Lighthouse ≥ 95 (Perf, A11y, Best Practices, SEO) on mobile profile · LCP ≤ 1.8 s, INP ≤ 150 ms, CLS ≤ 0.05 on throttled mid-range Android · pa11y clean · JSON-LD validates · works with JS disabled · reduced-motion tested · no `{{CONFIRM` left · screenshots reviewed.

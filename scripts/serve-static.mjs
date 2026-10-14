@@ -2,6 +2,7 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
+import { URL } from 'node:url';
 
 const root = 'dist/client';
 const port = Number(process.argv[2] ?? 4321);

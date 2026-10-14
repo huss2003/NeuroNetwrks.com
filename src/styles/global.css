@@ -1,2 +1,150 @@
 @import 'tailwindcss';
-/* Design tokens arrive in Phase 1. No raw hex colours elsewhere. */
+
+/*
+ * Design tokens. This is the only file that may contain raw colour values.
+ * Contrast for every text/background pair used on the site is checked by
+ * `node scripts/contrast.mjs` and recorded in docs/contrast-report.md.
+ */
+@theme {
+  /* Brand blue leads */
+  --color-blue-50: #eef5ff;
+  --color-blue-100: #d9e8ff;
+  --color-blue-200: #b3d0ff;
+  --color-blue-600: #006dee;
+  --color-blue-700: #0a55c8;
+  --color-blue-900: #0a2a66;
+
+  /* Brand green is rare: fills, rules, marks. Text uses green-700. */
+  --color-green-50: #f0fae8;
+  --color-green-100: #dcf3c9;
+  --color-green-600: #49b716;
+  --color-green-700: #2b7f0a;
+
+  /* Blue-tinted neutrals (no pure grey, no cream) */
+  --color-ink: #0b1b33;
+  --color-slate: #4a5b75;
+  --color-line: #e3eaf4;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f6f9fd;
+
+  /* Type families (set after the Phase 1 specimen test) */
+  --font-display: 'Bricolage Grotesque Variable', 'Display Fallback', system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans Variable', 'Body Fallback', system-ui, sans-serif;
+
+  /* Fluid type scale, ratio about 1.25 */
+  --text-sm: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --text-base: clamp(1.0625rem, 1.03rem + 0.15vw, 1.125rem);
+  --text-lg: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  --text-2xl: clamp(1.875rem, 1.5rem + 1.7vw, 2.75rem);
+  --text-3xl: clamp(2.375rem, 1.7rem + 3vw, 4rem);
+  --text-display: clamp(3rem, 1.6rem + 6.4vw, 8rem);
+
+  /* Two radii only */
+  --radius-control: 6px;
+  --radius-media: 20px;
+
+  /* Rare, hard to notice, blue-ink tinted */
+  --shadow-raised: 0 1px 2px rgb(11 27 51 / 0.06), 0 8px 24px -12px rgb(11 27 51 / 0.14);
+
+  /* Layout */
+  --container-page: 80rem;
+  --spacing-gutter: 1rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    margin: 0;
+  }
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+  a {
+    color: var(--color-blue-700);
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  a:hover {
+    color: var(--color-blue-900);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-blue-600);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: var(--color-blue-100);
+    color: var(--color-ink);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Native cross-page transitions (no client router) */
+@view-transition {
+  navigation: auto;
+}
+
+/* Metric-matched fallbacks to avoid layout shift while fonts load.
+   Values are starting points; verified in the specimen screenshots. */
+@font-face {
+  font-family: 'Display Fallback';
+  src: local('Arial');
+  size-adjust: 96%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Body Fallback';
+  src: local('Arial');
+  size-adjust: 101%;
+  ascent-override: 98%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+  @media (min-width: 48rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 80rem) {
+    padding-inline: 2rem;
+  }
+}

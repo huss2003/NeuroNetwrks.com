@@ -1,3 +1,4 @@
+// @ts-check
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -6,8 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://neuronetwrks.com',
-  output: 'static', // every page prerendered
-  adapter: cloudflare(), // used only by src/pages/api/*
+  output: 'static', // every page prerendered; only src/pages/api/* opts out
+  adapter: cloudflare(),
   trailingSlash: 'never',
   integrations: [mdx(), sitemap({ filter: (p) => !p.includes('/apply/thanks') })],
   vite: { plugins: [tailwindcss()] },

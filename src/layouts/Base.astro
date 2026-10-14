@@ -1,12 +1,18 @@
 ---
 import '../styles/global.css';
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/ibm-plex-sans';
+
 interface Props {
   title: string;
   description: string;
   noindex?: boolean;
 }
+
 const { title, description, noindex = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const isStaging = import.meta.env.PUBLIC_ENV !== 'production';
+const canonical =
+  new URL(Astro.url.pathname, Astro.site).toString().replace(/\/$/, '') || String(Astro.site);
 ---
 
 <!doctype html>
@@ -17,10 +23,18 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {(noindex || isStaging) && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="NeuroNetworks AI Ed" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#006DEE" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <main>
+    <a href="#main">Skip to content</a>
+    <main id="main">
       <slot />
     </main>
   </body>

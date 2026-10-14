@@ -1,8 +1,5 @@
 dist
 .astro
-.wrangler
 node_modules
 docs
 package-lock.json
-*.md
-*.docx

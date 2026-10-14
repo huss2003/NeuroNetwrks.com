@@ -1,15 +1,21 @@
-# Open questions (owner input needed)
+# Open questions
 
-Every unconfirmed fact lives here, not in the site. Content uses `{{CONFIRM: ...}}`; the build fails if one reaches `dist/`.
+Every unconfirmed fact lives here. On the site it appears as `{{CONFIRM: ...}}` and blocks a production build.
 
-1. Vector logo (SVG, AI or PDF). Only a JPG exists (`docs/source/logo.jpg`). Until then Phase 1 vectorises it and marks it provisional.
-2. Official public names of the six programs. Is "Neuromind" a public product name, and which certification does the foundation course align to?
-3. Real photography of Indian students (about 12 to 22), professionals, mentors, labs. Until then: marked image slots, no AI faces.
-4. Team and faculty names, photos, credentials (or leave the section out).
-5. Contact details: email, phone (optional), postal address, grievance officer name and email, social profile URLs.
-6. Admissions process, eligibility, intake dates, batch sizes, certification details, outcomes.
-7. Accounts and access (click-paths in `docs/PLAN.md` section 15): GitHub secrets, Cloudflare account and API token, Turnstile site, Google Cloud service account with the Sheet shared, GA4 property, Search Console, Bing Webmaster Tools, Resend or other email API.
-8. aikolearn.com: the correct URL.
-9. AI training-bot policy (GPTBot, ClaudeBot, Google-Extended): allow (default) or block.
-10. Spelling preference: Indian or British English.
-11. Legal review of the privacy notice and consent flow before launch.
+## Owner inputs needed
+
+| # | Question | Needed by | Status |
+|---|---|---|---|
+| 1 | Vector logo (SVG/AI/PDF). Only a JPG exists (`docs/source/logo.jpg`); a traced SVG will be provisional | Phase 1 | open |
+| 2 | Official public names of all six programs. Is "Neuromind" a public product name? Which certifications does the foundation program align to (docs mention Microsoft AI-901 and AWS AIF-C01)? | Phase 2 | open |
+| 3 | Real photography of students, professionals, mentors, labs | Phase 3 | open |
+| 4 | Team and faculty names, photos, credentials (or omit section) | Phase 3 | open |
+| 5 | Contact email, phone, address, grievance officer, social profile URLs | Phase 3 | open |
+| 6 | Admissions steps, eligibility, intake dates, batch sizes, certification details | Phase 3 | open |
+| 7 | AI training-bot policy: allow or block GPTBot, ClaudeBot, Google-Extended | Phase 5 | open |
+| 8 | aikolearn.com: confirm the correct URL | Phase 5 | open |
+| 9 | Correct GitHub repo URL (`huss2003/NeuroNetwrks.com` returned 404; private or misspelled) | Phase 0 | open |
+| 10 | Accounts: GitHub, Cloudflare + API token, Turnstile, Google Cloud service account, GA4, Search Console, Bing, Resend (see PLAN.md section 15) | Phase 6-10 | open |
+
+## Content gaps found while building
+_None yet._

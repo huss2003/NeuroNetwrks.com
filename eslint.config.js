@@ -3,12 +3,12 @@ import tseslint from 'typescript-eslint';
 import astro from 'eslint-plugin-astro';
 
 export default [
-  { ignores: ['dist/', '.astro/', '.wrangler/', 'docs/', 'node_modules/'] },
+  { ignores: ['dist/', '.astro/', '.wrangler/', 'node_modules/', 'docs/'] },
+  {
+    files: ['scripts/**/*.mjs', '*.config.*'],
+    languageOptions: { globals: { console: 'readonly', process: 'readonly' } },
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
-  {
-    files: ['scripts/**/*.mjs'],
-    languageOptions: { globals: { process: 'readonly', console: 'readonly', URL: 'readonly' } },
-  },
 ];

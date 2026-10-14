@@ -1,6 +1,5 @@
 ---
-description: Verify title, description, canonical, H1 and JSON-LD for a page
-argument-hint: <route, for example /programs>
+description: Verify title, description, canonical, H1 and schema on the current page
 ---
 
-For `$ARGUMENTS` (default `/`), read the built HTML in `dist/client` and check: one `<h1>`; `<title>` ≤ 60 chars; meta description ≤ 155; absolute canonical without trailing slash; Open Graph and Twitter tags; `BreadcrumbList`; the JSON-LD required for the page type; answer-first first sentence under each H2. Use the `neuronetworks-seo` skill. Report pass or fail per item.
+For the page named in $ARGUMENTS (or the page just edited), check in the built HTML: one `<h1>`; title ≤ 60 chars; meta description ≤ 155; absolute canonical without trailing slash; OG and Twitter tags; BreadcrumbList; JSON-LD valid and matching visible content; answer-first paragraph under each H2; no `{{CONFIRM`. Report pass/fail per item.
