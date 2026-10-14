@@ -1095,3 +1095,20 @@ html.js [data-pd]:not(.in) .ab-stats div,html.js [data-pd]:not(.in) .ab-cards li
 @media (max-width:520px){.ab-cards{grid-template-columns:1fr}.ab-tag{display:none}}
 @media (prefers-reduced-motion:reduce){html.js [data-pd]:not(.in) *{opacity:1!important;transform:none!important}.ab-hero.in .ab-hero-art{animation:none}}
 .ab-cta-art{width:auto;max-height:340px;max-width:100%}.ab-cta-in{min-height:0}
+/* About: Our story (v2) */
+.ab-story2{background:linear-gradient(180deg,#F1F6FE,#F6F9FD);border-block:1px solid #E1EBF8}
+.ab-arc{position:absolute;left:0;bottom:0;width:46%;height:100%;pointer-events:none}
+.ab-st-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(24px,5vw,80px);align-items:start}
+.ab-eb2{display:flex;align-items:center;gap:12px;font:600 .66rem var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:#1D4ED8;margin-bottom:12px}
+.ab-eb2::before{content:"";width:34px;height:1.5px;background:var(--blue)}
+.ab-story2 h2{font-size:clamp(2.4rem,1.5rem + 2.8vw,3.6rem)}
+.ab-st-card{background:#fff;border:1px solid #DFE8F6;border-radius:6px;padding:22px 24px;box-shadow:0 24px 44px -34px rgba(10,42,102,.5)}
+.ab-st-card p{font-size:1.02rem;line-height:1.6;color:#2A3B55}
+.ab-st-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px}
+.ab-st-stats div{padding:4px 22px;border-left:1px solid #C9D7EC}
+.ab-st-stats small{display:block;font:600 .62rem var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#1D4ED8}
+.ab-st-stats b{display:block;margin-top:14px;font:600 clamp(1.5rem,1.1rem + 1vw,2rem)/1.15 var(--font-display);letter-spacing:-.03em;color:var(--ink)}
+html.js [data-pd]:not(.in) .ab-st-card,html.js [data-pd]:not(.in) .ab-st-stats div{opacity:0;transform:translateY(20px)}
+.ab-st-card,.ab-st-stats div{transition:opacity .7s var(--ease) calc(var(--k,0)*.12s + .1s),transform .7s var(--ease) calc(var(--k,0)*.12s + .1s)}
+@media (max-width:860px){.ab-st-grid{grid-template-columns:minmax(0,1fr)}.ab-arc{display:none}}
+@media (max-width:480px){.ab-st-stats{grid-template-columns:1fr;gap:16px}}
