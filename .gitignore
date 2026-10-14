@@ -28,3 +28,6 @@ pnpm-debug.log*
 .wrangler/
 *.pem
 .lighthouseci/
+test-results/
+playwright-report/
+.lighthouseci/
