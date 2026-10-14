@@ -102,12 +102,12 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
     canon = "https://neuronetwrks.com" + ("" if route == "/" else route)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld)}</script>' if jsonld else ""
     return f'''<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{E(t)}</title><meta name="description" content="{E(d)}"><meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#006DEE">
+<title>{E(t)}</title><meta name="description" content="{E(d)}"><meta name="theme-color" content="#006DEE">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="{canon}">
 <meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">
 <link rel="preload" href="/assets/f-jakarta.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">{ld}</head>
-<body><a class="skip" href="#main">Skip to content</a><aside class="pvb" aria-label="Preview notice">Preview build. Not the final site.</aside>
+<body><a class="skip" href="#main">Skip to content</a>
 {header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js?v={ASSET_V}" defer></script></body></html>'''
 
 def stair(blob, alt, opts, cid=None, tags=False):
@@ -510,9 +510,11 @@ def main():
     for r, fn in PROJECT_PAGES.items(): write(r, fn())
     write("/about", about_page())
     write("/faculty-and-team", team_page()); write("/admissions", admissions_page()); write("/faqs", faq_page()); write("/contact", contact_page())
-    open(OUT + "/robots.txt", "w").write("User-agent: *\nDisallow: /\n")
+    open(OUT + "/robots.txt", "w").write("User-agent: *\nAllow: /\n\nSitemap: https://neuronetwrks.com/sitemap.xml\n")
+    urls = sorted("/" + os.path.relpath(f, OUT)[:-5].replace("index", "") for f in glob.glob(OUT + "/**/*.html", recursive=True) if not f.endswith("404.html"))
+    open(OUT + "/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>https://neuronetwrks.com{u.rstrip('/') if u != '/' else '/'}</loc></url>\n" for u in urls) + "</urlset>\n")
     open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "headers": [
-        {"source": "/(.*)", "headers": [{"key": "X-Robots-Tag", "value": "noindex, nofollow"}, {"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]},
+        {"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]},
         {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, must-revalidate"}]}, {"source": "/((?!assets/).*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=0, must-revalidate"}]}]}, indent=1))
     open(OUT + "/404.html", "w").write('<!doctype html><html lang="en-IN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | NeuroNetworks AI Ed</title><meta name="robots" content="noindex"><body style="font-family:system-ui;padding:80px 24px;background:#F6F9FD;color:#0B1B33"><h1>Page not found</h1><p><a href="/" style="color:#006DEE">Go to the home page</a></p></body></html>')
     print("built", len(glob.glob(OUT + "/**/*.html", recursive=True)), "pages")
