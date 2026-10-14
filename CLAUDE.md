@@ -27,6 +27,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 
 - `docs/source/` owner-supplied originals (six curriculum .docx, logo). Read-only. Never edit.
 - `docs/open-questions.md` every fact you could not confirm goes here, not into the site.
+- `docs/launch-checklist.md` pending launch items and owner steps (GA4 ID, Search Console, Bing, Business Profile, placeholders). When the owner asks what is pending, answer from it and keep it updated.
 - `src/content/{programs,posts,faqs,audiences}/` content collections (Zod schemas in `src/content.config.ts`).
 - `src/components/` UI; `src/layouts/Base.astro` is the only layout that renders `<html>`.
 - `src/lib/` `schema.ts` (JSON-LD builders), `seo.ts`, `sheets.ts`, `turnstile.ts`.

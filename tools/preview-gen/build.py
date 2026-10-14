@@ -77,7 +77,7 @@ def footer():
 <nav aria-label="Resources"><h2>Resources</h2><ul><li><a href="/curriculum">Curriculum</a></li><li><a href="/faqs">FAQs</a></li><li><a href="/programs">Compare programs</a></li></ul></nav>
 <div><h2>Admissions and contact</h2><ul><li><a href="/admissions">Admissions</a></li><li><a href="/contact">Contact</a></li></ul><p class="small" style="margin-top:12px"><a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a></p><p class="small muted" style="margin-top:6px">[Postal address and phone: to be confirmed]</p></div>
 </div>
-<div class="ft-base"><span>© NeuroNetworks AI Ed. All rights reserved.</span><nav aria-label="Legal"><a href="/contact">Privacy Policy</a><a href="/contact">Terms of Service</a></nav><span>Designed for curious minds. Built for what's next.</span></div>
+<div class="ft-base"><span>© NeuroNetworks AI Ed. All rights reserved.</span><nav aria-label="Legal"><a href="/contact">Privacy Policy</a><a href="/contact">Terms of Service</a>{'<button type="button" class="ft-cookie" data-consent-open>Cookie settings</button>' if GA_ID else ''}</nav><span>Designed for curious minds. Built for what's next.</span></div>
 </div></footer>'''
 
 DESC = {
@@ -97,6 +97,16 @@ import hashlib as _h
 ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.css"), "rb").read() + open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.js"), "rb").read())).hexdigest()[:10]
 
 SITE = "https://neuronetwrks.com"
+# Google Analytics 4 Measurement ID (G-XXXXXXXXXX). Empty = analytics and the consent banner are off.
+GA_ID = ""
+# IndexNow key (public by design; served at /<key>.txt so Bing and others accept URL pings).
+INDEXNOW_KEY = "e7fd3f9464fa4857fe51aa4ef1a906fa"
+
+def ga_head():
+    if not GA_ID: return ""
+    return ("<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}"
+            "gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});"
+            "document.documentElement.dataset.ga='%s'</script>" % GA_ID)
 ORG_ID = SITE + "/#organization"
 ORG = {"@type": "EducationalOrganization", "@id": ORG_ID, "name": "NeuroNetworks AI Ed", "alternateName": ["NeuroNetworks", "Neuronetworks", "neuronetwrks"], "url": SITE + "/", "logo": SITE + "/assets/logo-512.png", "email": "Hussain@neuronetwrks.com", "description": "Practical AI and technology programs for students who have passed Class 10, from a one-year AI Foundation course to three-year specialisations.", "areaServed": "IN", "slogan": "Learn · Develop · Create"}
 CRUMB = {"programs": "Programs", "projects": "Projects", "about": "About", "admissions": "Admissions", "faqs": "FAQs", "contact": "Contact", "curriculum": "Curriculum", "learning-experience": "Learning Experience", "faculty-and-team": "Faculty and team"}
@@ -143,7 +153,7 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
 <meta property="og:image" content="{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="NeuroNetworks AI Ed: Learn. Develop. Create.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t)}"><meta name="twitter:description" content="{E(d)}"><meta name="twitter:image" content="{og}">
 <link rel="preload" href="/assets/f-jakarta.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">{ld}</head>
+<link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">{ga_head()}{ld}</head>
 <body><a class="skip" href="#main">Skip to content</a>
 {header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js?v={ASSET_V}" defer></script></body></html>'''
 
@@ -557,6 +567,7 @@ def main():
     for p in PROGRAMS: lines.append(f"- [{p[2]}]({SITE}/programs/{p[0]}): {p[4]}, {p[3]} hours. {D[p[0]]['summary']}")
     lines += ["", "## Key pages", f"- [Curriculum]({SITE}/curriculum): every module and project, month by month.", f"- [Learning experience]({SITE}/learning-experience): how lessons, labs, projects and exams work.", f"- [Admissions]({SITE}/admissions): eligibility, how to apply, parents and guardians.", f"- [FAQs]({SITE}/faqs): straight answers on eligibility, hours, certification and privacy.", f"- [Projects]({SITE}/projects): projects from the program roadmaps.", f"- [About]({SITE}/about)", f"- [Contact]({SITE}/contact)", "", "## Notes", "- No program guarantees a job, internship or salary.", "- Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed."]
     open(OUT + "/llms.txt", "w").write("\n".join(lines) + "\n")
+    open(OUT + f"/{INDEXNOW_KEY}.txt", "w").write(INDEXNOW_KEY)
     open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "headers": [
         {"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]},
         {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, must-revalidate"}]}, {"source": "/((?!assets/).*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=0, must-revalidate"}]}]}, indent=1))

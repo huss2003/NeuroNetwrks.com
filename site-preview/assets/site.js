@@ -301,3 +301,50 @@
     new IntersectionObserver(function (es) { if (es[0].isIntersecting) { if (!t) t = setInterval(function () { li.forEach(function (x, j) { x.classList.toggle('on', j === k); }); k = (k + 1) % li.length; }, 1600); } else { clearInterval(t); t = null; } }).observe(path);
   }
 })();
+
+/* Analytics: Google Analytics 4 loads only after the visitor allows it. Off when no ID is set at build. */
+(function () {
+  'use strict';
+  var id = document.documentElement.dataset.ga;
+  if (!id) return;
+  var KEY = 'nn-consent', bar = null, loaded = false;
+  function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function ev(name, p) { if (loaded) gtag('event', name, p || {}); }
+  function load() {
+    if (loaded) return; loaded = true;
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', id, { allow_google_signals: false, allow_ad_personalization_signals: false });
+    var m = location.pathname.match(/^\/programs\/([\w-]+)/); if (m) ev('program_view', { program: m[1] });
+  }
+  function close() { if (bar) { bar.remove(); bar = null; } }
+  function open() {
+    if (bar) return;
+    bar = document.createElement('div'); bar.className = 'consent'; bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', 'Cookie choice');
+    bar.innerHTML = '<p>We would like to use Google Analytics to see which pages help visitors. No ads, and we do not sell data. You can change this any time under Cookie settings.</p>' +
+      '<div class="consent-b"><button type="button" class="btn btn-primary" data-c="yes">Allow analytics</button><button type="button" class="btn btn-ghost-ink" data-c="no">No thanks</button></div>';
+    bar.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-c]'); if (!b) return;
+      if (b.dataset.c === 'yes') { set('granted'); load(); }
+      else { set('denied'); if (loaded) gtag('consent', 'update', { analytics_storage: 'denied' }); }
+      close();
+    });
+    document.body.appendChild(bar);
+  }
+  var c = get();
+  if (c === 'granted') load(); else if (c !== 'denied') open();
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-consent-open]')) { open(); var f = bar && bar.querySelector('button'); if (f) f.focus(); return; }
+    var a = e.target.closest('a[href]'); if (!a) return;
+    if (a.host && a.host !== location.host) ev('outbound_click', { link_url: a.href });
+    else if (/^\/(contact|admissions)/.test(a.pathname)) ev('talk_click', { link_url: a.pathname + a.search, page: location.pathname });
+  });
+  var sent = false;
+  addEventListener('scroll', function () {
+    if (sent || !loaded) return;
+    var h = document.documentElement; if ((h.scrollTop + innerHeight) / h.scrollHeight >= 0.75) { sent = true; ev('scroll_75'); }
+  }, { passive: true });
+})();
