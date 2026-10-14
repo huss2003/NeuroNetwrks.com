@@ -108,7 +108,7 @@ Effort: S = under a day of Claude sessions, M = 1–3 days, L = 3+ days (depends
 | Phase | Scope | Effort | Exit criteria | Status |
 |---|---|---|---|---|
 | 0 | Setup, CI, MCP, Claude config | S | check/build pass, CI green, MCP report | ✔ local (CI and MCP report pending repo) |
-| 1 | Brand, fonts, components | M | contrast report, font choice with screenshots, styleguide reviewed | ☐ |
+| 1 | Brand, fonts, components | M | contrast report, font choice with screenshots, styleguide reviewed | ◐ tokens, contrast report and font choice done; logo set and components in progress |
 | 2 | Content model, curriculum extraction | M | all collections valid; curriculum summary approved | ☐ |
 | 3 | All pages, static | L | all routes render; Lighthouse ≥ 95 before motion | ☐ |
 | 4 | Motion and 3D | M | signature line and ribbon work; budgets met with motion | ☐ |
@@ -172,3 +172,9 @@ Menu names may change slightly; ask Claude if a screen looks different.
 
 ## 19. Verified versions (Phase 0, 13 Oct 2026)
 Node 24.20.0 · npm 11.19.0 · astro 7.3.8 · @astrojs/cloudflare 14.3.4 · @astrojs/mdx 8.0.3 · @astrojs/sitemap 3.7.4 · tailwindcss and @tailwindcss/vite 4.3.3 · gsap 3.15.0 · lenis 1.3.26 · three 0.186.1 · astro-seo 1.2.0 · astro-og-canvas 0.13.2 · @astrojs/partytown 2.1.8. Build output goes to `dist/client` with this adapter.
+
+## 20. Phase 1 record
+
+**Font pairing (chosen): Bricolage Grotesque (display) + IBM Plex Sans (body).** Specimen screenshots: `docs/design/phase1/type-desktop.png` and `type-mobile.png`. All three candidates rendered "·", "₹", curly quotes and en-dashes. B won because it is a sans like the logo wordmark, matches the owner's mockups in `docs/design/`, holds up at 8 rem display size with tight tracking, and avoids the Fraunces look that is now common on template sites. Rejected: A (Fraunces + Instrument Sans), C (Newsreader + Source Sans 3). The `/dev/type` page and unused font packages were removed.
+
+**Contrast:** `node scripts/contrast.mjs` writes `docs/contrast-report.md`; every text pair passes AA. `--green-700` was darkened to `#2b7f0a` (5.07:1 on white). Brand green on white is 2.6:1, so it is decorative only.
