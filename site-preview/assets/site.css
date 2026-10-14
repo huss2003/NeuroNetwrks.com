@@ -1311,3 +1311,46 @@ html.js [data-pd]:not(.in) .ct-info,html.js [data-pd]:not(.in) .ct-form,html.js 
 @media (max-width:980px){.ct-hero-grid,.ct-grid{grid-template-columns:minmax(0,1fr)}.ct-aside{position:static;order:2}.ct-hero-art{display:none}.ct-links{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.ct-hero-art img{animation:none}}
 .ct-mail .ic{color:#fff}.ct-form .err-sum{border-radius:12px;border-color:#0A2A66}
+/* ================= Faculty & team ================= */
+.tm-hero{position:relative;overflow:hidden;padding-block:clamp(32px,4.5vw,64px) clamp(40px,5vw,72px);background:radial-gradient(700px 420px at 78% 45%,rgba(0,109,238,.16),transparent 70%),linear-gradient(180deg,#F8FBFF,#EAF2FF)}
+.tm-hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,64px);align-items:center}
+.tm-hero-art{position:relative;height:380px}
+.tm-ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1.5px dashed #BFD3F3;transform:translate(-50%,-50%)}
+.tm-ring.r1{width:240px;height:240px}.tm-ring.r2{width:360px;height:360px;border-style:solid;border-color:#DCE7F7}
+.tm-core{position:absolute;left:50%;top:50%;width:150px;height:auto;transform:translate(-50%,-50%);filter:drop-shadow(0 20px 24px rgba(10,60,160,.25))}
+.tm-orb{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#5EA6FF,#0A55D2);box-shadow:0 14px 26px -12px rgba(0,80,200,.6),0 0 0 4px #fff;animation:tmOrbit 26s linear infinite}
+.tm-orb .tm-sil{width:100%;height:100%;display:block}
+.tm-orb.o0{--a:0deg;--r:180px}.tm-orb.o1{--a:72deg;--r:180px}.tm-orb.o2{--a:144deg;--r:120px}.tm-orb.o3{--a:216deg;--r:180px}.tm-orb.o4{--a:288deg;--r:120px}
+.tm-orb.o2,.tm-orb.o4{width:48px;height:48px;margin:-24px 0 0 -24px;background:linear-gradient(160deg,#7EE04A,#2F8A16)}
+@keyframes tmOrbit{from{transform:rotate(var(--a)) translateX(var(--r)) rotate(calc(-1*var(--a)))}to{transform:rotate(calc(var(--a) + 360deg)) translateX(var(--r)) rotate(calc(-1*var(--a) - 360deg))}}
+.tm-hero-art .fq-bubble.b2{right:0;bottom:6%}
+.tm-av{position:relative;aspect-ratio:4/4.4;border-radius:16px;overflow:hidden;background:radial-gradient(120% 80% at 50% 0,#8CC0FF,#2F7BF0 55%,#0A4FC0)}
+.tm-av .tm-sil{position:absolute;left:50%;bottom:0;width:72%;transform:translateX(-50%)}
+.tm-ph{position:absolute;left:10px;top:10px;font:600 .6rem var(--font-mono);letter-spacing:.06em;color:#fff;background:rgba(10,30,80,.45);padding:4px 8px;border-radius:6px}
+.tm-lead{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;background:#fff;border:1px solid #DFE8F6;border-radius:22px;padding:clamp(20px,3vw,32px);box-shadow:0 40px 70px -50px rgba(10,42,102,.6)}
+.tm-av--lg{border-radius:18px}
+.tm-lead-t h3{margin-top:14px;font:800 clamp(1.6rem,1.2rem + 1vw,2.2rem) var(--font-display)}
+.tm-role{margin-top:4px;color:var(--blue-text);font-weight:700}
+.tm-lead-t>p:not(.tm-role){margin-top:12px;color:#46566F}
+.tm-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;padding-top:22px;border-top:1px solid #EEF3FA}
+.tm-rules .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(160deg,#2C8BFF,#0057D9);color:#fff}
+.tm-rules b{display:block;margin-top:12px;font:700 .92rem var(--font-display)}.tm-rules small{display:block;margin-top:4px;color:#55667F;font-size:.8rem}
+.tm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.tm-card{background:#fff;border:1px solid #DFE8F6;border-radius:18px;padding:12px;box-shadow:0 24px 46px -36px rgba(10,42,102,.55);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.tm-card:hover{transform:translateY(-6px);box-shadow:0 36px 60px -36px rgba(0,90,220,.5)}
+.tm-card .tm-av .tm-sil{transition:transform .5s var(--ease)}.tm-card:hover .tm-av .tm-sil{transform:translateX(-50%) scale(1.05)}
+.tm-t{padding:14px 8px 8px}.tm-t h3{font:800 1.1rem var(--font-display)}.tm-t .tm-role{font-size:.86rem}
+.tm-bg{margin-top:8px;font-size:.8rem;color:#55667F;line-height:1.5}
+.tm-prog{display:inline-block;margin-top:12px;font:600 .6rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:#1D4ED8;background:#EEF4FF;border-radius:999px;padding:4px 9px}
+.tm-areas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tm-area{position:relative;display:flex;align-items:center;gap:14px;padding:18px 52px 18px 18px;background:#fff;border:1px solid #DFE8F6;border-radius:16px;text-decoration:none;color:var(--ink);box-shadow:0 20px 40px -34px rgba(10,42,102,.55);transition:transform .3s var(--ease),border-color .3s}
+.tm-area:hover{transform:translateY(-4px);border-color:#BFD6FB}
+.tm-area img{width:56px;height:56px;object-fit:contain;flex:none}.tm-area b{display:block;font:700 1rem var(--font-display)}.tm-area small{color:#55667F;font-size:.8rem}
+.tm-area .go{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--blue);transition:transform .25s var(--ease)}.tm-area:hover .go{transform:translate(4px,-50%)}
+html.js .tm-hero:not(.in) .ad-h1 .ln>span{transform:translateY(105%)}
+html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js [data-pd]:not(.in) .tm-lead,html.js [data-pd]:not(.in) .tm-rules li{opacity:0;transform:translateY(20px)}
+.tm-card,.tm-area,.tm-rules li{transition:opacity .6s var(--ease) calc(var(--k,0)*.07s),transform .6s var(--ease) calc(var(--k,0)*.07s),box-shadow .4s,border-color .3s}.tm-lead{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media (max-width:1100px){.tm-grid{grid-template-columns:repeat(3,1fr)}.tm-areas{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.tm-hero-grid,.tm-lead{grid-template-columns:minmax(0,1fr)}.tm-hero-art{height:320px;transform:scale(.85)}.tm-grid{grid-template-columns:1fr 1fr}.tm-rules{grid-template-columns:1fr}.tm-lead .tm-av--lg{max-width:320px}}
+@media (max-width:520px){.tm-areas{grid-template-columns:1fr}.tm-hero-art{display:none}}
+@media (prefers-reduced-motion:reduce){.tm-orb{animation:none;transform:rotate(var(--a)) translateX(var(--r)) rotate(calc(-1*var(--a)))}}
