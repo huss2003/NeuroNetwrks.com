@@ -71,6 +71,32 @@
     }
   })();
 
+  /* ---- Learning Experience: reveals and scroll-linked progress ---- */
+  (function () {
+    var secs = $$('[data-le-hero],[data-le-steps],[data-le-beats],[data-le-lab],[data-le-need],[data-le-cta]'); if (!secs.length) return;
+    if (rm || !('IntersectionObserver' in window)) { secs.forEach(function (s) { s.classList.add('in'); }); }
+    else {
+      var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); } }); }, { threshold: 0.2 });
+      secs.forEach(function (s) { o.observe(s); });
+      addEventListener('scroll', function () { secs.forEach(function (s) { if (!s.classList.contains('in') && s.getBoundingClientRect().top < innerHeight * 0.75) s.classList.add('in'); }); }, { passive: true });
+    }
+    var track = $('.le-track'), steps = $$('.le-step'), hero = $('[data-le-hero]'), cta = $('[data-le-cta]'), tick = false;
+    function clamp(v) { return Math.max(0, Math.min(1, v)); }
+    function run() {
+      tick = false;
+      if (track) {
+        var r = track.getBoundingClientRect(), p = rm ? 1 : clamp((innerHeight * 0.8 - r.top) / (r.height + innerHeight * 0.35));
+        track.style.setProperty('--lp', p.toFixed(3));
+        steps.forEach(function (s, i) { s.classList.toggle('on', p >= i / (steps.length - 1) - 0.02); });
+      }
+      if (rm) return;
+      if (hero) { var h = hero.getBoundingClientRect(); if (h.bottom > 0) hero.style.setProperty('--hy', clamp(-h.top / h.height).toFixed(3)); }
+      if (cta) { var c = cta.getBoundingClientRect(); if (c.bottom > 0 && c.top < innerHeight) cta.style.setProperty('--cy', ((innerHeight - c.top) / (innerHeight + c.height) * 2 - 1).toFixed(3)); }
+    }
+    addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true });
+    addEventListener('resize', run); run();
+  })();
+
   /* ---- Generic chip filter (programs list) ---- */
   $$('[data-filter-group]').forEach(function (g) {
     var chips = $$('[data-filter]', g), items = $$('[data-cat]', document), out = $('[data-count]');

@@ -106,7 +106,7 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="{canon}">
 <meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">{ld}</head>
 <body><a class="skip" href="#main">Skip to content</a><aside class="pvb" aria-label="Preview notice">Preview build. Not the final site.</aside>
 {header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js?v={ASSET_V}" defer></script></body></html>'''
@@ -294,21 +294,56 @@ def curriculum_page():
 <p id="cur-live" class="sr" role="status"></p>{panels}</div></section>''' + cta_panel("Questions about a module?", "Ask us. A person replies.")
     return layout("/curriculum", "Curriculum", body, "programs")
 
+LI = {
+ "book": '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/>',
+ "play": '<circle cx="12" cy="12" r="9"/><path d="M10 8.5l5.5 3.5-5.5 3.5z" fill="currentColor"/>',
+ "doc": '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 12h6M10 16h6"/>',
+ "code": '<path d="M9 8l-4 4 4 4M15 8l4 4-4 4M13.5 5l-3 14"/>',
+ "chart": '<path d="M5 20V12M10 20V6M15 20V10M20 20V4"/>',
+ "check": '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+ "tools": '<path d="M14.5 6.5a3.5 3.5 0 0 0 4.6 4.6L20 12l-8 8-3-3 8-8z"/><path d="M4 4l6 6M4 10l6-6"/>',
+ "image": '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/>',
+ "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+}
+def li(k, s=22): return f'<svg width="{s}" height="{s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{LI[k]}</svg>'
+ARW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+
+def le_eyebrow(t, both=False): return f'<p class="le-eb{" le-eb--both" if both else ""}">{t}</p>'
+
 def learning_page():
-    found = [("Concept", "One idea, explained simply."), ("Worked example", "See it done before you do it."), ("Scenario question", "Choose the best answer in a real situation."), ("Guided practice", "Try it with support close by."), ("Exit check", "Confirm you are ready to move on.")]
-    fr = '<ol class="step-rail rv">' + "".join(f'<li><p class="mono">{i+1:02d}</p><h3>{a}</h3><p>{b}</p></li>' for i, (a, b) in enumerate(found)) + "</ol>"
-    month = [("Theory", "Short explanations of the month's topic."), ("Demonstration", "An instructor works through an example on screen."), ("Hands-on lab", "You repeat and extend it yourself."), ("Project", "A piece of work you finish and can show."), ("Exam", "A one-hour exam closes the month.")]
-    ms = '<ol class="steps">' + "".join(f'<li class="step rv"><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(month)) + "</ol>"
-    hw = "".join(f"<li>{E(x)}</li>" for x in D["ai-foundation"]["hardware"])
-    body = page_hero("Learning experience", "How you", "will learn.", "A clear pattern in every lesson and every month, so you always know what comes next and how you are doing.", btn("primary", "/curriculum", "See the curriculum") + btn("secondary", "/programs", "All programs", False),
-                     '<figure class="art-frame hero-art"><svg viewBox="0 0 520 300" role="img" aria-label="Illustration: the learning cycle, six stages from Learn to Improve and retry" style="width:100%;height:auto" font-family="Manrope,sans-serif"><rect width="520" height="300" fill="#fff"/>' + "".join(f'<circle cx="{50+i*84}" cy="{150+(-1)**i*40}" r="22" fill="{"#49B716" if i==5 else "#006DEE"}"/><text x="{50+i*84}" y="{155+(-1)**i*40}" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">{i+1}</text>' + (f'<path d="M{50+i*84+22} {150+(-1)**i*40} L{50+(i+1)*84-22} {150+(-1)**(i+1)*40}" stroke="#B3D0FF" stroke-width="2.5"/>' if i < 5 else "") for i in range(6)) + '</svg><figcaption>Illustration</figcaption></figure>')
-    body += f'''<section class="sec"><div class="wrap">{sec_head("The learning cycle", "Six stages,<br>one rhythm.", "Learn, practise, build, test and improve. This is the cycle behind both the one-year and the three-year programs.")}{path_diagram()}</div></section>
-<section class="sec sec--tint"><div class="wrap"><div class="split" style="margin-bottom:48px"><div><p class="eyebrow">AI Foundation · every lesson</p><h2>Five steps<br>in every lesson.</h2></div><p class="lead">AI Foundation runs 2 guided hours a week for 104 hours, plus 10 to 15 minutes of homework after each lecture. Each lesson follows the same five steps.</p></div>{fr}</div></section>
-<section class="sec"><div class="wrap split"><div><p class="eyebrow">Three-year programs · every month</p><h2>Five beats<br>in every month.</h2><p class="lead" style="margin-top:16px">The three-year programs run 4 hours a week for 52 weeks a year. Exam time is counted inside the 624 hours.</p></div>{ms}</div></section>
-<section class="sec sec--tint"><div class="wrap">{sec_head("Practice environment", "Labs with<br>checked work.", "A sample of how a lab task and its feedback can look. [Platform features to be confirmed with the institute.]")}{lab_showcase()}</div></section>
-<section class="sec"><div class="wrap"><div class="dual"><div><p class="eyebrow">Assessment</p><h2 class="h3">Checked, then improved.</h2><p style="margin-top:12px" class="muted">AI Foundation: 104 one-hour guided lectures. The recommended pass mark is 80%, with targeted remediation and a retry below the threshold. Three-year programs: a one-hour exam after each monthly module.</p></div><div><p class="eyebrow">Requirements</p><h2 class="h3">A laptop and internet.</h2><ul class="list-rule" style="margin-top:12px">{hw}</ul><p class="small muted" style="margin-top:12px">Setup for AI Foundation. Each three-year program lists its own on its program page.</p></div></div>
-<div class="actions" style="margin-top:32px">{btn("primary", "/curriculum", "Explore the curriculum")}{btn("secondary", "/projects", "See the projects", False)}</div></div></section>''' + cta_panel("Want to see it in person?", "Ask us about the learning experience. Delivery mode and timings: [to be confirmed].")
-    return layout("/learning-experience", "Learning Experience", body, "learning")
+    hero = f'''<section class="le-hero" data-le-hero><svg class="le-swoosh" viewBox="0 0 1440 700" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 600 C380 420 760 720 1500 420" fill="none" stroke="#DCE9FF" stroke-width="120" stroke-opacity=".5"/></svg>
+<div class="wrap le-hero-grid"><div class="le-hero-copy">{le_eyebrow("Learning experience", True)}<h1 class="le-h1"><span class="ln"><span>How you</span></span><span class="ln"><span>will learn.</span></span></h1>
+<p class="le-lead">A structured, project-based learning experience. Learn by doing, get regular practice, sit real exams and build a portfolio that shows what you can do.</p>
+<div class="le-actions"><a class="le-btn le-btn--p" href="/programs">Explore programs {ARW}</a><a class="le-btn le-btn--s" href="/contact">Talk to us</a></div></div>
+<div class="le-hero-art" aria-hidden="true"><img class="le-stair" src="/assets/r-hero.webp" alt="" width="1000" height="1000" fetchpriority="high"><p class="le-note">From concepts<br>to real skills</p><svg class="le-note-arrow" viewBox="0 0 90 40"><path d="M2 8 C30 2 60 6 80 28" fill="none" stroke="#7D8DA6" stroke-width="1.6" pathLength="1"/><path d="M72 28 L81 30 L80 20" fill="none" stroke="#7D8DA6" stroke-width="1.6"/></svg></div></div></section>'''
+    steps = [("book", "Concept", "One idea, explained simply."), ("play", "Worked example", "See it done before you do it."), ("doc", "Scenario question", "Choose the best answer in a real situation."), ("code", "Guided practice", "Try it with support close by."), ("chart", "Exit check", "Confirm you are ready to move on.")]
+    st = "".join(f'<li class="le-step" style="--i:{i}"><span class="le-step-n">{i+1:02d}</span><span class="le-step-ic">{li(ic)}</span><h3>{t}</h3><p>{d}</p></li>' for i, (ic, t, d) in enumerate(steps))
+    lesson = f'''<section class="le-sec" data-le-steps><div class="wrap"><div class="le-head"><div>{le_eyebrow("From theory to real skills")}<h2>Five steps<br>in every lesson.</h2></div>
+<p class="le-head-p">Every lesson follows the same flow, so you always know what comes next. You learn a concept, see it worked through, practise it, answer a question on your own and finish with a quick check.</p></div>
+<div class="le-track"><div class="le-line" aria-hidden="true"><i></i><b></b></div><span class="le-track-end" aria-hidden="true">{ARW}</span><ol class="le-steps">{st}</ol></div>
+<p class="le-foot">AI Foundation: 2 guided hours a week for 104 hours, plus 10 to 15 minutes of homework after each lecture.</p></div></section>'''
+    beats = [("play", "Theory", "Short explanations of the month's topic."), ("check", "Demonstration", "An instructor works through an example on screen."), ("tools", "Hands-on lab", "You repeat and extend it yourself."), ("image", "Project", "A piece of work you finish and can show."), ("clock", "Exam", "A one-hour exam closes the month.")]
+    bt = "".join(f'<li class="le-beat" style="--i:{i}"><div class="le-beat-top"><span class="le-beat-n">{i+1:02d}</span><span class="le-beat-ic">{li(ic, 24)}</span></div><h3>{t}</h3><p>{d}</p></li>' for i, (ic, t, d) in enumerate(beats))
+    month = f'''<section class="le-sec le-sec--tint" data-le-beats><div class="wrap"><div class="le-head"><div>{le_eyebrow("A structured three-year journey")}<h2>Five beats<br>in every month.</h2></div>
+<p class="le-head-p">Each month ends with a project and a one-hour exam. The three-year programs run 4 hours a week for 52 weeks a year, and exam time is counted inside the 624 hours.</p></div>
+<div class="le-beats-wrap"><ol class="le-beats">{bt}</ol><span class="le-track-end le-track-end--b" aria-hidden="true">{ARW}</span></div></div></section>'''
+    code = [("c", "# Calculate accuracy"), ("k", "def calculate_accuracy(y_true, y_pred):"), ("", "    correct = sum(1 for a, b in zip(y_true, y_pred)"), ("", "                  if a == b)"), ("k", "    return correct / len(y_true)"), ("", ""), ("c", "# Example usage"), ("", "y_true = [0, 1, 1, 0, 1]"), ("", "y_pred = [0, 1, 1, 0, 0]"), ("", "print(calculate_accuracy(y_true, y_pred))")]
+    cl = "".join(f'<span class="cl{" " + t if t else ""}" style="--l:{i}"><em>{i+1}</em>{E(s) or "&nbsp;"}</span>' for i, (t, s) in enumerate(code))
+    tests = "".join(f'<li style="--t:{i}"><span class="tk" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Test {i+1}<span class="ps">Passed</span></li>' for i in range(4))
+    lab = f'''<section class="le-sec le-lab" data-le-lab><div class="wrap le-lab-grid"><div>{le_eyebrow("Practical, hands-on", True)}<h2>Labs with<br>checked work.</h2>
+<p class="le-head-p" style="margin-top:16px">Solve real tasks in a lab environment. Run your code, see what passed, fix issues and try again.</p>
+<a class="le-btn le-btn--p" style="margin-top:26px" href="/curriculum">See the curriculum {ARW}</a><p class="le-small">[Platform features to be confirmed with the institute.]</p></div>
+<div class="le-lab-vis" aria-label="Design sample of a lab: code editor and test results" role="img"><div class="le-ed"><div class="le-ed-bar"><i></i><i></i><i></i><span>scorer.py</span><b>Run</b></div><pre aria-hidden="true">{cl}</pre></div>
+<div class="le-res" aria-hidden="true"><div class="le-res-tabs"><span class="on">Results</span><span>Tests</span><span>Feedback</span></div><div class="le-res-body"><ul class="le-tests">{tests}</ul><div class="le-pass"><span class="le-pass-ic">{li("check", 26)}</span><b>All tests passed!</b><small>Design sample</small></div></div></div></div></div></section>'''
+    req = ["A laptop or desktop computer", "A stable internet connection", "A web browser", "Python installed, or a browser-based notebook", "A phone alone is not enough for the programming labs"]
+    rq = "".join(f'<li style="--i:{i}"><span class="tk" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>{E(x)}</li>' for i, x in enumerate(req))
+    need = f'''<section class="le-sec" data-le-need><div class="wrap le-need-grid"><div>{le_eyebrow("All you need to start")}<h2>A laptop<br>and internet.</h2><p class="le-head-p" style="margin-top:16px">You need a computer with a browser and a stable connection for lessons, labs and course material.</p></div>
+<div><ul class="le-req">{rq}</ul><a class="le-link" href="/programs/ai-foundation">View detailed requirements {ARW}</a><p class="le-small" style="margin-top:8px">Setup for AI Foundation. Each three-year program lists its own on its program page.</p></div>
+<div class="le-laptop" aria-hidden="true"><img src="/assets/laptop.webp" alt="" width="760" height="605" loading="lazy"></div></div></section>'''
+    cta = f'''<section class="le-sec" style="padding-top:0"><div class="wrap"><div class="le-cta" data-le-cta><div class="le-cta-body">{le_eyebrow("See it for yourself", True)}<h2>Want to see it in person?</h2>
+<p>Ask us about the learning experience. Delivery mode and timings: [to be confirmed].</p><div class="le-actions"><a class="le-btn le-btn--w" href="/contact">Book a visit {ARW}</a><a class="le-btn le-btn--g" href="/contact">Talk to us</a></div></div>
+<div class="le-cta-art" aria-hidden="true"><img src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy"></div></div></div></section>'''
+    return layout("/learning-experience", "Learning Experience", hero + lesson + month + lab + need + cta, "learning")
 
 def projects_page():
     pbs = "".join(f'<button class="chip" type="button" data-pj-prog="{p[1]}" data-years="{len(D[p[0]]["years"])}" aria-pressed="{"true" if p[1]=="aiml" else "false"}">{name_of(p)} · {len(D[p[0]]["projects"])}</button>' for p in PROGRAMS)
