@@ -4,8 +4,10 @@ interface Props {
   ratio?: '16/10' | '4/5' | '1/1';
   label: string;
   class?: string;
+  /** one-time clip-path reveal on load (hero only) */
+  reveal?: boolean;
 }
-const { ratio = '16/10', label, class: className = '' } = Astro.props;
+const { ratio = '16/10', label, class: className = '', reveal = false } = Astro.props;
 ---
 
 <div
@@ -13,6 +15,7 @@ const { ratio = '16/10', label, class: className = '' } = Astro.props;
   aria-label={`Photo placeholder: ${label}`}
   style={`aspect-ratio:${ratio}`}
   class:list={[
+    reveal && 'reveal-clip',
     'grid place-items-center rounded-[var(--radius-media)] border border-dashed border-blue-200 bg-blue-50 p-6 text-center text-sm text-slate',
     className,
   ]}

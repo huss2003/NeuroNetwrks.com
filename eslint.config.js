@@ -8,6 +8,17 @@ export default [
     files: ['scripts/**/*.mjs', '*.config.*'],
     languageOptions: { globals: { console: 'readonly', process: 'readonly' } },
   },
+  {
+    // Rule from CLAUDE.md: only src/scripts/motion may import gsap, lenis or three.
+    files: ['src/**/*.{ts,astro}'],
+    ignores: ['src/scripts/motion/**'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        { patterns: ['gsap', 'gsap/*', 'lenis', 'three', 'three/*'] },
+      ],
+    },
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,

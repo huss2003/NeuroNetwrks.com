@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Ribbon poster render (temporary)"
+  description="Temporary page used to render the ribbon poster. Delete before launch."
+  noindex
+>
+  <div class="bg-ink p-8">
+    <div id="host" data-ribbon-dev class="relative mx-auto aspect-square w-[832px]">
+      <canvas class="absolute inset-0 h-full w-full"></canvas>
+    </div>
+  </div>
+</Base>
+<script>
+  import { mountRibbon } from '../../scripts/motion/cta-ribbon';
+  const host = document.getElementById('host') as HTMLElement;
+  mountRibbon(host);
+  (window as unknown as { ribbonReady: boolean }).ribbonReady = true;
+</script>

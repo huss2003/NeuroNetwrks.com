@@ -28,6 +28,11 @@ const canonical = abs(Astro.url.pathname);
 <html lang="en-IN">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Motion gate: the class exists only when motion will run, so no-JS and reduced-motion show final layout.
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches)
+        document.documentElement.classList.add('js-motion');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -64,5 +69,8 @@ const canonical = abs(Astro.url.pathname);
       <slot />
     </main>
     <Footer />
+    <script>
+      import '../scripts/motion/index.ts';
+    </script>
   </body>
 </html>

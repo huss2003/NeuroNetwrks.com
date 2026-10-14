@@ -1,9 +1,15 @@
 ---
-// Marks where the signature line passes (Learn, Develop, Create). Motion attaches in Phase 4.
+// Marks where the signature line passes (start, learn, develop, create, programs, cta).
+// Position it inside a `relative` parent. Phase 4 motion reads every [data-path-anchor] in DOM order.
 interface Props {
-  name: 'learn' | 'develop' | 'create';
+  name: 'start' | 'learn' | 'develop' | 'create' | 'programs' | 'cta';
+  class?: string;
 }
-const { name } = Astro.props;
+const { name, class: className = 'top-0' } = Astro.props;
 ---
 
-<div data-path-anchor={name} aria-hidden="true" class="h-px"></div>
+<div
+  data-path-anchor={name}
+  aria-hidden="true"
+  class:list={['absolute left-0 h-px w-px', className]}
+></div>

@@ -4,8 +4,9 @@ interface Props {
   variant?: 'primary' | 'secondary' | 'text';
   type?: 'button' | 'submit';
   class?: string;
+  [attr: `data-${string}`]: string | boolean | undefined;
 }
-const { href, variant = 'primary', type = 'button', class: className = '' } = Astro.props;
+const { href, variant = 'primary', type = 'button', class: className = '', ...rest } = Astro.props;
 const base =
   'inline-flex min-h-11 items-center justify-center gap-2 px-5 font-semibold no-underline transition-colors rounded-[var(--radius-control)]';
 const styles = {
@@ -16,6 +17,11 @@ const styles = {
 const Tag = href ? 'a' : 'button';
 ---
 
-<Tag href={href} type={href ? undefined : type} class:list={[base, styles[variant], className]}>
+<Tag
+  href={href}
+  type={href ? undefined : type}
+  class:list={[base, styles[variant], className]}
+  {...rest}
+>
   <slot />
 </Tag>

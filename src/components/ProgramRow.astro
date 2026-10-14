@@ -10,11 +10,24 @@ const { href, title, summary, meta } = Astro.props;
 
 <a
   href={href}
-  class="group grid items-baseline gap-2 border-t border-line py-6 text-ink no-underline hover:bg-bg-soft md:grid-cols-[1fr_2fr_auto] md:gap-8"
+  class="group relative grid items-baseline gap-2 border-t border-line py-6 text-ink no-underline hover:bg-bg-soft md:grid-cols-[1fr_2fr_auto] md:gap-8"
 >
-  <h3 class="font-display text-xl font-bold md:text-2xl">{title}</h3>
+  <!-- CSS-only hover: a rule draws under the row, the arrow shifts, the title offsets 8 px -->
+  <span
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-blue-600 motion-safe:transition-transform motion-safe:duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
+  ></span>
+  <h3 class="font-display text-xl font-bold motion-safe:transition-transform motion-safe:duration-300 group-hover:translate-x-2 md:text-2xl">
+    {title}
+  </h3>
   <p class="text-slate">{summary}</p>
   <span class="text-sm font-semibold text-blue-700 group-hover:underline">
-    {meta} <span aria-hidden="true">→</span>
+    {meta}
+    <span
+      aria-hidden="true"
+      class="inline-block motion-safe:transition-transform motion-safe:duration-300 group-hover:translate-x-1"
+    >
+      →
+    </span>
   </span>
 </a>

@@ -7,6 +7,8 @@ import AudienceLink from '../components/AudienceLink.astro';
 import FAQ from '../components/FAQ.astro';
 import ImageSlot from '../components/ImageSlot.astro';
 import PathAnchor from '../components/PathAnchor.astro';
+import { Image } from 'astro:assets';
+import ribbonPoster from '../assets/ribbon-poster.webp';
 import { getPrograms, getFaqs, getPublishedPosts, programMeta } from '../lib/content';
 import { graph, organization, website, webPage } from '../lib/schema';
 import { site } from '../data/site';
@@ -25,6 +27,30 @@ const title = 'AI Courses in India | NeuroNetworks AI Ed';
 const description =
   'AI courses in India for students after Class 10: a 104-hour foundation and five three-year, 624-hour specialisations built on monthly projects.';
 const nSpecs = programs.filter((p) => p.data.level === 'specialisation').length;
+
+const chapters = [
+  {
+    key: 'learn',
+    name: 'Learn',
+    text: 'The AI Foundation course is 104 one-hour lectures over a year. It covers AI basics, Python, data, machine learning and generative AI, with a small RAG prototype at the end.',
+    href: '/programs/ai-foundation',
+    link: 'See the foundation course',
+  },
+  {
+    key: 'develop',
+    name: 'Develop',
+    text: 'Each three-year specialisation runs 36 monthly modules at 4 hours a week. Every month ends with a one-hour exam, so progress is checked 36 times.',
+    href: '/programs',
+    link: `Compare the ${nSpecs} specialisations`,
+  },
+  {
+    key: 'create',
+    name: 'Create',
+    text: 'Every module produces a project, and each program ends in a capstone. Students keep the work in a GitHub portfolio they can show.',
+    href: '/programs/ai-ml-engineering#projects',
+    link: 'See the projects',
+  },
+] as const;
 ---
 
 <Base
@@ -33,74 +59,66 @@ const nSpecs = programs.filter((p) => p.data.level === 'specialisation').length;
   jsonLd={[graph(organization(), website(), webPage('/', title, description))]}
 >
   <Section space="loose" aria-labelledby="hero-title">
-    <div class="grid items-end gap-10 lg:grid-cols-12">
-      <div class="lg:col-span-8">
-        <p class="mb-6 font-display text-lg font-bold text-blue-700">{site.tagline}</p>
-        <h1
-          id="hero-title"
-          class="text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]"
-        >
-          AI, data and software careers, taught from zero.
-        </h1>
-        <p class="mt-8 max-w-[56ch] text-lg text-slate md:text-xl">
-          AI courses in India for students who have passed Class 10. Start with a 104-hour
-          foundation, or go straight to a three-year, 624-hour specialisation.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <Button href="/apply">Apply</Button>
-          <Button href="/contact" variant="secondary">
-            Talk to us
-          </Button>
+    <div class="relative">
+      <PathAnchor name="start" class="top-3" />
+      <div class="grid items-end gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-8">
+          <p class="mb-6 font-display text-lg font-bold text-blue-700">{site.tagline}</p>
+          <h1
+            id="hero-title"
+            data-hero-title
+            class="text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]"
+          >
+            AI, data and software careers, taught from zero.
+          </h1>
+          <p class="mt-8 max-w-[56ch] text-lg text-slate md:text-xl">
+            AI courses in India for students who have passed Class 10. Start with a 104-hour
+            foundation, or go straight to a three-year, 624-hour specialisation.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <Button href="/apply" data-magnetic>
+              Apply
+            </Button>
+            <Button href="/contact" variant="secondary" data-magnetic>
+              Talk to us
+            </Button>
+          </div>
+          <p class="mt-10 border-t border-line pt-4 text-sm text-slate">
+            {programs.length} programs · 104-hour foundation · 3-year specialisations of 624 hours
+          </p>
         </div>
-        <p class="mt-10 border-t border-line pt-4 text-sm text-slate">
-          {programs.length} programs · 104-hour foundation · 3-year specialisations of 624 hours
-        </p>
-      </div>
-      <div class="lg:col-span-4">
-        <ImageSlot ratio="4/5" label="students working together at laptops" />
+        <div class="lg:col-span-4">
+          <ImageSlot ratio="4/5" label="students working together at laptops" reveal />
+        </div>
       </div>
     </div>
-    <PathAnchor name="learn" />
   </Section>
 
   <Section tone="soft" aria-labelledby="ldc-title">
     <h2 id="ldc-title" class="mb-10 max-w-[18ch] text-[length:var(--text-3xl)]">
       Learn, develop, create
     </h2>
-    <div class="grid gap-12 lg:grid-cols-3">
-      <div>
-        <h3 class="mb-3 text-[length:var(--text-xl)]">Learn</h3>
-        <p class="mb-4 text-slate">
-          The AI Foundation course is 104 one-hour lectures over a year. It covers AI basics,
-          Python, data, machine learning and generative AI, with a small RAG prototype at the end.
-        </p>
-        <a href="/programs/ai-foundation">See the foundation course</a>
-      </div>
-      <div>
-        <PathAnchor name="develop" />
-        <h3 class="mb-3 text-[length:var(--text-xl)]">Develop</h3>
-        <p class="mb-4 text-slate">
-          Each three-year specialisation runs 36 monthly modules at 4 hours a week. Every month ends
-          with a one-hour exam, so progress is checked 36 times.
-        </p>
-        <a href="/programs">Compare the {nSpecs} specialisations</a>
-      </div>
-      <div>
-        <PathAnchor name="create" />
-        <h3 class="mb-3 text-[length:var(--text-xl)]">Create</h3>
-        <p class="mb-4 text-slate">
-          Every module produces a project, and each program ends in a capstone. Students keep the
-          work in a GitHub portfolio they can show.
-        </p>
-        <a href="/programs/ai-ml-engineering#projects">See the projects</a>
-      </div>
+    <div>
+      {chapters.map((c) => (
+        <div class="relative grid gap-4 border-t border-line py-10 lg:grid-cols-[1fr_2fr] lg:gap-12">
+          <PathAnchor name={c.key} class="top-[3.1rem]" />
+          <h3 class="text-[length:var(--text-3xl)]">{c.name}</h3>
+          <div>
+            <p class="mb-4 max-w-[56ch] text-lg text-slate">{c.text}</p>
+            <a href={c.href}>{c.link}</a>
+          </div>
+        </div>
+      ))}
     </div>
   </Section>
 
   <Section aria-labelledby="programs-title">
-    <h2 id="programs-title" class="mb-8 text-[length:var(--text-2xl)]">
-      Which programs does NeuroNetworks AI Ed offer?
-    </h2>
+    <div class="relative">
+      <PathAnchor name="programs" class="top-4" />
+      <h2 id="programs-title" class="mb-8 text-[length:var(--text-2xl)]">
+        Which programs does NeuroNetworks AI Ed offer?
+      </h2>
+    </div>
     <p class="mb-8 max-w-[62ch] text-lg">
       There are six programs. One is a one-year, 104-hour AI Foundation course. Five are three-year,
       624-hour specialisations in AI/ML, software development, data science, product and UX design,
@@ -196,22 +214,40 @@ const nSpecs = programs.filter((p) => p.data.level === 'specialisation').length;
   )}
 
   <Section tone="ink" space="loose" aria-labelledby="cta-title">
-    <h2 id="cta-title" class="max-w-[16ch] text-[length:var(--text-3xl)]">
-      Ready to start?
-    </h2>
-    <p class="mt-4 max-w-[48ch] text-lg text-blue-100">
-      Apply when you are ready, or talk to us first. Under-18 applicants apply with a parent or
-      guardian.
-    </p>
-    <div class="mt-8 flex flex-wrap gap-3">
-      <Button href="/apply">Apply</Button>
-      <Button
-        href="/contact"
-        variant="secondary"
-        class="border-white text-white hover:bg-white hover:text-ink"
-      >
-        Talk to us
-      </Button>
+    <div class="relative grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+      <PathAnchor name="cta" class="top-6" />
+      <div>
+        <h2 id="cta-title" class="max-w-[16ch] text-[length:var(--text-3xl)]">
+          Ready to start?
+        </h2>
+        <p class="mt-4 max-w-[48ch] text-lg text-blue-100">
+          Apply when you are ready, or talk to us first. Under-18 applicants apply with a parent or
+          guardian.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <Button href="/apply">Apply</Button>
+          <Button
+            href="/contact"
+            variant="secondary"
+            class="border-white text-white hover:bg-white hover:text-ink"
+          >
+            Talk to us
+          </Button>
+        </div>
+      </div>
+      <!-- The one 3D object. The poster is the finished state; the canvas replaces it when allowed. -->
+      <div data-ribbon class="relative mx-auto aspect-square w-full max-w-[26rem]">
+        <Image
+          src={ribbonPoster}
+          alt=""
+          width={832}
+          height={832}
+          loading="lazy"
+          data-ribbon-poster
+          class="absolute inset-0 h-full w-full object-contain transition-opacity duration-500"
+        />
+        <canvas class="absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+      </div>
     </div>
   </Section>
 </Base>
