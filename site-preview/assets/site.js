@@ -146,6 +146,15 @@
     show(0);
   })();
 
+  /* ---- Admissions: step line fills with scroll ---- */
+  (function () {
+    var sec = $('[data-ad-track]'); if (!sec) return;
+    var wrap = $('.ad-steps-wrap', sec), items = $$('.ad-steps > li', sec), t = false;
+    function run() { t = false; var r = wrap.getBoundingClientRect(), p = rm ? 1 : Math.max(0, Math.min(1, (innerHeight * 0.75 - r.top) / (r.height * 0.9))); wrap.style.setProperty('--lp', p.toFixed(3)); items.forEach(function (li, i) { li.classList.toggle('on', p >= i / Math.max(1, items.length - 1) - 0.02); }); }
+    addEventListener('scroll', function () { if (!t) { t = true; requestAnimationFrame(run); } }, { passive: true }); addEventListener('resize', run); run();
+    var art = $('.ad-steps-img'); if (art && !rm) addEventListener('scroll', function () { var r = art.parentNode.getBoundingClientRect(); art.style.setProperty('--py', Math.max(-1, Math.min(1, (innerHeight / 2 - (r.top + r.height / 2)) / innerHeight)).toFixed(3)); }, { passive: true });
+  })();
+
   /* ---- Generic chip filter (programs list) ---- */
   $$('[data-filter-group]').forEach(function (g) {
     var chips = $$('[data-filter]', g), items = $$('[data-cat]', document), out = $('[data-count]');
