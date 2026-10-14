@@ -1,0 +1,61 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getPublishedPosts } from '../../lib/content';
+import { graph, webPage, blogPosting } from '../../lib/schema';
+
+export const getStaticPaths = (async () =>
+  (await getPublishedPosts()).map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }))) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const d = post.data;
+const { Content } = await render(post);
+const path = `/resources/${post.id}`;
+---
+
+<Base
+  title={d.title.length > 60 ? `${d.title.slice(0, 57)}...` : d.title}
+  description={d.description}
+  ogType="article"
+  jsonLd={[graph(webPage(path, d.title, d.description), blogPosting({ ...d, path }))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Resources', href: '/resources' },
+        { name: d.title, href: path },
+      ]}
+    />
+    <h1 class="mt-6 max-w-[20ch] text-[length:var(--text-3xl)]">{d.title}</h1>
+    <p class="mt-4 text-sm text-slate">
+      By {d.author} ·{' '}
+      <time datetime={d.pubDate.toISOString()}>
+        {d.pubDate.toLocaleDateString('en-IN', { dateStyle: 'long' })}
+      </time>
+    </p>
+  </Section>
+  <Section tone="soft" space="tight">
+    <p class="max-w-[62ch] text-lg">
+      <strong>In short:</strong> {d.tldr}
+    </p>
+  </Section>
+  <Section>
+    <div class="max-w-[62ch] text-lg">
+      <Content />
+    </div>
+  </Section>
+  {d.faqs.length > 0 && (
+    <Section tone="soft">
+      <h2 class="mb-6 text-[length:var(--text-2xl)]">Questions</h2>
+      <FAQ items={d.faqs} />
+    </Section>
+  )}
+</Base>

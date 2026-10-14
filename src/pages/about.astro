@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AnswerBlock from '../components/AnswerBlock.astro';
+import Button from '../components/Button.astro';
+import { graph, organization, webPage } from '../lib/schema';
+import { site } from '../data/site';
+
+const title = 'About NeuroNetworks AI Ed';
+const description =
+  'NeuroNetworks AI Ed teaches AI, software, data, design and cybersecurity to students after Class 10 through monthly projects and exams.';
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[graph(organization(), webPage('/about', title, description, 'AboutPage'))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'About', href: '/about' },
+      ]}
+    />
+    <h1 class="mt-6 max-w-[16ch] text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">
+      About {site.name}
+    </h1>
+  </Section>
+  <Section tone="soft" aria-labelledby="what">
+    <h2 id="what" class="mb-4 text-[length:var(--text-2xl)]">
+      What is NeuroNetworks AI Ed?
+    </h2>
+    <AnswerBlock>
+      NeuroNetworks AI Ed is an Indian education brand that teaches AI, software development, data
+      science, product and UX design and cybersecurity to students who have passed Class 10. Its
+      tagline is Learn · Develop · Create, and every program is organised around monthly projects
+      and exams.
+    </AnswerBlock>
+  </Section>
+  <Section aria-labelledby="approach">
+    <h2 id="approach" class="mb-4 text-[length:var(--text-2xl)]">
+      How do the programs teach?
+    </h2>
+    <p class="max-w-[62ch] text-lg">
+      Students move from absolute beginner to professional level through a project every month and a
+      one-hour exam to close it. Each program keeps a GitHub portfolio as evidence of what the
+      student can do. No program guarantees a job, internship, salary or exam result.
+    </p>
+  </Section>
+  <Section tone="soft" aria-labelledby="who">
+    <h2 id="who" class="mb-4 text-[length:var(--text-2xl)]">
+      Who is behind it?
+    </h2>
+    <p class="max-w-[62ch] text-lg">
+      {'{{CONFIRM: founder, team and faculty names with short bios, or leave this section out}}'}
+    </p>
+  </Section>
+  <Section aria-labelledby="lab" space="tight">
+    <h2 id="lab" class="mb-4 text-[length:var(--text-xl)]">
+      Is there a practical lab?
+    </h2>
+    <p class="max-w-[62ch]">
+      {'{{CONFIRM: Neuromind Practical Lab description and public link, if it may be mentioned}}'}
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/apply">Apply</Button>
+      <Button href="/contact" variant="secondary">
+        Talk to us
+      </Button>
+    </div>
+  </Section>
+</Base>

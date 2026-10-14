@@ -110,7 +110,7 @@ Effort: S = under a day of Claude sessions, M = 1–3 days, L = 3+ days (depends
 | 0 | Setup, CI, MCP, Claude config | S | check/build pass, CI green, MCP report | ✔ local (CI and MCP report pending repo) |
 | 1 | Brand, fonts, components | M | contrast report, font choice with screenshots, styleguide reviewed | ◐ done except owner review: tokens, contrast report, font choice, traced logo set (provisional), icons, 15 components + `/dev/styleguide`; ApplyForm, PostCard, Picture deferred to Phases 6, 7, 3 |
 | 2 | Content model, curriculum extraction | M | all collections valid; curriculum summary approved | ◐ built and valid; curriculum summary awaits owner review |
-| 3 | All pages, static | L | all routes render; Lighthouse ≥ 95 before motion | ☐ |
+| 3 | All pages, static | L | all routes render; Lighthouse ≥ 95 before motion | ◐ built and measured; copy still holds `{{CONFIRM}}` placeholders awaiting owner answers |
 | 4 | Motion and 3D | M | signature line and ribbon work; budgets met with motion | ☐ |
 | 5 | SEO, AEO, GEO | M | `/seo-check` clean; schema valid; files live | ☐ |
 | 6 | Forms | M | end-to-end Sheet and email; consent stored; tests green | ☐ |
@@ -188,3 +188,15 @@ Node 24.20.0 · npm 11.19.0 · astro 7.3.8 · @astrojs/cloudflare 14.3.4 · @ast
 ## 21. Phase 2 record
 
 Six curriculum documents converted with pandoc and parsed by `scripts/extract-curriculum.py` into `docs/extracted/curriculum.json` and `curriculum-summary.md` (36 months per 3-year program, parsed and counted). `src/content.config.ts` defines programs, posts, faqs and audiences (Zod from `astro/zod`; the schema adds `hoursPerWeek`, `entry`, `assessment`, `certifications` and `hardware` to the BUILD_PROMPT version). `src/data/site.ts` holds entity data with `{{CONFIRM}}` placeholders. Six program MDX files (generated once by `scripts/generate-program-mdx.py`, edit by hand from now on), four audience pages and ten global FAQs. Left out on purpose: all prices, salary ranges and placement claims. Placeholders that will fail the production build until answered: admissions, how to apply, counsellor, delivery mode, faculty, privacy retention, schools and professionals offers. Questions 12 to 20 added to `docs/open-questions.md`.
+
+## 22. Phase 3 record
+
+**Routes built (27 pages):** home, programs index, six program pages, four audience pages, about, admissions, apply, apply/thanks (noindex), contact, resources hub, five category pages, privacy, terms, 404, plus `llms.txt`, `llms-full.txt`, `rss.xml` and the sitemap. `/dev/styleguide` is still built but excluded from the sitemap and noindexed; delete before launch. Routes follow the spec (`/for/<audience>`, `/programs/<slug>`); the foundation slug is `ai-foundation`. No trailing slashes (`trailingSlash: 'never'`).
+
+**Shared code:** `src/lib/schema.ts` (Organization+EducationalOrganization graph, WebSite, Course+CourseInstance, EducationalOccupationalProgram, ItemList, BlogPosting; no `offers`; placeholders are never emitted), `src/lib/seo.ts`, `src/lib/content.ts`, `ImageSlot` (labelled photo placeholder), `StickyCta`. Base now outputs OG/Twitter tags, fonts preloads and page JSON-LD.
+
+**Measured (production-mode build, Chromium, Lighthouse mobile profile, Brotli like Cloudflare):** all category budgets (performance, accessibility, best practices, SEO) and LCP, CLS and TBT assertions pass on `/`, `/programs`, two program pages, `/for/parents`, `/admissions`, `/resources`. pa11y (WCAG2AA) passes on 13 routes with 0 errors. 42 Playwright checks pass (one h1, landmarks, title and description limits, heading order, JSON-LD parses, no horizontal overflow, 404). Without compression LCP was 1.8 to 2.0 s, so the static server now compresses like production. LCP on a real throttled mid-range Android is still to be measured in Phase 9.
+
+**Placeholders left on purpose (production build will fail until answered):** admissions steps, delivery mode, who teaches, team and bios, Neuromind Lab mention, contact email and address, grievance officer, privacy retention and rights text, terms text, thank-you next steps, professionals page and its home-page sentence, school offer. Staging builds only warn. Forms are labelled slots until Phase 6. There are no photos, so image slots stay until real ones arrive.
+
+**CI:** e2e, Lighthouse and pa11y now run in `.github/workflows/ci.yml` against a production-mode build without the placeholder gate.

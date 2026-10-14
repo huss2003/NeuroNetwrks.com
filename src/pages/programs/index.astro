@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ProgramRow from '../../components/ProgramRow.astro';
+import Button from '../../components/Button.astro';
+import { getPrograms, programMeta } from '../../lib/content';
+import { graph, webPage, itemList } from '../../lib/schema';
+
+const programs = await getPrograms();
+const title = 'AI, Data Science & Cybersecurity Programs';
+const description =
+  'Six programs after Class 10: a 104-hour AI Foundation course and five three-year, 624-hour specialisations. Compare hours, entry and focus.';
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[
+    graph(
+      webPage('/programs', title, description, 'CollectionPage'),
+      itemList(programs.map((p) => ({ name: p.data.name, path: `/programs/${p.data.slug}` }))),
+    ),
+  ]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Programs', href: '/programs' },
+      ]}
+    />
+    <h1 class="mt-6 max-w-[16ch] text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">
+      Six programs, one way of learning
+    </h1>
+    <p class="mt-6 max-w-[56ch] text-lg text-slate md:text-xl">
+      One-year foundation, or a three-year specialisation. All start after Class 10 and are built on
+      monthly projects.
+    </p>
+  </Section>
+
+  <Section tone="soft" aria-labelledby="compare">
+    <h2 id="compare" class="mb-6 text-[length:var(--text-2xl)]">
+      How do the programs compare?
+    </h2>
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[40rem] border-collapse text-left">
+        <caption class="sr-only">
+          Comparison of the six programs by duration, hours, weekly time and entry
+        </caption>
+        <thead>
+          <tr class="border-b border-ink">
+            <th scope="col" class="py-3 pr-4 font-display">
+              Program
+            </th>
+            <th scope="col" class="py-3 pr-4 font-display">
+              Duration
+            </th>
+            <th scope="col" class="py-3 pr-4 font-display">
+              Hours
+            </th>
+            <th scope="col" class="py-3 pr-4 font-display">
+              Hours a week
+            </th>
+            <th scope="col" class="py-3 font-display">
+              Entry
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {programs.map((p) => (
+            <tr class="border-b border-line">
+              <th scope="row" class="py-3 pr-4 font-semibold">
+                <a href={`/programs/${p.data.slug}`}>{p.data.shortName}</a>
+              </th>
+              <td class="py-3 pr-4">
+                {p.data.durationYears} {p.data.durationYears === 1 ? 'year' : 'years'}
+              </td>
+              <td class="py-3 pr-4">{p.data.totalHours}</td>
+              <td class="py-3 pr-4">{p.data.hoursPerWeek}</td>
+              <td class="py-3">Class 10 pass</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Section>
+
+  <Section aria-labelledby="list">
+    <h2 id="list" class="mb-8 text-[length:var(--text-2xl)]">
+      What does each program cover?
+    </h2>
+    <div class="border-b border-line">
+      {programs.map((p) => (
+        <ProgramRow
+          href={`/programs/${p.data.slug}`}
+          title={p.data.shortName}
+          summary={p.data.summary}
+          meta={programMeta(p.data)}
+        />
+      ))}
+    </div>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <Button href="/apply">Apply</Button>
+      <Button href="/contact" variant="secondary">
+        Talk to us
+      </Button>
+    </div>
+  </Section>
+</Base>

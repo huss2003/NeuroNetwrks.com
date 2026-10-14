@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base
+  title="Page not found"
+  description="This page does not exist. Try the programs list or apply."
+  noindex
+>
+  <Section>
+    <h1 class="text-[length:var(--text-3xl)]">Page not found</h1>
+    <p class="mt-4 max-w-[56ch] text-lg">
+      That address does not lead anywhere. Try one of these instead.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/programs">See programs</Button>
+      <Button href="/apply" variant="secondary">
+        Apply
+      </Button>
+    </div>
+  </Section>
+</Base>

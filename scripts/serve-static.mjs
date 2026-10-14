@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 import { URL } from 'node:url';
+import { brotliCompressSync } from 'node:zlib';
 
 const root = 'dist/client';
 const port = Number(process.argv[2] ?? 4321);
@@ -25,12 +26,21 @@ createServer(async (req, res) => {
   for (const f of candidates) {
     try {
       const body = await readFile(f);
-      res.writeHead(200, { 'Content-Type': types[extname(f)] ?? 'application/octet-stream' });
-      return res.end(body);
+      const type = types[extname(f)] ?? 'application/octet-stream';
+      // Mimic Cloudflare: compress text types so lab numbers match production transfer sizes.
+      const compress =
+        /text|xml|json|javascript|svg/.test(type) &&
+        /br/.test(req.headers['accept-encoding'] ?? '');
+      res.writeHead(200, {
+        'Content-Type': type,
+        ...(compress ? { 'Content-Encoding': 'br' } : {}),
+      });
+      return res.end(compress ? brotliCompressSync(body) : body);
     } catch {
       /* try next */
     }
   }
-  res.writeHead(404);
-  res.end('Not found');
+  const nf = await readFile(join(root, '404.html')).catch(() => Buffer.from('Not found'));
+  res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+  res.end(nf);
 }).listen(port, () => console.log(`Serving ${root} on http://localhost:${port}`));

@@ -39,6 +39,7 @@
   --text-2xl: clamp(1.875rem, 1.5rem + 1.7vw, 2.75rem);
   --text-3xl: clamp(2.375rem, 1.7rem + 3vw, 4rem);
   --text-display: clamp(3rem, 1.6rem + 6.4vw, 8rem);
+  --text-hero: clamp(2.75rem, 1.6rem + 4.4vw, 6rem);
 
   /* Two radii only */
   --radius-control: 6px;

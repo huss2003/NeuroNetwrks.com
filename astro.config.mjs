@@ -10,7 +10,11 @@ export default defineConfig({
   output: 'static', // every page prerendered; only src/pages/api/* opts out
   adapter: cloudflare(),
   trailingSlash: 'never',
-  integrations: [mdx(), sitemap({ filter: (p) => !p.includes('/apply/thanks') })],
+  build: { inlineStylesheets: 'always' },
+  integrations: [
+    mdx(),
+    sitemap({ filter: (p) => !p.includes('/apply/thanks') && !p.includes('/dev/') }),
+  ],
   vite: { plugins: [tailwindcss()] },
   prefetch: { defaultStrategy: 'viewport', prefetchAll: false },
 });

@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AnswerBlock from '../components/AnswerBlock.astro';
+import FAQ from '../components/FAQ.astro';
+import Button from '../components/Button.astro';
+import { getFaqGroup } from '../lib/content';
+import { graph, webPage } from '../lib/schema';
+
+const faqs = await getFaqGroup('admissions');
+const title = 'Admissions: How to Apply';
+const description =
+  'Who can join NeuroNetworks AI Ed programs, how to apply and how to talk to us first. Class 10 pass students apply with a parent or guardian if under 18.';
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[graph(webPage('/admissions', title, description))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Admissions', href: '/admissions' },
+      ]}
+    />
+    <h1 class="mt-6 max-w-[16ch] text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">
+      How to apply
+    </h1>
+  </Section>
+  <Section tone="soft" aria-labelledby="who">
+    <h2 id="who" class="mb-4 text-[length:var(--text-2xl)]">
+      Who can join?
+    </h2>
+    <AnswerBlock>
+      Students who have passed Class 10 can join any of the six programs. The three-year
+      specialisations assume no technical background beyond that, and the AI Foundation course needs
+      no prior coding, AI or cloud experience. Applicants under 18 apply with a parent or guardian.
+    </AnswerBlock>
+  </Section>
+  <Section aria-labelledby="steps">
+    <h2 id="steps" class="mb-4 text-[length:var(--text-2xl)]">
+      What are the steps?
+    </h2>
+    <p class="max-w-[62ch] text-lg">
+      {'{{CONFIRM: admissions steps, intake dates and batch sizes}}'}
+    </p>
+  </Section>
+  <Section tone="soft" aria-labelledby="faq">
+    <h2 id="faq" class="mb-8 text-[length:var(--text-2xl)]">
+      Admissions questions
+    </h2>
+    <FAQ items={faqs} />
+    <div class="mt-10 flex flex-wrap gap-3">
+      <Button href="/apply">Apply</Button>
+      <Button href="/contact" variant="secondary">
+        Talk to us
+      </Button>
+    </div>
+  </Section>
+</Base>

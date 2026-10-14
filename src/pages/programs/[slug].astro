@@ -1,0 +1,208 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Button from '../../components/Button.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FactList from '../../components/FactList.astro';
+import AnswerBlock from '../../components/AnswerBlock.astro';
+import CurriculumYear from '../../components/CurriculumYear.astro';
+import FAQ from '../../components/FAQ.astro';
+import ProgramRow from '../../components/ProgramRow.astro';
+import StickyCta from '../../components/StickyCta.astro';
+import { getPrograms, programMeta } from '../../lib/content';
+import { graph, webPage, course, educationalProgram } from '../../lib/schema';
+
+export const getStaticPaths = (async () => {
+  const programs = await getPrograms();
+  return programs.map((p) => ({ params: { slug: p.data.slug }, props: { p, all: programs } }));
+}) satisfies GetStaticPaths;
+
+const { p, all } = Astro.props;
+const d = p.data;
+const path = `/programs/${d.slug}`;
+const related = d.related.map((s) => all.find((x) => x.data.slug === s)).filter((x) => !!x);
+const yearsLabel = d.durationYears === 1 ? 'year' : 'years';
+const level = d.level === 'foundation' ? 'Foundation' : 'Specialisation';
+const certLabel =
+  d.level === 'foundation'
+    ? 'External exams it prepares for'
+    : 'External certifications in the roadmap';
+---
+
+<Base
+  title={d.seo.title}
+  description={d.seo.description}
+  jsonLd={[graph(webPage(path, d.seo.title, d.seo.description), course(d), educationalProgram(d))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Programs', href: '/programs' },
+        { name: d.shortName, href: path },
+      ]}
+    />
+    <h1 class="mt-6 max-w-[18ch] text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">
+      {d.name}
+    </h1>
+    <p class="mt-6 max-w-[56ch] text-lg text-slate md:text-xl">{d.summary}</p>
+    <div class="mt-8 hidden gap-3 lg:flex">
+      <Button href="/apply">Apply</Button>
+      <Button href="/contact" variant="secondary">
+        Talk to us
+      </Button>
+    </div>
+    <div class="mt-10">
+      <FactList
+        items={[
+          { label: 'Duration', value: `${d.durationYears} ${yearsLabel}` },
+          { label: 'Total hours', value: String(d.totalHours) },
+          { label: 'Level', value: level },
+          { label: 'Entry', value: 'Class 10 pass' },
+        ]}
+      />
+      <p class="mt-3 text-sm text-slate">
+        Mode and schedule: {'{{CONFIRM: delivery mode and batch timings}}'}
+      </p>
+    </div>
+  </Section>
+
+  <Section tone="soft" aria-labelledby="what">
+    <h2 id="what" class="mb-4 text-[length:var(--text-2xl)]">
+      What is the {d.shortName} program?
+    </h2>
+    <AnswerBlock>{d.answer}</AnswerBlock>
+  </Section>
+
+  <Section aria-labelledby="who">
+    <h2 id="who" class="mb-4 text-[length:var(--text-2xl)]">
+      Who is it for?
+    </h2>
+    <p class="max-w-[62ch] text-lg">
+      {d.entry}. It runs at {d.hoursPerWeek} hours a week.
+    </p>
+  </Section>
+
+  <Section tone="soft" aria-labelledby="learn">
+    <h2 id="learn" class="mb-8 text-[length:var(--text-2xl)]">
+      What will students learn, year by year?
+    </h2>
+    {d.years.map((y) => (
+      <CurriculumYear
+        year={y.title}
+        hours={y.hours ? `${y.hours} hours` : undefined}
+        topics={y.modules}
+      />
+    ))}
+  </Section>
+
+  {d.tools.length > 0 && (
+    <Section aria-labelledby="tools">
+      <h2 id="tools" class="mb-4 text-[length:var(--text-2xl)]">
+        Which tools and technologies are used?
+      </h2>
+      <p class="mb-4 max-w-[62ch] text-lg">
+        The curriculum document names these tools and technologies.
+      </p>
+      <ul class="flex flex-wrap gap-2">
+        {d.tools.map((t) => (
+          <li class="rounded-[var(--radius-control)] border border-line px-3 py-1">{t}</li>
+        ))}
+      </ul>
+    </Section>
+  )}
+
+  <Section tone="soft" aria-labelledby="projects">
+    <h2 id="projects" class="mb-4 text-[length:var(--text-2xl)]">
+      What will students build?
+    </h2>
+    <p class="mb-6 max-w-[62ch] text-lg">
+      {d.projects.length} projects across the program, kept as evidence in a GitHub portfolio. The
+      last one is the capstone.
+    </p>
+    <ol class="grid gap-x-8 sm:grid-cols-2">
+      {d.projects.map((pr) => (
+        <li class="border-t border-line py-2">{pr}</li>
+      ))}
+    </ol>
+  </Section>
+
+  {d.careerRoles.length > 0 && (
+    <Section aria-labelledby="roles">
+      <h2 id="roles" class="mb-4 text-[length:var(--text-2xl)]">
+        Which roles does it prepare students for?
+      </h2>
+      <p class="mb-6 max-w-[62ch] text-lg">
+        The curriculum lists these entry-level roles. Fit depends on the student's portfolio and on
+        each employer's requirements, and no job or internship is guaranteed.
+      </p>
+      <ul class="grid gap-x-8 sm:grid-cols-2">
+        {d.careerRoles.map((r) => (
+          <li class="border-t border-line py-2">{r}</li>
+        ))}
+      </ul>
+    </Section>
+  )}
+
+  <Section tone="soft" aria-labelledby="assess">
+    <h2 id="assess" class="mb-4 text-[length:var(--text-2xl)]">
+      How are students assessed, and what about certifications?
+    </h2>
+    <p class="mb-6 max-w-[62ch] text-lg">{d.assessment}</p>
+    {d.certifications.length > 0 && (
+      <>
+        <h3 class="mb-3 text-[length:var(--text-lg)]">{certLabel}</h3>
+        <ul class="mb-4 grid gap-x-8 sm:grid-cols-2">
+          {d.certifications.map((c) => (
+            <li class="border-t border-line py-2">{c}</li>
+          ))}
+        </ul>
+        <p class="max-w-[62ch] text-slate">
+          Certifying organisations award these after the student passes their exam. Passing is not
+          guaranteed.
+        </p>
+      </>
+    )}
+  </Section>
+
+  {d.hardware.length > 0 && (
+    <Section aria-labelledby="hardware" space="tight">
+      <h2 id="hardware" class="mb-4 text-[length:var(--text-xl)]">
+        What do students need to take part?
+      </h2>
+      <ul class="grid max-w-[62ch] gap-1">
+        {d.hardware.map((h) => (
+          <li class="border-t border-line py-2">{h}</li>
+        ))}
+      </ul>
+    </Section>
+  )}
+
+  <Section tone="soft" aria-labelledby="faq">
+    <h2 id="faq" class="mb-8 text-[length:var(--text-2xl)]">
+      Questions about the {d.shortName} program
+    </h2>
+    <FAQ items={d.faqs} />
+  </Section>
+
+  {related.length > 0 && (
+    <Section aria-labelledby="related">
+      <h2 id="related" class="mb-8 text-[length:var(--text-2xl)]">
+        Related programs
+      </h2>
+      <div class="border-b border-line">
+        {related.map((r) => (
+          <ProgramRow
+            href={`/programs/${r.data.slug}`}
+            title={r.data.shortName}
+            summary={r.data.summary}
+            meta={programMeta(r.data)}
+          />
+        ))}
+      </div>
+    </Section>
+  )}
+
+  <StickyCta />
+</Base>

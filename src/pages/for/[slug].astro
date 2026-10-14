@@ -1,0 +1,115 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Button from '../../components/Button.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AnswerBlock from '../../components/AnswerBlock.astro';
+import ProgramRow from '../../components/ProgramRow.astro';
+import FAQ from '../../components/FAQ.astro';
+import StickyCta from '../../components/StickyCta.astro';
+import { getAudiences, getPrograms, getFaqs, programMeta } from '../../lib/content';
+import { graph, webPage } from '../../lib/schema';
+
+const h1s: Record<string, string> = {
+  students: 'Where do I start after Class 10?',
+  parents: 'Is it safe, and what does it involve?',
+  schools: 'How do we introduce AI in our school?',
+  professionals: 'How do I learn AI next to my job?',
+};
+const faqIds: Record<string, string[]> = {
+  students: ['eligibility', 'time-commitment', 'certification'],
+  parents: ['data-privacy-minors', 'job-guarantee', 'time-commitment', 'certification'],
+  schools: ['learning-mode'],
+  professionals: [],
+};
+
+export const getStaticPaths = (async () => {
+  const audiences = await getAudiences();
+  return audiences.map((a) => ({ params: { slug: a.data.slug }, props: { a } }));
+}) satisfies GetStaticPaths;
+
+const { a } = Astro.props;
+const d = a.data;
+const { Content } = await render(a);
+const programs = (await getPrograms()).filter((p) => d.programs.includes(p.data.slug));
+const faqs = await getFaqs(faqIds[d.slug] ?? []);
+const path = `/for/${d.slug}`;
+---
+
+<Base
+  title={d.seo.title}
+  description={d.seo.description}
+  jsonLd={[graph(webPage(path, d.seo.title, d.seo.description))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: d.name, href: path },
+      ]}
+    />
+    <h1 class="mt-6 max-w-[20ch] text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">
+      {h1s[d.slug]}
+    </h1>
+  </Section>
+
+  <Section tone="soft" aria-labelledby="answer">
+    <h2 id="answer" class="mb-4 text-[length:var(--text-2xl)]">
+      The short answer for {d.name.toLowerCase()}
+    </h2>
+    <AnswerBlock>{d.answer}</AnswerBlock>
+    <div class="prose mt-6 max-w-[62ch]">
+      <Content />
+    </div>
+  </Section>
+
+  <Section aria-labelledby="programs">
+    <h2 id="programs" class="mb-8 text-[length:var(--text-2xl)]">
+      Which programs apply?
+    </h2>
+    <div class="border-b border-line">
+      {programs.map((p) => (
+        <ProgramRow
+          href={`/programs/${p.data.slug}`}
+          title={p.data.shortName}
+          summary={p.data.summary}
+          meta={programMeta(p.data)}
+        />
+      ))}
+    </div>
+  </Section>
+
+  {d.slug === 'parents' && (
+    <Section tone="soft" aria-labelledby="privacy">
+      <h2 id="privacy" class="mb-4 text-[length:var(--text-2xl)]">
+        How is a child's data handled?
+      </h2>
+      <p class="max-w-[62ch] text-lg">
+        Students under 18 apply through a parent or guardian, who gives consent. Forms collect only
+        what is needed to reply. Consent boxes start unticked, and nothing on the site tracks or
+        advertises to children. Read the full <a href="/privacy">privacy notice</a>.
+      </p>
+    </Section>
+  )}
+
+  {faqs.length > 0 && (
+    <Section aria-labelledby="faq">
+      <h2 id="faq" class="mb-8 text-[length:var(--text-2xl)]">
+        Common questions
+      </h2>
+      <FAQ items={faqs} />
+    </Section>
+  )}
+
+  <Section space="tight">
+    <div class="flex flex-wrap gap-3">
+      <Button href="/apply">Apply</Button>
+      <Button href="/contact" variant="secondary">
+        Talk to us
+      </Button>
+    </div>
+  </Section>
+  <StickyCta />
+</Base>

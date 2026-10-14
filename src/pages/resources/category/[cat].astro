@@ -1,0 +1,52 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import Section from '../../../components/Section.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { getPublishedPosts } from '../../../lib/content';
+import { graph, webPage } from '../../../lib/schema';
+
+export const getStaticPaths = (() =>
+  ['guides', 'careers', 'schools', 'parents', 'professionals'].map((cat) => ({
+    params: { cat },
+  }))) satisfies GetStaticPaths;
+
+const { cat } = Astro.params;
+const posts = (await getPublishedPosts()).filter((p) => p.data.category === cat);
+const name = cat.charAt(0).toUpperCase() + cat.slice(1);
+const title = `${name} Guides | NeuroNetworks AI Ed`;
+const description = `Guides in the ${cat} category from NeuroNetworks AI Ed.`;
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[graph(webPage(`/resources/category/${cat}`, title, description, 'CollectionPage'))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Resources', href: '/resources' },
+        { name, href: `/resources/category/${cat}` },
+      ]}
+    />
+    <h1 class="mt-6 text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">{name}</h1>
+  </Section>
+  <Section tone="soft">
+    {posts.length === 0 ? (
+      <p class="max-w-[56ch] text-lg">No guides in this category yet.</p>
+    ) : (
+      <ul class="grid gap-6">
+        {posts.map((p) => (
+          <li class="border-t border-line pt-4">
+            <a href={`/resources/${p.id}`} class="font-display text-xl font-bold">
+              {p.data.title}
+            </a>
+            <p class="mt-1 text-slate">{p.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </Section>
+</Base>

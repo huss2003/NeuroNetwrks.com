@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { graph, webPage } from '../lib/schema';
+
+const title = 'Terms of Use';
+const description =
+  'Terms for using the NeuroNetworks AI Ed website. Draft for legal review before launch.';
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[graph(webPage('/terms', title, description))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Terms', href: '/terms' },
+      ]}
+    />
+    <h1 class="mt-6 text-[length:var(--text-3xl)]">Terms of use</h1>
+    <p class="mt-4 text-slate">Draft for legal review before launch.</p>
+  </Section>
+  <Section tone="soft">
+    <p class="max-w-[62ch] text-lg">{'{{CONFIRM: terms of use text from legal review}}'}</p>
+  </Section>
+</Base>

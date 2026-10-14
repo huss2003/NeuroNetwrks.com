@@ -17,4 +17,16 @@ jobs:
       - run: npm run check
       - run: npm run lint
       - run: npm run build
-      # E2E, Lighthouse CI and pa11y are enabled once Phase 3 pages exist.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      # Audits run on a production-mode build (indexable) without the {{CONFIRM}} gate,
+      # which stays on the real production build until the owner supplies the facts.
+      - name: Production-mode build for audits
+        run: PUBLIC_ENV=production npx astro build
+      - name: Lighthouse and pa11y
+        run: |
+          node scripts/serve-static.mjs 4322 &
+          node scripts/serve-static.mjs 4321 &
+          npx wait-on http://localhost:4322 http://localhost:4321
+          npx lhci autorun
+          npx pa11y-ci

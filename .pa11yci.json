@@ -1,1 +1,23 @@
-{ "defaults": { "standard": "WCAG2AA" }, "urls": ["http://localhost:4321/"] }
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    }
+  },
+  "urls": [
+    "http://localhost:4321/",
+    "http://localhost:4321/programs",
+    "http://localhost:4321/programs/ai-ml-engineering",
+    "http://localhost:4321/programs/ai-foundation",
+    "http://localhost:4321/for/students",
+    "http://localhost:4321/for/parents",
+    "http://localhost:4321/for/schools",
+    "http://localhost:4321/about",
+    "http://localhost:4321/admissions",
+    "http://localhost:4321/apply",
+    "http://localhost:4321/contact",
+    "http://localhost:4321/resources",
+    "http://localhost:4321/privacy"
+  ]
+}

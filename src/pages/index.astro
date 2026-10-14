@@ -1,11 +1,217 @@
 ---
 import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import ProgramRow from '../components/ProgramRow.astro';
+import AudienceLink from '../components/AudienceLink.astro';
+import FAQ from '../components/FAQ.astro';
+import ImageSlot from '../components/ImageSlot.astro';
+import PathAnchor from '../components/PathAnchor.astro';
+import { getPrograms, getFaqs, getPublishedPosts, programMeta } from '../lib/content';
+import { graph, organization, website, webPage } from '../lib/schema';
+import { site } from '../data/site';
+
+const programs = await getPrograms();
+const faqs = await getFaqs([
+  'eligibility',
+  'time-commitment',
+  'certification',
+  'job-guarantee',
+  'data-privacy-minors',
+  'learning-mode',
+]);
+const posts = (await getPublishedPosts()).slice(0, 3);
+const title = 'AI Courses in India | NeuroNetworks AI Ed';
+const description =
+  'AI courses in India for students after Class 10: a 104-hour foundation and five three-year, 624-hour specialisations built on monthly projects.';
+const nSpecs = programs.filter((p) => p.data.level === 'specialisation').length;
 ---
 
 <Base
-  title="AI Courses in India | NeuroNetworks AI Ed"
-  description="Placeholder home page. Content arrives in Phase 3."
+  title={title}
+  description={description}
+  jsonLd={[graph(organization(), website(), webPage('/', title, description))]}
 >
-  <h1>NeuroNetworks AI Ed</h1>
-  <p>Learn · Develop · Create</p>
+  <Section space="loose" aria-labelledby="hero-title">
+    <div class="grid items-end gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <p class="mb-6 font-display text-lg font-bold text-blue-700">{site.tagline}</p>
+        <h1
+          id="hero-title"
+          class="text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]"
+        >
+          AI, data and software careers, taught from zero.
+        </h1>
+        <p class="mt-8 max-w-[56ch] text-lg text-slate md:text-xl">
+          AI courses in India for students who have passed Class 10. Start with a 104-hour
+          foundation, or go straight to a three-year, 624-hour specialisation.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <Button href="/apply">Apply</Button>
+          <Button href="/contact" variant="secondary">
+            Talk to us
+          </Button>
+        </div>
+        <p class="mt-10 border-t border-line pt-4 text-sm text-slate">
+          {programs.length} programs · 104-hour foundation · 3-year specialisations of 624 hours
+        </p>
+      </div>
+      <div class="lg:col-span-4">
+        <ImageSlot ratio="4/5" label="students working together at laptops" />
+      </div>
+    </div>
+    <PathAnchor name="learn" />
+  </Section>
+
+  <Section tone="soft" aria-labelledby="ldc-title">
+    <h2 id="ldc-title" class="mb-10 max-w-[18ch] text-[length:var(--text-3xl)]">
+      Learn, develop, create
+    </h2>
+    <div class="grid gap-12 lg:grid-cols-3">
+      <div>
+        <h3 class="mb-3 text-[length:var(--text-xl)]">Learn</h3>
+        <p class="mb-4 text-slate">
+          The AI Foundation course is 104 one-hour lectures over a year. It covers AI basics,
+          Python, data, machine learning and generative AI, with a small RAG prototype at the end.
+        </p>
+        <a href="/programs/ai-foundation">See the foundation course</a>
+      </div>
+      <div>
+        <PathAnchor name="develop" />
+        <h3 class="mb-3 text-[length:var(--text-xl)]">Develop</h3>
+        <p class="mb-4 text-slate">
+          Each three-year specialisation runs 36 monthly modules at 4 hours a week. Every month ends
+          with a one-hour exam, so progress is checked 36 times.
+        </p>
+        <a href="/programs">Compare the {nSpecs} specialisations</a>
+      </div>
+      <div>
+        <PathAnchor name="create" />
+        <h3 class="mb-3 text-[length:var(--text-xl)]">Create</h3>
+        <p class="mb-4 text-slate">
+          Every module produces a project, and each program ends in a capstone. Students keep the
+          work in a GitHub portfolio they can show.
+        </p>
+        <a href="/programs/ai-ml-engineering#projects">See the projects</a>
+      </div>
+    </div>
+  </Section>
+
+  <Section aria-labelledby="programs-title">
+    <h2 id="programs-title" class="mb-8 text-[length:var(--text-2xl)]">
+      Which programs does NeuroNetworks AI Ed offer?
+    </h2>
+    <p class="mb-8 max-w-[62ch] text-lg">
+      There are six programs. One is a one-year, 104-hour AI Foundation course. Five are three-year,
+      624-hour specialisations in AI/ML, software development, data science, product and UX design,
+      and cybersecurity.
+    </p>
+    <div class="border-b border-line">
+      {programs.map((p) => (
+        <ProgramRow
+          href={`/programs/${p.data.slug}`}
+          title={p.data.shortName}
+          summary={p.data.summary}
+          meta={programMeta(p.data)}
+        />
+      ))}
+    </div>
+  </Section>
+
+  <Section tone="soft" space="tight" aria-labelledby="who-title">
+    <h2 id="who-title" class="mb-8 text-[length:var(--text-2xl)]">
+      Who is it for?
+    </h2>
+    <div class="grid gap-6 sm:grid-cols-2">
+      <AudienceLink
+        href="/for/students"
+        label="Students"
+        question="Where do I start after Class 10?"
+      />
+      <AudienceLink
+        href="/for/parents"
+        label="Parents"
+        question="Is it safe, and what does it involve?"
+      />
+      <AudienceLink
+        href="/for/schools"
+        label="Schools"
+        question="How could we introduce AI in our school?"
+      />
+      <AudienceLink
+        href="/for/professionals"
+        label="Professionals"
+        question="{{CONFIRM: one honest sentence for working professionals}}"
+      />
+    </div>
+  </Section>
+
+  <Section aria-labelledby="how-title">
+    <h2 id="how-title" class="mb-6 max-w-[20ch] text-[length:var(--text-2xl)]">
+      How does learning work?
+    </h2>
+    <p class="mb-8 max-w-[62ch] text-lg">
+      Students learn by building. The three-year programs give 4 hours a week for 52 weeks, a
+      project each month and a one-hour exam at the end of it. The foundation course gives 2 guided
+      hours a week.
+    </p>
+    <dl class="grid gap-6 border-y border-line py-6 sm:grid-cols-3">
+      <div>
+        <dt class="text-sm text-slate">Three-year programs</dt>
+        <dd class="font-display text-xl font-bold">4 hours a week</dd>
+      </div>
+      <div>
+        <dt class="text-sm text-slate">Monthly check</dt>
+        <dd class="font-display text-xl font-bold">1-hour exam</dd>
+      </div>
+      <div>
+        <dt class="text-sm text-slate">Foundation course</dt>
+        <dd class="font-display text-xl font-bold">2 hours a week</dd>
+      </div>
+    </dl>
+  </Section>
+
+  <Section tone="soft" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="mb-8 text-[length:var(--text-2xl)]">
+      Questions families ask
+    </h2>
+    <FAQ items={faqs} />
+  </Section>
+
+  {posts.length > 0 && (
+    <Section aria-labelledby="posts-title">
+      <h2 id="posts-title" class="mb-8 text-[length:var(--text-2xl)]">
+        From the resources
+      </h2>
+      <ul class="grid gap-4">
+        {posts.map((p) => (
+          <li>
+            <a href={`/resources/${p.id}`} class="font-display text-lg font-bold">
+              {p.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )}
+
+  <Section tone="ink" space="loose" aria-labelledby="cta-title">
+    <h2 id="cta-title" class="max-w-[16ch] text-[length:var(--text-3xl)]">
+      Ready to start?
+    </h2>
+    <p class="mt-4 max-w-[48ch] text-lg text-blue-100">
+      Apply when you are ready, or talk to us first. Under-18 applicants apply with a parent or
+      guardian.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/apply">Apply</Button>
+      <Button
+        href="/contact"
+        variant="secondary"
+        class="border-white text-white hover:bg-white hover:text-ink"
+      >
+        Talk to us
+      </Button>
+    </div>
+  </Section>
 </Base>

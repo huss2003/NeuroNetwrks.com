@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { graph, organization, webPage } from '../lib/schema';
+import { site } from '../data/site';
+
+const title = 'Talk to Us';
+const description =
+  'Ask a question about NeuroNetworks AI Ed programs before you apply. Parents and students are both welcome to get in touch.';
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[graph(organization(), webPage('/contact', title, description, 'ContactPage'))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Contact', href: '/contact' },
+      ]}
+    />
+    <h1 class="mt-6 text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">
+      Talk to us
+    </h1>
+    <p class="mt-6 max-w-[56ch] text-lg text-slate md:text-xl">
+      Ask anything before you apply. Parents and students are both welcome.
+    </p>
+  </Section>
+  <Section tone="soft" aria-labelledby="form">
+    <h2 id="form" class="mb-4 text-[length:var(--text-2xl)]">
+      Send a message
+    </h2>
+    <div class="rounded-[var(--radius-media)] border border-dashed border-blue-200 bg-blue-50 p-8">
+      <p>Form slot. The enquiry form is built in Phase 6.</p>
+    </div>
+  </Section>
+  <Section aria-labelledby="details" space="tight">
+    <h2 id="details" class="mb-4 text-[length:var(--text-xl)]">
+      Contact details
+    </h2>
+    <dl class="grid max-w-[62ch] gap-3">
+      <div>
+        <dt class="text-sm text-slate">Email</dt>
+        <dd>{site.contact.email}</dd>
+      </div>
+      <div>
+        <dt class="text-sm text-slate">Address</dt>
+        <dd>{site.contact.address}</dd>
+      </div>
+      <div>
+        <dt class="text-sm text-slate">Grievance officer</dt>
+        <dd>
+          {site.grievanceOfficer.name}, {site.grievanceOfficer.email}
+        </dd>
+      </div>
+    </dl>
+  </Section>
+</Base>

@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getPublishedPosts } from '../../lib/content';
+import { graph, webPage } from '../../lib/schema';
+
+const posts = await getPublishedPosts();
+const title = 'AI Learning Guides & Resources';
+const description =
+  'Plain-language guides on learning AI, Python, data, cybersecurity and design after Class 10, for students and parents.';
+const cats = ['guides', 'careers', 'schools', 'parents', 'professionals'];
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[graph(webPage('/resources', title, description, 'CollectionPage'))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Resources', href: '/resources' },
+      ]}
+    />
+    <h1 class="mt-6 text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">
+      Resources
+    </h1>
+    <nav aria-label="Categories" class="mt-6 flex flex-wrap gap-x-6">
+      {cats.map((c) => (
+        <a href={`/resources/category/${c}`} class="inline-flex min-h-11 items-center capitalize">
+          {c}
+        </a>
+      ))}
+      <a href="/rss.xml" class="inline-flex min-h-11 items-center">
+        RSS feed
+      </a>
+    </nav>
+  </Section>
+  <Section tone="soft" aria-labelledby="latest">
+    <h2 id="latest" class="mb-6 text-[length:var(--text-2xl)]">
+      Latest guides
+    </h2>
+    {posts.length === 0 ? (
+      <p class="max-w-[56ch] text-lg">No guides are published yet.</p>
+    ) : (
+      <ul class="grid gap-6">
+        {posts.map((p) => (
+          <li class="border-t border-line pt-4">
+            <a href={`/resources/${p.id}`} class="font-display text-xl font-bold">
+              {p.data.title}
+            </a>
+            <p class="mt-1 text-slate">{p.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </Section>
+</Base>

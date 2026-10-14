@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { graph, webPage } from '../../lib/schema';
+
+const title = 'Apply to NeuroNetworks AI Ed';
+const description =
+  'Apply to a NeuroNetworks AI Ed program. Students under 18 apply with a parent or guardian, who gives consent.';
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[graph(webPage('/apply', title, description))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Apply', href: '/apply' },
+      ]}
+    />
+    <h1 class="mt-6 text-[length:var(--text-hero)] leading-[0.95] tracking-[-0.035em]">Apply</h1>
+    <p class="mt-6 max-w-[56ch] text-lg text-slate md:text-xl">
+      The first question asks who is filling in the form. Students under 18 are routed to a parent
+      or guardian, who gives consent.
+    </p>
+  </Section>
+  <Section tone="soft" aria-labelledby="form">
+    <h2 id="form" class="mb-4 text-[length:var(--text-2xl)]">
+      Application form
+    </h2>
+    <div class="rounded-[var(--radius-media)] border border-dashed border-blue-200 bg-blue-50 p-8">
+      <p>
+        Form slot. The application form is built in Phase 6 (parent-first flow, unticked consent
+        boxes, spam checks).
+      </p>
+    </div>
+  </Section>
+</Base>

@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Button from '../../components/Button.astro';
+---
+
+<Base title="Thank you" description="Your application was received." noindex>
+  <Section>
+    <h1 class="text-[length:var(--text-3xl)]">Thank you</h1>
+    <p class="mt-4 max-w-[56ch] text-lg">{'{{CONFIRM: what happens next and when we reply}}'}</p>
+    <div class="mt-8">
+      <Button href="/programs">Back to programs</Button>
+    </div>
+  </Section>
+</Base>

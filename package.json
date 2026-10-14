@@ -12,7 +12,7 @@
     "build": "astro build && node scripts/check-confirm.mjs",
     "preview": "astro preview",
     "test:e2e": "playwright test",
-    "audit": "lhci autorun && pa11y-ci --sitemap http://localhost:4321/sitemap-index.xml",
+    "audit": "lhci autorun && pa11y-ci",
     "astro": "astro"
   },
   "dependencies": {

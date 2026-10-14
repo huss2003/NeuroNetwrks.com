@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { graph, webPage } from '../lib/schema';
+import { site } from '../data/site';
+
+const title = 'Privacy Notice';
+const description =
+  'How NeuroNetworks AI Ed collects and uses personal data from enquiries and applications, with parent-first consent for under-18s.';
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[graph(webPage('/privacy', title, description))]}
+>
+  <Section space="tight">
+    <Breadcrumbs
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Privacy', href: '/privacy' },
+      ]}
+    />
+    <h1 class="mt-6 text-[length:var(--text-3xl)]">Privacy notice</h1>
+    <p class="mt-4 text-slate">
+      Version {site.noticeVersion}. Draft for legal review before launch.
+    </p>
+  </Section>
+  <Section tone="soft" aria-labelledby="collect">
+    <h2 id="collect" class="mb-4 text-[length:var(--text-xl)]">
+      What do we collect, and why?
+    </h2>
+    <p class="max-w-[62ch] text-lg">
+      We collect the details you type into the Apply and Talk to us forms so that we can reply to
+      you. For students under 18, a parent or guardian completes the form and gives consent, and the
+      child's details are minimal and optional.
+    </p>
+  </Section>
+  <Section aria-labelledby="not">
+    <h2 id="not" class="mb-4 text-[length:var(--text-xl)]">
+      What do we not do?
+    </h2>
+    <ul class="grid max-w-[62ch] list-disc gap-2 pl-6 text-lg">
+      <li>We do not track, profile or advertise to children.</li>
+      <li>We do not store IP addresses or browser details with enquiries.</li>
+      <li>We do not use remarketing audiences.</li>
+    </ul>
+  </Section>
+  <Section tone="soft" aria-labelledby="rights">
+    <h2 id="rights" class="mb-4 text-[length:var(--text-xl)]">
+      How long do we keep data, and what are your rights?
+    </h2>
+    <p class="max-w-[62ch] text-lg">
+      {
+        '{{CONFIRM: retention period (planned: 12 months after last contact), process for access, correction and deletion requests, and the grievance officer name and email}}'
+      }
+    </p>
+    <p class="mt-4 max-w-[62ch] text-slate">
+      Grievance officer: {site.grievanceOfficer.name}, {site.grievanceOfficer.email}
+    </p>
+  </Section>
+</Base>
