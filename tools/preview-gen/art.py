@@ -63,3 +63,28 @@ def cy():
     b+=t(24,344,"Networking basics, security operations, authorised labs",12,B9,600)
     return _svg("Illustration: a monitored network of connected systems protected by a shield",b)
 ART={"ai-foundation":found,"ai-ml-engineering":aiml,"software-development":sw,"data-science-ai":ds,"product-ux-ai-design":ux,"cybersecurity":cy}
+
+
+def shot(i):
+    """Interface mockups used as project visuals (inline SVG, decorative)."""
+    B, N, L = "#006DEE", "#0B1B33", "#49B716"
+    def bar(x, y, w, c="#D9E8FF", h=8): return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="2" fill="{c}"/>'
+    if i % 3 == 0:
+        body = (f'<rect x="24" y="24" width="150" height="232" fill="#F2F7FF" stroke="#D9E8FF"/>' + bar(38, 44, 90, B) + bar(38, 68, 110) + bar(38, 86, 96) + bar(38, 104, 104) + bar(38, 122, 80)
+                + f'<rect x="192" y="40" width="190" height="34" fill="{B}"/>' + bar(204, 53, 120, "#fff")
+                + f'<rect x="258" y="94" width="206" height="70" fill="#fff" stroke="#B3D0FF"/>' + bar(270, 110, 170, N) + bar(270, 128, 150) + bar(270, 144, 110)
+                + f'<rect x="258" y="176" width="64" height="22" fill="#fff" stroke="{L}"/><rect x="330" y="176" width="64" height="22" fill="#fff" stroke="{L}"/>' + bar(268, 184, 44, L, 6) + bar(340, 184, 44, L, 6)
+                + f'<rect x="192" y="220" width="272" height="36" fill="#fff" stroke="#B3D0FF"/>' + bar(204, 235, 130) + f'<rect x="424" y="228" width="30" height="20" fill="{B}"/>')
+    elif i % 3 == 1:
+        body = (f'<rect x="24" y="24" width="210" height="232" fill="#EAF2FF" stroke="#B3D0FF"/><path d="M24 220 L90 140 L140 190 L170 150 L234 220Z" fill="#B3D0FF"/><circle cx="188" cy="74" r="20" fill="#fff"/><rect x="70" y="100" width="110" height="90" fill="none" stroke="{L}" stroke-width="3"/>'
+                + f'<rect x="254" y="24" width="210" height="232" fill="#fff" stroke="#D9E8FF"/>' + bar(270, 44, 100, N)
+                + f'<rect x="270" y="74" width="172" height="12" fill="#EAF2FF"/><rect x="270" y="74" width="148" height="12" fill="{B}"/>'
+                + f'<rect x="270" y="104" width="172" height="12" fill="#EAF2FF"/><rect x="270" y="104" width="60" height="12" fill="#7FB1F7"/>'
+                + f'<rect x="270" y="134" width="172" height="12" fill="#EAF2FF"/><rect x="270" y="134" width="26" height="12" fill="#B3D0FF"/>'
+                + bar(270, 176, 140) + bar(270, 194, 110) + f'<rect x="270" y="222" width="86" height="22" fill="{B}"/>')
+    else:
+        body = (f'<rect x="24" y="24" width="440" height="232" fill="#F2F7FF" stroke="#D9E8FF"/>'
+                + "".join(f'<rect x="{40+k*140}" y="{60+(k%2)*60}" width="116" height="52" fill="#fff" stroke="{B}"/>' + bar(52 + k * 140, 78 + (k % 2) * 60, 70, N) + bar(52 + k * 140, 94 + (k % 2) * 60, 90) for k in range(3))
+                + f'<path d="M156 86 H180 V146 H196 M296 146 H320 V86 H336" fill="none" stroke="{B}" stroke-width="2"/>'
+                + f'<rect x="40" y="196" width="408" height="44" fill="#fff" stroke="#D9E8FF"/>' + bar(54, 212, 190, B) + bar(54, 226, 140) + f'<circle cx="420" cy="218" r="9" fill="{L}"/>')
+    return f'<svg viewBox="0 0 488 280" role="presentation" aria-hidden="true" focusable="false" style="display:block;width:100%;height:auto"><rect width="488" height="280" fill="#EEF5FF"/>{body}</svg>'

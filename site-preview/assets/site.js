@@ -124,7 +124,12 @@
     }
     ['name', 'email', 'prog'].forEach(function (k) { f[k].addEventListener('blur', function () { if (f[k].value || f[k].getAttribute('aria-invalid')) check(); }); });
     $$('input[name=role]', form).forEach(function (r) { r.addEventListener('change', function () { var u = r.checked && r.value === 'under'; if (r.checked) { under.hidden = !u; send.disabled = u; send.setAttribute('aria-disabled', u); } }); });
-    form.addEventListener('submit', function (e) { e.preventDefault(); var errs = check(); summary(errs); if (errs.length) { sum.setAttribute('tabindex', '-1'); sum.focus(); return; } form.hidden = true; var ok = $('#ok'); ok.classList.add('show'); ok.setAttribute('tabindex', '-1'); ok.focus(); });
+    form.addEventListener('submit', function (e) { e.preventDefault(); var errs = check(); summary(errs); if (errs.length) { sum.setAttribute('tabindex', '-1'); sum.focus(); return; } var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      var role = (form.querySelector('input[name=role]:checked') || {}).value || '';
+      var body = 'Name: ' + v('f-name') + '\nEmail: ' + v('f-email') + '\nPhone: ' + v('f-phone') + '\nProgram: ' + v('f-prog') + '\nI am: ' + role + '\n\n' + v('f-msg');
+      window.location.href = 'mailto:Hussain@neuronetwrks.com?subject=' + encodeURIComponent('Website enquiry') + '&body=' + encodeURIComponent(body);
+      form.hidden = true; var ok = $('#ok'); ok.classList.add('show'); ok.setAttribute('tabindex', '-1'); ok.focus(); });
+    var qs = new URLSearchParams(location.search); if (qs.get('topic') === 'fees' && $('#f-msg') && !$('#f-msg').value) { $('#f-msg').value = 'I would like to know the fees for: '; }
     $('#again').addEventListener('click', function () { form.reset(); form.hidden = false; $('#ok').classList.remove('show'); under.hidden = true; send.disabled = false; f.name.focus(); });
   }
 
