@@ -449,7 +449,7 @@ def about_page():
     env = f'''<section class="ab-sec" data-pd><img class="ab-wind ab-wind--2" src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy" aria-hidden="true"><div class="wrap ab-env-grid"><div>{eb("Students first")}<h2>A clear learning<br>environment.</h2>
 <p class="pd-p">Hours, assessments and projects are published in full, so students and parents can see exactly what each month involves. Students under 18 apply through a parent or guardian.</p>
 <div class="pd-actions"><a class="le-link" href="/admissions">Admissions for parents {ARW}</a></div><p class="le-small">[Class sizes and mentor support to be confirmed with the institute.]</p></div>
-<div class="ab-photo ab-photo--wide ab-photo--real"><img src="/assets/students.webp" alt="Students working on laptops in a classroom" width="1200" height="800" loading="lazy"><span class="ab-photo-ph">Illustrative photo</span><div class="ab-chip ab-chip--r"><i></i>Learn together.<br>Build together.</div></div></div></section>'''
+<div class="ab-photo ab-photo--wide ab-photo--real"><img src="/assets/students.webp" alt="Teenage students learning together in a classroom" width="1400" height="933" loading="lazy"><div class="ab-chip ab-chip--r"><i></i>Learn together.<br>Build together.</div></div></div></section>'''
     big = [("cap", "Real skills", "For higher education and careers"), ("target", "Greater opportunities", "In a technology-driven world"), ("user", "Capable people", "Curious, confident builders")]
     PI.setdefault("cap", '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>')
     bg = "".join(f'<li style="--k:{i}"><span class="ic">{pi(ic,26)}</span><b>{a}</b><small>{b}</small></li>' for i, (ic, a, b) in enumerate(big))
