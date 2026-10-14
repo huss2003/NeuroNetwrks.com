@@ -155,6 +155,14 @@
     var art = $('.ad-steps-img'); if (art && !rm) addEventListener('scroll', function () { var r = art.parentNode.getBoundingClientRect(); art.style.setProperty('--py', Math.max(-1, Math.min(1, (innerHeight / 2 - (r.top + r.height / 2)) / innerHeight)).toFixed(3)); }, { passive: true });
   })();
 
+  /* ---- About manifesto: words light up with scroll ---- */
+  (function () {
+    var m = $('[data-ab-mani]'); if (!m) return;
+    var ws = $$('.ab-mani-t span', m), t = false;
+    function run() { t = false; var r = m.getBoundingClientRect(), p = rm ? 1 : Math.max(0, Math.min(1, (innerHeight * 0.85 - r.top) / (r.height * 0.9))); var k = Math.round(p * ws.length); ws.forEach(function (w, i) { w.classList.toggle('on', i < k); }); }
+    addEventListener('scroll', function () { if (!t) { t = true; requestAnimationFrame(run); } }, { passive: true }); run();
+  })();
+
   /* ---- Generic chip filter (programs list) ---- */
   $$('[data-filter-group]').forEach(function (g) {
     var chips = $$('[data-filter]', g), items = $$('[data-cat]', document), out = $('[data-count]');
@@ -227,11 +235,14 @@
     var fb = $$('[data-faq-cat]', fq), fi = $$('details[data-cat]', fq), fc = $('#faq-count');
     function fshow(c, push) {
       var n = 0; fb.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-faq-cat') === c ? 'true' : 'false'); });
-      fi.forEach(function (d) { var on = c === 'all' || d.getAttribute('data-cat') === c; d.hidden = !on; if (on) n++; });
+      var qv = ((document.getElementById('faq-q') || {}).value || '').trim().toLowerCase(); fq.dataset.cat = c;
+      fi.forEach(function (d) { var on = (c === 'all' || d.getAttribute('data-cat') === c) && (!qv || d.textContent.toLowerCase().indexOf(qv) > -1); d.hidden = !on; if (on) n++; });
+      var em = $('.fq-empty', fq); if (em) em.hidden = n > 0;
       if (fc) fc.textContent = n + (n === 1 ? ' question' : ' questions');
       if (push) history.replaceState(null, '', c === 'all' ? location.pathname : '#' + c);
     }
     fb.forEach(function (b) { b.addEventListener('click', function () { fshow(b.getAttribute('data-faq-cat'), true); }); });
+    var fqi = document.getElementById('faq-q'); if (fqi) fqi.addEventListener('input', function () { fshow(fq.dataset.cat || 'all', false); });
     var fh = (location.hash || '').slice(1); fshow(fb.some(function (b) { return b.getAttribute('data-faq-cat') === fh; }) ? fh : 'all', false);
   }
 

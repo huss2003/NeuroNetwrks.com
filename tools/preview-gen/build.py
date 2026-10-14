@@ -396,20 +396,27 @@ FAQ_CATS = [("all", "All"), ("admissions", "Admissions"), ("learning", "Learning
 FAQ_LINKS = {"admissions": ('/admissions', "Admissions details"), "learning": ('/learning-experience', "How learning works"), "certification": ('/programs/ai-ml-engineering', "See certification pathways"),
              "outcomes": ('/projects', "See the projects"), "privacy": ('/contact', "Contact us about privacy"), "program": ('/curriculum#aiml-y1', "See the curriculum")}
 
+FAQ_ICONS = {"all": "grid", "admissions": "doc", "learning": "box", "certification": "check", "outcomes": "target", "privacy": "shield", "program": "cpu"}
 def faq_page():
     its = []
     for f in FAQ_FILES:
         d = yaml.safe_load(open(f)); its.append((d["group"], E(d["q"]), E(conf(d["a"]))))
     for q in D["ai-ml-engineering"]["faqs"][:3]: its.append(("program", E(q["q"]), E(conf(q["a"]))))
     counts = {c: sum(1 for i in its if i[0] == c) for c, _ in FAQ_CATS if c != "all"}; counts["all"] = len(its)
-    chips = "".join(f'<button class="chip" type="button" data-faq-cat="{c}" aria-pressed="{"true" if c=="all" else "false"}">{n} <span class="small">({counts[c]})</span></button>' for c, n in FAQ_CATS)
+    chips = "".join(f'<button class="fq-cat" type="button" data-faq-cat="{c}" aria-pressed="{"true" if c=="all" else "false"}"><span class="ic">{pi(FAQ_ICONS[c],17)}</span><span class="t">{n}</span><span class="c">{counts[c]}</span></button>' for c, n in FAQ_CATS)
+    names = dict(FAQ_CATS)
     det = ""
-    for c, q, a in its:
+    for k, (c, q, a) in enumerate(its):
         href, lbl = FAQ_LINKS[c]
-        det += f'<details data-cat="{c}"><summary>{q}</summary><div class="ans"><p>{a}</p><p style="margin-top:12px"><a href="{href}">{lbl} →</a></p></div></details>'
-    body = page_hero("FAQs", "Got questions?", "We have answers.", "Straight answers from the program roadmaps. Where something is not confirmed yet, it says so.", btn("primary", "/contact", "Ask us something"))
-    body += f'''<section class="sec sec--tight"><div class="wrap" id="faq"><div class="sec-head"><div class="chips" role="group" aria-label="Question categories">{chips}</div><p id="faq-count" class="mono muted" role="status">{len(its)} questions</p></div><div style="max-width:960px">{det}</div></div></section>''' + cta_panel("Still have a question?", "Ask us. A person replies.")
-    return layout("/faqs", "FAQs", body, "resources")
+        det += f'<details class="fq-item" data-cat="{c}" style="--k:{k}"><summary><span class="fq-tag">{names[c]}</span><span class="fq-q">{q}</span><span class="fq-pm" aria-hidden="true"></span></summary><div class="ans"><p>{a}</p><a class="le-link" href="{href}">{lbl} {ARW}</a></div></details>'
+    hero = f"""<section class="fq-hero" data-pd><div class="wrap fq-hero-grid"><div><p class="pd-crumbs"><a href="/">Home</a> / <span>FAQs</span></p>{eb("Frequently asked questions")}<h1 class="ad-h1"><span class="ln"><span>Got questions?</span></span><span class="ln"><span>We have answers.</span></span></h1>
+<p class="ab-lead">Straight answers from the program roadmaps. Where something is not confirmed yet, it says so.</p>
+<label class="fq-search"><span class="sr">Search the questions</span>{pi("search",20)}<input id="faq-q" type="search" placeholder="Search questions, e.g. eligibility, hours, exams" autocomplete="off"></label></div>
+<div class="fq-hero-art" aria-hidden="true"><img src="/assets/i-aiml.webp" alt="" width="340" height="360"><div class="fq-bubble b1"><b>Who can apply?</b><small>Students who have passed Class 10.</small></div><div class="fq-bubble b2"><b>How long is AI/ML?</b><small>624 hours over 3 years.</small></div></div></div></section>"""
+    main = f"""<section class="pd-sec" data-pd><div class="wrap fq-grid" id="faq"><aside class="fq-side"><p class="fq-side-h">Categories</p><div class="fq-cats" role="group" aria-label="Question categories">{chips}</div>
+<div class="fq-ask"><span class="ic">{pi("chat",22)}</span><b>Still have a question?</b><p>Ask us. A person replies.</p><a class="le-btn le-btn--p" href="/contact">Ask us something {ARW}</a></div></aside>
+<div class="fq-main"><div class="fq-bar"><p id="faq-count" class="fq-count" role="status">{len(its)} questions</p></div><div class="fq-list">{det}</div><p class="fq-empty" hidden>No questions match. Try another word or <a href="/contact">ask us directly</a>.</p></div></div></section>"""
+    return layout("/faqs", "FAQs", hero + main + cta_panel("Still have a question?", "Ask us. A person replies."), "resources")
 
 def contact_page():
     opts = "".join(f'<option value="{p[0]}">{name_of(p)}</option>' for p in PROGRAMS)
@@ -445,7 +452,10 @@ def about_page():
 <div><div class="ab-st-card" style="--k:0"><p>[Founding story and mission statement to be supplied by the institute. This space is reserved for two or three honest sentences, written by the people behind the programs.]</p></div><div class="ab-st-stats">{stats}</div></div></div></section>'''
     pr = [("box", "Hands-on learning", "Learn by doing, with labs and projects in every month."), ("check", "Checked progress", "A one-hour exam closes every module, with review and a retry."), ("chart", "Real-world skills", "Build a portfolio that shows what you can do."), ("bolt", "Open to beginners", "Start after Class 10. No prior coding or AI experience needed.")]
     cards = "".join(f'<li style="--k:{i}"><span class="n">{i+1:02d}</span><span class="ic">{pi(ic,24)}</span><h3>{a}</h3><p>{b}</p></li>' for i, (ic, a, b) in enumerate(pr))
-    principles = f'''<section class="ab-sec ab-sec--tint" data-pd><div class="wrap ab-pr-grid"><div>{eb("Our principles")}<h2>Practical.<br>Measured.<br>Future-ready.</h2><p class="pd-p">Four principles guide everything we do at NeuroNetworks AI Ed.</p></div><ol class="ab-cards">{cards}</ol></div></section>'''
+    words = "We teach practical AI and technology skills, one month at a time, so every student leaves with work they can show and the confidence to keep building.".split()
+    manifesto = '<section class="ab-mani" data-ab-mani><div class="wrap"><p class="ab-mani-eb">What we believe</p><p class="ab-mani-t">' + " ".join(f'<span style="--i:{i}">{w}</span>' for i, w in enumerate(words)) + '</p></div></section>'
+    bento = "".join(f'<li class="b{i}" style="--k:{i}"><span class="n">{i+1:02d}</span><span class="ic">{pi(ic,24)}</span><h3>{a}</h3><p>{b}</p></li>' for i, (ic, a, b) in enumerate(pr))
+    principles = f'''<section class="ab-sec ab-sec--tint" data-pd><div class="wrap"><div class="pd-head"><div>{eb("Our principles")}<h2>Practical. Measured.<br>Future-ready.</h2></div><p class="pd-p">Four principles guide everything we do at NeuroNetworks AI Ed.</p></div><ol class="ab-bento">{bento}</ol></div></section>'''
     env = f'''<section class="ab-sec" data-pd><img class="ab-wind ab-wind--2" src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy" aria-hidden="true"><div class="wrap ab-env-grid"><div>{eb("Students first")}<h2>A clear learning<br>environment.</h2>
 <p class="pd-p">Hours, assessments and projects are published in full, so students and parents can see exactly what each month involves. Students under 18 apply through a parent or guardian.</p>
 <div class="pd-actions"><a class="le-link" href="/admissions">Admissions for parents {ARW}</a></div><p class="le-small">[Class sizes and mentor support to be confirmed with the institute.]</p></div>
@@ -453,10 +463,10 @@ def about_page():
     big = [("cap", "Real skills", "For higher education and careers"), ("target", "Greater opportunities", "In a technology-driven world"), ("user", "Capable people", "Curious, confident builders")]
     PI.setdefault("cap", '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>')
     bg = "".join(f'<li style="--k:{i}"><span class="ic">{pi(ic,26)}</span><b>{a}</b><small>{b}</small></li>' for i, (ic, a, b) in enumerate(big))
-    bigger = f'''<section class="ab-sec ab-sec--tint" data-pd><div class="wrap ab-big-grid"><div>{eb("The bigger picture")}<h2>Better people.<br>A brighter tomorrow.</h2><p class="pd-p">We believe technology education can open doors and help build a more capable, confident generation. No program guarantees a job, internship or salary: we teach skills and help you build a portfolio.</p></div><ul class="ab-big">{bg}</ul></div></section>'''
+    bigger = f'''<section class="ab-sec ab-dark" data-pd><div class="wrap ab-big-grid"><div>{eb("The bigger picture")}<h2>Better people.<br>A brighter tomorrow.</h2><p class="pd-p">We believe technology education can open doors and help build a more capable, confident generation. No program guarantees a job, internship or salary: we teach skills and help you build a portfolio.</p></div><ul class="ab-big">{bg}</ul></div></section>'''
     cta = f'''<section class="ab-cta" data-pd><div class="wrap"><div class="ab-cta-in"><div>{eb("Be part of our story")}<h2>Talk to the people behind it.</h2><p>Ask us about our approach, programs, fees and intake dates.</p>
 <div class="pd-actions"><a class="le-btn le-btn--w" href="/admissions">Apply now {ARW}</a><a class="le-btn le-btn--g" href="/contact">Talk to us</a></div></div><img class="ab-cta-art" src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy" aria-hidden="true"></div></div></section>'''
-    return layout("/about", "About", hero + story + principles + env + bigger + cta, "about")
+    return layout("/about", "About", hero + manifesto + story + principles + env + bigger + cta, "about")
 
 
 def link_projects(html):
