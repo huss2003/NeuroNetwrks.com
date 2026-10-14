@@ -12,12 +12,12 @@ When the owner asks "what's pending?", answer from this file.
   - JSON-LD (organisation, website, breadcrumbs, FAQs, courses, projects);
   - sitemap, robots.txt allowing AI search bots, llms.txt;
   - favicons.
-- [x] Google Analytics code with a cookie banner, built in but switched off until the Measurement ID arrives (see below).
+- [x] Google Analytics live (ID G-1D2KJQ9RCF) behind the cookie banner; loads only after "Allow analytics".
 - [x] IndexNow set up. The key file is served from the site, and `python3 tools/preview-gen/indexnow.py` notifies Bing after each deploy.
 
 ## Waiting on the owner
 
-### 1. Google Analytics Measurement ID
+### 1. Google Analytics: finish settings (ID received and live)
 1. Go to analytics.google.com. Open Admin, then Create, then Property, and name it "NeuroNetworks AI Ed". Choose time zone India and currency INR.
 2. Choose Data streams, then Web. Enter the URL `https://neuronetwrks.com` and the stream name "Website".
 3. Copy the **Measurement ID** (it starts with `G-`) and send it to Claude.

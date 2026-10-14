@@ -98,7 +98,7 @@ ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 SITE = "https://neuronetwrks.com"
 # Google Analytics 4 Measurement ID (G-XXXXXXXXXX). Empty = analytics and the consent banner are off.
-GA_ID = ""
+GA_ID = "G-1D2KJQ9RCF"
 # IndexNow key (public by design; served at /<key>.txt so Bing and others accept URL pings).
 INDEXNOW_KEY = "e7fd3f9464fa4857fe51aa4ef1a906fa"
 
