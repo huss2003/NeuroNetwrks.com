@@ -124,17 +124,25 @@
     var glass = $$('.pd-glass'), tick = false;
     if (glass.length && !rm) addEventListener('scroll', function () { if (tick) return; tick = true; requestAnimationFrame(function () { tick = false; glass.forEach(function (g) { var r = g.parentNode.getBoundingClientRect(); g.style.setProperty('--py', Math.max(-1, Math.min(1, (innerHeight / 2 - (r.top + r.height / 2)) / innerHeight)).toFixed(3)); }); }); }, { passive: true });
     var fp = $('.fp'); if (!fp) return;
-    var slides = $$('.fp-slide', fp), ths = $$('.fp-th', fp), dots = $$('.fp-dots', fp), count = $('.fp-count', fp), cur = 0;
+    var slides = $$('.fp-slide', fp), ths = $$('.fp-th', fp), dots = $$('.fp-dots', fp), count = $('.fp-count', fp), cur = 0, auto = !rm;
     function show(i) {
       cur = (i + slides.length) % slides.length;
       slides.forEach(function (s, k) { var on = k === cur; s.hidden = !on; s.classList.toggle('on', on); });
       ths.forEach(function (t) { t.setAttribute('aria-current', +t.getAttribute('data-slide') === cur ? 'true' : 'false'); });
-      dots.forEach(function (d) { $$('i', d).forEach(function (x, k) { x.classList.toggle('on', k === cur); }); });
+      dots.forEach(function (d) { $$('i', d).forEach(function (x, k) { x.classList.remove('on'); void x.offsetWidth; x.classList.toggle('on', k === cur); }); });
       if (count) count.textContent = '0' + (cur + 1) + ' / 0' + slides.length;
     }
-    $('.fp-prev', fp).addEventListener('click', function () { show(cur - 1); });
-    $('.fp-next', fp).addEventListener('click', function () { show(cur + 1); });
-    ths.forEach(function (t) { t.addEventListener('click', function () { show(+t.getAttribute('data-slide')); }); });
+    function user(i) { show(i); }
+    $('.fp-prev', fp).addEventListener('click', function () { user(cur - 1); });
+    $('.fp-next', fp).addEventListener('click', function () { user(cur + 1); });
+    ths.forEach(function (t) { t.addEventListener('click', function () { user(+t.getAttribute('data-slide')); }); });
+    if (auto) {
+      fp.classList.add('auto');
+      $$('.fp-prog .fp-dots i b', fp).forEach(function (b) { b.addEventListener('animationend', function () { show(cur + 1); }); });
+      ['mouseenter', 'focusin'].forEach(function (ev) { fp.addEventListener(ev, function () { fp.classList.add('paused'); }); });
+      ['mouseleave', 'focusout'].forEach(function (ev) { fp.addEventListener(ev, function () { if (!fp.contains(document.activeElement) || ev === 'mouseleave') fp.classList.remove('paused'); }); });
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { fp.classList.toggle('offscreen', !es[0].isIntersecting); if (!es[0].isIntersecting) fp.classList.add('paused'); else if (!fp.matches(':hover')) fp.classList.remove('paused'); }).observe(fp);
+    }
     show(0);
   })();
 

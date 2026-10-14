@@ -436,7 +436,7 @@ def contact_page():
 exec(open(os.path.join(HERE, 'projects_pages.py')).read())
 
 def link_projects(html):
-    for href, name in [("/projects/image-classification", "Image classification application"), ("/projects/document-rag-assistant", "Document RAG assistant"), ("/projects/tool-using-ai-agent", "Tool-using AI agent")]:
+    for href, name in [("/projects/image-classification", "Image classification application"), ("/projects/document-rag-assistant", "Document RAG assistant"), ("/projects/agentflow-ai", "Tool-using AI agent")]:
         html = re.sub(r'(<a class="(?:pj|fcard)[^"]*"[^>]*?)href="[^"]*"([^>]*>(?:(?!</a>).)*?<h3>' + re.escape(name) + '</h3>)', lambda m: m.group(1) + 'href="' + href + '"' + m.group(2), html, flags=re.S)
     return html
 

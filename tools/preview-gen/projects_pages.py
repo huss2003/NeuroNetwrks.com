@@ -41,19 +41,20 @@ PI = {
 def pi(k, s=20, sw=1.8): return f'<svg width="{s}" height="{s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{PI[k]}</svg>'
 TICK = '<span class="tk" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>'
 LOGO = '<img class="mk-logo" src="/assets/mark-dark.svg" alt="" width="20" height="16">'
+AFLOGO = '<img class="mk-logo mk-logo--af" src="/assets/agentflow.svg" alt="" width="20" height="20">'
 
 def eb(t): return f'<p class="pd-eb">{t}</p>'
 def chips(xs): return '<ul class="pd-chips">' + "".join(f"<li>{x}</li>" for x in xs) + "</ul>"
-def win(title, body, right='<span class="mk-demo">Illustrative demo output <i></i></span>', cls=""):
-    return f'<div class="mk {cls}"><div class="mk-bar">{LOGO}<b>{title}</b>{right}</div>{body}</div>'
+def win(title, body, right='<span class="mk-demo">Illustrative demo output <i></i></span>', cls="", logo=None):
+    return f'<div class="mk {cls}"><div class="mk-bar">{logo or LOGO}<b>{title}</b>{right}</div>{body}</div>'
 
-PRED = [("Mountain", 92.4, "mountain.svg"), ("Forest", 4.1, "th-forest.svg"), ("Building", 1.8, "th-building.svg"), ("Water", 1.2, "th-water.svg"), ("Sky", 0.5, "th-sky.svg")]
-def bars(thumbs=False):
-    return '<ul class="mk-bars">' + "".join(f'<li style="--w:{max(v, 1.5)}%;--k:{i}">' + (f'<img src="/assets/{t}" alt="" width="22" height="22">' if thumbs else "") + f'<span>{n}</span><i><b></b></i><em>{v}%</em></li>' for i, (n, v, t) in enumerate(PRED)) + "</ul>"
+PRED = [("Golden Retriever", 92.4), ("Labrador Retriever", 4.2), ("German Shepherd", 1.8), ("Other", 1.6)]
+def bars(num=False):
+    return f'<ul class="mk-bars{" mk-bars--num" if num else ""}">' + "".join(f'<li style="--w:{max(v, 1.5)}%;--k:{i}">' + (f'<span class="nb">{i+1}</span>' if num else "") + f'<span>{n}</span><i><b></b></i><em>{v}%</em></li>' for i, (n, v) in enumerate(PRED)) + "</ul>"
 MODEL = '<dl class="mk-dl"><div><dt>Model</dt><dd>ResNet18 (pre-trained)</dd></div><div><dt>Input size</dt><dd>224 × 224</dd></div><div><dt>Classes</dt><dd>1000 (ImageNet)</dd></div></dl>'
 
 def ic_mock_hero():
-    body = f'''<div class="mk-ic"><div class="mk-col"><p class="mk-h">Upload an image</p><img class="mk-photo" src="/assets/mountain.svg" alt="" width="400" height="260"><span class="mk-btn-o">Choose an image</span><small class="mk-sm">or drag and drop JPG, PNG</small></div>
+    body = f'''<div class="mk-ic"><div class="mk-col"><p class="mk-h">Upload an image</p><img class="mk-photo" src="/assets/dog.webp" alt="" width="291" height="324"><span class="mk-btn-o">Choose an image</span><small class="mk-sm">or drag and drop JPG, PNG</small></div>
 <div class="mk-col"><p class="mk-h">Prediction results</p>{bars()}<p class="mk-h" style="margin-top:14px">Model information</p>{MODEL}</div></div>'''
     return win("Image Classification", body)
 
@@ -87,7 +88,7 @@ def agent_mock_hero():
 <div class="mk-main"><p class="mk-q mk-q--l">Find the latest research on RAG, create a short summary and save it to a markdown file.</p><ol class="mk-steps">{st}</ol>
 <div class="mk-done">{TICK}<div><b>Task completed</b><small>Summary of the latest RAG research saved to rag_summary.md.</small></div><span class="mk-btn-o mk-btn-o--sm">Open file</span></div></div>
 <div class="mk-tools"><p class="mk-cap">Tool calls</p><ul>{tools}</ul></div></div>'''
-    return win("AgentFlow", body, '<span class="mk-run">▸ Run</span>')
+    return win("AgentFlow AI", body, '<span class="mk-run">▸ Run</span>', logo=AFLOGO)
 
 def pd_hero(crumb, tag, lines, desc, chip_list, art, note="", extra=""):
     h = "".join(f'<span class="ln"><span>{l}</span></span>' for l in lines)
@@ -117,11 +118,11 @@ def program_link(year_label, desc):
 
 # ------------------------------------------------------------ page 1: image classification
 def page_image_classification():
-    art = f'<img class="pd-glass pd-glass--plates" src="/assets/g-plates.webp" alt="" width="900" height="533"><div class="pd-stage">{ic_mock_hero()}<div class="pd-badge b1"><span class="bi">{pi("check",16,2.2)}</span><div><b>Mountain · 92.4%</b><small>Top prediction</small></div></div><div class="pd-badge b2"><span class="bi">{pi("cpu",16,2.2)}</span><div><b>ResNet18</b><small>224 × 224 input</small></div></div></div>'
+    art = f'<img class="pd-glass pd-glass--plates" src="/assets/g-plates.webp" alt="" width="900" height="533"><div class="pd-stage">{ic_mock_hero()}<div class="pd-badge b1"><span class="bi">{pi("check",16,2.2)}</span><div><b>Golden Retriever · 92.4%</b><small>Top prediction</small></div></div><div class="pd-badge b2"><span class="bi">{pi("cpu",16,2.2)}</span><div><b>ResNet18</b><small>224 × 224 input</small></div></div></div>'
     hero = pd_hero("Image classification", "Year 2 · AI/ML Engineering", ["Image", "classification", "application"], "Build a computer vision application that classifies images using deep learning. Train a model on a dataset, evaluate its performance and create a simple web interface to try it yourself.", ["Python", "PyTorch", "Computer Vision", "Deep Learning"], art)
     side = f'<ul class="mk-nav mk-nav--side"><li class="on">{pi("target",14)} Predict</li><li>{pi("info",14)} Model info</li><li>{pi("history",14)} History</li></ul>'
     ov_mock = win("Neuronetwrks", f'''<div class="mk-ov"><div class="mk-side mk-side--narrow"><p class="mk-cap">Image Classification</p>{side}</div><div class="mk-col"><p class="mk-h">Upload an image</p><div class="mk-drop">{pi("cloud",22)}<small>Drag and drop an image here<br>or click to browse</small></div></div>
-<div class="mk-col"><img class="mk-photo mk-photo--sq" src="/assets/mountain.svg" alt="" width="400" height="260"></div><div class="mk-col"><p class="mk-h">Top predictions</p>{bars(True)}<span class="mk-btn">Run prediction</span></div></div>''', cls="mk--wide")
+<div class="mk-col"><img class="mk-photo mk-photo--sq" src="/assets/dog.webp" alt="" width="291" height="324"></div><div class="mk-col"><p class="mk-h">Top predictions</p>{bars(True)}<span class="mk-btn">Run prediction</span></div></div>''', cls="mk--wide")
     feats = tool_cards([("image", "Upload an image", "Drag and drop an image or choose a file from your device."), ("cpu", "Run a trained model", "Load a pre-trained model and run inference on your image."), ("chart", "View predictions", "See the top predicted classes with confidence scores."), ("info", "Explore model details", "Check model information, input size and the set of classes.")], "pd-feats")
     overview = f'''<section class="pd-sec" id="overview" data-pd><div class="wrap"><div class="pd-split pd-split--wide"><div>{eb("Project overview")}<h2>What you build</h2><p class="pd-p">A complete image classification application that takes an image as input, runs it through a trained deep learning model and shows the top predictions with confidence scores in a clean web interface.</p><span class="pd-rule"></span></div><div>{ov_mock}</div></div>{feats}</div></section>'''
     steps = [("data", "Prepare dataset", "Use a labelled dataset such as ImageNet, or a smaller dataset provided in the program."), ("box", "Train or load model", "Train a model or use a pre-trained model with transfer learning."), ("chart", "Evaluate predictions", "Test the model on unseen images and review the results."), ("monitor", "Deploy interface", "Build a simple web app with Streamlit to try it yourself.")]
@@ -129,7 +130,7 @@ def page_image_classification():
     st = "".join(f'<li class="pd-wstep" style="--k:{i}"><span class="n">{i+1:02d}</span><span class="ic">{pi(ic,22)}</span><b>{a}</b><small>{b}</small></li>' for i, (ic, a, b) in enumerate(steps))
     how = f'''<section class="pd-sec pd-sec--tint" data-pd><div class="wrap pd-split pd-split--wide"><div>{eb("From data to deployment")}<h2>How it works</h2><p class="pd-p">Follow a clear, end-to-end process to build the image classification application, from preparing data to deploying a simple web interface.</p><span class="pd-rule"></span></div><div class="pd-wavebox">{wave}<ol class="pd-wsteps">{st}</ol></div></div></section>'''
     tabs = "".join(f'<li{" class=\"on\"" if i == 0 else ""}>{pi(ic,15)} {t}</li>' for i, (ic, t) in enumerate([("upload", "Upload & predict"), ("chart", "Top predictions"), ("info", "Model information"), ("image", "Example images")]))
-    in_mock = win("Image Classification", f'''<div class="mk-in"><div class="mk-col"><p class="mk-h">Input image</p><img class="mk-photo" src="/assets/mountain.svg" alt="" width="400" height="260"><div class="mk-row"><span class="mk-btn-o mk-btn-o--sm">{pi("image",13)} Change image</span><small class="mk-sm">mountain.jpg<br>224 × 224</small></div></div>
+    in_mock = win("Image Classification", f'''<div class="mk-in"><div class="mk-col"><p class="mk-h">Input image</p><img class="mk-photo" src="/assets/dog.webp" alt="" width="291" height="324"><div class="mk-row"><span class="mk-btn-o mk-btn-o--sm">{pi("image",13)} Change image</span><small class="mk-sm">golden_retriever.jpg<br>224 × 224</small></div></div>
 <div class="mk-col"><p class="mk-h">Prediction results</p>{bars(True)}</div></div><div class="mk-foot">{pi("cpu",18)}<div><small>Model</small><b>ResNet18 (pre-trained)</b></div><div><small>Input size</small><b>224 × 224</b></div><div><small>Number of classes</small><b>1000 (ImageNet)</b></div></div>''')
     inside = f'''<section class="pd-sec pd-sec--dark" data-pd><div class="wrap pd-inside"><div>{eb("A closer look")}<h2>Inside the application</h2><p class="pd-p">A clean and intuitive interface to upload images, view predictions and explore how the model performs.</p><span class="pd-rule"></span></div><ul class="pd-vtabs">{tabs}</ul><div>{in_mock}</div></div></section>'''
     tech = pd_sec("Tech stack", "Tools &amp; technologies", "Use industry-standard tools and libraries for computer vision and deep learning.", tool_cards([("code", "Python", "Core programming language"), ("bolt", "PyTorch", "Deep learning framework"), ("eye", "torchvision", "Vision models and datasets"), ("monitor", "Streamlit", "Build the web interface")], "pd-tools pd-tools--row"), cls="pd-sec--tint pd-sec--tight")
@@ -161,7 +162,7 @@ def page_document_rag():
 # ------------------------------------------------------------ page 3: tool-using agent
 def page_tool_agent():
     art = f'<img class="pd-glass pd-glass--stair" src="/assets/r-full.webp" alt="" width="600" height="600"><div class="pd-stage">{agent_mock_hero()}<div class="pd-badge b1"><span class="bi">{pi("check",16,2.2)}</span><div><b>4 / 4 steps done</b><small>Plan executed</small></div></div><div class="pd-badge b2"><span class="bi">{pi("settings",16,2.2)}</span><div><b>3 tools called</b><small>Search, code, files</small></div></div></div>'
-    hero = pd_hero("Tool-using AI agent", "Year 3 · AI/ML Engineering", ["Tool-using", "AI agent"], "Build an AI agent that can plan complex tasks, break them down into steps and use tools such as web search, code execution and file operations to complete real-world tasks.", ["Python", "Agents", "Tool Calling", "APIs"], art, "Illustrative demo interface.")
+    hero = pd_hero("AgentFlow AI", "Year 3 · AI/ML Engineering", ["AgentFlow", "AI"], "Build an AI agent that can plan complex tasks, break them down into steps and use tools such as web search, code execution and file operations to complete real-world tasks.", ["Python", "Agents", "Tool Calling", "APIs"], art, "Illustrative demo interface. Based on the roadmap project: Tool-using AI agent.")
     flow = f'''<div class="pd-flow"><div class="fl-box" style="--k:0"><span class="ic">{pi("user",20)}</span><b>User request</b><small>Find information, run analysis, create a file…</small></div><span class="fl-ar" style="--k:1"></span>
 <div class="fl-box fl-agent" style="--k:2"><b>AI agent</b><ul><li>Understand</li><li>Plan steps</li><li>Choose tools</li><li>Execute</li><li>Verify results</li></ul></div><span class="fl-ar fl-ar--fork" style="--k:3"></span>
 <div class="fl-tools" style="--k:4"><div class="fl-box fl-sm">{pi("search",16)}<div><b>Web search</b><small>Get latest information</small></div></div><div class="fl-box fl-sm">{pi("code",16)}<div><b>Code execution</b><small>Run Python code</small></div></div><div class="fl-box fl-sm">{pi("file",16)}<div><b>File operations</b><small>Read and write files</small></div></div></div><span class="fl-ar" style="--k:5"></span>
@@ -173,7 +174,7 @@ def page_tool_agent():
     ex = [("user", "User request", "Find the latest research on RAG, create a short summary and save it to a markdown file.", False), ("list", "Plan", "6 steps", False), ("search", "web_search", "Search for recent RAG research", True), ("code", "python", "Analyse and summarise content", True), ("file", "file_write", "Save to rag_summary.md", True)]
     exl = "".join(f'<li style="--k:{i}"><span class="ic">{pi(ic,15)}</span><div><b>{a}</b><small>{b}</small></div>{TICK if t else ""}</li>' for i, (ic, a, b, t) in enumerate(ex))
     trace = '{\n  "step": "web_search",\n  "query": "latest RAG research",\n  "status": "completed",\n  "results": [\n    {\n      "title": "Retrieval-augmented…",\n      "url": "https://…"\n    }\n  ]\n}'
-    wf_mock = f'''<div class="mk mk--wf"><div class="mk-bar">{LOGO}<b>AgentFlow</b><span class="mk-demo">Illustrative demo interface <i></i></span></div><div class="mk-wf">
+    wf_mock = f'''<div class="mk mk--wf"><div class="mk-bar">{AFLOGO}<b>AgentFlow AI</b><span class="mk-demo">Illustrative demo interface <i></i></span></div><div class="mk-wf">
 <div class="mk-side mk-side--ag"><span class="mk-new">{pi("plus",14,2.4)} New task</span><ul class="mk-nav"><li>{pi("folder",15)} Projects</li><li>{pi("code",15)} Playground</li><li>{pi("settings",15)} Tools</li><li>{pi("list",15)} Logs</li></ul></div>
 <div class="mk-main"><p class="mk-h">Execution flow</p><ol class="mk-exec">{exl}<li class="fin" style="--k:5">{TICK}<div><b>Final response</b><small>Task completed successfully</small></div></li></ol></div>
 <div class="mk-trace"><div class="mk-tabs"><span class="on">Trace</span><span>Logs</span><span>Output</span></div><pre>{E(trace)}</pre><p class="mk-h">Result preview</p><div class="mk-file">{pi("doc",18)}<div><b>rag_summary.md</b><small>Markdown</small></div><span class="mk-btn-o mk-btn-o--sm">View file</span></div></div></div></div>'''
@@ -187,29 +188,43 @@ def page_tool_agent():
     sk = pd_sec("Skills you practise", "Key skills<br>you will gain.", "This project helps you build practical skills in agent design, tool use and real-world problem solving.", skills([("Task decomposition", "Break complex requests into steps"), ("Result verification", "Check and validate outputs"), ("Tool calling and integration", "Use APIs and external tools"), ("Safe execution", "Apply permissions and controls"), ("Error handling", "Handle tool failures and edge cases"), ("Debugging and iteration", "Test, improve and refine the agent")], 2), cls="pd-sec--tint pd-sec--tight")
     ctx = f'''<div class="pd-ctx"><div><p class="pd-tag pd-tag--sm">AI/ML Engineering</p><h3>Year 3 · Specialisation</h3><p>{E(AIML["summary"])}</p><a class="le-link" href="/programs/ai-ml-engineering">View program {ARW}</a></div>{skills([("Advanced AI and LLMs", ""), ("RAG and agent development", ""), ("MLOps and deployment", ""), ("Portfolio of projects", "")])}</div>'''
     prog = pd_sec("Program context", "Part of the AI/ML<br>Engineering program.", "This project is part of Year 3, where you build advanced topics and work on real-world applications with a portfolio of projects.", ctx, cls="pd-sec--tight")
-    return layout("/projects/tool-using-ai-agent", "Tool-using AI agent", hero + ov + how + walk + archs + safe + tech + sk + prog + pd_cta(), "projects", desc="A tool-using AI agent project from the AI/ML Engineering program: planning, tool calling, verification and safe execution.")
+    return layout("/projects/agentflow-ai", "AgentFlow AI", hero + ov + how + walk + archs + safe + tech + sk + prog + pd_cta(), "projects", desc="AgentFlow AI: a tool-using AI agent project from the AI/ML Engineering program: planning, tool calling, verification and safe execution.")
 
-PROJECT_PAGES = {"/projects/image-classification": page_image_classification, "/projects/document-rag-assistant": page_document_rag, "/projects/tool-using-ai-agent": page_tool_agent}
+PROJECT_PAGES = {"/projects/image-classification": page_image_classification, "/projects/document-rag-assistant": page_document_rag, "/projects/agentflow-ai": page_tool_agent}
 
 # ------------------------------------------------------------ home: featured projects carousel
 FEATURED = [
  ("/projects/image-classification", "Year 2 · AI/ML", "Image classification application", "A deep learning model to classify images into different categories with a simple and intuitive web interface.", ["Python", "PyTorch", "Computer Vision", "Streamlit"], [("image", "Upload images", "Drag and drop or browse files"), ("spark", "AI prediction", "Get instant results"), ("chart", "Confidence scores", "See top predictions")], "ic"),
  ("/projects/document-rag-assistant", "Year 3 · AI/ML", "Document RAG assistant", "Ask questions about your documents and get grounded answers with source citations, using retrieval-augmented generation.", ["Python", "RAG", "Vector Search", "LLMs"], [("upload", "Upload documents", "PDFs, docs or text"), ("search", "Retrieve passages", "Vector search"), ("link", "Cited answers", "Linked to sources")], "rag"),
- ("/projects/tool-using-ai-agent", "Year 3 · AI/ML", "Tool-using AI agent", "An agent that plans tasks, calls tools such as web search, code execution and file operations, and verifies its results.", ["Python", "Agents", "Tool Calling", "APIs"], [("list", "Plans steps", "Breaks tasks down"), ("settings", "Calls tools", "Search, code, files"), ("check", "Verifies results", "Checks its output")], "ag"),
+ ("/projects/agentflow-ai", "Year 3 · AI/ML", "AgentFlow AI", "An agent that plans tasks, calls tools such as web search, code execution and file operations, and verifies its results.", ["Python", "Agents", "Tool Calling", "APIs"], [("list", "Plans steps", "Breaks tasks down"), ("settings", "Calls tools", "Search, code, files"), ("check", "Verifies results", "Checks its output")], "ag"),
+]
+def ic_mock_fp():
+    others = "".join(f'<li><span>{n}</span><em>{v}%</em></li>' for n, v in PRED[1:])
+    body = f"""<div class="mk-fpic"><div class="mk-side"><p class="mk-cap">Image Classification</p><ul class="mk-nav"><li class="on">{pi("upload",13)} Upload</li><li>{pi("chart",13)} Results</li><li>{pi("history",13)} History</li><li>{pi("info",13)} Model Info</li></ul></div>
+<div class="mk-col"><p class="mk-h">Upload Image</p><small class="mk-sub">Upload an image to classify it using a trained deep learning model.</small><div class="mk-drop">{pi("cloud",26)}<b>Drag and drop an image here</b><small>or click to browse</small><small>PNG, JPG, JPEG up to 10MB</small></div></div>
+<div class="mk-col"><div class="mk-card"><p class="mk-h">Prediction Results</p><div class="mk-top"><img src="/assets/dog.webp" alt="" width="291" height="324"><div><span class="tt"><b>Golden Retriever</b><em>92.4%</em></span><span class="mk-topbar"><i></i></span><ul>{others}</ul></div></div></div>
+<div class="mk-card"><p class="mk-h">Top Predictions</p>{bars(True)}</div></div></div>"""
+    nav = '<nav class="mk-appnav"><span>Projects</span><span>Models</span><span>Datasets</span><span>About</span></nav><span class="mk-run">Run</span>'
+    return f'<div class="mk mk--app"><div class="mk-bar">{LOGO}<b>NeuroNetworks</b>{nav}</div>{body}</div>'
+
+FEATURED = [
+ ("/projects/image-classification", "Year 2 · AI/ML", "Image classification application", "A deep learning model to classify images into different categories with a simple and intuitive web interface.", ["Python", "PyTorch", "Computer Vision", "Streamlit"], [("image", "Upload images", "Drag and drop or browse files"), ("spark", "AI prediction", "Get instant results"), ("chart", "Confidence scores", "See top predictions")], "ic"),
+ ("/projects/document-rag-assistant", "Year 3 · AI/ML", "Document RAG assistant", "Ask questions about your documents and get grounded answers with source citations, using retrieval-augmented generation.", ["Python", "RAG", "Vector Search", "LLMs"], [("upload", "Upload documents", "PDFs, docs or text"), ("search", "Retrieve passages", "Vector search"), ("link", "Cited answers", "Linked to sources")], "rag"),
+ ("/projects/agentflow-ai", "Year 3 · AI/ML", "AgentFlow AI", "An AI agent that plans tasks, calls tools such as web search, code execution and file operations, and verifies its results.", ["Python", "Agents", "Tool Calling", "APIs"], [("list", "Plans steps", "Breaks tasks down"), ("settings", "Calls tools", "Search, code, files"), ("check", "Verifies results", "Checks its output")], "ag"),
 ]
 def featured_projects():
-    mocks = {"ic": ic_mock_hero, "rag": rag_mock_hero, "ag": agent_mock_hero}
+    mocks = {"ic": ic_mock_fp, "rag": rag_mock_hero, "ag": agent_mock_hero}
     slides = ""; thumbs = ""
     for i, (href, tag, title, desc, ch, feats, mk) in enumerate(FEATURED):
-        ft = "".join(f'<li>{pi(ic,22)}<b>{a}</b><small>{b}</small></li>' for ic, a, b in feats)
-        slides += f'''<article class="fp-slide{" on" if i == 0 else ""}" id="fp-s{i}" aria-roledescription="slide" aria-label="{i+1} of 3"{"" if i == 0 else " hidden"}><div class="fp-copy"><p class="pd-tag">{tag}</p><h3>{title}</h3><p class="fp-desc">{desc}</p>{chips(ch)}<a class="le-btn le-btn--p" href="{href}">View project {ARW}</a><ul class="fp-feats">{ft}</ul></div>
-<div class="fp-art" aria-hidden="true"><span class="fp-orb"></span><img class="fp-glass" src="/assets/g-plates.webp" alt="" width="900" height="533" loading="lazy"><div class="pd-stage pd-stage--fp">{mocks[mk]()}<div class="pd-badge b1"><span class="bi">{pi(feats[1][0],16,2.2)}</span><div><b>{feats[1][1]}</b><small>{feats[1][2]}</small></div></div></div></div></article>'''
-    order = [1, 2, 0]
-    for j, i in enumerate(order):
-        href, tag, title = FEATURED[i][0], FEATURED[i][1], FEATURED[i][2]
-        th = {0: '<img src="/assets/mountain.svg" alt="" width="400" height="260">', 1: '<span class="fp-th-rag"><i></i><i></i><i></i><i></i></span>', 2: '<span class="fp-th-ag"><i></i><i></i><i></i></span>'}[i]
-        thumbs += f'<li><button type="button" class="fp-th" data-slide="{i}" aria-controls="fp-s{i}"><span class="fp-th-img" aria-hidden="true">{th}</span><span class="fp-th-t"><span class="pd-tag pd-tag--sm">{tag}</span><b>{title}</b></span><span class="fp-th-go" aria-hidden="true">{ARW}</span></button></li>'
-    return f'''<section class="fp" id="featured" data-pd aria-roledescription="carousel" aria-label="Featured projects"><div class="wrap"><div class="fp-head"><div>{eb("Featured projects")}<h2><span>Build real projects.</span><span class="b">Showcase your skills.</span></h2></div><p class="fp-lead">Work on practical projects from the program roadmap and build a portfolio you can show.</p>
-<div class="fp-nav"><div class="fp-btns"><button type="button" class="fp-prev" aria-label="Previous project"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" class="fp-next" aria-label="Next project">{ARW}</button></div><div class="fp-prog"><span class="fp-dots"><i class="on"></i><i></i><i></i></span><span class="fp-count" aria-live="polite">01 / 03</span></div></div></div>
+        ft = "".join(f'<li><span class="fi">{pi(ic,20)}</span><b>{a}</b><small>{b}</small></li>' for ic, a, b in feats)
+        slides += f"""<article class="fp-slide{" on" if i == 0 else ""}" id="fp-s{i}" aria-roledescription="slide" aria-label="{i+1} of 3"{"" if i == 0 else " hidden"}><div class="fp-copy"><p class="pd-tag">{tag}</p><h3>{title}</h3><p class="fp-desc">{desc}</p>{chips(ch)}<a class="le-btn le-btn--p" href="{href}">View project {ARW}</a><ul class="fp-feats">{ft}</ul></div>
+<div class="fp-art" aria-hidden="true"><span class="fp-orb"></span><img class="fp-glass" src="/assets/g-plates.webp" alt="" width="900" height="533" loading="lazy"><div class="fp-mock">{mocks[mk]()}</div></div></article>"""
+    for i in [1, 2, 0]:
+        href, tag, title, mk = FEATURED[i][0], FEATURED[i][1], FEATURED[i][2], FEATURED[i][6]
+        mark = '<img class="fp-th-mark" src="/assets/agentflow.svg" alt="" width="28" height="28">' if mk == "ag" else ""
+        thumbs += f'<li><button type="button" class="fp-th" data-slide="{i}" aria-controls="fp-s{i}"><span class="fp-th-img" aria-hidden="true"><span class="fp-mini">{mocks[mk]()}</span>{mark}</span><span class="fp-th-t"><span class="pd-tag pd-tag--sm">{tag}</span><b>{title}</b></span><span class="fp-th-go" aria-hidden="true">{ARW}</span></button></li>'
+    dots = '<span class="fp-dots">' + "".join(f'<i{" class=\"on\"" if k == 0 else ""}><b></b></i>' for k in range(3)) + '</span>'
+    return f"""<section class="fp" id="featured" data-pd aria-roledescription="carousel" aria-label="Featured projects"><div class="wrap"><div class="fp-head"><div>{eb("Featured projects")}<h2><span>Build real projects.</span><span class="b">Showcase your skills.</span></h2></div><p class="fp-lead">Work on practical projects from the program roadmap and build a portfolio you can show.</p>
+<div class="fp-nav"><div class="fp-btns"><button type="button" class="fp-prev" aria-label="Previous project"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" class="fp-next" aria-label="Next project">{ARW}</button></div><div class="fp-prog">{dots}<span class="fp-count" aria-live="polite">01 / 03</span></div></div></div>
 <div class="fp-stage"><div class="fp-main">{slides}</div><ul class="fp-list">{thumbs}</ul></div>
-<div class="fp-foot"><a class="le-btn le-btn--p" href="/projects">View all projects {ARW}</a><p>Project names are from the AI/ML Engineering roadmap.<br>Student work is not shown until the institute supplies and approves it.</p><span class="fp-dots fp-dots--b"><i class="on"></i><i></i><i></i></span></div></div></section>'''
+<div class="fp-foot"><a class="le-btn le-btn--p" href="/projects">View all projects {ARW}</a><p>Projects are based on the AI/ML Engineering roadmap.<br>Student work is not shown until the institute supplies and approves it.</p><span class="fp-dots fp-dots--b"><i class="on"></i><i></i><i></i></span></div></div></section>"""
