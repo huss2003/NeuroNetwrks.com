@@ -215,8 +215,7 @@ def home():
 <ul class="lab-points"><li>Real tools and environments</li><li>Checked tasks</li><li>Feedback and hints</li><li>Labs you can reset and retry</li></ul><p class="small muted" style="margin-top:20px">[Platform features to be confirmed with the institute.]</p></div></section>'''
     feats = [("Image classification application", "Year 2 · AI/ML", True), ("Document RAG assistant", "Year 3 · AI/ML", False), ("Tool-using AI agent", "Year 3 · AI/ML", False)]
     fc = "".join(f'<a class="fcard rv{" big" if b else ""}" href="/projects#aiml"><div class="shot">{shot(1 if "mage" in n else 2 if "gent" in n else 0)}</div><div class="cap"><span class="tag">{y}</span><h3>{n}</h3></div></a>' for k, (n, y, b) in enumerate(feats))
-    projects = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Featured projects", "Build real projects.<br>Showcase your skills.", "Work on practical projects from the program roadmap and build a portfolio you can show.")}<div class="folio">{fc}</div>
-<p class="small muted" style="margin-top:20px">Project names are from the AI/ML Engineering roadmap. Student work is not shown until the institute supplies and approves it.</p><div class="actions" style="margin-top:24px">{btn("primary", "/projects", "View all projects")}</div></div></section>'''
+    projects = featured_projects()
     fq = [("Who can apply?", "<p>Students who have passed Class 10.</p>"),
           ("How many hours is the AI/ML program?", "<p>624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Exam time is counted inside the 624 hours.</p>"),
           ("How are learners assessed?", "<p>Every month ends with a project and a one-hour exam. In AI Foundation the pass mark is 80%, with review and a retry below it.</p>"),
@@ -434,6 +433,13 @@ def contact_page():
     return layout("/contact", "Contact", body, "none")
 
 # ---------------------------------------------------------------- write
+exec(open(os.path.join(HERE, 'projects_pages.py')).read())
+
+def link_projects(html):
+    for href, name in [("/projects/image-classification", "Image classification application"), ("/projects/document-rag-assistant", "Document RAG assistant"), ("/projects/tool-using-ai-agent", "Tool-using AI agent")]:
+        html = re.sub(r'(<a class="(?:pj|fcard)[^"]*"[^>]*?)href="[^"]*"([^>]*>(?:(?!</a>).)*?<h3>' + re.escape(name) + '</h3>)', lambda m: m.group(1) + 'href="' + href + '"' + m.group(2), html, flags=re.S)
+    return html
+
 def write(route, content):
     p = os.path.join(OUT, ("index" if route == "/" else route.lstrip("/")) + ".html")
     os.makedirs(os.path.dirname(p), exist_ok=True); open(p, "w").write(content)
@@ -448,7 +454,9 @@ def main():
     os.remove(OUT + "/assets/module-stack.source.js")
     write("/", home()); write("/programs", programs_page())
     for p in PROGRAMS: write("/programs/" + p[0], program_detail(p[0]))
-    write("/curriculum", curriculum_page()); write("/learning-experience", learning_page()); write("/projects", projects_page()); write("/about", about_page())
+    write("/curriculum", curriculum_page()); write("/learning-experience", learning_page()); write("/projects", link_projects(projects_page()));
+    for r, fn in PROJECT_PAGES.items(): write(r, fn())
+    write("/about", about_page())
     write("/faculty-and-team", team_page()); write("/admissions", admissions_page()); write("/faqs", faq_page()); write("/contact", contact_page())
     open(OUT + "/robots.txt", "w").write("User-agent: *\nDisallow: /\n")
     open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "headers": [

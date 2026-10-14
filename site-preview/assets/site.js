@@ -112,6 +112,32 @@
     addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true });
   })();
 
+  /* ---- Project pages + featured carousel ---- */
+  (function () {
+    var secs = $$('[data-pd]'); if (!secs.length) return;
+    if (rm || !('IntersectionObserver' in window)) secs.forEach(function (s) { s.classList.add('in'); });
+    else {
+      var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); } }); }, { threshold: 0.15 });
+      secs.forEach(function (s) { o.observe(s); });
+      addEventListener('scroll', function () { secs.forEach(function (s) { if (!s.classList.contains('in') && s.getBoundingClientRect().top < innerHeight * 0.8) s.classList.add('in'); }); }, { passive: true });
+    }
+    var glass = $$('.pd-glass'), tick = false;
+    if (glass.length && !rm) addEventListener('scroll', function () { if (tick) return; tick = true; requestAnimationFrame(function () { tick = false; glass.forEach(function (g) { var r = g.parentNode.getBoundingClientRect(); g.style.setProperty('--py', Math.max(-1, Math.min(1, (innerHeight / 2 - (r.top + r.height / 2)) / innerHeight)).toFixed(3)); }); }); }, { passive: true });
+    var fp = $('.fp'); if (!fp) return;
+    var slides = $$('.fp-slide', fp), ths = $$('.fp-th', fp), dots = $$('.fp-dots', fp), count = $('.fp-count', fp), cur = 0;
+    function show(i) {
+      cur = (i + slides.length) % slides.length;
+      slides.forEach(function (s, k) { var on = k === cur; s.hidden = !on; s.classList.toggle('on', on); });
+      ths.forEach(function (t) { t.setAttribute('aria-current', +t.getAttribute('data-slide') === cur ? 'true' : 'false'); });
+      dots.forEach(function (d) { $$('i', d).forEach(function (x, k) { x.classList.toggle('on', k === cur); }); });
+      if (count) count.textContent = '0' + (cur + 1) + ' / 0' + slides.length;
+    }
+    $('.fp-prev', fp).addEventListener('click', function () { show(cur - 1); });
+    $('.fp-next', fp).addEventListener('click', function () { show(cur + 1); });
+    ths.forEach(function (t) { t.addEventListener('click', function () { show(+t.getAttribute('data-slide')); }); });
+    show(0);
+  })();
+
   /* ---- Generic chip filter (programs list) ---- */
   $$('[data-filter-group]').forEach(function (g) {
     var chips = $$('[data-filter]', g), items = $$('[data-cat]', document), out = $('[data-count]');
