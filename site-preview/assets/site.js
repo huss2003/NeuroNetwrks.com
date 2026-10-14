@@ -342,6 +342,7 @@
     if (a.host && a.host !== location.host) ev('outbound_click', { link_url: a.href });
     else if (/^\/(contact|admissions)/.test(a.pathname)) ev('talk_click', { link_url: a.pathname + a.search, page: location.pathname });
   });
+  document.addEventListener('submit', function (e) { var f = e.target; if (f && f.id === 'enq' && f.querySelector('#f-name').value.trim() && /@/.test(f.querySelector('#f-email').value) && f.querySelector('#f-consent').checked) ev('generate_lead', { form: 'enquiry' }); }, true);
   var sent = false;
   addEventListener('scroll', function () {
     if (sent || !loaded) return;

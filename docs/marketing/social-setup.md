@@ -13,6 +13,7 @@ Claim these 5 profiles in one sitting (about 60 to 90 minutes). Use the same nam
   - Logo: `tools/preview-gen/assets/logo-512.png` (512×512)
   - LinkedIn banner: `docs/marketing/assets/linkedin-banner.png` (1584×396)
   - Post template: `docs/marketing/assets/post-template.png` (1080×1080)
+  - YouTube banner: `docs/marketing/assets/youtube-banner.png` (2560×1440)
 
 If the files in `docs/marketing/assets/` do not exist yet, ask Claude to create them first.
 
@@ -64,7 +65,7 @@ Write down which handle you got on each platform. If you end up with a mix, that
 10. Tick the box confirming you are an authorised representative, then **Create page**.
 11. On the new page, click **Edit page** and fill in:
     - **Cover image:** upload `docs/marketing/assets/linkedin-banner.png` (1584×396). Check on a phone that no text is hidden behind the logo circle on the left.
-    - **Overview / About** (2,000 characters max; this one is about 820):
+    - **Overview / About** (2,000 characters max; this one is about 860):
 
     > NeuroNetworks AI Ed teaches practical AI and technology to students in India who have passed Class 10.
     >
@@ -115,7 +116,7 @@ Write down which handle you got on each platform. If you end up with a mix, that
 2. **Handle:** @neuronetworksaied (fallback: @neuronetwrks)
 3. Go to **YouTube Studio > Customisation**:
    - **Profile picture:** `logo-512.png` (YouTube asks for at least 98×98; 512 is fine).
-   - **Banner image:** YouTube needs **2048×1152**, with the important part inside the middle 1235×338 area. The LinkedIn banner is the wrong shape; ask Claude for a `youtube-banner.png` at 2048×1152, or upload the LinkedIn banner centred on a plain brand-blue background.
+   - **Banner image:** upload `docs/marketing/assets/youtube-banner.png` (2560×1440, YouTube's recommended size). The text sits inside the centre safe area, so it shows on phones, computers and TVs.
    - **Watermark:** optional; use the logo.
 4. **Description** (1,000 characters max; this one is about 640):
 
@@ -181,6 +182,7 @@ Write down which handle you got on each platform. If you end up with a mix, that
 | Logo | `tools/preview-gen/assets/logo-512.png` | 512×512 | Profile picture everywhere |
 | Wide banner | `docs/marketing/assets/linkedin-banner.png` | 1584×396 | LinkedIn cover (also X and Facebook with cropping checked) |
 | Square post | `docs/marketing/assets/post-template.png` | 1080×1080 | Instagram and LinkedIn posts; Facebook posts |
+| YouTube banner | `docs/marketing/assets/youtube-banner.png` | 2560×1440 | YouTube channel art |
 
 - Check every image on a phone after uploading. Most visitors will see it there.
 - Keep the brand blue as the main colour; green only as a small accent.
