@@ -1,0 +1,413 @@
+#!/usr/bin/env python3
+"""Builds the static Neuronetwrks preview site into ../../site-preview.
+Data comes from src/content (programs and FAQs). Run: python3 tools/preview-gen/build.py
+Placeholder strings are kept exactly as before: they are out of scope for this pass."""
+import os, re, sys, json, html, shutil, glob
+import yaml
+sys.path.insert(0, os.path.dirname(__file__))
+from art import ART
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
+OUT = os.path.join(ROOT, "site-preview")
+E = html.escape
+
+# ---------------------------------------------------------------- data
+PROGRAMS = [  # slug, short key, display name, hours, length, summary override (from roadmap summary)
+    ("ai-foundation", "found", "AI Foundation", "104", "1 year"),
+    ("ai-ml-engineering", "aiml", "AI/ML Engineering", "624", "3 years"),
+    ("software-development", "sw", "Software Development", "624", "3 years"),
+    ("data-science-ai", "ds", "Data Science & AI", "624", "3 years"),
+    ("product-ux-ai-design", "ux", "Product & UX / AI Design", "624", "3 years"),
+    ("cybersecurity", "cy", "Cybersecurity", "624", "3 years"),
+]
+KEY = {p[0]: p[1] for p in PROGRAMS}
+STILL = {"found": "p-found", "aiml": "p-aiml", "sw": "p-sw", "ds": "p-ds", "ux": "p-ux", "cy": "p-cy"}
+D = {}
+for slug, *_ in PROGRAMS:
+    t = open(os.path.join(ROOT, "src/content/programs", slug + ".mdx")).read().split("---")[1]
+    D[slug] = yaml.safe_load(t)
+FAQ_FILES = sorted(glob.glob(os.path.join(ROOT, "src/content/faqs/*.yaml")))
+
+def conf(s):
+    return re.sub(r"\{\{CONFIRM:?\s*(.*?)\}\}", lambda m: "[To be confirmed: " + m.group(1).strip() + "]", s)
+def name_of(p): return E(p[2])
+def prog(slug): return [p for p in PROGRAMS if p[0] == slug][0]
+def modules(slug): return [m for y in D[slug]["years"] for m in y["modules"]]
+def aligned(slug): return len(D[slug]["projects"]) == len(modules(slug))
+LV = {"foundation": "Beginner", "specialisation": "Specialisation"}
+
+# placeholder strings (unchanged)
+FEE = "[to be confirmed]"
+FEE_LINE = "Fee: [to be confirmed]"
+
+# ---------------------------------------------------------------- shared pieces
+ROUTES = [("programs", "/programs", "Programs"), ("learning", "/learning-experience", "Learning Experience"), ("projects", "/projects", "Projects"),
+          ("about", "/about", "About"), ("admissions", "/admissions", "Admissions"), ("resources", "/faqs", "Resources")]
+
+def icon(kind):
+    paths = {
+        "cube": '<path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"/><path d="M3 7l9 5 9-5M12 12v10"/>',
+        "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        "layers": '<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5" opacity=".6"/>',
+        "bars": '<path d="M4 20V13M10 20V8M16 20V11M22 20V4"/>',
+        "search": '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',
+    }
+    return f'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{paths[kind]}</svg>'
+
+def header(active):
+    links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if a == active else ""}>{t}</a>' for a, h, t in ROUTES)
+    return f'''<header class="hd"><div class="wrap">
+<a class="brand" href="/" aria-label="Neuronetwrks home"><img src="/assets/mark-dark.svg" alt="" width="40" height="32"><span>Neuronetwrks</span></a>
+<nav class="nav" id="nav" aria-label="Primary">{links}<a class="nav-cta" href="/contact">Start Learning</a></nav>
+<div class="hd-actions"><a class="hd-search" href="/faqs" aria-label="Search the FAQs">{icon("search")}</a><a class="btn btn-primary btn-sm" href="/contact">Start Learning <i aria-hidden="true">→</i></a>
+<button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button></div>
+</div></header>'''
+
+def footer():
+    pl = "".join(f'<li><a href="/programs/{p[0]}">{name_of(p)}</a></li>' for p in PROGRAMS)
+    return f'''<footer class="ft"><div class="wrap">
+<div class="ft-grid">
+<div class="ft-brand"><a class="brand" href="/" aria-label="Neuronetwrks home"><img src="/assets/mark-dark.svg" alt="" width="46" height="37"><span style="font:600 1.6rem var(--font-display);letter-spacing:-.03em">Neuronetwrks</span></a>
+<p>AI and technology education for a better tomorrow.</p><p class="small" style="margin-top:12px">[Social profiles appear here once verified]</p>
+<div class="ft-sub"><h2 style="font-size:1rem">Subscribe to updates</h2><form onsubmit="return false" aria-describedby="nl-note"><label for="nl" class="sr">Email address</label><input id="nl" type="email" placeholder="Enter your email" autocomplete="email"><button type="submit" aria-label="Subscribe">→</button></form><p id="nl-note" class="small" style="margin-top:8px">[Consent wording and notice link to be confirmed.]</p></div></div>
+<nav aria-label="Programs"><h2>Programs</h2><ul>{pl}</ul></nav>
+<nav aria-label="Company"><h2>Company</h2><ul><li><a href="/about">About</a></li><li><a href="/learning-experience">Learning Experience</a></li><li><a href="/projects">Projects</a></li><li><a href="/faculty-and-team">Faculty and team</a></li></ul></nav>
+<nav aria-label="Resources"><h2>Resources</h2><ul><li><a href="/curriculum">Curriculum</a></li><li><a href="/faqs">FAQs</a></li><li><a href="/programs">Compare programs</a></li></ul></nav>
+<div><h2>Admissions and contact</h2><ul><li><a href="/admissions">Admissions</a></li><li><a href="/contact">Contact</a></li></ul><p class="small muted" style="margin-top:12px">[Email, postal address and phone: to be confirmed]</p></div>
+</div>
+<div class="ft-base"><span>© Neuronetwrks. All rights reserved.</span><nav aria-label="Legal"><a href="/contact">Privacy Policy</a><a href="/contact">Terms of Service</a></nav><span>Designed for curious minds. Built for what's next.</span></div>
+</div></footer>'''
+
+DESC = {
+ "/": "Practical AI and technology programs for students who have passed Class 10. Project-based learning with labs and one-hour exams.",
+ "/programs": "Six programs for students after Class 10: one beginner AI course and five three-year specialisations, 104 to 624 hours.",
+ "/curriculum": "Every module and project, month by month, for all six Neuronetwrks programs.",
+ "/learning-experience": "How lessons, labs, projects and exams work at Neuronetwrks, from AI Foundation to the three-year programs.",
+ "/projects": "Project names from every program roadmap, from first notebooks to capstones.",
+ "/about": "About Neuronetwrks: practical AI and technology education for students after Class 10.",
+ "/faculty-and-team": "Faculty and team at Neuronetwrks. Names and credentials are published once confirmed.",
+ "/admissions": "Admissions at Neuronetwrks: eligibility for every program, how to apply and what parents should know.",
+ "/faqs": "Answers about eligibility, hours, certifications, learning and applying at Neuronetwrks.",
+ "/contact": "Talk to Neuronetwrks. Ask about a program, fees or how to apply.",
+}
+
+def layout(route, title, body, active="none", desc=None, jsonld=None):
+    t = title if route == "/" else f"{title} | Neuronetwrks"
+    d = desc or DESC.get(route) or DESC["/programs"]
+    canon = "https://neuronetwrks.com" + ("" if route == "/" else route)
+    ld = f'<script type="application/ld+json">{json.dumps(jsonld)}</script>' if jsonld else ""
+    return f'''<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{E(t)}</title><meta name="description" content="{E(d)}"><meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#006DEE">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="{canon}">
+<meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:site_name" content="Neuronetwrks"><meta property="og:locale" content="en_IN">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">{ld}</head>
+<body><a class="skip" href="#main">Skip to content</a><aside class="pvb" aria-label="Preview notice">Preview build. Not the final site. The enquiry form is not connected yet.</aside>
+{header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js" defer></script></body></html>'''
+
+def stair(blob, alt, opts, cid=None, tags=False):
+    cid_attr = f' id="{cid}"' if cid else ""
+    tg = ""
+    if tags:
+        for i, (l, x, y) in enumerate([("LEARN", 24, 76), ("PRACTISE", 20, 60), ("BUILD", 66, 52), ("TEST", 60, 30), ("IMPROVE", 30, 15)]):
+            tg += f'<span class="lab-tag{" on" if i == 0 else ""}" aria-hidden="true" style="left:{x}%;top:{y}%;animation-delay:{-i*1.2}s">{l}</span>'
+    return f'<div class="stair"><img src="/assets/{blob}.webp" alt="{E(alt)}" width="1000" height="1000" fetchpriority="high"><canvas{cid_attr} data-stack=\'{json.dumps(opts)}\' aria-hidden="true"></canvas>{tg}</div>'
+
+def headline(l1, l2):
+    return f'<span class="ln"><span style="animation-delay:.2s">{l1}</span></span><span class="ln"><span style="animation-delay:.32s;color:var(--blue)">{l2}</span></span>'
+
+def page_hero(crumb, l1, l2, lead, actions="", art=""):
+    return f'''<section class="page-hero"><div class="wrap grid"><div><p class="crumbs"><a href="/">Home</a> / {crumb}</p><h1>{headline(l1, l2)}</h1><p class="lead fade">{lead}</p>{f'<div class="actions fade">{actions}</div>' if actions else ''}</div>{art}</div></section>'''
+
+def btn(kind, href, label, arrow=True):
+    return f'<a class="btn btn-{kind}" href="{href}">{label}{" <i aria-hidden=\"true\">→</i>" if arrow else ""}</a>'
+
+def cta_panel(h="Ready to ask?", p="Tell us which program interests you. Fees and intake dates: [to be confirmed]."):
+    return f'''<section class="sec"><div class="wrap"><div class="cta-panel"><img class="wm" src="/assets/mark-light.svg" alt="" aria-hidden="true">
+<div style="position:relative"><p class="mono eyebrow" style="color:#fff">Your next step</p><h2>{h}</h2><p class="lead" style="color:#fff;margin-top:16px">{p}</p>
+<div class="actions" style="margin-top:28px">{btn("onblue", "/admissions", "Apply")}<a class="btn btn-ghost" href="/contact">Talk to us</a></div></div>
+<div class="art"><img src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy"></div></div></div></section>'''
+
+def faq_items(items, first_open=True, cat=False):
+    out = ""
+    for i, it in enumerate(items):
+        q, a = it[0], it[1]
+        attr = f' data-cat="{it[2]}"' if cat else ""
+        out += f'<details{attr}{" open" if first_open and i == 0 else ""}><summary>{q}</summary><div class="ans">{a}</div></details>'
+    return out
+
+def sec_head(eyebrow, h, lead=""):
+    return f'<div class="sec-head"><div><p class="eyebrow">{eyebrow}</p><h2>{h}</h2></div>{f"<p class=\"lead\">{lead}</p>" if lead else ""}</div>'
+
+def beats():
+    b = [("Theory", "Short, clear explanations"), ("Demonstration", "Watch it worked through"), ("Hands-on lab", "Do it yourself"), ("Project", "Make something real"), ("Exam", "One hour, then move on")]
+    return '<ol class="step-rail rv">' + "".join(f'<li><p class="mono">{i+1:02d} · {a}</p><h3>{c}</h3></li>' for i, (a, c) in enumerate(b)) + '</ol>'
+
+def path_diagram():
+    s = [("Learn", "A clear concept, then a worked example"), ("Guided practice", "Follow along with support"), ("Independent lab", "Solve real tasks yourself"),
+         ("Practical exam", "A one-hour exam after each module"), ("Get feedback", "Review your results and hints"), ("Improve and retry", "Learn from mistakes and try again")]
+    return '<ol class="path rv">' + "".join(f'<li><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(s)) + '</ol>'
+
+def lab_showcase():
+    return '''<div class="lab rv"><div class="win"><div class="bar"><i></i><i></i><i></i><span>lab.py · design sample</span></div><pre><em># [Sample code, placeholder]</em>
+<b>import</b> data_tools
+<b>result</b> = run_task(<em>"[task name]"</em>)
+print(result)</pre></div>
+<div class="side"><div class="box"><span class="mono">Lab instructions</span><ul><li class="t">[Step one]</li><li class="t">[Step two]</li><li class="t">[Step three]</li></ul><span class="btn btn-primary btn-sm" style="width:100%;margin-top:8px" aria-hidden="true">Submit for evaluation</span></div>
+<div class="box"><span class="mono">Evaluation result · design sample</span><p style="font:600 1.1rem var(--font-display);margin-bottom:12px">Task checked <span class="muted small" style="font-family:var(--font-body);font-weight:500">[Score shown here]</span></p>
+<div class="score"><div><span>Correctness</span><span class="bar-track"><i style="width:100%"></i></span></div><div><span>Code quality</span><span class="bar-track"><i style="width:80%"></i></span></div><div><span>Best practices</span><span class="bar-track"><i style="width:65%"></i></span></div></div></div></div></div>'''
+
+# ---------------------------------------------------------------- pages
+def home():
+    hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
+<p class="eyebrow">AI and technology education</p>
+<h1 class="display"><span class="ln"><span style="animation-delay:.2s">Build the skills</span></span><span class="ln"><span style="animation-delay:.3s">to shape what</span></span><span class="ln"><span style="animation-delay:.4s;color:var(--blue)">comes next.</span></span></h1>
+<p class="lead fade">Practical, project-based programs for students who have passed Class 10. In the three-year programs every month ends in a project and a one-hour exam, so learning is something you can show.</p>
+<div class="actions fade">{btn("primary", "/programs", "Explore Programs")}{btn("secondary", "/learning-experience", "See the learning experience", False)}</div>
+<p class="hero-note fade"><span class="ic" aria-hidden="true">{icon("layers")}</span><span>For students who have passed Class 10.<br>Six programs, from 104 to 624 hours.</span></p></div>
+{stair("r-hero", "Module Stack: a spiral staircase of 36 glass plates, one for each monthly module, with a green bead for each monthly project", {"n": 36, "lit": 0.2, "yaw": -0.7, "dist": 15.2, "dy": -0.1}, "heroStair", True)}
+</div></section>
+<div class="wrap"><ul class="pillars" aria-label="What to expect">
+<li><span class="ic">{icon("cube")}</span><span><b>Project-based</b><span>A project every month</span></span></li>
+<li><span class="ic">{icon("clock")}</span><span><b>1-hour exams</b><span>After each module</span></span></li>
+<li><span class="ic">{icon("layers")}</span><span><b>Hands-on labs</b><span>In every month</span></span></li>
+<li><span class="ic">{icon("bars")}</span><span><b>Step-by-step</b><span>Start with Class 10</span></span></li></ul></div>'''
+    f = D["ai-foundation"]
+    feature = f'''<a class="prog-feature rv" href="/programs/ai-foundation"><div class="body"><span class="tag">Start here · 1 year</span><h3>AI Foundation</h3><p>{E(f["summary"])}</p>
+<div class="meta"><div><b>104</b><small>Hours</small></div><div><b>Beginner</b><small>Level</small></div></div><span class="go">View program <i aria-hidden="true" style="font-style:normal">→</i></span></div>
+<div class="art"><img src="/assets/p-found.webp" alt="" width="700" height="875" loading="lazy"></div></a>'''
+    rows = ""
+    for p in PROGRAMS[1:]:
+        d = D[p[0]]
+        rows += f'<a class="prog-row rv" href="/programs/{p[0]}"><h3>{name_of(p)}</h3><p>{E(d["summary"])}</p><span class="lv tag">{LV[d["level"]]}</span><span class="hrs">{p[3]}<small> hours</small></span><span class="arr" aria-hidden="true">→</span></a>'
+    programs = f'''<section class="sec"><div class="wrap">{sec_head("Our programs", "Choose a path.<br>Build your future.", "Six programs, all open to students who have passed Class 10. One beginner course and five three-year specialisations. Fees and intake dates: [to be confirmed].")}
+{feature}<div class="prog-rows">{rows}</div><div class="actions" style="margin-top:32px">{btn("secondary", "/programs", "View all programs and compare")}</div></div></section>'''
+    method = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Our approach", "Learn. Build. Test.<br>Improve. Repeat.", "Gain real technical skills through structured learning, hands-on practice, projects and a one-hour exam at the end of each module.")}{path_diagram()}
+<div class="actions" style="margin-top:40px">{btn("primary", "/learning-experience", "See the learning experience")}{btn("secondary", "/curriculum", "Explore the curriculum", False)}</div></div></section>'''
+    lab = f'''<section class="sec"><div class="wrap">{sec_head("Real practice environment", "Hands-on labs<br>with real tools", "Practise in a lab environment with real tasks, checked work and clear feedback.")}{lab_showcase()}
+<ul class="lab-points"><li>Real tools and environments</li><li>Checked tasks</li><li>Feedback and hints</li><li>Labs you can reset and retry</li></ul><p class="small muted" style="margin-top:20px">[Platform features to be confirmed with the institute.]</p></div></section>'''
+    feats = [("Image classification application", "Year 2 · AI/ML", True), ("Document RAG assistant", "Year 3 · AI/ML", False), ("Tool-using AI agent", "Year 3 · AI/ML", False)]
+    fc = "".join(f'<a class="fcard rv{" big" if b else ""}" href="/projects#aiml"><div class="shot"><div class="ph">[SCREENSHOT TO BE SUPPLIED]</div></div><div class="cap"><span class="tag">{y}</span><h3>{n}</h3></div></a>' for n, y, b in feats)
+    projects = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Featured projects", "Build real projects.<br>Showcase your skills.", "Work on practical projects from the program roadmap and build a portfolio you can show.")}<div class="folio">{fc}</div>
+<p class="small muted" style="margin-top:20px">Project names are from the AI/ML Engineering roadmap. Student work is not shown until the institute supplies and approves it.</p><div class="actions" style="margin-top:24px">{btn("primary", "/projects", "View all projects")}</div></div></section>'''
+    fq = [("Who can apply?", "<p>Students who have passed Class 10.</p>"),
+          ("How many hours is the AI/ML program?", "<p>624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Exam time is counted inside the 624 hours.</p>"),
+          ("How are learners assessed?", "<p>Every month ends with a project and a one-hour exam. In AI Foundation the pass mark is 80%, with review and a retry below it.</p>"),
+          ("What does it cost?", "<p>[Fees to be confirmed. They are published only once final.]</p>")]
+    faq = f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Frequently asked questions</p><h2>Got questions?<br>We've got answers.</h2><p class="lead" style="margin-top:16px">Find answers about our programs, learning format and admissions.</p><div class="actions" style="margin-top:28px">{btn("secondary", "/faqs", "All questions", True)}</div></div><div>{faq_items(fq)}</div></div></section>'''
+    ld = {"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "Neuronetwrks", "url": "https://neuronetwrks.com", "description": DESC["/"]}
+    return layout("/", "Neuronetwrks: AI and technology education after Class 10", hero + programs + method + lab + projects + faq + cta_panel(), "none", jsonld=ld)
+
+def programs_page():
+    cards = ""
+    for i, p in enumerate(PROGRAMS):
+        d = D[p[0]]; lead = i == 0
+        cat = "start" if lead else "three"
+        dl = f'<dl><div><dt>Duration</dt><dd>{p[4]}</dd></div><div><dt>Total hours</dt><dd class="big">{p[3]}</dd></div><div><dt>Level</dt><dd>{LV[d["level"]]}</dd></div><div><dt>Entry</dt><dd>Class 10 pass</dd></div></dl>'
+        if lead:
+            cards += f'''<a class="pcard pcard--lead rv" data-cat="{cat}" href="/programs/{p[0]}"><div><span class="tag">Start here · {p[4]}</span><h2 class="h3" style="margin-top:16px;font-size:var(--fs-h2)">{name_of(p)}</h2><p style="font-size:1.0625rem">{E(d["summary"])}</p>{dl}<p class="small" style="margin-top:12px;color:#fff">{FEE_LINE}</p><span class="go">View program <i aria-hidden="true" style="font-style:normal">→</i></span></div><div class="art"><img src="/assets/p-found.webp" alt="" width="700" height="875" loading="lazy"></div></a>'''
+        else:
+            cards += f'''<a class="pcard rv" data-cat="{cat}" href="/programs/{p[0]}"><span class="tag" style="align-self:flex-start">{p[4]}</span><h2 class="h3">{name_of(p)}</h2><p>{E(d["summary"])}</p>{dl}<p class="small muted" style="margin-top:12px">{FEE_LINE}</p><span class="go">View program <i aria-hidden="true" style="font-style:normal">→</i></span></a>'''
+    rows = "".join(f'<tr><td data-l="Program"><a href="/programs/{p[0]}">{name_of(p)}</a></td><td data-l="Length">{p[4]}</td><td data-l="Hours">{p[3]}</td><td data-l="Level">{LV[D[p[0]]["level"]]}</td><td data-l="Entry">Class 10 pass</td><td data-l="Fee" class="muted">{FEE}</td></tr>' for p in PROGRAMS)
+    body = page_hero("Programs", "Choose a path.", "Build your future.", "One beginner course and five three-year specialisations. Every program is open to students who have passed Class 10.",
+                     btn("primary", "#all", "See all six") + btn("secondary", "/contact", "Talk to us", False),
+                     f'<div class="hero-art">{stair("r-hero", "Module Stack", {"n": 36, "lit": 0.6, "yaw": -0.7, "dist": 15.2, "dy": -0.1})}</div>')
+    body += f'''<section class="sec sec--tight" id="all"><div class="wrap"><div class="sec-head" style="margin-bottom:28px"><div role="group" aria-label="Filter programs" data-filter-group class="chips"><button class="chip" type="button" data-filter="all" aria-pressed="true">All 6</button><button class="chip" type="button" data-filter="start" aria-pressed="false">Start here</button><button class="chip" type="button" data-filter="three" aria-pressed="false">Three-year specialisations</button></div><p class="mono" data-count role="status">Showing 6 programs</p></div>
+<div class="pgrid">{cards}</div></div></section>
+<section class="sec sec--tint" id="compare"><div class="wrap">{sec_head("Compare at a glance", "Same entry.<br>Different depth.", "The same six programs, side by side. Every program is open to students who have passed Class 10. Pick by length and subject, then open the program page for modules and projects.")}
+<div class="tablewrap"><table class="cmp"><caption class="sr">Comparison of the six programs</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Level</th><th scope="col">Entry</th><th scope="col">Fee</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
+<section class="sec"><div class="wrap">{sec_head("How every month works", "The same five beats<br>in every three-year program.")}{beats()}</div></section>
+<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Before you choose</p><h2>Not sure<br>which to pick?</h2><p class="lead" style="margin-top:16px">Ask us. A person replies with a suggestion based on your interests.</p><div class="actions" style="margin-top:24px">{btn("primary", "/contact", "Talk to us")}</div></div>
+<div>{faq_items([("Who can apply?", "<p>Students who have passed Class 10.</p>"), ("Where should a beginner start?", "<p>AI Foundation is a beginner course of 104 hours over one year, from AI literacy to Python, data, machine learning and small AI applications.</p>"), ("How long are the specialisations?", "<p>Each is three years and 624 hours: 4 hours a week for 52 weeks a year, or 208 hours a year. Exam time is counted inside those hours.</p>"), ("What does it cost?", "<p>[Fees to be confirmed. They are published only once final.]</p>")])}</div></div></section>''' + cta_panel()
+    return layout("/programs", "Programs", body, "programs")
+
+def program_detail(slug):
+    p = prog(slug); d = D[slug]; k = p[1]; yrs = d["years"]; ny = len(yrs); total = sum(len(y["modules"]) for y in yrs)
+    nm = name_of(p); plain = p[2]
+    l1, l2 = {"ai-foundation": ("AI", "Foundation."), "ai-ml-engineering": ("AI/ML", "Engineering."), "software-development": ("Software", "Development."),
+              "data-science-ai": ("Data Science", "&amp; AI."), "product-ux-ai-design": ("Product &amp; UX", "/ AI Design."), "cybersecurity": ("Cyber", "security.")}[slug]
+    art = f'<figure class="art-frame hero-art">{ART[slug]()}<figcaption>Illustration</figcaption></figure>'
+    body = page_hero(f'<a href="/programs">Programs</a> / {nm}', l1, l2, E(d["summary"]), btn("primary", "/contact", "Talk to us") + btn("secondary", "/curriculum#" + k + "-y1", "See the curriculum", False), art)
+    facts = [("Duration", p[4], 0), ("Total hours", p[3], 0), ("Per week", f'{d["hoursPerWeek"]} hours', 0), ("Entry", "Class 10 pass", 0), ("Fee", FEE, 1), ("Next intake", FEE, 1)]
+    body += '<section class="sec sec--tight" style="padding-top:0"><div class="wrap"><dl class="facts panel">' + "".join(f'<div><dt>{a}</dt><dd{" class=\"ph-text\"" if c else ""}>{b}</dd></div>' for a, b, c in facts) + '</dl></div></section>'
+    body += f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Overview</p><h2>What this program is.</h2></div><div class="stack"><p class="lead">{E(d["answer"])}</p>
+<div class="dual"><div><p class="mono" style="color:var(--blue-text)">Intended learner</p><p style="margin-top:8px">{E(d["entry"])}.</p></div><div><p class="mono" style="color:var(--blue-text)">How it is assessed</p><p style="margin-top:8px">{E(d["assessment"])}</p></div></div></div></div></section>'''
+    yr_html = ""
+    for yi, y in enumerate(yrs):
+        lbl = f'Year {yi+1} · {y["hours"]} hours' if ny > 1 else f'{y["hours"]} hours · {len(y["modules"])} modules'
+        yr_html += f'<div class="yr rv"><p class="mono" style="color:var(--blue-text)">{lbl}</p><ol>' + "".join(f'<li><span class="m">{yi*12+i+1:02d}</span><span>{E(m)}</span></li>' for i, m in enumerate(y["modules"])) + '</ol></div>'
+    body += f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Curriculum overview", f"{total} modules," + (" twelve a year." if ny > 1 else " one year."), "Each module is one month of the program. The curriculum page shows every module with its project.")}<div class="yrs" style="--cols:{ny}">{yr_html}</div>
+<div class="actions" style="margin-top:32px">{btn("primary", "/curriculum#" + k + "-y1", "Open the full curriculum")}</div></div></section>'''
+    projs = d["projects"]
+    items = "".join(f'<a class="pj rv" href="/curriculum#{k}-y{(i//12)+1 if aligned(slug) else 1}"><small>{(f"Year {i//12+1} · Month {i+1}") if aligned(slug) else f"Project {i+1}"}</small><h3>{E(x)}</h3></a>' for i, x in enumerate(projs[:6]))
+    body += f'''<section class="sec"><div class="wrap">{sec_head("Practical projects", "Things you build.", f"A sample of the {len(projs)} projects in this program. The full list is on the Projects page.")}<div class="pj-list">{items}</div><div class="actions" style="margin-top:32px">{btn("secondary", "/projects#" + k, f"See all {len(projs)} projects")}</div></div></section>'''
+    tools = "".join(f"<span>{E(x)}</span>" for x in d["tools"])
+    certs = "".join(f"<li>{E(x)}</li>" for x in d["certifications"])
+    roles = "".join(f"<li>{E(x)}</li>" for x in d["careerRoles"])
+    cols = [f'<div><h3>Tools and technologies</h3><div class="pills" style="margin-top:20px">{tools}</div></div>',
+            f'<div><h3>Certification pathways</h3><ul class="list-rule" style="margin-top:16px">{certs}</ul><p class="small muted" style="margin-top:14px">Awarded by the certifying organisations, not by Neuronetwrks. Passing is not guaranteed.</p></div>']
+    if roles: cols.append(f'<div><h3>Career directions</h3><ul class="list-rule" style="margin-top:16px">{roles}</ul><p class="small muted" style="margin-top:14px">Directions, not promises. No job, internship or salary is guaranteed.</p></div>')
+    body += f'<section class="sec sec--tint"><div class="wrap cols3" style="--cols:{len(cols)}">{"".join(cols)}</div></section>'
+    hw = "".join(f"<li>{E(x)}</li>" for x in d["hardware"])
+    body += f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Requirements</p><h2>What you need.</h2><p class="lead" style="margin-top:16px">Entry: {E(d["entry"])}. Recommended setup below.</p><div class="actions" style="margin-top:24px">{btn("secondary", "/admissions", "Admissions details")}</div></div><ul class="panel list-rule" style="padding:8px 28px">{hw}</ul></div></section>'''
+    fq = [(E(f["q"]), "<p>" + E(conf(f["a"])) + "</p>") for f in d["faqs"]]
+    body += f'<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Questions</p><h2>About this program.</h2></div><div>{faq_items(fq)}</div></div></section>' + cta_panel()
+    ld = {"@context": "https://schema.org", "@type": "Course", "name": plain, "description": d["summary"], "provider": {"@type": "Organization", "name": "Neuronetwrks"}}
+    return layout(f"/programs/{slug}", plain, body, "programs", desc=f"{plain}: modules, hours, tools and projects. Open to students who have passed Class 10.", jsonld=ld)
+
+def curriculum_page():
+    chips = ""; ylists = ""; panels = ""
+    for i, p in enumerate(PROGRAMS):
+        d = D[p[0]]; k = p[1]; ny = len(d["years"]); al = aligned(p[0])
+        chips += f'<button class="chip" type="button" data-prog-btn="{k}" aria-pressed="{"true" if i == 1 else "false"}"><b>{name_of(p)}</b><small>{p[4]} · {p[3]} h</small></button>'
+        tabs = "".join(f'<button class="chip" role="tab" type="button" id="t-{k}-{y+1}" data-year="{y+1}" aria-selected="false" aria-controls="p-{k}-{y+1}">{f"Year {y+1}" if ny > 1 else "One year"}</button>' for y in range(ny))
+        ylists += f'<div class="tabs" role="tablist" aria-label="{name_of(p)} years" data-year-list="{k}"{"" if i == 1 else " hidden"}>{tabs}</div>'
+        n = 0
+        for yi, y in enumerate(d["years"]):
+            groups = ""
+            for g in range(0, len(y["modules"]), 4):
+                rows = ""
+                for mi in range(g, min(g + 4, len(y["modules"]))):
+                    rows += f'<div class="mod"><span class="m">{n+1:02d}</span><span>{E(y["modules"][mi])}</span><span class="p">{f"<small>Project</small>{E(d["projects"][n])}" if al else ""}</span></div>'
+                    n += 1
+                groups += f'<details{" open" if g == 0 else ""}><summary>Months {yi*12+g+1} to {yi*12+min(g+4,len(y["modules"]))}</summary>{rows}</details>'
+            extra = "" if al else '<p class="cur-note"><strong>Projects:</strong> ' + "; ".join(E(x) for x in d["projects"]) + ".</p>"
+            panels += f'<div class="tabpanel mods" role="tabpanel" id="p-{k}-{yi+1}" aria-labelledby="t-{k}-{yi+1}" data-panel="{k}-{yi+1}" hidden><div class="yearbar"><h2 class="h3">{name_of(p)}{f", year {yi+1}" if ny > 1 else ""}</h2><span class="mono muted">{y["hours"]} hours · {len(y["modules"])} modules</span></div>{groups}{extra}<p class="cur-note">{E(d["assessment"])}</p><div class="actions" style="margin-top:24px"><a class="tl" href="/programs/{p[0]}">About this program <i aria-hidden="true">→</i></a><a class="tl" href="/projects#{k}">See its projects <i aria-hidden="true">→</i></a></div></div>'
+    body = f'''<section class="page-hero"><div class="wrap"><p class="crumbs"><a href="/">Home</a> / Curriculum</p><h1>{headline("The full", "curriculum.")}</h1><p class="lead fade">Every module and project, month by month, taken from each program's roadmap. Choose a program, then open a year.</p></div></section>
+<section class="sec sec--tight"><div class="wrap" id="cur"><div class="cur-top"><div><p class="eyebrow">1. Choose a program</p><div class="cur-prog" role="group" aria-label="Choose a program">{chips}</div></div><div><p class="eyebrow">2. Choose a year</p>{ylists}</div></div>
+<p id="cur-live" class="sr" role="status"></p>{panels}</div></section>''' + cta_panel("Questions about a module?", "Ask us. A person replies.")
+    return layout("/curriculum", "Curriculum", body, "programs")
+
+def learning_page():
+    found = [("Concept", "One idea, explained simply."), ("Worked example", "See it done before you do it."), ("Scenario question", "Choose the best answer in a real situation."), ("Guided practice", "Try it with support close by."), ("Exit check", "Confirm you are ready to move on.")]
+    fr = '<ol class="step-rail rv">' + "".join(f'<li><p class="mono">{i+1:02d}</p><h3>{a}</h3><p>{b}</p></li>' for i, (a, b) in enumerate(found)) + "</ol>"
+    month = [("Theory", "Short explanations of the month's topic."), ("Demonstration", "An instructor works through an example on screen."), ("Hands-on lab", "You repeat and extend it yourself."), ("Project", "A piece of work you finish and can show."), ("Exam", "A one-hour exam closes the month.")]
+    ms = '<ol class="steps">' + "".join(f'<li class="step rv"><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(month)) + "</ol>"
+    hw = "".join(f"<li>{E(x)}</li>" for x in D["ai-foundation"]["hardware"])
+    body = page_hero("Learning experience", "How you", "will learn.", "A clear pattern in every lesson and every month, so you always know what comes next and how you are doing.", btn("primary", "/curriculum", "See the curriculum") + btn("secondary", "/programs", "All programs", False),
+                     '<figure class="art-frame hero-art"><svg viewBox="0 0 520 300" role="img" aria-label="Illustration: the learning cycle, six stages from Learn to Improve and retry" style="width:100%;height:auto" font-family="Manrope,sans-serif"><rect width="520" height="300" fill="#fff"/>' + "".join(f'<circle cx="{50+i*84}" cy="{150+(-1)**i*40}" r="22" fill="{"#49B716" if i==5 else "#006DEE"}"/><text x="{50+i*84}" y="{155+(-1)**i*40}" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">{i+1}</text>' + (f'<path d="M{50+i*84+22} {150+(-1)**i*40} L{50+(i+1)*84-22} {150+(-1)**(i+1)*40}" stroke="#B3D0FF" stroke-width="2.5"/>' if i < 5 else "") for i in range(6)) + '</svg><figcaption>Illustration</figcaption></figure>')
+    body += f'''<section class="sec"><div class="wrap">{sec_head("The learning cycle", "Six stages,<br>one rhythm.", "Learn, practise, build, test and improve. This is the cycle behind both the one-year and the three-year programs.")}{path_diagram()}</div></section>
+<section class="sec sec--tint"><div class="wrap"><div class="split" style="margin-bottom:48px"><div><p class="eyebrow">AI Foundation · every lesson</p><h2>Five steps<br>in every lesson.</h2></div><p class="lead">AI Foundation runs 2 guided hours a week for 104 hours, plus 10 to 15 minutes of homework after each lecture. Each lesson follows the same five steps.</p></div>{fr}</div></section>
+<section class="sec"><div class="wrap split"><div><p class="eyebrow">Three-year programs · every month</p><h2>Five beats<br>in every month.</h2><p class="lead" style="margin-top:16px">The three-year programs run 4 hours a week for 52 weeks a year. Exam time is counted inside the 624 hours.</p></div>{ms}</div></section>
+<section class="sec sec--tint"><div class="wrap">{sec_head("Practice environment", "Labs with<br>checked work.", "A sample of how a lab task and its feedback can look. [Platform features to be confirmed with the institute.]")}{lab_showcase()}</div></section>
+<section class="sec"><div class="wrap"><div class="dual"><div><p class="eyebrow">Assessment</p><h2 class="h3">Checked, then improved.</h2><p style="margin-top:12px" class="muted">AI Foundation: 104 one-hour guided lectures. The recommended pass mark is 80%, with targeted remediation and a retry below the threshold. Three-year programs: a one-hour exam after each monthly module.</p></div><div><p class="eyebrow">Requirements</p><h2 class="h3">A laptop and internet.</h2><ul class="list-rule" style="margin-top:12px">{hw}</ul><p class="small muted" style="margin-top:12px">Setup for AI Foundation. Each three-year program lists its own on its program page.</p></div></div>
+<div class="actions" style="margin-top:32px">{btn("primary", "/curriculum", "Explore the curriculum")}{btn("secondary", "/projects", "See the projects", False)}</div></div></section>''' + cta_panel("Want to see it in person?", "Ask us about the learning experience. Delivery mode and timings: [to be confirmed].")
+    return layout("/learning-experience", "Learning Experience", body, "learning")
+
+def projects_page():
+    pbs = "".join(f'<button class="chip" type="button" data-pj-prog="{p[1]}" data-years="{len(D[p[0]]["years"])}" aria-pressed="{"true" if p[1]=="aiml" else "false"}">{name_of(p)} · {len(D[p[0]]["projects"])}</button>' for p in PROGRAMS)
+    items = ""
+    for p in PROGRAMS:
+        d = D[p[0]]; k = p[1]; n = len(d["projects"]); multi = len(d["years"]) > 1
+        for i, x in enumerate(d["projects"]):
+            y = i // 12 + 1 if multi else 1
+            tag = f"Year {y} · Month {i+1}" if multi else f"Project {i+1}"
+            items += f'<a class="pj" data-p="{k}" data-y="{y}" href="/curriculum#{k}-y{y}" hidden><small>{tag}</small><h3>{E(x)}</h3></a>'
+    feats = [("Image classification application", "AI/ML Engineering · Year 2", True), ("Document RAG assistant", "AI/ML Engineering · Year 3", False), ("Tool-using AI agent", "AI/ML Engineering · Year 3", False)]
+    fc = "".join(f'<a class="fcard rv{" big" if b else ""}" href="/curriculum#aiml-y{2 if b else 3}"><div class="shot"><div class="ph">[SCREENSHOT TO BE SUPPLIED]</div></div><div class="cap"><span class="tag">{y}</span><h3>{n}</h3></div></a>' for n, y, b in feats)
+    body = page_hero("Projects", "Things you", "build.", "Every program is built around projects. These names come from the program roadmaps. Student work appears here once the institute supplies and approves it.", btn("primary", "#all", "Browse all projects") + btn("secondary", "/curriculum", "See the curriculum", False))
+    body += f'''<section class="sec sec--tight"><div class="wrap">{sec_head("Featured", "Three to start with.")}<div class="folio">{fc}</div></div></section>
+<section class="sec sec--tint" id="all"><div class="wrap" id="pj">{sec_head("All projects", "By program and year.", "Choose a program, then a year. Each project links to its month in the curriculum.")}
+<div class="chips" role="group" aria-label="Program">{pbs}</div><div class="chips" id="pj-years" role="group" aria-label="Year" style="margin-top:12px"><button class="chip" type="button" data-pj-year="all" aria-pressed="true">All years</button><button class="chip" type="button" data-pj-year="1" aria-pressed="false">Year 1</button><button class="chip" type="button" data-pj-year="2" aria-pressed="false">Year 2</button><button class="chip" type="button" data-pj-year="3" aria-pressed="false">Year 3</button></div>
+<p id="pj-count" class="mono muted" role="status" style="margin:28px 0 16px">&nbsp;</p><div class="pj-list">{items}</div><div class="more"><button id="pj-more" class="btn btn-secondary" type="button">Show more projects</button></div></div></section>''' + cta_panel("Build yours.", "Tell us which program interests you. Fees and intake dates: [to be confirmed].")
+    return layout("/projects", "Projects", body, "projects")
+
+def about_page():
+    pr = [("Practical first", "Every program is built around hands-on labs and projects, not lectures alone.", "Learners finish something real in every month."), ("Measured, not guessed", "Every month closes with a one-hour exam, and AI Foundation uses an 80% pass mark with review and a retry.", "Progress is checked, and mistakes lead to review and another try."),
+          ("Honest about outcomes", "No program guarantees a job, internship or salary.", "We teach skills and help you build a portfolio and a GitHub record."), ("Open to beginners", "Programs start from Class 10 and assume no prior coding, AI or design experience.", "Each program begins at the beginning.")]
+    prs = "".join(f'<li class="principle rv"><span class="n">0{i+1}</span><h3>{a}</h3><p>{b} {c}</p></li>' for i, (a, b, c) in enumerate(pr))
+    body = f'''<section class="page-hero"><div class="wrap split"><div><p class="crumbs"><a href="/">Home</a> / About</p><h1>{headline("Learn.", "Develop. Create.")}</h1></div><div><p class="statement">Neuronetwrks teaches practical AI and technology skills to students after Class 10.</p><div class="actions" style="margin-top:28px">{btn("primary", "/programs", "Explore programs")}{btn("secondary", "/contact", "Talk to us", False)}</div></div></div></section>
+<section class="sec"><div class="wrap split"><div><p class="eyebrow">Who we are</p><h2>Our story.</h2></div><div class="stack"><div class="panel" style="padding:clamp(24px,4vw,48px)"><p class="lead" style="max-width:none">[Founding story and mission statement to be supplied by the institute. This space is reserved for two or three honest sentences, written by the people behind the programs.]</p></div>
+<dl class="facts panel"><div><dt>Programs</dt><dd>6</dd></div><div><dt>Hours</dt><dd>104 to 624</dd></div><div><dt>Entry</dt><dd>Class 10 pass</dd></div></dl></div></div></section>
+<section class="sec sec--tint"><div class="wrap">{sec_head("How we teach", "Four principles.")}<ol>{prs}</ol></div></section>
+<section class="sec"><div class="wrap">{sec_head("Who it is for", "Students first,<br>parents informed.")}<div class="dual"><div><h3>For students</h3><p class="muted" style="margin-top:12px">Programs start after Class 10 and assume no earlier coding, AI or design experience. Every month ends with something you built and an exam that shows what you know.</p><div class="actions" style="margin-top:20px"><a class="tl" href="/programs">Choose a program <i aria-hidden="true">→</i></a></div></div><div><h3>For parents and guardians</h3><p class="muted" style="margin-top:12px">Students under 18 apply through a parent or guardian, who gives consent. Hours, assessments and projects are published in full, so you can see what your child will do.</p><div class="actions" style="margin-top:20px"><a class="tl" href="/admissions">Admissions for parents <i aria-hidden="true">→</i></a></div></div></div></div></section>
+<section class="sec sec--tint"><div class="wrap"><div class="tri"><div class="panel" style="padding:28px"><p class="mono muted">Accreditation</p><p style="margin-top:10px" class="muted">[To be confirmed. Nothing is claimed until verified.]</p></div><div class="panel" style="padding:28px"><p class="mono muted">Location</p><p style="margin-top:10px" class="muted">[Address and delivery mode to be confirmed]</p></div><div class="panel" style="padding:28px"><p class="mono muted">Partners</p><p style="margin-top:10px" class="muted">[None shown until confirmed in writing]</p></div></div>
+<div class="actions" style="margin-top:32px"><a class="tl" href="/learning-experience">See how learning works <i aria-hidden="true">→</i></a><a class="tl" href="/faculty-and-team">Meet the faculty <i aria-hidden="true">→</i></a></div></div></section>''' + cta_panel("Talk to the people behind it.", "Ask us anything about the programs. Fees and intake dates: [to be confirmed].")
+    return layout("/about", "About", body, "about")
+
+def team_page():
+    people = "".join('<article class="person rv"><div class="ph">[PHOTO TO BE SUPPLIED]</div><div class="t"><h3>[Name]</h3><p>[Role and subject]</p><p class="small">[Two-line background, verified credentials only]</p></div></article>' for _ in range(8))
+    chips = "".join(f'<a class="chip" style="display:inline-flex;align-items:center;text-decoration:none" href="/programs/{p[0]}">{name_of(p)}</a>' for p in PROGRAMS)
+    body = f'''<section class="page-hero"><div class="wrap split"><div><p class="crumbs"><a href="/">Home</a> / Faculty and team</p><h1>{headline("The people", "who teach.")}</h1></div><div><p class="lead">Names, roles and credentials appear here once they are confirmed. We do not use stock photos or generated faces.</p><div class="actions" style="margin-top:24px">{btn("primary", "/contact", "Talk to us")}</div></div></div></section>
+<section class="sec sec--tight"><div class="wrap"><p class="eyebrow">Leadership</p><div class="lead-person"><div class="ph" style="aspect-ratio:4/5">[PHOTO TO BE SUPPLIED]</div><div><h2 class="h3">[Name]</h2><p class="muted" style="margin-top:8px">[Leadership names, roles and a short note to be supplied.]</p></div></div></div></section>
+<section class="sec"><div class="wrap">{sec_head("Faculty", "Instructors and mentors.", "[Faculty and mentor names and credentials to be confirmed, or this section is removed.]")}<div class="people">{people}</div></div></section>
+<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Teaching areas</p><h2>Find the program.</h2></div><div><p class="lead" style="margin-bottom:20px">Each faculty profile will link to the programs they teach. Until then, explore the programs directly.</p><div class="chips">{chips}</div></div></div></section>''' + cta_panel("Want to meet the faculty?", "Ask us. Delivery mode and timings: [to be confirmed].")
+    return layout("/faculty-and-team", "Faculty and Team", body, "about")
+
+def admissions_page():
+    ents = {p[0]: D[p[0]]["entry"] for p in PROGRAMS}
+    steps = [("Talk to us", "Ask any question about the programs. A person replies. [Who responds, by what channel and how fast: to be confirmed.]"), ("Apply", "Use the Apply form. Students under 18 apply through a parent or guardian."), ("[What happens next]", "[Admissions steps, intake dates and batch sizes to be confirmed.]")]
+    st = '<ol class="adm-steps">' + "".join(f'<li class="rv"><span class="n">{i+1}</span><h3>{a}</h3><p class="muted" style="margin-top:8px">{b}</p></li>' for i, (a, b) in enumerate(steps)) + "</ol>"
+    rows = "".join(f'<tr><td data-l="Program"><a href="/programs/{p[0]}">{name_of(p)}</a></td><td data-l="Length">{p[4]}</td><td data-l="Hours">{p[3]}</td><td data-l="Entry">{E(ents[p[0]])}</td><td data-l="Fee" class="muted">{FEE}</td><td data-l="Next intake" class="muted">{FEE}</td></tr>' for p in PROGRAMS)
+    body = page_hero("Admissions and fees", "Join", "the next step.", "Every program is open to students who have passed Class 10. Fees and intake dates are published once confirmed.", btn("primary", "/contact", "Apply") + btn("secondary", "/contact", "Talk to us", False))
+    body += f'''<section class="sec sec--tight"><div class="wrap">{sec_head("How to apply", "Three steps.")}{st}</div></section>
+<section class="sec sec--tint"><div class="wrap">{sec_head("Eligibility, fees and intakes", "By program.", "Compare entry requirements, fees and intakes. Open a program for its modules and projects.")}<div class="tablewrap"><table class="cmp"><caption class="sr">Eligibility, fees and intake by program</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Entry</th><th scope="col">Fee</th><th scope="col">Next intake</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
+<section class="sec"><div class="wrap"><div class="dual"><div><p class="eyebrow">For students</p><h2 class="h3">Before you apply.</h2><ul class="check" style="margin-top:20px"><li>You have passed Class 10 (AI Foundation also takes an equivalent).</li><li>You have a laptop or desktop with internet. See each program page for its recommended setup.</li><li>You know which program you are interested in, or you are happy to ask us.</li></ul><div class="actions" style="margin-top:24px"><a class="tl" href="/programs">Compare programs <i aria-hidden="true">→</i></a></div></div>
+<div><p class="eyebrow">For parents and guardians</p><h2 class="h3">Applying for a student under 18.</h2><ul class="check" style="margin-top:20px"><li>A parent or guardian applies and gives consent.</li><li>We collect only what is needed to respond, use unticked consent boxes, and do not track or advertise to children. [Retention period and grievance contact: to be confirmed after legal review.]</li><li>[Documents required at admission: to be confirmed.]</li></ul><div class="actions" style="margin-top:24px"><a class="tl" href="/faqs#privacy">Privacy questions <i aria-hidden="true">→</i></a></div></div></div></div></section>
+<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Questions</p><h2>Admissions FAQ.</h2><div class="actions" style="margin-top:20px"><a class="tl" href="/faqs#admissions">All admissions questions <i aria-hidden="true">→</i></a></div></div><div>{faq_items([("Who is eligible to join?", "<p>All five three-year programs are designed for students who have passed Class 10. The one-year AI Foundation course also takes Class 10 pass (or equivalent) learners with no prior coding, AI or cloud experience.</p>"), ("How do I apply?", "<p>Use the Apply form on this site. [What happens after submission and the response time: to be confirmed.]</p>"), ("Do the programs guarantee a job or internship?", "<p>No. The programs aim at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but no internship, employment or salary is guaranteed.</p>")])}</div></div></section>''' + cta_panel("Ready to apply?", "Tell us which program interests you. Fees and intake dates: [to be confirmed].")
+    return layout("/admissions", "Admissions and Fees", body, "admissions")
+
+FAQ_CATS = [("all", "All"), ("admissions", "Admissions"), ("learning", "Learning"), ("certification", "Certification"), ("outcomes", "Outcomes"), ("privacy", "Privacy"), ("program", "AI/ML program")]
+FAQ_LINKS = {"admissions": ('/admissions', "Admissions details"), "learning": ('/learning-experience', "How learning works"), "certification": ('/programs/ai-ml-engineering', "See certification pathways"),
+             "outcomes": ('/projects', "See the projects"), "privacy": ('/contact', "Contact us about privacy"), "program": ('/curriculum#aiml-y1', "See the curriculum")}
+def faq_page():
+    its = []
+    for f in FAQ_FILES:
+        d = yaml.safe_load(open(f)); its.append((d["group"], E(d["q"]), E(conf(d["a"]))))
+    for q in D["ai-ml-engineering"]["faqs"][:3]: its.append(("program", E(q["q"]), E(conf(q["a"]))))
+    counts = {c: sum(1 for i in its if i[0] == c) for c, _ in FAQ_CATS if c != "all"}; counts["all"] = len(its)
+    chips = "".join(f'<button class="chip" type="button" data-faq-cat="{c}" aria-pressed="{"true" if c=="all" else "false"}">{n} <span class="small">({counts[c]})</span></button>' for c, n in FAQ_CATS)
+    det = ""
+    for c, q, a in its:
+        href, lbl = FAQ_LINKS[c]
+        det += f'<details data-cat="{c}"><summary>{q}</summary><div class="ans"><p>{a}</p><p style="margin-top:12px"><a href="{href}">{lbl} →</a></p></div></details>'
+    body = page_hero("FAQs", "Got questions?", "We have answers.", "Straight answers from the program roadmaps. Where something is not confirmed yet, it says so.", btn("primary", "/contact", "Ask us something"))
+    body += f'''<section class="sec sec--tight"><div class="wrap" id="faq"><div class="sec-head"><div class="chips" role="group" aria-label="Question categories">{chips}</div><p id="faq-count" class="mono muted" role="status">{len(its)} questions</p></div><div style="max-width:960px">{det}</div></div></section>''' + cta_panel("Still have a question?", "Ask us. A person replies.")
+    return layout("/faqs", "FAQs", body, "resources")
+
+def contact_page():
+    opts = "".join(f'<option value="{p[0]}">{name_of(p)}</option>' for p in PROGRAMS)
+    body = page_hero("Contact", "Talk to us.", "A person replies.", "Ask about a program, fees or how to apply. Students under 18 send this through a parent or guardian.")
+    body += f'''<section class="sec sec--tight"><div class="wrap contact-grid"><aside class="contact-aside"><div class="panel" style="padding:32px"><p class="mono muted">Direct</p><dl style="margin-top:20px"><div><dt>Email</dt><dd class="muted">[To be confirmed]</dd></div><div><dt>Phone</dt><dd class="muted">[Optional, to be confirmed]</dd></div><div><dt>Address</dt><dd class="muted">[To be confirmed]</dd></div><div><dt>Response time</dt><dd class="muted">[To be confirmed]</dd></div></dl></div><p class="small muted" style="margin-top:20px">We collect only what is needed to reply, and never advertise to children.</p></aside>
+<div class="panel form-card"><div id="err-sum" class="err-sum" role="alert" hidden></div>
+<form id="enq" class="form" novalidate><p class="notice"><strong>Preview build.</strong> This form is not connected yet and does not send enquiries.</p>
+<fieldset><legend>About you</legend><div class="field"><span class="lbl" id="role-l">I am</span><div class="radios" role="radiogroup" aria-labelledby="role-l"><label class="radio"><input type="radio" name="role" value="parent" checked> a parent or guardian</label><label class="radio"><input type="radio" name="role" value="adult"> a student aged 18 or over</label><label class="radio"><input type="radio" name="role" value="under"> a student under 18</label></div></div>
+<div id="under" class="notice" hidden><strong>Please ask a parent or guardian to send this form.</strong> Students under 18 apply through a parent or guardian, who gives consent.</div>
+<div class="field"><label for="f-name">Your name</label><input id="f-name" class="inp" autocomplete="name" placeholder="Full name" aria-describedby="m-name"><p id="m-name" class="msg"></p></div>
+<div class="field"><label for="f-email">Email</label><input id="f-email" class="inp" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="m-email"><p id="m-email" class="msg"></p></div>
+<div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" class="inp" type="tel" autocomplete="tel" placeholder="Phone number"></div></fieldset>
+<fieldset><legend>Your enquiry</legend><div class="field"><label for="f-prog">Program</label><select id="f-prog" class="inp" aria-describedby="m-prog"><option value="">Choose a program</option>{opts}<option value="unsure">Not sure yet</option></select><p id="m-prog" class="msg"></p></div>
+<div class="field"><label for="f-msg">Your question <span class="opt">(optional)</span></label><textarea id="f-msg" class="inp" placeholder="What would you like to know?"></textarea></div></fieldset>
+<fieldset><legend>Consent</legend><div class="field"><label class="consent"><input id="f-consent" type="checkbox" aria-describedby="m-consent"><span>I agree that Neuronetwrks may use these details to reply to my enquiry. <a href="/contact" style="color:var(--blue-text)">Privacy notice</a> [version to be confirmed]</span></label><p id="m-consent" class="msg"></p></div><p class="small muted">[Spam protection (Turnstile) is added at build. No other tracking.]</p></fieldset>
+<div><button id="send" class="btn btn-primary" type="submit">Send enquiry <i aria-hidden="true">→</i></button></div></form>
+<div id="ok" class="ok"><h2 class="h3">Preview only: nothing was sent.</h2><p class="lead" style="margin-top:12px">This preview form is not connected yet, so no enquiry was received. Please check back soon.</p><div class="actions" style="margin-top:24px"><button id="again" class="btn btn-secondary" type="button">Try again</button><a class="btn btn-primary" href="/programs">Browse programs <i aria-hidden="true">→</i></a></div></div></div></div></section>'''
+    return layout("/contact", "Contact", body, "none")
+
+# ---------------------------------------------------------------- write
+def write(route, content):
+    p = os.path.join(OUT, ("index" if route == "/" else route.lstrip("/")) + ".html")
+    os.makedirs(os.path.dirname(p), exist_ok=True); open(p, "w").write(content)
+
+def main():
+    if os.path.exists(OUT): shutil.rmtree(OUT)
+    os.makedirs(OUT + "/assets")
+    for f in os.listdir(HERE + "/assets"):
+        shutil.copy(os.path.join(HERE, "assets", f), OUT + "/assets/" + f)
+    shutil.move(OUT + "/assets/favicon.svg", OUT + "/favicon.svg")
+    shutil.copy(HERE + "/site.css", OUT + "/assets/site.css"); shutil.copy(HERE + "/site.js", OUT + "/assets/site.js")
+    os.remove(OUT + "/assets/module-stack.source.js")
+    write("/", home()); write("/programs", programs_page())
+    for p in PROGRAMS: write("/programs/" + p[0], program_detail(p[0]))
+    write("/curriculum", curriculum_page()); write("/learning-experience", learning_page()); write("/projects", projects_page()); write("/about", about_page())
+    write("/faculty-and-team", team_page()); write("/admissions", admissions_page()); write("/faqs", faq_page()); write("/contact", contact_page())
+    open(OUT + "/robots.txt", "w").write("User-agent: *\nDisallow: /\n")
+    open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "headers": [
+        {"source": "/(.*)", "headers": [{"key": "X-Robots-Tag", "value": "noindex, nofollow"}, {"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]},
+        {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, must-revalidate"}]}]}, indent=1))
+    open(OUT + "/404.html", "w").write('<!doctype html><html lang="en-IN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Neuronetwrks</title><meta name="robots" content="noindex"><body style="font-family:system-ui;padding:80px 24px;background:#F6F9FD;color:#0B1B33"><h1>Page not found</h1><p><a href="/" style="color:#006DEE">Go to the home page</a></p></body></html>')
+    print("built", len(glob.glob(OUT + "/**/*.html", recursive=True)), "pages")
+
+if __name__ == "__main__":
+    main()
