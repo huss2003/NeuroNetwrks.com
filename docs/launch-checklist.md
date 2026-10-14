@@ -28,7 +28,7 @@ Claude then sets `GA_ID` in `tools/preview-gen/build.py`, rebuilds and deploys. 
 - Google loads only after a visitor clicks "Allow analytics";
 - events are tracked: `program_view`, `talk_click`, `scroll_75` and `outbound_click`. `apply_submit` will follow once the form is wired.
 
-### 2. Google Search Console (DNS verification)
+### 2. Google Search Console (ownership verified 14 Oct 2026)
 1. Go to search.google.com/search-console, choose Add property, then **Domain**, and enter `neuronetwrks.com`.
 2. Copy the TXT value Google shows (it starts with `google-site-verification=`).
 3. In Squarespace, open Domains, then neuronetwrks.com, then DNS, then **Custom records**, and choose Add record:
@@ -37,7 +37,8 @@ Claude then sets `GA_ID` in `tools/preview-gen/build.py`, rebuilds and deploys. 
    - Data: the value from step 2.
    Save it. Keep the existing SPF TXT record.
 4. Back in Search Console, click Verify. If it fails, wait an hour and try again.
-5. Open Sitemaps, enter `sitemap.xml`, and click Submit.
+5. Open Sitemaps and enter the **full URL** `https://neuronetwrks.com/sitemap.xml` (a Domain property rejects a bare `sitemap.xml` as "Invalid sitemap address"), then click Submit. "Couldn't fetch" for the first few hours is normal.
+6. In Settings → Associations, link the GA4 property (G-1D2KJQ9RCF).
 6. Optional: use URL inspection on `https://neuronetwrks.com/`, then click Request indexing.
 
 ### 3. Bing Webmaster Tools
