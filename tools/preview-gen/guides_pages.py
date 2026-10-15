@@ -44,7 +44,7 @@ GUIDES = [
   "sections": [
    ("Can you learn AI after Class 10?",
     f"<p>Yes. Learning AI after Class 10 is realistic if the course starts from zero. Students need basic school mathematics and computer familiarity, not prior coding. A good course teaches what AI is, then Python, data handling and machine learning step by step, with a project at each stage so understanding is tested by building, not just reading.</p>"
-    f"<p>The {g_prog_link('ai-foundation')} course assumes no coding, AI or cloud experience. The {g_prog_link('ai-ml-engineering')} program asks for Class 10 with basic school-level mathematics.</p>"),
+    f"<p>The {g_prog_link('ai-foundation')} course is open from Class 8 and assumes no coding, AI or cloud experience. The {g_prog_link('ai-ml-engineering')} program asks for Class 10 with basic school-level mathematics.</p>"),
    ("What does an AI course after 10th cover?",
     "<p>A complete beginner AI course covers six areas: how modern AI works, responsible use of AI tools, Python programming, working with data, machine learning, and generative AI with large language models. Better courses add computer vision, natural language processing and a first retrieval-augmented generation (RAG) prototype.</p>"
     "<p>The AI Foundation course is 104 one-hour lectures in this order:</p>" + "<ol>" + "".join(f"<li>{E(m)}</li>" for m in D["ai-foundation"]["years"][0]["modules"]) + "</ol>"),
@@ -64,7 +64,7 @@ GUIDES = [
             "<strong>Make sure Python is taught from the start.</strong> Almost all AI work uses it.",
             "<strong>Be wary of promises.</strong> No honest course can guarantee a job or an exam result."])),
   ],
-  "faqs": [("Is AI difficult to learn after 10th?", "It is manageable when taught in order. AI Foundation starts with AI literacy and Python basics and needs no prior coding. Each one-hour lecture builds on the last, with a recommended 80% pass mark and a retry if needed."),
+  "faqs": [("Is AI difficult to learn after 10th?", "It is manageable when taught in order. AI Foundation starts with AI literacy and Python basics and needs no prior coding. Each one-hour lecture builds on the last, and a short unit exam closes each major unit."),
            ("Do I need maths to learn AI after 10th?", "School-level mathematics is enough to start. The AI/ML Engineering program teaches the mathematics needed for machine learning itself, in two modules called Math for ML I and II."),
            ("What laptop is needed for an AI course?", "For the full AI/ML Engineering roadmap, the recommended setup is an Intel i5 or Ryzen 5 processor or better, 16 GB RAM (32 GB recommended) and a 512 GB SSD. A dedicated NVIDIA GPU helps for deep learning but is not needed at the start."),
            ("Do students get a certificate?", "Yes. Students who complete AI Foundation or AI/ML Engineering receive a NeuroNetworks AI Ed certificate. External certifications such as Microsoft AI-901 are separate and awarded by Microsoft or AWS after their exams."),
@@ -80,7 +80,7 @@ GUIDES = [
   "progs": [p[0] for p in PROGRAMS],
   "sections": [
    ("Which technology courses can you do after 10th?",
-    "<p>After Class 10, a student can begin six technology tracks: a one-year AI foundation course, or a three-year specialisation in AI/ML engineering, software development, data science and AI, product and UX design with AI, or cybersecurity. All six accept Class 10 pass students and assume little or no technical background.</p>" + g_facts([p[0] for p in PROGRAMS])),
+    "<p>After Class 10, a student can begin six technology tracks: a one-year AI foundation course, or a three-year specialisation in AI/ML engineering, software development, data science and AI, product and UX design with AI, or cybersecurity. The five specialisations accept Class 10 pass students and AI Foundation is open from Class 8; all assume little or no technical background.</p>" + g_facts([p[0] for p in PROGRAMS])),
    ("What does each path teach?",
     "<dl class=\"gd-dl\">" + "".join(f"<dt>{g_prog_link(p[0])}</dt><dd>{E(D[p[0]]['summary'])}</dd>" for p in PROGRAMS) + "</dl>"),
    ("Which path suits which student?",
@@ -303,7 +303,7 @@ GUIDES = [
    ("Step 5: Generative AI, agents and a portfolio",
     '<p>Year 3 covers generative AI, embeddings and RAG, agents, fine-tuning, AI safety, cloud AI engineering and system design, ending with a portfolio of 6 to 10 flagship projects and a final capstone. Examples are the <a href="/projects/document-rag-assistant">document RAG assistant</a> and <a href="/projects/agentflow-ai">AgentFlow AI</a>.</p>'),
    ("Not ready for 3 years?",
-    "<p>The 1-year " + g_prog_link("ai-foundation") + " course (104 hours, 2 hours a week) covers AI literacy, Python, ML basics, generative AI and a RAG prototype plan, and is a good test of interest first.</p>"),
+    "<p>The 1-year " + g_prog_link("ai-foundation") + " course (104 hours, 2 hours a week) covers Python, data, machine learning, generative AI, RAG and AI agents, ending with a deployed AI application and a capstone, and is a good test of interest first.</p>"),
   ],
   "faqs": [("How many years does it take to become an AI engineer after 10th?", "The AI/ML Engineering program takes three years at four hours a week (624 hours). Many students also pursue a degree; skills and a project portfolio are built alongside."),
            ("Is maths compulsory for AI engineering?", "Yes, to a working level. The program teaches the needed maths in two dedicated modules, starting from school-level mathematics."),

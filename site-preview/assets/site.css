@@ -1445,3 +1445,4 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
   .cta2-glow{right:17%;top:-1%;width:46%}
   .cta2-sparks{bottom:auto;height:min(96vw,620px)}
 }
+.mh{color:var(--blue-900);font-size:.85em;white-space:nowrap}

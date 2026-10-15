@@ -49,3 +49,26 @@ _None yet._
 - **Q13 Certification costs:** never shown.
 - **Q14 Earning potential:** show it as indicative ranges, never guaranteed. The salary bands come from each 3-year curriculum document. They appear on the five 3-year program pages and the related guides, with a disclaimer. The AI Foundation document has no salary table, so none is shown. Freelance rates appear only for AI/ML, Software and UX, because the Cyber and Data Science documents copy the AI/ML freelance text.
 - **Q20 Faculty:** the Faculty and Team page is hidden for now. `/faculty-and-team` redirects to `/about` with a 308, and the "Who teaches?" FAQ is removed. To restore it, add `write("/faculty-and-team", team_page())` back to `main()` in build.py.
+
+## Updated curricula (15 Oct 2026)
+
+The owner supplied four updated ("FIXED") curriculum documents, now in `docs/source/` and `docs/extracted/`. They are the source for these programs:
+
+- **AI Foundation** (`AI_Creator_Program_104Hours_FIXED`):
+  - The document title is "AI Foundations, AI Application & AI Creator Program". The public name stays **AI Foundation** (owner decision).
+  - Entry is now **Class 8+**, for this course only. The 3-year programs stay Class 10.
+  - New module titles for Months 8–12, new hours per month (4, 4, 10, 8, 10, 6, 8, 7, 8, 9, 12, 18) and new monthly projects.
+  - Certification prep moved into Month 12.
+  - The old "80% pass mark" is gone; the new model has unit exams, practicals, mock exams and a capstone.
+- **AI/ML Engineering:**
+  - Modules unchanged.
+  - DeepLearning.AI ML Specialization removed, because it no longer appears in the document.
+  - AWS certification shown as AIF-C01.
+  - Month 36 project is now "Final Professional AI/ML Capstone Project".
+- **Data Science & AI:**
+  - DP-100 (retired 1 June 2026) replaced by Microsoft AI-300 (MLOps Engineer Associate).
+  - The Month 20 module is shown as "Azure ML & AI-300 Preparation". The document's table still says DP-100, but its text says AI-300 is taught in its place.
+  - HackerRank shown as Python & SQL Certificates.
+- **Product & UX / AI Design:** no data change; the site already matched. The NN/g cost is not shown.
+- The new documents have no tools, careers, salary or hardware sections, so the existing values remain.
+- Software Development and Cybersecurity were not updated, because no new documents were supplied for them.

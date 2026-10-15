@@ -1,11 +1,11 @@
 # NeuroNetworks AI Ed
 
-> Practical AI and technology education in India for students who have passed Class 10. One-year AI Foundation course (104 hours) and five three-year specialisations (624 hours each). Every three-year month ends with a project and a one-hour exam. Fees are shared on enquiry.
+> Practical AI and technology education in India. One-year AI Foundation course (104 hours, open from Class 8) and five three-year specialisations for students who have passed Class 10 (624 hours each). Every three-year month ends with a project and a one-hour exam. Fees are shared on enquiry.
 
 Contact: Hussain@neuronetwrks.com
 
 ## Programs
-- [AI Foundation](https://neuronetwrks.com/programs/ai-foundation): 1 year, 104 hours. A beginner course from AI literacy to Python, data, machine learning and small AI applications, with optional certification preparation.
+- [AI Foundation](https://neuronetwrks.com/programs/ai-foundation): 1 year, 104 hours. A beginner course from AI literacy to Python, data, machine learning, generative AI, RAG and AI agents, ending with a deployed AI application and a capstone.
 - [AI/ML Engineering](https://neuronetwrks.com/programs/ai-ml-engineering): 3 years, 624 hours. From Python basics to machine learning, deep learning, generative AI and MLOps, with a portfolio of projects.
 - [Software Development](https://neuronetwrks.com/programs/software-development): 3 years, 624 hours. From programming logic to full-stack, cloud and software engineering, with a high volume of hands-on projects.
 - [Data Science & AI](https://neuronetwrks.com/programs/data-science-ai): 3 years, 624 hours. From Python and SQL to analytics, machine learning, data engineering and generative AI, with a project portfolio.
