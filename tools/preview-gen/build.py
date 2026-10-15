@@ -213,8 +213,8 @@ print(result)</pre></div>
 <div class="score"><div><span>Correctness</span><span class="bar-track"><i style="width:100%"></i></span></div><div><span>Code quality</span><span class="bar-track"><i style="width:80%"></i></span></div><div><span>Best practices</span><span class="bar-track"><i style="width:65%"></i></span></div></div></div></div></div>'''
 
 
-IMG = {"found": "aif2", "aiml": "aiml2", "sw": "sw2"}
-NO_DOT = {"found", "aiml", "sw"}  # AI Foundation model has no floating spheres (owner request)  # AI Foundation uses the "AI on a platform" model
+IMG = {"found": "aif2", "aiml": "aiml2", "sw": "sw2", "ds": "ds2"}
+NO_DOT = {"found", "aiml", "sw", "ds"}  # AI Foundation model has no floating spheres (owner request)  # AI Foundation uses the "AI on a platform" model
 ICON = {"ai-foundation": "found", "ai-ml-engineering": "aiml", "software-development": "sw", "data-science-ai": "ds", "product-ux-ai-design": "ux", "cybersecurity": "cy"}
 
 def program_tile(p, i, cat=None, hl="h3"):
