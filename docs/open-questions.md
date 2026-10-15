@@ -38,3 +38,14 @@ _None yet._
 22. **AI training bots:** the site currently allows GPTBot, ClaudeBot and Google-Extended (default in the plan). Confirm or tell me to block them (open question 9 still stands).
 23. **Named authors and short bios** for guides and the About page (E-E-A-T). Nothing is invented.
 24. **Google Business Profile:** only if there is a physical centre. Is there?
+
+## Owner answers (15 Oct 2026)
+
+- **Certificate:** every program awards a NeuroNetworks AI Ed certificate on completion. Shown on program pages and in the Course schema (`educationalCredentialAwarded`). Answers the diploma question: these are certificate programs.
+- **Q12 AI-900:** use AI-901 only. The AI/ML program data now says AI-901.
+- **Q17 Program names:** the six names on the site are the official names. "Neuromind" is no longer used; the brand is NeuroNetworks. The only remaining mention is the source file name in `docs/source/`, which stays unchanged.
+- **Q19 Professionals and schools:** there is no offer for working professionals. The professionals audience page is not built.
+- **Q15 Hardware:** the laptop specifications are recommendations, not entry requirements. The site wording now says so.
+- **Q13 Certification costs:** never shown.
+- **Q14 Earning potential:** show it as indicative ranges, never guaranteed. The salary bands come from each 3-year curriculum document. They appear on the five 3-year program pages and the related guides, with a disclaimer. The AI Foundation document has no salary table, so none is shown. Freelance rates appear only for AI/ML, Software and UX, because the Cyber and Data Science documents copy the AI/ML freelance text.
+- **Q20 Faculty:** the Faculty and Team page is hidden for now. `/faculty-and-team` redirects to `/about` with a 308, and the "Who teaches?" FAQ is removed. To restore it, add `write("/faculty-and-team", team_page())` back to `main()` in build.py.

@@ -67,6 +67,7 @@ GUIDES = [
   "faqs": [("Is AI difficult to learn after 10th?", "It is manageable when taught in order. AI Foundation starts with AI literacy and Python basics and needs no prior coding. Each one-hour lecture builds on the last, with a recommended 80% pass mark and a retry if needed."),
            ("Do I need maths to learn AI after 10th?", "School-level mathematics is enough to start. The AI/ML Engineering program teaches the mathematics needed for machine learning itself, in two modules called Math for ML I and II."),
            ("What laptop is needed for an AI course?", "For the full AI/ML Engineering roadmap, the recommended setup is an Intel i5 or Ryzen 5 processor or better, 16 GB RAM (32 GB recommended) and a 512 GB SSD. A dedicated NVIDIA GPU helps for deep learning but is not needed at the start."),
+           ("Do students get a certificate?", "Yes. Students who complete AI Foundation or AI/ML Engineering receive a NeuroNetworks AI Ed certificate. External certifications such as Microsoft AI-901 are separate and awarded by Microsoft or AWS after their exams."),
            ("How much does the course cost?", 'Fees are shared on enquiry. <a href="/contact?topic=fees">Ask us about fees</a>.')]},
 
  {"slug": "courses-after-10th", "title": "Courses after 10th: 6 technology paths compared",
@@ -95,7 +96,7 @@ GUIDES = [
     "<p>The pace is designed to sit beside school: two hours a week for AI Foundation and four hours a week for the three-year programs. Families should still plan around board exam periods; ask us about batch timings when you enquire.</p>"),
   ],
   "faqs": [("Which is the best technology course after 10th?", "There is no single best course. The right one matches what the student enjoys. If unsure, the 1-year AI Foundation course is a low-commitment way to try programming, data and AI before choosing a three-year specialisation."),
-           ("Are these diploma courses?", "They are structured skills programs built around monthly projects, one-hour exams and optional industry certifications. Ask us what the institute issues on completion and how it compares with a polytechnic diploma for your plans."),
+           ("Are these diploma or certificate courses?", "They are certificate programs. Students who complete a program receive a NeuroNetworks AI Ed certificate. External certifications from Microsoft, AWS, Google and others are separate, optional, and awarded by those organisations after their own exams."),
            ("Do these courses guarantee a job?", NOTE_JOBS)]},
 
  {"slug": "computer-coding-courses-after-10th", "title": "Computer and coding courses after 10th: which to choose",
@@ -310,6 +311,21 @@ GUIDES = [
 ]
 
 GUIDE_BY = {g["slug"]: g for g in GUIDES}
+GUIDE_SAL = {"cyber-security-course-after-10th": ["cybersecurity"], "data-science-after-10th": ["data-science-ai"], "ui-ux-designer-after-10th": ["product-ux-ai-design"],
+             "computer-coding-courses-after-10th": ["software-development"], "become-ai-engineer-after-10th": ["ai-ml-engineering"],
+             "career-options-after-10th": ["ai-ml-engineering", "software-development", "data-science-ai", "product-ux-ai-design", "cybersecurity"],
+             "ai-vs-software-vs-data-science": ["ai-ml-engineering", "software-development", "data-science-ai"]}
+
+def g_salary(slugs):
+    if len(slugs) == 1:
+        b = SALARY[slugs[0]][0]
+        lead = f"<p>Entry-level roles in this field typically pay {b[0]} a year in India, rising to {b[2]} with 3–5 years' experience and {b[-1]} at senior level. These are indicative market ranges, not guarantees.</p>"
+    else:
+        lead = "<p>Indicative starting salaries in India differ by field, and all rise with experience. These are market ranges, not guarantees.</p>"
+    rows = "".join(f'<tr><th scope="row">{g_prog_link(x)}</th><td>{SALARY[x][0][0]}</td><td>{SALARY[x][0][2]}</td><td>{SALARY[x][0][-1]}</td></tr>' for x in slugs)
+    tbl = ('<div class="gd-table"><table><caption class="vh">Indicative salary in India</caption><thead><tr><th scope="col">Path</th><th scope="col">Fresher</th>'
+           '<th scope="col">3–5 years</th><th scope="col">Senior</th></tr></thead><tbody>' + rows + '</tbody></table></div>')
+    return lead + tbl + f'<p class="small muted" style="margin-top:12px">{SAL_NOTE}</p>' 
 CRUMB["guides"] = "Guides"
 
 def guide_minutes(html):
@@ -317,6 +333,9 @@ def guide_minutes(html):
 
 def guide_page(slug):
     g = GUIDE_BY[slug]
+    sections = list(g["sections"])
+    if slug in GUIDE_SAL: sections.append(("What can you earn in India?", g_salary(GUIDE_SAL[slug])))
+    g = dict(g, sections=sections)
     secs = "".join(f'<section class="gd-sec" id="s{i+1}"><h2>{E(h) if "<" not in h else h}</h2>{body}</section>' for i, (h, body) in enumerate(g["sections"]))
     toc = "".join(f'<li><a href="#s{i+1}">{E(h)}</a></li>' for i, (h, _) in enumerate(g["sections"]))
     tldr = "".join(f"<li>{E(x)}</li>" for x in g["tldr"])

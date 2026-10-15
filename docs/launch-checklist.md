@@ -26,6 +26,16 @@ When the owner asks "what's pending?", answer from this file.
 - [x] Promotion kit in `docs/marketing/`: launch plan, social setup, first posts, listings, PR and partnerships, banner images.
 - [x] IndexNow set up. The key file is served from the site, and `python3 tools/preview-gen/indexnow.py` notifies Bing after each deploy.
 
+- [x] Owner decisions applied (15 Oct 2026):
+  - certificate on completion;
+  - AI-901 only;
+  - official program names;
+  - laptop specs are recommendations;
+  - no certification costs shown;
+  - indicative salary ranges shown, with a disclaimer;
+  - Faculty and Team page hidden (redirects to About);
+  - no offer for professionals.
+
 ## Waiting on the owner
 
 ### 1. Google Analytics: finish settings (ID received and live)

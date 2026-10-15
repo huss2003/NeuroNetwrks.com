@@ -191,7 +191,7 @@ Searches like "courses after 10th" and "what to do after 10th" are highest in **
 - Write "NeuroNetworks AI Ed" in full. The website is spelled neuronetwrks.com.
 - The tagline is always exactly **Learn · Develop · Create**. Never reword it.
 - Use real facts only: hours, months, modules, projects, tools, the certifications prepared for. All are in `site-preview/llms-full.txt`.
-- Never claim jobs, placements, salaries, exam passes, or student numbers. Never post testimonials or reviews you have not received in writing with permission.
+- Never claim jobs, placements, exam passes, or student numbers. Salary: only the indicative ranges published on the program pages, always with "indicative, not guaranteed". Never post testimonials or reviews you have not received in writing with permission.
 - No prices. Say "Fees are shared on enquiry" if asked.
 - Avoid hype words: "unlock your potential", "revolutionise", "cutting-edge", "seamless", "journey", "world-class". No emoji used as icons.
 - For students under 18, talk to the parent or guardian.

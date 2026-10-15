@@ -1407,3 +1407,6 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
 .gd-more ul{list-style:none;padding:0}.gd-more li{border-top:1px solid var(--line);padding:12px 0;margin:0}
 @media (max-width:900px){.gd-wrap{grid-template-columns:1fr}.gd-toc{position:static;border:1px solid var(--line);border-radius:14px;padding:var(--s4)}}
 @media (prefers-reduced-motion:reduce){.gd-card{transition:none}.gd-card:hover{transform:none}}
+@media (max-width:900px){.facts>div:last-child:nth-child(odd){grid-column:1/-1}}
+.split>*{min-width:0}
+.gd-table--sal table{min-width:0}

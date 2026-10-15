@@ -1,6 +1,13 @@
 {
  "cleanUrls": true,
  "trailingSlash": false,
+ "redirects": [
+  {
+   "source": "/faculty-and-team",
+   "destination": "/about",
+   "permanent": true
+  }
+ ],
  "headers": [
   {
    "source": "/(.*)",

@@ -27,7 +27,7 @@ D = {}
 for slug, *_ in PROGRAMS:
     t = open(os.path.join(ROOT, "src/content/programs", slug + ".mdx")).read().split("---")[1]
     D[slug] = yaml.safe_load(t)
-FAQ_FILES = sorted(glob.glob(os.path.join(ROOT, "src/content/faqs/*.yaml")))
+FAQ_FILES = sorted(f for f in glob.glob(os.path.join(ROOT, "src/content/faqs/*.yaml")) if not f.endswith("who-teaches.yaml"))  # faculty hidden by owner decision
 
 def conf(s):
     return re.sub(r"\{\{CONFIRM:?\s*(.*?)\}\}", lambda m: "[To be confirmed: " + m.group(1).strip() + "]", s)
@@ -73,7 +73,7 @@ def footer():
 <p>AI and technology education for a better tomorrow.</p><p class="small" style="margin-top:12px">[Social profiles appear here once verified]</p>
 </div>
 <nav aria-label="Programs"><h2>Programs</h2><ul>{pl}</ul></nav>
-<nav aria-label="Company"><h2>Company</h2><ul><li><a href="/about">About</a></li><li><a href="/learning-experience">Learning Experience</a></li><li><a href="/projects">Projects</a></li><li><a href="/faculty-and-team">Faculty and team</a></li></ul></nav>
+<nav aria-label="Company"><h2>Company</h2><ul><li><a href="/about">About</a></li><li><a href="/learning-experience">Learning Experience</a></li><li><a href="/projects">Projects</a></li></ul></nav>
 <nav aria-label="Resources"><h2>Resources</h2><ul><li><a href="/guides">Guides</a></li><li><a href="/curriculum">Curriculum</a></li><li><a href="/faqs">FAQs</a></li><li><a href="/programs">Compare programs</a></li></ul></nav>
 <div><h2>Admissions and contact</h2><ul><li><a href="/admissions">Admissions</a></li><li><a href="/contact">Contact</a></li></ul><p class="small" style="margin-top:12px"><a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a></p><p class="small muted" style="margin-top:6px">[Postal address and phone: to be confirmed]</p></div>
 </div>
@@ -87,7 +87,6 @@ DESC = {
  "/learning-experience": "How lessons, labs, projects and exams work at NeuroNetworks AI Ed, from AI Foundation to the three-year programs.",
  "/projects": "Project names from every program roadmap, from first notebooks to capstones.",
  "/about": "About NeuroNetworks AI Ed: practical AI and technology education for students after Class 10.",
- "/faculty-and-team": "Faculty and team at NeuroNetworks AI Ed. Names and credentials are published once confirmed.",
  "/admissions": "Admissions at NeuroNetworks AI Ed: eligibility for every program, how to apply and what parents should know.",
  "/faqs": "Answers about eligibility, hours, certifications, learning and applying at NeuroNetworks AI Ed.",
  "/contact": "Talk to NeuroNetworks AI Ed. Ask about a program, fees or how to apply.",
@@ -309,6 +308,29 @@ PROG_GUIDES = {
  "cybersecurity": ["cyber-security-course-after-10th", "career-options-after-10th", "courses-after-10th"],
 }
 
+# Indicative India salary ranges (LPA) from the curriculum documents (docs/extracted/3-Year_*.md, "Earning potential").
+# Shown by owner decision (15 Oct 2026) as indicative, never guaranteed. AI Foundation has no source table.
+SAL_BANDS = ["Fresher", "1–2 years", "3–5 years", "5–8 years", "Senior"]
+SALARY = {
+ "ai-ml-engineering": (["₹5–10 LPA", "₹7–15 LPA", "₹12–25 LPA", "₹20–40 LPA", "₹30–60+ LPA"], "₹800–2,000 an hour early on, rising to ₹4,000–8,000+ for specialised work"),
+ "software-development": (["₹4–8 LPA", "₹5–12 LPA", "₹10–20 LPA", "₹18–35 LPA", "₹25–50+ LPA"], "₹500–1,200 an hour with 0–2 years' experience, rising to ₹2,500–5,000+ after 5 years"),
+ "data-science-ai": (["₹4–8 LPA", "₹5–12 LPA", "₹10–22 LPA", "₹18–35 LPA", "₹25–50+ LPA"], None),
+ "product-ux-ai-design": (["₹4–8 LPA", "₹6–12 LPA", "₹10–22 LPA", "₹18–35 LPA", "₹25–50+ LPA"], "₹500–1,500 an hour early on, rising to ₹3,000–6,000+ for advanced work"),
+ "cybersecurity": (["₹4–8 LPA", "₹5–10 LPA", "₹8–20 LPA", "₹15–35 LPA", "₹25–60+ LPA"], None),
+}
+SAL_NOTE = ("Indicative 2026 India market ranges from our curriculum research. They are not a promise: pay depends on the employer, city, role, skills, "
+            "portfolio and, for some employers, a degree. NeuroNetworks AI Ed does not guarantee a job, internship or salary.")
+
+def salary_section(slug):
+    if slug not in SALARY: return ""
+    bands, free = SALARY[slug]; nm = E(prog(slug)[2])
+    rows = "".join(f'<tr><th scope="row">{b}</th><td>{v}</td></tr>' for b, v in zip(SAL_BANDS, bands))
+    fl = f'<p style="margin-top:16px">Freelance work is another route: indicative rates are {E(free)}.</p>' if free else ""
+    return (f'<section class="sec"><div class="wrap split"><div><p class="eyebrow">Earning potential</p><h2>What can you earn in India?</h2>'
+            f'<p class="lead" style="margin-top:16px">Entry-level roles linked to {nm} typically pay {bands[0]} in India, rising with experience to {bands[-1]} at senior level. These are market estimates, not guarantees.</p>{fl}</div>'
+            f'<div><div class="gd-table gd-table--sal" style="margin-top:0"><table><caption class="vh">Indicative salary by experience</caption><thead><tr><th scope="col">Experience</th><th scope="col">Indicative salary (per year)</th></tr></thead><tbody>{rows}</tbody></table></div>'
+            f'<p class="small muted" style="margin-top:14px">{SAL_NOTE}</p></div></div></section>')
+
 def program_detail(slug):
     p = prog(slug); d = D[slug]; k = p[1]; yrs = d["years"]; ny = len(yrs); total = sum(len(y["modules"]) for y in yrs)
     nm = name_of(p); plain = p[2]
@@ -316,7 +338,7 @@ def program_detail(slug):
               "data-science-ai": ("Data Science", "&amp; AI."), "product-ux-ai-design": ("Product &amp; UX", "/ AI Design."), "cybersecurity": ("Cyber", "security.")}[slug]
     art = f'<figure class="art-frame hero-art">{ART[slug]()}<figcaption>Illustration</figcaption></figure>'
     body = page_hero(f'<a href="/programs">Programs</a> / {nm}', l1, l2, E(d["summary"]), btn("primary", "/contact", "Talk to us") + btn("secondary", "/curriculum#" + k + "-y1", "See the curriculum", False), art)
-    facts = [("Duration", p[4], 0), ("Total hours", p[3], 0), ("Per week", f'{d["hoursPerWeek"]} hours', 0), ("Entry", "Class 10 pass", 0), ("Fees", FEE_LINK, 0), ("Next intake", FEE, 1)]
+    facts = [("Duration", p[4], 0), ("Total hours", p[3], 0), ("Per week", f'{d["hoursPerWeek"]} hours', 0), ("Entry", "Class 10 pass", 0), ("Certificate", "On completion", 0), ("Fees", FEE_LINK, 0), ("Next intake", FEE, 1)]
     body += '<section class="sec sec--tight" style="padding-top:0"><div class="wrap"><dl class="facts panel">' + "".join(f'<div><dt>{a}</dt><dd{" class=\"ph-text\"" if c else ""}>{b}</dd></div>' for a, b, c in facts) + '</dl></div></section>'
     body += f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Overview</p><h2>What this program is.</h2></div><div class="stack"><p class="lead">{E(d["answer"])}</p>
 <div class="dual"><div><p class="mono" style="color:var(--blue-text)">Intended learner</p><p style="margin-top:8px">{E(d["entry"])}.</p></div><div><p class="mono" style="color:var(--blue-text)">How it is assessed</p><p style="margin-top:8px">{E(d["assessment"])}</p></div></div></div></div></section>'''
@@ -334,15 +356,16 @@ def program_detail(slug):
     roles = "".join(f"<li>{E(x)}</li>" for x in d["careerRoles"])
     cols = [f'<div><h3>Tools and technologies</h3><div class="pills" style="margin-top:20px">{tools}</div></div>',
             f'<div><h3>Certification pathways</h3><ul class="list-rule" style="margin-top:16px">{certs}</ul><p class="small muted" style="margin-top:14px">Awarded by the certifying organisations, not by NeuroNetworks AI Ed. Passing is not guaranteed.</p></div>']
-    if roles: cols.append(f'<div><h3>Career directions</h3><ul class="list-rule" style="margin-top:16px">{roles}</ul><p class="small muted" style="margin-top:14px">Directions, not promises. No job, internship or salary is guaranteed.</p></div>')
+    if roles: cols.append(f'<div><h3>Career directions</h3><ul class="list-rule" style="margin-top:16px">{roles}</ul><p class="small muted" style="margin-top:14px">Directions, not promises. No job or internship is guaranteed.</p></div>')
     body += f'<section class="sec sec--tint"><div class="wrap cols3" style="--cols:{len(cols)}">{"".join(cols)}</div></section>'
+    body += salary_section(slug)
     hw = "".join(f"<li>{E(x)}</li>" for x in d["hardware"])
-    body += f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Requirements</p><h2>What you need.</h2><p class="lead" style="margin-top:16px">Entry: {E(d["entry"])}. Recommended setup below.</p><div class="actions" style="margin-top:24px">{btn("secondary", "/admissions", "Admissions details")}</div></div><ul class="panel list-rule" style="padding:8px 28px">{hw}</ul></div></section>'''
+    body += f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Requirements</p><h2>Recommended laptop.</h2><p class="lead" style="margin-top:16px">Entry: {E(d["entry"])}. The setup below is recommended, not required to join; ask us if your current computer is enough to start.</p><div class="actions" style="margin-top:24px">{btn("secondary", "/admissions", "Admissions details")}</div></div><ul class="panel list-rule" style="padding:8px 28px">{hw}</ul></div></section>'''
     fq = [(E(f["q"]), "<p>" + E(conf(f["a"])) + "</p>") for f in d["faqs"]]
     body += f'<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Questions</p><h2>About this program.</h2></div><div>{faq_items(fq)}</div></div></section>'
     gl = "".join(f'<a class="gd-card" href="/guides/{g}"><strong>{E(GUIDE_BY[g]["title"])}</strong><span>{E(GUIDE_BY[g]["desc"])}</span></a>' for g in PROG_GUIDES[slug])
     body += f'<section class="sec"><div class="wrap">{sec_head("Guides", "Read before you decide.", "Plain answers for students and parents.")}<div class="gd-cards gd-cards--3">{gl}</div></div></section>' + cta_panel()
-    ld = {"@type": "Course", "@id": f"{SITE}/programs/{slug}#course", "name": plain, "description": d["summary"], "url": f"{SITE}/programs/{slug}", "provider": {"@id": ORG_ID}, "inLanguage": "en-IN", "educationalLevel": "Beginner" if d["level"] == "foundation" else "Beginner to advanced", "coursePrerequisites": "Passed Class 10", "timeRequired": f"PT{p[3]}H", "hasCourseInstance": {"@type": "CourseInstance", "courseWorkload": f"PT{p[3]}H", "inLanguage": "en-IN"}, "teaches": [m for y in yrs for m in y["modules"]][:12]}
+    ld = {"@type": "Course", "@id": f"{SITE}/programs/{slug}#course", "name": plain, "description": d["summary"], "url": f"{SITE}/programs/{slug}", "provider": {"@id": ORG_ID}, "inLanguage": "en-IN", "educationalLevel": "Beginner" if d["level"] == "foundation" else "Beginner to advanced", "coursePrerequisites": "Passed Class 10", "timeRequired": f"PT{p[3]}H", "educationalCredentialAwarded": "Certificate of completion from NeuroNetworks AI Ed", "hasCourseInstance": {"@type": "CourseInstance", "courseWorkload": f"PT{p[3]}H", "inLanguage": "en-IN"}, "teaches": [m for y in yrs for m in y["modules"]][:12]}
     return layout(f"/programs/{slug}", PROG_SEO[slug][0], body, "programs", desc=PROG_SEO[slug][1], jsonld=ld)
 
 def curriculum_page():
@@ -587,7 +610,7 @@ def main():
     for r, fn in PROJECT_PAGES.items(): write(r, fn())
     for r, fn in GUIDE_PAGES.items(): write(r, fn())
     write("/about", about_page())
-    write("/faculty-and-team", team_page()); write("/admissions", admissions_page()); write("/faqs", faq_page()); write("/contact", contact_page())
+    write("/admissions", admissions_page()); write("/faqs", faq_page()); write("/contact", contact_page())
     open(OUT + "/robots.txt", "w").write("User-agent: *\nAllow: /\n\n# AI search and answer engines\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\n# AI training crawlers: allowed by the owner (decision 14 Oct 2026)\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: anthropic-ai\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: Applebot-Extended\nAllow: /\n\nUser-agent: CCBot\nAllow: /\n\nUser-agent: Meta-ExternalAgent\nAllow: /\n\nUser-agent: cohere-ai\nAllow: /\n\nUser-agent: Amazonbot\nAllow: /\n\nUser-agent: DuckAssistBot\nAllow: /\n\nUser-agent: Bytespider\nAllow: /\n\nSitemap: https://neuronetwrks.com/sitemap.xml\n")
     import datetime as _dt
     today = _dt.date.today().isoformat()
@@ -606,11 +629,13 @@ def main():
         for y in d["years"]: full.append(f"- {y['title']} ({y['hours']} hours): " + "; ".join(y["modules"]))
         full += ["", "Projects: " + "; ".join(d["projects"]), "", "Tools: " + ", ".join(d["tools"]), "", "Certification preparation (awarded by the certifying organisations; passing not guaranteed): " + "; ".join(d["certifications"])]
         if d["careerRoles"]: full += ["", "Roles the curriculum is designed around (directions, not guarantees): " + "; ".join(d["careerRoles"])]
+        if p[0] in SALARY: full += ["", "Indicative India salary (not guaranteed): " + "; ".join(f"{b} {v}" for b, v in zip(SAL_BANDS, SALARY[p[0]][0])) + ". " + SAL_NOTE]
+        full += ["", "Completion: students receive a NeuroNetworks AI Ed certificate on completing the program. Laptop specifications are recommendations."]
         full += ["", "FAQs:"] + [f"- Q: {f['q']} A: {conf(f['a'])}" for f in d["faqs"] if "{{CONFIRM" not in f["a"]] + [""]
-    full += ["## Notes", "- No program guarantees a job, internship, salary or exam pass.", "- Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed."]
+    full += ["## Notes", "- No program guarantees a job, internship, salary or exam pass. Salary figures are indicative market ranges only.", "- Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed."]
     open(OUT + "/llms-full.txt", "w").write("\n".join(full) + "\n")
     open(OUT + f"/{INDEXNOW_KEY}.txt", "w").write(INDEXNOW_KEY)
-    open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "headers": [
+    open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "redirects": [{"source": "/faculty-and-team", "destination": "/about", "permanent": True}], "headers": [
         {"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]},
         {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, must-revalidate"}]}, {"source": "/((?!assets/).*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=0, must-revalidate"}]}]}, indent=1))
     open(OUT + "/404.html", "w").write('<!doctype html><html lang="en-IN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | NeuroNetworks AI Ed</title><meta name="robots" content="noindex"><body style="font-family:system-ui;padding:80px 24px;background:#F6F9FD;color:#0B1B33"><h1>Page not found</h1><p><a href="/" style="color:#006DEE">Go to the home page</a></p></body></html>')
