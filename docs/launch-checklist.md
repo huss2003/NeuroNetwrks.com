@@ -67,6 +67,7 @@ Claude then sets `GA_ID` in `tools/preview-gen/build.py`, rebuilds and deploys. 
 7. Send Claude the profile link. Claude adds the address, phone and profile link to the site's structured data.
 
 ## Still to do before promoting the site
+- [ ] Fill in `docs/NeuroNetworks-website-missing-information.docx` (every placeholder on the site, plus 10 decisions) and send it back to Claude.
 - [ ] Claim the social profiles (`docs/marketing/social-setup.md`) and send Claude the links, so they can be added to the site's `SAME_AS` list in build.py.
 - [ ] In Search Console, request indexing for /guides and the 10 guide pages.
 - [ ] Create the free directory listings (`docs/marketing/listings.md`).
