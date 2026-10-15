@@ -1411,8 +1411,6 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
 .split>*{min-width:0}
 .gd-table--sal table{min-width:0}
 .hero-art--3d{background:linear-gradient(150deg,#E6F0FF 0,#F3F8FF 100%);border-color:#BFD6FB;padding:var(--s4)}.hero-art--3d img{width:100%;height:auto}
-.pt-ico.ic-aiml img{inset:-14%;width:128%;height:128%}
-.pt-ico.ic-sw img{inset:-4% -6% -4% -2%;width:108%;height:108%}
 
 /* "Ready to ask?" panel: spiral staircase artwork */
 .cta2{position:relative;overflow:hidden;border-radius:24px;background:#03184a image-set(url(/assets/cta-bg-1200.webp) 1x,url(/assets/cta-bg.webp) 2x) right center/cover no-repeat;aspect-ratio:2000/1116;max-height:640px;width:100%;display:flex;align-items:center;padding:0 clamp(28px,5.6%,80px);isolation:isolate;box-shadow:0 30px 70px -40px rgba(3,24,74,.75)}
