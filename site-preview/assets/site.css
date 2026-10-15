@@ -1411,3 +1411,4 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
 .split>*{min-width:0}
 .gd-table--sal table{min-width:0}
 .hero-art--3d{background:linear-gradient(150deg,#E6F0FF 0,#F3F8FF 100%);border-color:#BFD6FB;padding:var(--s4)}.hero-art--3d img{width:100%;height:auto}
+.pt-ico.ic-aiml img{inset:-14%;width:128%;height:128%}
