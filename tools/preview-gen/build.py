@@ -213,7 +213,8 @@ print(result)</pre></div>
 <div class="score"><div><span>Correctness</span><span class="bar-track"><i style="width:100%"></i></span></div><div><span>Code quality</span><span class="bar-track"><i style="width:80%"></i></span></div><div><span>Best practices</span><span class="bar-track"><i style="width:65%"></i></span></div></div></div></div></div>'''
 
 
-IMG = {"found": "aif"}  # AI Foundation uses the "AI on a platform" model
+IMG = {"found": "aif2"}
+NO_DOT = {"found"}  # AI Foundation model has no floating spheres (owner request)  # AI Foundation uses the "AI on a platform" model
 ICON = {"ai-foundation": "found", "ai-ml-engineering": "aiml", "software-development": "sw", "data-science-ai": "ds", "product-ux-ai-design": "ux", "cybersecurity": "cy"}
 
 def program_tile(p, i, cat=None, hl="h3"):
@@ -222,7 +223,7 @@ def program_tile(p, i, cat=None, hl="h3"):
     cat_attr = f' data-cat="{cat}"' if cat else ""
     return f"""<a class="pcard pt{' pt--lead' if lead else ''}"{cat_attr} href="/programs/{p[0]}" style="--ti:{i}">
 <div class="pt-body"><span class="pt-tag">{tag}</span><{hl}>{name_of(p)}</{hl}><p>{E(d["summary"])}</p></div>
-<div class="pt-ico ic-{ic}" aria-hidden="true"><img class="pt-obj" src="/assets/i-{IMG.get(ic, ic)}.webp" alt="" width="360" height="360" loading="lazy"><img class="pt-dot" src="/assets/i-{IMG.get(ic, ic)}-dot.webp" alt="" width="360" height="360" loading="lazy"></div>
+<div class="pt-ico ic-{ic}" aria-hidden="true"><img class="pt-obj" src="/assets/i-{IMG.get(ic, ic)}.webp" alt="" width="360" height="360" loading="lazy">{"" if ic in NO_DOT else f'<img class="pt-dot" src="/assets/i-{ic}-dot.webp" alt="" width="360" height="360" loading="lazy">'}</div>
 <dl class="pt-stats"><div><dd class="n">{p[3]}</dd><dt>Hours</dt></div><div><dd>{LV[d["level"]]}</dd><dt>Level</dt></div><div><dd>{p[4]}</dd><dt>Duration</dt></div></dl>
 <span class="pt-go" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>"""
 
@@ -235,7 +236,7 @@ def prog_banner(hl="h3"):
     return f"""<div class="pp-banner"><div class="pp-b-body"><span class="pt-tag">Start here · 1 year</span><{hl}>AI Foundation</{hl}><p>{E(d["summary"])}</p>
 <div class="pp-b-row"><dl class="pp-b-stats"><div><dd data-count-to="104">104</dd><dt>Hours</dt></div><div><dd>Beginner</dd><dt>Level</dt></div><div><dd>1 year</dd><dt>Duration</dt></div></dl>
 <a class="pp-b-btn" href="/programs/ai-foundation">View program <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-<div class="pp-b-art" aria-hidden="true"><svg class="pp-b-grid" viewBox="0 0 600 400" preserveAspectRatio="none"><path d="M0 330 L600 210 M0 250 L600 130 M120 0 L60 400 M300 0 L250 400 M480 0 L440 400" stroke="#fff" stroke-opacity=".14" fill="none"/></svg><img class="pp-b-obj" src="/assets/i-banner-aif.webp" alt="" width="609" height="419"><img class="pp-b-dot" src="/assets/i-banner-aif-dot.webp" alt="" width="609" height="419"></div></div>"""
+<div class="pp-b-art" aria-hidden="true"><svg class="pp-b-grid" viewBox="0 0 600 400" preserveAspectRatio="none"><path d="M0 330 L600 210 M0 250 L600 130 M120 0 L60 400 M300 0 L250 400 M480 0 L440 400" stroke="#fff" stroke-opacity=".14" fill="none"/></svg><img class="pp-b-obj" src="/assets/i-banner-aif3.webp" alt="" width="609" height="419"></div></div>"""
 
 def prog_swoosh():
     return '<svg class="pp-swoosh" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true"><path d="M1440 120 C1180 220 1100 420 1440 560" fill="none" stroke="#D9E8FF" stroke-width="90" stroke-opacity=".45"/><path d="M-40 760 C320 640 620 860 980 720" fill="none" stroke="#E6F0FF" stroke-width="70" stroke-opacity=".6"/></svg>'
@@ -337,7 +338,7 @@ def program_detail(slug):
     nm = name_of(p); plain = p[2]
     l1, l2 = {"ai-foundation": ("AI", "Foundation."), "ai-ml-engineering": ("AI/ML", "Engineering."), "software-development": ("Software", "Development."),
               "data-science-ai": ("Data Science", "&amp; AI."), "product-ux-ai-design": ("Product &amp; UX", "/ AI Design."), "cybersecurity": ("Cyber", "security.")}[slug]
-    art = (f'<figure class="art-frame hero-art hero-art--3d"><img src="/assets/p-found-hero.webp" alt="3D illustration: the letters AI standing on a layered platform, linked to glowing nodes" width="900" height="900" fetchpriority="high"></figure>'
+    art = (f'<figure class="art-frame hero-art hero-art--3d"><img src="/assets/p-found-hero2.webp" alt="3D illustration: the letters AI standing on a layered platform" width="900" height="900" fetchpriority="high"></figure>'
            if slug == "ai-foundation" else f'<figure class="art-frame hero-art">{ART[slug]()}<figcaption>Illustration</figcaption></figure>')
     body = page_hero(f'<a href="/programs">Programs</a> / {nm}', l1, l2, E(d["summary"]), btn("primary", "/contact", "Talk to us") + btn("secondary", "/curriculum#" + k + "-y1", "See the curriculum", False), art)
     facts = [("Duration", p[4], 0), ("Total hours", p[3], 0), ("Per week", f'{d["hoursPerWeek"]} hours', 0), ("Entry", "Class 10 pass", 0), ("Certificate", "On completion", 0), ("Fees", FEE_LINK, 0), ("Next intake", FEE, 1)]
