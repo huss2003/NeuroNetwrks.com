@@ -97,6 +97,18 @@
     addEventListener('resize', run); run();
   })();
 
+  /* ---- AI/ML card: live 3D model, loaded only near the viewport on capable desktops; the poster stays otherwise ---- */
+  (function () {
+    var box = $('.pt-3d[data-glb]'); if (!box || rm || !('IntersectionObserver' in window)) return;
+    var c = navigator.connection, weak = (c && c.saveData) || (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+    if (weak || innerWidth < 760) return;
+    try { var t = document.createElement('canvas'); if (!(t.getContext('webgl2') || t.getContext('webgl'))) return; } catch (e) { return; }
+    var io = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return; io.disconnect();
+      import('/assets/aiml3d.js?v=' + (document.documentElement.dataset.v || '1')).then(function (m) { return m.mount(box); }).catch(function () { /* poster remains */ });
+    }, { rootMargin: '300px 0px' });
+    io.observe(box);
+  })();
   /* ---- Laptop: lid opens with scroll (prerendered frames) ---- */
   (function () {
     var box = $('.le-laptop[data-frames]'); if (!box || rm) return;

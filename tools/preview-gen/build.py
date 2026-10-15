@@ -93,7 +93,7 @@ DESC = {
 }
 
 import hashlib as _h
-ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.css"), "rb").read() + open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.js"), "rb").read())).hexdigest()[:10]
+ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.css"), "rb").read() + open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.js"), "rb").read() + b"".join(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f), "rb").read() for f in ("aiml3d.js", "ai-ml-training-pipeline.glb")))).hexdigest()[:10]
 
 SITE = "https://neuronetwrks.com"
 # Google Analytics 4 Measurement ID (G-XXXXXXXXXX). Empty = analytics and the consent banner are off.
@@ -149,7 +149,7 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
     canon = SITE + ("/" if route == "/" else route)
     ld = '<script type="application/ld+json">' + json.dumps(page_graph(route, t, d, body, jsonld), ensure_ascii=False).replace("</", "<\\/") + "</script>"
     og = SITE + "/assets/og.png"
-    return f'''<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    return f'''<!doctype html><html lang="en-IN" data-v="{ASSET_V}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{E(t)}</title><meta name="description" content="{E(d)}"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="theme-color" content="#006DEE">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="canonical" href="{canon}">
 <meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:url" content="{canon}"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">
@@ -217,13 +217,21 @@ IMG = {"found": "aif3", "aiml": "aiml3", "sw": "sw3", "ds": "ds2", "ux": "ux2", 
 NO_DOT = {"found", "aiml", "sw", "ds", "ux", "cy"}  # AI Foundation model has no floating spheres (owner request)  # AI Foundation uses the "AI on a platform" model
 ICON = {"ai-foundation": "found", "ai-ml-engineering": "aiml", "software-development": "sw", "data-science-ai": "ds", "product-ux-ai-design": "ux", "cybersecurity": "cy"}
 
+def pt_art(ic):
+    if ic == "aiml":  # live Blender/WebGL model (assets/aiml3d.js); the poster is the same render, shown until WebGL is ready
+        return (f'<div class="pt-ico pt-ico--3d pt-3d" data-glb="/assets/ai-ml-training-pipeline.glb?v={ASSET_V}" aria-hidden="true">'
+                '<picture><source media="(max-width:760px)" srcset="/assets/i-aiml-pipeline-m.webp">'
+                '<img class="pt-poster" src="/assets/i-aiml-pipeline.webp" alt="" width="1200" height="675" loading="lazy"></picture></div>')
+    return (f'<div class="pt-ico ic-{ic}" aria-hidden="true"><img class="pt-obj" src="/assets/i-{IMG.get(ic, ic)}.webp" alt="" width="360" height="360" loading="lazy">'
+            + ("" if ic in NO_DOT else f'<img class="pt-dot" src="/assets/i-{ic}-dot.webp" alt="" width="360" height="360" loading="lazy">') + '</div>')
+
 def program_tile(p, i, cat=None, hl="h3"):
     d = D[p[0]]; lead = i == 0; ic = ICON[p[0]]
     tag = f"Start here · {p[4]}" if lead else f"Specialisation · {p[4]}"
     cat_attr = f' data-cat="{cat}"' if cat else ""
     return f"""<a class="pcard pt{' pt--lead' if lead else ''}"{cat_attr} href="/programs/{p[0]}" style="--ti:{i}">
 <div class="pt-body"><span class="pt-tag">{tag}</span><{hl}>{name_of(p)}</{hl}><p>{E(d["summary"])}</p></div>
-<div class="pt-ico ic-{ic}" aria-hidden="true"><img class="pt-obj" src="/assets/i-{IMG.get(ic, ic)}.webp" alt="" width="360" height="360" loading="lazy">{"" if ic in NO_DOT else f'<img class="pt-dot" src="/assets/i-{ic}-dot.webp" alt="" width="360" height="360" loading="lazy">'}</div>
+{pt_art(ic)}
 <dl class="pt-stats"><div><dd class="n">{p[3]}</dd><dt>Hours</dt></div><div><dd>{LV[d["level"]]}</dd><dt>Level</dt></div><div><dd>{p[4]}</dd><dt>Duration</dt></div></dl>
 <span class="pt-go" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>"""
 

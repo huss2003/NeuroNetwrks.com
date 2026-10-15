@@ -1446,3 +1446,33 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
   .cta2-sparks{bottom:auto;height:min(96vw,620px)}
 }
 .mh{color:var(--blue-900);font-size:.85em;white-space:nowrap}
+/* ---- wide program cards (owner request, Oct 2026): text left, model right ---- */
+.pp-grid{grid-template-columns:1fr!important;gap:clamp(16px,1.6vw,24px)}
+.pcard.pt{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);grid-template-rows:1fr auto;grid-template-areas:"body art" "stats art";gap:18px clamp(20px,3vw,48px);padding:clamp(26px,3.2vw,52px) clamp(24px,3.4vw,56px);min-height:clamp(300px,30vw,400px);border-radius:20px;background:linear-gradient(160deg,#FFFFFF 0,#F3F8FF 100%)}
+.pcard.pt .pt-body{grid-area:body;align-self:center;gap:clamp(10px,1.2vw,18px)}
+.pcard.pt .pt-tag{font-size:clamp(.66rem,.6rem + .2vw,.8rem);padding:7px 12px}
+.pcard.pt .pt-body h2,.pcard.pt .pt-body h3{font-size:clamp(1.55rem,1.05rem + 1.7vw,2.7rem);line-height:1.08;max-width:18ch;margin-top:2px}
+.pcard.pt .pt-body p{font-size:clamp(.95rem,.88rem + .3vw,1.15rem);line-height:1.6;max-width:40ch}
+.pcard.pt .pt-stats{grid-area:stats;grid-column:auto;padding-right:0}
+.pcard.pt .pt-stats div{padding:0 clamp(14px,2vw,30px)}
+.pcard.pt .pt-stats div:first-child{padding-left:0}
+.pcard.pt .pt-stats dd{font-size:clamp(.95rem,.85rem + .4vw,1.25rem)}
+.pcard.pt .pt-stats dd.n{font-size:clamp(1.5rem,1.1rem + 1.2vw,2.3rem)}
+.pcard.pt .pt-stats dt{font-size:.66rem;margin-top:6px}
+.pcard.pt .pt-ico{grid-area:art;align-self:center;justify-self:stretch;width:100%;aspect-ratio:16/9;transform:perspective(1100px) rotateY(calc(var(--mx,0)*8deg)) rotateX(calc(var(--my,0)*-6deg))}
+.pcard.pt .pt-ico img{object-fit:contain}
+.pcard.pt .pt-go{width:52px;height:52px;right:clamp(20px,2.4vw,36px);bottom:clamp(20px,2.4vw,36px)}
+.pcard.pt .pt-ico--3d{transform:none!important;margin:-3% -3% -1% -6%;width:auto}
+.pt-3d picture,.pt-3d .pt-poster{position:absolute;inset:0;width:100%;height:100%}
+.pt-3d .pt-poster{object-fit:contain;transition:opacity .6s var(--ease)}
+.pt-3d .pt-3d-cv{position:absolute;inset:0;width:100%!important;height:100%!important;opacity:0;transition:opacity .6s var(--ease)}
+.pt-3d.is-live .pt-3d-cv{opacity:1}.pt-3d.is-live .pt-poster{opacity:0}
+.pt.live .pt-ico--3d .pt-poster{animation:none}
+@media (max-width:760px){
+  .pcard.pt{grid-template-columns:1fr;grid-template-areas:"art" "body" "stats";min-height:0;padding:20px 20px 22px}
+  .pcard.pt .pt-ico{max-height:230px;justify-self:center}
+  .pcard.pt .pt-ico--3d{margin:-4px 0 0;width:100%;justify-self:stretch;max-height:none}
+  .pcard.pt .pt-go{width:44px;height:44px;right:18px;bottom:18px}
+  .pcard.pt .pt-stats{padding-right:52px}
+  .pcard.pt .pt-stats div{padding:0 10px}
+}

@@ -36,6 +36,10 @@ When the owner asks "what's pending?", answer from this file.
   - Faculty and Team page hidden (redirects to About);
   - no offer for professionals.
 
+- [x] Wide program cards and a live 3D AI/ML model (15 Oct 2026):
+  - all six cards are wide (text left, model right);
+  - the AI/ML card shows a Blender-built model (`docs/3d/ai-ml-training-pipeline/`) live in WebGL on capable desktops, with a still image elsewhere.
+
 ## Waiting on the owner
 
 ### 1. Google Analytics: finish settings (ID received and live)
