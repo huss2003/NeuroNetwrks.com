@@ -178,10 +178,10 @@ def btn(kind, href, label, arrow=True):
     return f'<a class="btn btn-{kind}" href="{href}">{label}{" <i aria-hidden=\"true\">→</i>" if arrow else ""}</a>'
 
 def cta_panel(h="Ready to ask?", p="Tell us which program interests you. Ask us about fees and intake dates."):
-    return f'''<section class="sec"><div class="wrap"><div class="cta-panel"><img class="wm" src="/assets/mark-light.svg" alt="" aria-hidden="true">
-<div style="position:relative"><p class="mono eyebrow" style="color:#fff">Your next step</p><h2>{h}</h2><p class="lead" style="color:#fff;margin-top:16px">{p}</p>
-<div class="actions" style="margin-top:28px">{btn("onblue", "/admissions", "Apply")}<a class="btn btn-ghost" href="/contact">Talk to us</a></div></div>
-<div class="art"><img src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy"></div></div></div></section>'''
+    sparks = "".join(f'<i style="left:{x}%;top:{y}%;--d:{d}s;--s:{sz}px"></i>' for x, y, d, sz in [(58, 22, 0, 4), (66, 70, 1.2, 5), (93, 30, 2.1, 4), (88, 78, .6, 6), (73, 12, 1.7, 3), (97, 58, 2.6, 4), (61, 48, 3.1, 3)])
+    return f'''<section class="sec"><div class="wrap"><div class="cta2"><div class="cta2-glow" aria-hidden="true"></div><div class="cta2-sparks" aria-hidden="true">{sparks}</div>
+<div class="cta2-body"><p class="cta2-eb">Your next step</p><h2>{h}</h2><p class="cta2-lead">{p}</p>
+<div class="cta2-actions"><a class="cta2-apply" href="/admissions">Apply <i aria-hidden="true">→</i></a><a class="cta2-talk" href="/contact">Talk to us</a></div></div></div></div></section>'''
 
 def faq_items(items, first_open=True, cat=False):
     out = ""
