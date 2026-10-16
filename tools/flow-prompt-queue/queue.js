@@ -26,6 +26,7 @@ export const DEFAULT_SETTINGS = {
   timeoutSec: 180,
   retries: 2,
   autoDownload: false,
+  manualSubmitWaitSec: 900,
   prefix: '',
   suffix: '',
 };

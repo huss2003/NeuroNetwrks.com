@@ -22,6 +22,7 @@
         <button id="btnStop" class="danger">Stop</button>
       </div>
       <div id="stopNotice" class="notice" hidden></div>
+      <div id="userNotice" class="notice amber" hidden></div>
     </section>
 
     <details open>
@@ -62,6 +63,15 @@
         <label>Max delay (s) <input id="maxDelaySec" type="number" min="0" step="1" /></label>
         <label>Timeout (s) <input id="timeoutSec" type="number" min="10" step="10" /></label>
         <label>Retries <input id="retries" type="number" min="0" max="10" step="1" /></label>
+        <label
+          >Wait for my click (s)
+          <input
+            id="manualSubmitWaitSec"
+            type="number"
+            min="0"
+            step="30"
+            title="Flow only accepts a real click on the arrow. How long to wait for you to press it. 0 = fail instead."
+        /></label>
       </div>
       <label class="check"
         ><input id="autoDownload" type="checkbox" /> Auto-download new images</label

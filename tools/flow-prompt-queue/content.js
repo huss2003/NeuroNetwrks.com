@@ -561,7 +561,7 @@
   }
 
   // ---------- one prompt, end to end ----------
-  async function runPrompt({ id, index, text, timeoutMs, autoDownload, test }) {
+  async function runPrompt({ id, index, text, timeoutMs, autoDownload, manualSubmitWaitMs, test }) {
     running = true;
     aborted = false;
     const heartbeat = setInterval(() => send({ type: 'HEARTBEAT' }), 20_000);
@@ -634,11 +634,33 @@
         }
         if (await waitAccepted(3000)) submittedWith = 'Enter key';
       }
+      if (!submittedWith && manualSubmitWaitMs > 0) {
+        // Flow only accepts a real (trusted) click on "Start generation". We do not work around that:
+        // the prompt is filled in, now the person presses the arrow, and we carry on from there.
+        await log(
+          'warn',
+          `YOUR TURN: Flow only accepts a real click. Press the arrow button in Flow for prompt ${index + 1}. Waiting up to ${Math.round(manualSubmitWaitMs / 60000)} min.`,
+          index,
+        );
+        await send({ type: 'NEED_USER', on: true, index });
+        try {
+          for (let t = 0; t < manualSubmitWaitMs && !aborted; t += 500) {
+            if (accepted()) {
+              submittedWith = 'your click';
+              break;
+            }
+            await sleep(500);
+          }
+        } finally {
+          await send({ type: 'NEED_USER', on: false });
+        }
+        if (aborted) throw { kind: 'aborted', error: 'Aborted' };
+      }
       if (!submittedWith)
         throw {
           kind: 'error',
           error:
-            'Could not trigger generation: Flow ignored the button click and the Enter key. Run Selector Debug and send me the generateButton line.',
+            'Could not trigger generation: Flow ignored the scripted click and nobody pressed the arrow in time.',
         };
       await log(
         'info',

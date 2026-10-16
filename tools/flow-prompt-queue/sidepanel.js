@@ -56,6 +56,13 @@ function render() {
       'Stopped: Flow reported a quota, rate limit or credit message. Progress is saved. Check your Flow account, then press Start to continue from the first unfinished prompt.';
   } else notice.hidden = true;
 
+  const userNotice = $('userNotice');
+  if (run.needsUser && (running || paused)) {
+    userNotice.hidden = false;
+    userNotice.textContent =
+      'Your turn: the prompt is filled in. Press the arrow (Start generation) button in Flow. The queue continues on its own after that.';
+  } else userNotice.hidden = true;
+
   // queue
   $('queueCount').textContent = total;
   const list = $('queue');
@@ -78,7 +85,15 @@ function render() {
   );
 
   // settings (do not overwrite a field the user is typing in)
-  for (const key of ['minDelaySec', 'maxDelaySec', 'timeoutSec', 'retries', 'prefix', 'suffix']) {
+  for (const key of [
+    'minDelaySec',
+    'maxDelaySec',
+    'timeoutSec',
+    'retries',
+    'manualSubmitWaitSec',
+    'prefix',
+    'suffix',
+  ]) {
     const el = $(key);
     if (document.activeElement !== el) el.value = settings[key] ?? '';
   }
@@ -225,7 +240,7 @@ $('btnClearQueue').onclick = (e) => {
 };
 $('btnClearLog').onclick = () => cmd('CLEAR_LOG');
 
-for (const key of ['minDelaySec', 'maxDelaySec', 'timeoutSec', 'retries']) {
+for (const key of ['minDelaySec', 'maxDelaySec', 'timeoutSec', 'retries', 'manualSubmitWaitSec']) {
   $(key).onchange = (e) =>
     cmd('SETTINGS', { patch: { [key]: Math.max(0, Number(e.target.value) || 0) } });
 }

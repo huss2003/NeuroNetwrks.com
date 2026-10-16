@@ -114,6 +114,7 @@ async function runPrompt(item, settings, index) {
     text: item.text,
     timeoutMs: (Number(settings.timeoutSec) || 180) * 1000,
     autoDownload: !!settings.autoDownload,
+    manualSubmitWaitMs: (Number(settings.manualSubmitWaitSec) || 0) * 1000,
   });
   if (!ack?.ok) throw new Error(ack?.error || 'Content script refused the prompt');
 }
@@ -185,6 +186,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   ready.then(async () => {
     switch (msg?.type) {
       case 'PROMPT_RESULT':
+        engine.state.run.needsUser = false;
         if (msg.test) {
           const r = msg.result;
           engine.log(
@@ -196,6 +198,13 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
           );
           engine.commit();
         } else engine.promptResult(msg.id, msg.result);
+        sendResponse({ ok: true });
+        break;
+      case 'NEED_USER':
+        chrome.action.setBadgeText({ text: 'YOU' });
+        chrome.action.setBadgeBackgroundColor({ color: '#A15C00' });
+        engine.state.run.needsUser = !!msg.on;
+        engine.commit();
         sendResponse({ ok: true });
         break;
       case 'HEARTBEAT':
@@ -312,6 +321,7 @@ async function handlePanelCommand(msg, port) {
         text: finalPrompt(first.text, s.settings),
         timeoutMs: (Number(s.settings.timeoutSec) || 180) * 1000,
         autoDownload: !!s.settings.autoDownload,
+        manualSubmitWaitMs: (Number(s.settings.manualSubmitWaitSec) || 0) * 1000,
         test: true,
       });
       engine.log(

@@ -176,6 +176,10 @@ label.file input {
   background: var(--blue);
   transition: width 0.3s;
 }
+.notice.amber {
+  background: #fff1d6;
+  color: var(--amber);
+}
 .notice {
   margin-top: 8px;
   padding: 8px;

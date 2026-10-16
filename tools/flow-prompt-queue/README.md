@@ -36,6 +36,19 @@ extension's card in `chrome://extensions` and reload the Flow tab.
    optional prefix/suffix applied to every prompt (for example a style suffix).
 5. Press **Start**. Watch the progress bar and the log.
 
+### Flow only accepts a real click
+
+Google Flow checks that the click on its "Start generation" arrow comes from
+a real person (the browser's `isTrusted` flag). Scripted clicks and a
+scripted Enter key are ignored. This extension does not work around that.
+Instead, when the scripted click is ignored, the panel shows an amber "Your
+turn" notice, the extension icon shows a `YOU` badge, and the log says
+"YOUR TURN". Press the arrow in Flow yourself. The extension notices the
+submission, waits for the image, downloads it if enabled, pauses, fills in
+the next prompt and asks again. The "Wait for my click (s)" setting is how
+long it waits for you (default 15 minutes); set it to 0 to mark the prompt
+failed instead.
+
 Buttons:
 
 | Button | What it does |
