@@ -1,7 +1,7 @@
 # Flow Prompt Queue
 
 A small Chrome extension (Manifest V3) that submits a list of prompts to
-[Google Flow](https://labs.google/fx/tools/flow) one at a time. You paste the
+[Google Flow](https://flow.google.com) one at a time. You paste the
 prompts, press Start, and it fills Flow's prompt box, clicks Create, waits for
 the result, optionally downloads it, pauses for a random few seconds, and
 moves on. It stops on its own if Flow shows a quota, rate-limit or credits
@@ -21,7 +21,8 @@ extension's card in `chrome://extensions` and reload the Flow tab.
 
 ## Use
 
-1. Open a Flow **project** page (the URL contains `/flow/project/`) and sign in
+1. Open a Flow **project** page (the URL looks like `flow.google.com/project/...`;
+   the older `labs.google/fx/tools/flow` address also works) and sign in
    as usual. Choose the image mode and any settings in Flow yourself; the
    extension only types the prompt and presses Create.
 2. Click the extension icon to open the side panel.
@@ -127,7 +128,7 @@ queue editing, prompt parsing, CSV import and file-name slugs.
 
 ## Limits and notes
 
-- Only the Flow domain is in `host_permissions`; nothing else is contacted.
+- Only the Flow domains (`flow.google.com`, `labs.google`) are in `host_permissions`; nothing else is contacted.
 - The content script needs a Flow **project** page. The Flow home page has no prompt box.
 - Keep the Flow tab open. It can be in the background, but if Chrome discards it the run fails and is retried.
 - If the panel says the prompt text could not be set, type one prompt by hand once so Flow's editor is initialised, then press Start again.

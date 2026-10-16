@@ -16,7 +16,7 @@ import {
 const STORAGE_KEY = 'fpq_state';
 const ALARM_NEXT = 'fpq-next';
 const ALARM_WATCHDOG = 'fpq-watchdog';
-const FLOW_URL_PATTERN = 'https://labs.google/fx/*';
+const FLOW_URL_PATTERNS = ['https://flow.google.com/*', 'https://labs.google/fx/*'];
 
 let engine = null;
 let ready = null; // Promise resolved once state is loaded
@@ -83,9 +83,11 @@ function manageWatchdog(state) {
 
 // ---------- Flow tab + content script ----------
 async function findFlowTab(preferredId) {
-  const tabs = await chrome.tabs.query({ url: FLOW_URL_PATTERN });
+  const tabs = await chrome.tabs.query({ url: FLOW_URL_PATTERNS });
   if (!tabs.length)
-    throw new Error('No Google Flow tab is open (https://labs.google/fx/tools/flow).');
+    throw new Error(
+      'No Google Flow tab is open. Open a project at https://flow.google.com and, if you just updated the extension, reload that tab.',
+    );
   return tabs.find((t) => t.id === preferredId) || tabs.find((t) => t.active) || tabs[0];
 }
 

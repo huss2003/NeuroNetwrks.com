@@ -532,7 +532,7 @@
         throw {
           kind: 'error',
           error:
-            'Prompt box not found. Open a Flow project (…/flow/project/…) and run Selector Debug.',
+            'Prompt box not found. Open a Flow project (flow.google.com/project/…) and run Selector Debug.',
         };
       const how = await fillPrompt(editor, text);
       await log('info', `Prompt text set (${how}).`, index);
@@ -612,7 +612,7 @@
       })),
     };
     report.chosen.messages = messagesText().slice(0, 300);
-    report.chosen.isProjectPage = /\/flow\/project\//.test(location.pathname);
+    report.chosen.isProjectPage = /\/project\//.test(location.pathname);
     return report;
   }
 
