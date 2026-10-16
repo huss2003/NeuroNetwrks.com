@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Flow Prompt Queue",
+  "version": "0.1.0",
+  "description": "Submit a list of prompts to Google Flow one at a time, wait for each result, optionally download it, and stop on quota or rate-limit messages.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "sidePanel", "downloads", "activeTab", "scripting", "alarms"],
+  "host_permissions": ["https://labs.google/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_title": "Flow Prompt Queue" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "content_scripts": [
+    {
+      "matches": ["https://labs.google/fx/*"],
+      "js": ["selectors.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

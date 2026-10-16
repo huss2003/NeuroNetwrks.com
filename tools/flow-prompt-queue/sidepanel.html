@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flow Prompt Queue</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Flow Prompt Queue</h1>
+      <span id="runStatus" class="pill">idle</span>
+    </header>
+
+    <section>
+      <div class="progress"><div id="progressBar"></div></div>
+      <div id="progressText" class="muted">0 / 0</div>
+      <div class="row">
+        <button id="btnStart" class="primary">Start</button>
+        <button id="btnPause">Pause</button>
+        <button id="btnResume">Resume</button>
+        <button id="btnStop" class="danger">Stop</button>
+      </div>
+      <div id="stopNotice" class="notice" hidden></div>
+    </section>
+
+    <details open>
+      <summary>Add prompts</summary>
+      <textarea
+        id="promptText"
+        rows="5"
+        placeholder="One prompt per line.&#10;For multi-line prompts, separate them with a line containing @@@NEXT@@@"
+      ></textarea>
+      <div class="row">
+        <button id="btnAdd" class="primary">Add to queue</button>
+        <label class="file"
+          >Import CSV <input id="csvFile" type="file" accept=".csv,text/csv"
+        /></label>
+      </div>
+      <div class="muted">
+        CSV: the first column is the prompt; a header cell named "prompt" is skipped.
+      </div>
+    </details>
+
+    <details open>
+      <summary>Queue (<span id="queueCount">0</span>)</summary>
+      <ol id="queue"></ol>
+      <div class="row small">
+        <button id="btnResetFailed">Retry failed</button>
+        <button id="btnResetAll">Reset all to pending</button>
+        <button id="btnClearDone">Remove done</button>
+        <button id="btnClearQueue" class="danger">Clear queue</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Settings</summary>
+      <div class="grid">
+        <label>Min delay (s) <input id="minDelaySec" type="number" min="0" step="1" /></label>
+        <label>Max delay (s) <input id="maxDelaySec" type="number" min="0" step="1" /></label>
+        <label>Timeout (s) <input id="timeoutSec" type="number" min="10" step="10" /></label>
+        <label>Retries <input id="retries" type="number" min="0" max="10" step="1" /></label>
+      </div>
+      <label class="check"
+        ><input id="autoDownload" type="checkbox" /> Auto-download new images</label
+      >
+      <label>Prompt prefix <input id="prefix" type="text" placeholder="e.g. Photo of" /></label>
+      <label
+        >Prompt suffix <input id="suffix" type="text" placeholder="e.g. , soft daylight, 35mm film"
+      /></label>
+      <div class="muted">
+        Final prompt = prefix + prompt + suffix. Downloads go to Downloads/flow/.
+      </div>
+    </details>
+
+    <details>
+      <summary>Tools</summary>
+      <div class="row">
+        <button id="btnDebug">Selector Debug</button>
+        <button id="btnTestOne">Test first prompt only</button>
+      </div>
+      <div class="muted">
+        Selector Debug reports which entries in selectors.js matched on the open Flow tab. "Test
+        first prompt only" runs the first pending prompt once without changing the queue.
+      </div>
+      <pre id="debugOut" hidden></pre>
+    </details>
+
+    <section class="log">
+      <div class="row between">
+        <strong>Log</strong>
+        <button id="btnClearLog" class="small">Clear</button>
+      </div>
+      <ol id="log"></ol>
+    </section>
+
+    <template id="queueItem">
+      <li>
+        <span class="status"></span>
+        <span class="idx"></span>
+        <span class="text"></span>
+        <span class="actions">
+          <button data-act="up" title="Move up">↑</button>
+          <button data-act="down" title="Move down">↓</button>
+          <button data-act="edit" title="Edit">Edit</button>
+          <button data-act="del" title="Delete">✕</button>
+        </span>
+        <span class="err"></span>
+      </li>
+    </template>
+
+    <script src="sidepanel.js" type="module"></script>
+  </body>
+</html>
