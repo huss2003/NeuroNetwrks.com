@@ -409,9 +409,20 @@ export class QueueEngine {
   }
 }
 
-/** Splits pasted text into prompts: one per line, or blocks separated by @@@NEXT@@@ for multi-line prompts. */
+/**
+ * Splits pasted text into prompts. Three formats, detected in this order:
+ * 1. A script document with "Image Prompt: ..." lines (one per image). Only
+ *    those lines are used; the script text, camera, lighting, mood and action
+ *    lines are ignored because the image prompt already contains them.
+ * 2. Blocks separated by a line containing @@@NEXT@@@ (multi-line prompts).
+ * 3. One prompt per line.
+ */
 export function parsePromptText(text) {
   const t = String(text || '').replace(/\r\n?/g, '\n');
+  const labelled = [...t.matchAll(/^\s*Image Prompt\s*:\s*(.+)$/gim)]
+    .map((m) => m[1].trim())
+    .filter(Boolean);
+  if (labelled.length) return labelled;
   if (t.includes('@@@NEXT@@@')) {
     return t
       .split('@@@NEXT@@@')

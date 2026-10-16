@@ -29,7 +29,7 @@
       <textarea
         id="promptText"
         rows="5"
-        placeholder="One prompt per line.&#10;For multi-line prompts, separate them with a line containing @@@NEXT@@@"
+        placeholder='One prompt per line.&#10;Or paste a whole script document: only the lines starting with "Image Prompt:" are used.&#10;For multi-line prompts, separate them with a line containing @@@NEXT@@@'
       ></textarea>
       <div class="row">
         <button id="btnAdd" class="primary">Add to queue</button>
@@ -38,7 +38,9 @@
         /></label>
       </div>
       <div class="muted">
-        CSV: the first column is the prompt; a header cell named "prompt" is skipped.
+        Script documents: paste everything; lines starting with "Image Prompt:" become the queue,
+        the rest is ignored. CSV: the first column is the prompt; a header cell named "prompt" is
+        skipped.
       </div>
     </details>
 

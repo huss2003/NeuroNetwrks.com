@@ -265,6 +265,29 @@ test('parsePromptText: one per line, or @@@NEXT@@@ blocks', () => {
   ]);
 });
 
+test('parsePromptText: a script document yields only the "Image Prompt:" lines', () => {
+  const doc = `IMAGE PROMPTS - "Why $100,000"
+358 images, one per 3-5 second script beat
+--------------------------------------------------
+Image 001 Prompt
+[Script Segment Text]: "You skip the fancy coffee."
+Image Prompt: Cartoon of a man refusing a coffee cup, flat 2D, 16:9
+Camera Angle: eye-level medium shot
+Lighting: flat even studio lighting
+Mood: smug
+Action: He waves off a coffee.
+--------------------------------------------------
+Image 002 Prompt
+[Script Segment Text]: "You drive the same car."
+Image Prompt:   Cartoon of a man leaning on an old sedan, 16:9
+Camera Angle: eye-level medium-wide
+`;
+  assert.deepEqual(parsePromptText(doc), [
+    'Cartoon of a man refusing a coffee cup, flat 2D, 16:9',
+    'Cartoon of a man leaning on an old sedan, 16:9',
+  ]);
+});
+
 test('CSV import takes the first column and skips a "prompt" header', () => {
   assert.deepEqual(parseCsv('a,b\n"x, y","q""q"\n'), [
     ['a', 'b'],

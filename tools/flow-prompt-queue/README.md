@@ -26,8 +26,11 @@ extension's card in `chrome://extensions` and reload the Flow tab.
    extension only types the prompt and presses Create.
 2. Click the extension icon to open the side panel.
 3. Paste prompts, one per line, or put `@@@NEXT@@@` on its own line between
-   multi-line prompts. Or use **Import CSV** (first column = prompt, a header
-   cell called `prompt` is skipped). Click **Add to queue**.
+   multi-line prompts. You can also paste a whole image-prompt script document
+   (blocks with `Image 001 Prompt`, `[Script Segment Text]`, `Image Prompt:`,
+   `Camera Angle:` and so on): only the `Image Prompt:` lines are queued. Or
+   use **Import CSV** (first column = prompt, a header cell called `prompt` is
+   skipped). Click **Add to queue**. A sample is in `examples/`.
 4. Check **Settings**: delay range, timeout, retries, auto-download, and an
    optional prefix/suffix applied to every prompt (for example a style suffix).
 5. Press **Start**. Watch the progress bar and the log.
