@@ -110,27 +110,68 @@
     return pool.sort((a, b) => bottomOf(b) - bottomOf(a))[0];
   }
 
-  function findGenerateButton(editor) {
-    const { el } = firstVisible(S.generateButton);
-    if (el) return el;
-    const buttons = queryAll('button, [role="button"]').filter(isVisible);
-    const iconNames = S.generateButtonIconNames;
-    const byIcon = buttons.filter((b) =>
-      queryAll('i, span', b).some((i) => iconNames.includes(textOf(i))),
-    );
-    const texts = S.generateButtonTexts;
-    const byText = buttons.filter((b) => texts.includes(textOf(b).toLowerCase()));
-    const pool = byIcon.length ? byIcon : byText;
-    if (!pool.length) return null;
-    if (editor) {
-      const er = editor.getBoundingClientRect();
-      const dist = (b) => {
-        const r = b.getBoundingClientRect();
-        return Math.hypot(r.left - er.right, r.top - er.top);
-      };
-      return pool.sort((a, b) => dist(a) - dist(b))[0];
+  /** Short label for the log: tag, aria-label, icon or text. */
+  function labelOf(el) {
+    if (!el) return 'none';
+    const aria = el.getAttribute('aria-label');
+    const icon = queryAll('i, span', el)
+      .map(textOf)
+      .find((t) => t && t.length < 30);
+    return `<${el.tagName.toLowerCase()}${aria ? ` aria-label="${aria}"` : ''}${icon ? ` icon/text="${icon}"` : ''}>`;
+  }
+
+  /** The prompt bar: the nearest ancestor of the editor that also holds at least one button. */
+  function promptBarOf(editor) {
+    let fallback = null;
+    let node = editor?.parentElement;
+    for (let depth = 0; node && depth < 8; depth++, node = node.parentElement) {
+      const n = node.querySelectorAll('button, [role="button"]').length;
+      if (n >= 2) return node; // the bar holds at least "+" and the arrow
+      if (n === 1 && !fallback) fallback = node;
     }
-    return pool.sort((a, b) => bottomOf(b) - bottomOf(a))[0];
+    return fallback;
+  }
+
+  /**
+   * Ordered list of candidate Generate buttons, best first:
+   * 1. selector matches inside the prompt bar, 2. icon matches inside the bar,
+   * 3. the right-most enabled button in the bar (Flow's arrow), 4. icon or
+   * text matches anywhere, 5. selector matches anywhere.
+   * Buttons whose label clearly means something else are skipped.
+   */
+  function findGenerateButtons(editor) {
+    const skip =
+      /add|upload|attach|close|dismiss|menu|model|agent|settings|search|filter|new project|home/i;
+    const usable = (b) =>
+      isVisible(b) &&
+      !skip.test(b.getAttribute('aria-label') || '') &&
+      !skip.test(textOf(b).slice(0, 40));
+    const bar = promptBarOf(editor);
+    const iconNames = S.generateButtonIconNames;
+    const hasIcon = (b) =>
+      queryAll('i, span, svg title', b).some((i) => iconNames.includes(textOf(i)));
+    const texts = S.generateButtonTexts;
+    const hasText = (b) => texts.includes(textOf(b).toLowerCase());
+    const out = [];
+    const push = (list) => {
+      for (const b of list) if (b && usable(b) && !out.includes(b)) out.push(b);
+    };
+    if (bar) {
+      for (const sel of S.generateButton) push(queryAll(sel, bar));
+      const inBar = queryAll('button, [role="button"]', bar);
+      push(inBar.filter(hasIcon));
+      push(
+        inBar
+          .filter((b) => !isDisabled(b))
+          .sort((a, b) => b.getBoundingClientRect().right - a.getBoundingClientRect().right)
+          .slice(0, 1),
+      );
+    }
+    const all = queryAll('button, [role="button"]');
+    push(all.filter(hasIcon));
+    push(all.filter(hasText));
+    for (const sel of S.generateButton) push(queryAll(sel));
+    return out;
   }
 
   function isDisabled(btn) {
@@ -537,20 +578,71 @@
       const how = await fillPrompt(editor, text);
       await log('info', `Prompt text set (${how}).`, index);
 
-      let btn = findGenerateButton(editor);
-      for (let i = 0; i < 20 && (!btn || isDisabled(btn)); i++) {
+      let candidates = findGenerateButtons(editor);
+      for (let i = 0; i < 20 && !candidates.some((b) => !isDisabled(b)); i++) {
         await sleep(250);
-        btn = findGenerateButton(editor);
+        candidates = findGenerateButtons(editor);
       }
-      if (!btn) throw { kind: 'error', error: 'Generate button not found. Run Selector Debug.' };
-      if (isDisabled(btn))
+      if (!candidates.length)
+        throw { kind: 'error', error: 'Generate button not found. Run Selector Debug.' };
+      candidates = candidates.filter((b) => !isDisabled(b));
+      if (!candidates.length)
         throw { kind: 'error', error: 'Generate button stayed disabled after filling the prompt.' };
 
       const before = resultImages().map(imageKey);
-      await clickLikeUser(btn);
+      // Flow accepted the prompt when the box empties, a spinner shows, or a new tile appears.
+      const accepted = () =>
+        !editorContains(editor, text) ||
+        queryAll(S.progressIndicators.join(','), document).some(isVisible) ||
+        resultImages().length > before.length;
+      const waitAccepted = async (ms) => {
+        for (let t = 0; t < ms; t += 250) {
+          if (accepted()) return true;
+          await sleep(250);
+        }
+        return accepted();
+      };
+
+      let submittedWith = null;
+      for (const btn of candidates.slice(0, 3)) {
+        await clickLikeUser(btn);
+        if (await waitAccepted(3000)) {
+          submittedWith = `click on ${labelOf(btn)}`;
+          break;
+        }
+        await log(
+          'warn',
+          `Clicked ${labelOf(btn)} but Flow did not react; trying the next option.`,
+          index,
+        );
+        document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); // close any menu that opened
+        await sleep(300);
+      }
+      if (!submittedWith) {
+        editor.focus();
+        for (const type of ['keydown', 'keypress', 'keyup']) {
+          editor.dispatchEvent(
+            new KeyboardEvent(type, {
+              key: 'Enter',
+              code: 'Enter',
+              keyCode: 13,
+              which: 13,
+              bubbles: true,
+              cancelable: true,
+            }),
+          );
+        }
+        if (await waitAccepted(3000)) submittedWith = 'Enter key';
+      }
+      if (!submittedWith)
+        throw {
+          kind: 'error',
+          error:
+            'Could not trigger generation: Flow ignored the button click and the Enter key. Run Selector Debug and send me the generateButton line.',
+        };
       await log(
         'info',
-        `Clicked Generate. Waiting up to ${Math.round(timeoutMs / 1000)}s (${before.length} existing image(s) ignored).`,
+        `Submitted via ${submittedWith}. Waiting up to ${Math.round(timeoutMs / 1000)}s (${before.length} existing image(s) ignored).`,
         index,
       );
 
@@ -598,9 +690,13 @@
       });
     }
     const editor = findPromptEditor();
-    const btn = findGenerateButton(editor);
+    const buttons = findGenerateButtons(editor);
+    const btn = buttons[0];
     report.chosen.promptInput = describe(editor);
     report.chosen.generateButton = btn ? { ...describe(btn), disabled: isDisabled(btn) } : null;
+    report.chosen.generateCandidates = buttons
+      .slice(0, 5)
+      .map((b) => `${labelOf(b)}${isDisabled(b) ? ' (disabled)' : ''}`);
     const imgs = resultImages();
     report.chosen.resultImages = {
       count: imgs.length,

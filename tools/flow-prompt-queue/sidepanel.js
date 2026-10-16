@@ -134,6 +134,9 @@ function renderDebug(report, url) {
   lines.push('', 'Chosen elements:');
   lines.push(`promptInput: ${JSON.stringify(report.chosen.promptInput, null, 1)}`);
   lines.push(`generateButton: ${JSON.stringify(report.chosen.generateButton, null, 1)}`);
+  lines.push(
+    `generateCandidates (in order tried): ${JSON.stringify(report.chosen.generateCandidates)}`,
+  );
   lines.push(`resultImages: ${JSON.stringify(report.chosen.resultImages, null, 1)}`);
   lines.push(`messages: ${report.chosen.messages || '(none)'}`);
   lines.push(
