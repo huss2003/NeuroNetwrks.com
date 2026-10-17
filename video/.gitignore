@@ -1,0 +1,9 @@
+# Heavy or generated things that are re-created by ./setup.sh
+hyperframes-src/
+node_modules/
+renders/
+out/
+.hyperframes/
+*.mp4
+*.mov
+*.webm
