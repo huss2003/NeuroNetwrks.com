@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Video 002 — six-year-old car</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --skin: #fcc09b;
+        --ink: #111111;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+      /* Camera: the only element the pan + suspension bob are tweened on. */
+      #camera {
+        position: absolute;
+        inset: 0;
+        will-change: transform;
+      }
+      /* Art box: source image scaled ~6% over the frame so the pan never shows an edge.
+         2000x1116 source -> 2052x1145, centred. */
+      #art {
+        position: absolute;
+        width: 2052px;
+        height: 1145px;
+        left: -66px;
+        top: -32px;
+      }
+      #art img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      /* Eyelids: positioned as percentages of the art box so they ride with the image. */
+      .eye {
+        position: absolute;
+        overflow: visible;
+        transform: rotate(-6.5deg);
+      }
+      #eye-l {
+        left: 55.25%;
+        top: 17.65%;
+        width: 2.4%;
+        height: 4.3%;
+      }
+      #eye-r {
+        left: 58.3%;
+        top: 17.15%;
+        width: 2.15%;
+        height: 4.05%;
+      }
+      .lid {
+        position: absolute;
+        inset: 0;
+        background: var(--skin);
+        border-radius: 50%;
+        border-bottom: 4px solid var(--ink);
+        transform-origin: 50% 0%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="3.5"
+      data-fps="24"
+      data-width="1920"
+      data-height="1080"
+    >
+      <section id="shot" class="clip" data-start="0" data-duration="3.5" data-track-index="0">
+        <div id="camera">
+          <div id="art">
+            <img id="plate" src="assets/image-002.jpg" alt="Cartoon man in a navy blazer leaning on a dented old blue sedan" />
+            <div class="eye" id="eye-l"><div class="lid" id="lid-l"></div></div>
+            <div class="eye" id="eye-r"><div class="lid" id="lid-r"></div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // Eyelids start open (scaleY 0) and only close during the blink.
+      tl.set(["#lid-l", "#lid-r"], { scaleY: 0 }, 0);
+
+      // 1. Settle: he leans back into the car and the sedan sinks on its suspension,
+      //    then rebounds with a couple of soft bounces (elastic settle).
+      tl.fromTo(
+        "#camera",
+        { y: -14, rotation: 0.6 },
+        { y: 0, rotation: 0, duration: 1.3, ease: "elastic.out(1, 0.45)" },
+        0
+      );
+
+      // 2. Idle suspension bob after the settle: two slow, tiny cycles.
+      tl.to(
+        "#camera",
+        { y: 3, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 3 },
+        1.3
+      );
+
+      // 3. Camera pan, left to right, across the whole shot.
+      tl.fromTo("#camera", { x: 34 }, { x: -34, duration: 3.5, ease: "sine.inOut" }, 0);
+
+      // 4. One slow, content blink at 2.1s: close quickly, hold, open slowly.
+      tl.fromTo(
+        ["#lid-l", "#lid-r"],
+        { scaleY: 0 },
+        { scaleY: 1, duration: 0.16, ease: "power2.in" },
+        2.1
+      );
+      tl.to(["#lid-l", "#lid-r"], { scaleY: 0, duration: 0.3, ease: "power2.out" }, 2.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
