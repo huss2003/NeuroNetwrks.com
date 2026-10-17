@@ -34,14 +34,13 @@
         position: absolute;
         inset: 0;
       }
-      /* Camera: the only element the pan + suspension bob are tweened on. */
+      /* Camera: only the pan is tweened here. */
       #camera {
         position: absolute;
         inset: 0;
         will-change: transform;
       }
-      /* Art box: source image scaled ~6% over the frame so the pan never shows an edge.
-         2000x1116 source -> 2052x1145, centred. */
+      /* Art box: the 2000x1116 plate scaled ~6% over the frame so the pan never shows an edge. */
       #art {
         position: absolute;
         width: 2052px;
@@ -49,12 +48,22 @@
         left: -66px;
         top: -32px;
       }
-      #art img {
+      /* Four cut-out layers of the same plate, stacked in draw order. */
+      .layer {
+        position: absolute;
+        inset: 0;
+        will-change: transform;
+      }
+      .layer img {
         display: block;
         width: 100%;
         height: 100%;
       }
-      /* Eyelids: positioned as percentages of the art box so they ride with the image. */
+      #layer-shadow { z-index: 1; }
+      #layer-body   { z-index: 2; }
+      #layer-wheels { z-index: 3; }
+      #layer-man    { z-index: 4; }
+      /* Eyelids live inside the man layer so they follow his lean. */
       .eye {
         position: absolute;
         overflow: visible;
@@ -95,39 +104,51 @@
       <section id="shot" class="clip" data-start="0" data-duration="3.5" data-track-index="0">
         <div id="camera">
           <div id="art">
-            <img id="plate" src="assets/image-002.jpg" alt="Cartoon man in a navy blazer leaning on a dented old blue sedan" />
-            <div class="eye" id="eye-l"><div class="lid" id="lid-l"></div></div>
-            <div class="eye" id="eye-r"><div class="lid" id="lid-r"></div></div>
+            <div class="layer" id="layer-shadow"><img src="assets/layers/shadow.png" alt="" /></div>
+            <div class="layer" id="layer-body"><img src="assets/layers/body.png" alt="" /></div>
+            <div class="layer" id="layer-wheels"><img src="assets/layers/wheels.png" alt="" /></div>
+            <div class="layer" id="layer-man">
+              <img src="assets/layers/man.png" alt="Cartoon man in a navy blazer leaning on a dented old blue sedan" />
+              <div class="eye" id="eye-l"><div class="lid" id="lid-l"></div></div>
+              <div class="eye" id="eye-r"><div class="lid" id="lid-r"></div></div>
+            </div>
           </div>
         </div>
       </section>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
+      const feet = "61.75% 71%"; // his shoe line in the art box: the pivot for the lean
 
       // Eyelids start open (scaleY 0) and only close during the blink.
       tl.set(["#lid-l", "#lid-r"], { scaleY: 0 }, 0);
 
-      // 1. Settle: he leans back into the car and the sedan sinks on its suspension,
-      //    then rebounds with a couple of soft bounces (elastic settle).
+      // 1. He leans his weight back into the car (pivot at his feet).
       tl.fromTo(
-        "#camera",
-        { y: -14, rotation: 0.6 },
-        { y: 0, rotation: 0, duration: 1.3, ease: "elastic.out(1, 0.45)" },
+        "#layer-man",
+        { y: 0, rotation: 0, transformOrigin: feet },
+        { y: 0, rotation: -1.8, duration: 0.24, ease: "power2.in" },
         0
       );
 
-      // 2. Idle suspension bob after the settle: two slow, tiny cycles.
+      // 2. The car body dips on its suspension under him, wheels and shadow stay on the ground.
+      tl.fromTo("#layer-body", { y: 0 }, { y: 22, duration: 0.26, ease: "power2.in" }, 0.08);
+
+      // 3. Then it springs back up once, overshooting a touch, and he settles with it.
+      tl.to("#layer-body", { y: 0, duration: 1.2, ease: "elastic.out(1.2, 0.45)" }, 0.34);
       tl.to(
-        "#camera",
-        { y: 3, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 3 },
-        1.3
+        "#layer-man",
+        { rotation: 0, duration: 1.2, ease: "elastic.out(1.2, 0.45)" },
+        0.34
       );
 
-      // 3. Camera pan, left to right, across the whole shot.
+      // 4. Idle: a barely-there bob of the body while he holds the pose.
+      tl.to("#layer-body", { y: 2, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.56);
+
+      // 5. Camera pan, left to right, across the whole shot.
       tl.fromTo("#camera", { x: 34 }, { x: -34, duration: 3.5, ease: "sine.inOut" }, 0);
 
-      // 4. One slow, content blink at 2.1s: close quickly, hold, open slowly.
+      // 6. One slow, content blink at 2.1s: close quickly, hold, open slowly.
       tl.fromTo(
         ["#lid-l", "#lid-r"],
         { scaleY: 0 },
