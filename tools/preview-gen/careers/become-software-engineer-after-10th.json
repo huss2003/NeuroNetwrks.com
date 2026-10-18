@@ -4,23 +4,49 @@
  "keyword": "how to become a software engineer after 10th",
  "searches": "320 a month in India (plus 140 for software engineering)",
  "program": "software-development",
- "alt_programs": ["ai-foundation", "ai-ml-engineering"],
+ "alt_programs": [
+  "ai-foundation",
+  "ai-ml-engineering"
+ ],
  "title": "How to Become a Software Engineer After 10th (2026)",
  "desc": "A year-by-year plan to become a software engineer after Class 10: what to learn, projects to build, certificates, laptop, salary and stream choices.",
- "h1": ["How to become a software engineer after 10th", "a year-by-year roadmap"],
+ "h1": [
+  "How to become a software engineer after 10th",
+  "a year-by-year roadmap"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. It is built from a real 624-hour, three-year software curriculum, so every step below is a module or project a student actually does.",
  "role_intro": "A software engineer designs, builds, tests and maintains the programs people use every day: apps, websites, payment systems and the services behind them. The work is part problem solving, part writing code, and part working with a team to ship something reliable.",
+ "day_to_day": {
+  "answer": "A software engineer spends the day planning how a feature should work, writing and reviewing code, testing it, and keeping live software running, usually as part of a team.",
+  "html": "<p>A typical day mixes several kinds of work. You might read a request for a new feature, sketch how it fits the existing system, write the code, and add tests. Then a teammate reviews your change before it goes live. Some days go into fixing a bug that users reported, or making a slow page faster. You work with other engineers, testers, designers and the people who decide what to build.</p><p>The main tools in this roadmap are Java with Spring Boot, SQL and NoSQL databases, and Git and GitHub. Docker, Linux, AWS and Azure run the software and put it online.</p><p><strong>How it differs from a programmer.</strong> A programmer is mainly judged on writing correct code for a clear task. A software engineer also owns the bigger choices. How do the pieces connect? What happens when many people use it at once? How will it be tested, released and fixed over years? That is why this roadmap ends with system design, reliability and engineering practices, not only more languages.</p>"
+ },
+ "first_project": {
+  "answer": "A good first project is a small library or book tracker in Java, planned on paper first, saved in Git, and tested with a written list of cases, finished in about two to three weeks.",
+  "html": "<p><strong>Week 1:</strong> write a one-page plan. List what the program must do (add a book, lend it, return it, show what is overdue) and what data each book needs. <strong>Week 2:</strong> build it as a simple Java program that runs in the terminal, and save each working step to Git with a clear message. <strong>Week 3:</strong> write ten test cases, such as lending a book that is already lent. Run them and fix what fails. Then note one thing you would change if a whole school used it.</p><p>That last note is the engineering habit. In the program, this idea grows into the <strong>Java OOP Management Application</strong> in year 1. In year 2 it becomes the <strong>Spring Boot REST API</strong>, a backend other apps can call.</p>"
+ },
  "in_short": [
-  "<strong>Yes, you can start right after Class 10.</strong> You need curiosity and a laptop, not prior coding.",
-  "<strong>Plan for about three years of steady work:</strong> logic and websites first, then backend and data structures, then system design, cloud and a portfolio.",
-  "<strong>Keep maths in Class 11 and 12 if you can.</strong> A B.Tech through JEE Main needs Physics and Mathematics, and many employers still ask for a degree."
+  "<strong>A software engineer plans before coding.</strong> The job is deciding how the parts of a system fit, then building, testing and maintaining them with a team.",
+  "<strong>This roadmap reaches system design in year 3,</strong> after Java, websites, backend, data structures and cloud in years 1 and 2.",
+  "<strong>Keep Maths in Class 11 and 12 if you can.</strong> A B.Tech through JEE Main needs Physics and Mathematics, and many employers still ask for a degree."
  ],
- "start_answer": "Yes. You can start learning software engineering right after Class 10, and a student who begins at 15 or 16 has a real head start by the time college placements come around.",
+ "start_answer": "Yes. Start after Class 10 with programming logic and Java, then grow towards backend, cloud and system design, because a software engineer's real skill is building software that keeps working as it grows.",
  "start_bridge": "The bigger decision is your stream for Class 11 and 12, because it decides which degrees stay open later. Here is the honest picture.",
  "streams": [
-  ["Science with Maths (PCM)", "B.E. or B.Tech through JEE Main, plus BCA and B.Sc options. The widest set of choices.", "A heavy study load. Coding practice has to fit around board and entrance preparation."],
-  ["Commerce (ideally with Maths)", "Business and computer application degrees at many colleges. Coding skills still count fully in a portfolio.", "B.Tech seats through JEE Main need Physics and Mathematics in Class 12, so that door closes."],
-  ["Diploma in computer engineering", "Hands-on technical work from the first year, and an early start on real tools.", "Rules for moving into a degree later differ by state. Check them before you choose."]
+  [
+   "Science with Maths (PCM)",
+   "B.E. or B.Tech through JEE Main, plus BCA and B.Sc options. The widest set of choices.",
+   "A heavy study load. Coding practice has to fit around board and entrance preparation."
+  ],
+  [
+   "Commerce (ideally with Maths)",
+   "Business and computer application degrees at many colleges. Coding skills still count fully in a portfolio.",
+   "B.Tech seats through JEE Main need Physics and Mathematics in Class 12, so that door closes."
+  ],
+  [
+   "Diploma in computer engineering",
+   "Hands-on technical work from the first year, and an early start on real tools.",
+   "Rules for moving into a degree later differ by state. Check them before you choose."
+  ]
  ],
  "start_extra": "Whichever stream you pick, software skills are built by practice, not by the stream. A student in any stream can learn to code from Class 10 onwards. What matters is steady weekly work and finished projects.",
  "roadmap_answer": "The roadmap runs in three years: year 1 builds programming logic and websites, year 2 builds backend systems and data structures, and year 3 builds system design, cloud and a job-ready portfolio.",
@@ -32,28 +58,96 @@
  "fit_note": "",
  "skills_answer": "A software engineer needs problem solving, one solid programming language, web and database skills, version control, backend design, testing, cloud basics and, more and more, the judgement to use AI coding tools well.",
  "skills": [
-  ["Programming logic", "Every program is a set of small decisions. Logic is what makes code correct.", "Year 1, first months"],
-  ["Java and object-oriented programming", "Teaches clean structure. Widely used for backend systems.", "Year 1"],
-  ["Git and GitHub", "How teams share code, and where your portfolio lives.", "Year 1"],
-  ["HTML, CSS, JavaScript and React", "What users see and click. Your first visible results.", "Year 1"],
-  ["SQL and NoSQL databases", "Almost every app stores data. You need to save and query it well.", "SQL in year 1, NoSQL in year 2"],
-  ["Data structures and algorithms", "Makes programs fast, and is the core of most technical interviews.", "Year 2"],
-  ["Backend APIs and security", "Connects apps to data safely, with login and permissions.", "Year 2, deeper in year 3"],
-  ["Testing", "Proves code works before users find the bugs.", "Year 2"],
-  ["Cloud and CI/CD", "Puts apps online and ships updates automatically.", "Basics in year 1, practice in years 2 and 3"],
-  ["System design", "Plans software that keeps working as users grow.", "Year 3"],
-  ["AI-assisted development", "Using AI tools to write and check code faster, while still understanding it.", "Year 3"]
+  [
+   "Programming logic",
+   "Every program is a set of small decisions. Logic is what makes code correct.",
+   "Year 1, first months"
+  ],
+  [
+   "Java and object-oriented programming",
+   "Teaches clean structure. Widely used for backend systems.",
+   "Year 1"
+  ],
+  [
+   "Git and GitHub",
+   "How teams share code, and where your portfolio lives.",
+   "Year 1"
+  ],
+  [
+   "HTML, CSS, JavaScript and React",
+   "What users see and click. Your first visible results.",
+   "Year 1"
+  ],
+  [
+   "SQL and NoSQL databases",
+   "Almost every app stores data. You need to save and query it well.",
+   "SQL in year 1, NoSQL in year 2"
+  ],
+  [
+   "Data structures and algorithms",
+   "Makes programs fast, and is the core of most technical interviews.",
+   "Year 2"
+  ],
+  [
+   "Backend APIs and security",
+   "Connects apps to data safely, with login and permissions.",
+   "Year 2, deeper in year 3"
+  ],
+  [
+   "Testing",
+   "Proves code works before users find the bugs.",
+   "Year 2"
+  ],
+  [
+   "Cloud and CI/CD",
+   "Puts apps online and ships updates automatically.",
+   "Basics in year 1, practice in years 2 and 3"
+  ],
+  [
+   "System design",
+   "Plans software that keeps working as users grow.",
+   "Year 3"
+  ],
+  [
+   "AI-assisted development",
+   "Using AI tools to write and check code faster, while still understanding it.",
+   "Year 3"
+  ]
  ],
  "build_answer": "You build a project every month, so after three years you have 36 projects and a public GitHub portfolio that shows how your skills grew.",
  "projects": [
-  ["50-Problem Programming Logic Repository", "Small puzzles that train step-by-step thinking."],
-  ["Responsive Portfolio Website", "Your own site that works on a phone and a laptop."],
-  ["React Application v1", "An interactive app with screens, state and real data."],
-  ["Spring Boot REST API", "A backend that other apps can talk to."],
-  ["Full-Stack SaaS Application", "Front end, backend and database working together, like a small online product."],
-  ["AWS-Deployed Application", "Your app running on the cloud, open to anyone with the link."],
-  ["Containerized CI/CD Project", "Code that tests and deploys itself when you push a change."],
-  ["Final Production Software Product + Complete GitHub Portfolio", "Your final product, with three years of work around it."]
+  [
+   "50-Problem Programming Logic Repository",
+   "Small puzzles that train step-by-step thinking."
+  ],
+  [
+   "Responsive Portfolio Website",
+   "Your own site that works on a phone and a laptop."
+  ],
+  [
+   "React Application v1",
+   "An interactive app with screens, state and real data."
+  ],
+  [
+   "Spring Boot REST API",
+   "A backend that other apps can talk to."
+  ],
+  [
+   "Full-Stack SaaS Application",
+   "Front end, backend and database working together, like a small online product."
+  ],
+  [
+   "AWS-Deployed Application",
+   "Your app running on the cloud, open to anyone with the link."
+  ],
+  [
+   "Containerized CI/CD Project",
+   "Code that tests and deploys itself when you push a change."
+  ],
+  [
+   "Final Production Software Product + Complete GitHub Portfolio",
+   "Your final product, with three years of work around it."
+  ]
  ],
  "certs_answer": "Recognised vendor certificates help by proving a specific skill to an employer, but they add to a portfolio rather than replace it, and each one is awarded by its own certifying body after its own exam.",
  "cert_notes": {
@@ -64,25 +158,83 @@
  "cert_extra": "A timing note for 2026: AWS says registration for the updated Developer – Associate exam (DVA-C03) opens on 27 October 2026, and the last day for the current DVA-C02 is 30 November 2026.",
  "notfor_answer": "This path is not for you if you want a guaranteed job, a quick shortcut, or a career where you rarely sit with a problem that will not work yet.",
  "notfor": [
-  ["You want a guarantee.", "No honest course can promise a job, salary or exam pass. This one does not."],
-  ["You cannot give it steady time.", "Plan for 4 hours of classes a week for three years, plus practice."],
-  ["Debugging frustrates you more than it interests you.", "Much of the job is finding out why something does not work."],
-  ["You only have a phone.", "Real coding needs a laptop or desktop."],
-  ["You need a degree and nothing else.", "This program awards a NeuroNetworks AI Ed certificate, not a degree. Many students do it alongside school and then college."]
+  [
+   "You want a guarantee.",
+   "No honest course can promise a job, salary or exam pass. This one does not."
+  ],
+  [
+   "You cannot give it steady time.",
+   "Plan for 4 hours of classes a week for three years, plus practice."
+  ],
+  [
+   "Debugging frustrates you more than it interests you.",
+   "Much of the job is finding out why something does not work."
+  ],
+  [
+   "You only have a phone.",
+   "Real coding needs a laptop or desktop."
+  ],
+  [
+   "You need a degree and nothing else.",
+   "This program awards a NeuroNetworks AI Ed certificate, not a degree. Many students do it alongside school and then college."
+  ]
  ],
  "salary_answer": "Indicative ranges for software development roles in India are about ₹4 to 8 lakh a year for freshers, ₹10 to 20 lakh at 3 to 5 years, and ₹25 to 50 lakh or more for senior engineers.",
  "faqs": [
-  ["How many years does it take to become a software engineer after 10th?", "Plan for about three years of steady learning to build job-ready software skills, such as the 3-year, 624-hour Software Development program. Many employers also ask for a degree, so the common full route is Class 11 and 12 followed by a 3 or 4-year degree, with skills built alongside."],
-  ["Can I become a software engineer without maths?", "You can learn to code and build software without advanced maths, because programming logic is taught from the basics. But a B.Tech through JEE Main needs Physics and Mathematics in Class 12, and data structures and algorithms use logical, maths-style thinking, so keeping maths gives you more options."],
-  ["Can I start learning software development in Class 10 or right after it?", "Yes. The Software Development program is open to students who have passed Class 10 and assumes no programming knowledge. Classes are online, 4 hours a week, and batch timings are shared on enquiry."],
-  ["Does the program guarantee a job?", "No. The program aims at job readiness through skills, monthly projects and a GitHub portfolio, but it does not guarantee a job, internship, salary or exam pass."],
-  ["Which language should I learn first to become a software engineer?", "In this roadmap, Java comes first after programming logic, because it teaches clear structure and object-oriented programming. HTML, CSS and JavaScript follow in the same year for building websites."]
+  [
+   "How many years does it take to become a software engineer after 10th?",
+   "Plan for about three years of steady learning to build job-ready software skills, such as the 3-year, 624-hour Software Development program. Many employers also ask for a degree, so the common full route is Class 11 and 12 followed by a 3 or 4-year degree, with skills built alongside."
+  ],
+  [
+   "Can I become a software engineer without maths?",
+   "You can learn to code and build software without advanced maths, because programming logic is taught from the basics. But a B.Tech through JEE Main needs Physics and Mathematics in Class 12, and data structures and algorithms use logical, maths-style thinking, so keeping maths gives you more options."
+  ],
+  [
+   "Can I start learning software development in Class 10 or right after it?",
+   "Yes. The Software Development program is open to students who have passed Class 10 and assumes no programming knowledge. Classes are online, 4 hours a week, and batch timings are shared on enquiry."
+  ],
+  [
+   "Does the program guarantee a job?",
+   "No. The program aims at job readiness through skills, monthly projects and a GitHub portfolio, but it does not guarantee a job, internship, salary or exam pass."
+  ],
+  [
+   "Which language should I learn first to become a software engineer?",
+   "In this roadmap, Java comes first after programming logic, because it teaches clear structure and object-oriented programming. HTML, CSS and JavaScript follow in the same year for building websites."
+  ]
  ],
  "context_fact": "India's tech industry crossed $315 billion in revenue with employment near 6 million, according to Nasscom's Strategic Review 2026, which also describes AI moving from optional to core infrastructure and cloud-native architecture becoming widespread. That is why cloud and AI-assisted development sit inside this roadmap rather than as extras.",
  "sources": [
-  ["Microsoft Certified: Azure Fundamentals (AZ-900)", "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/", "Microsoft Learn, page updated 20 July 2026"],
-  ["AWS Certified Developer – Associate", "https://aws.amazon.com/certification/certified-developer-associate/", "Amazon Web Services, checked 18 October 2026"],
-  ["Meta Front-End Developer Professional Certificate", "https://www.coursera.org/professional-certificates/meta-front-end-developer", "Coursera, checked 18 October 2026"]
+  [
+   "Microsoft Certified: Azure Fundamentals (AZ-900)",
+   "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+   "Microsoft Learn, page updated 20 July 2026"
+  ],
+  [
+   "AWS Certified Developer – Associate",
+   "https://aws.amazon.com/certification/certified-developer-associate/",
+   "Amazon Web Services, checked 18 October 2026"
+  ],
+  [
+   "Meta Front-End Developer Professional Certificate",
+   "https://www.coursera.org/professional-certificates/meta-front-end-developer",
+   "Coursera, checked 18 October 2026"
+  ]
  ],
- "related_guides": ["computer-coding-courses-after-10th", "ai-vs-software-vs-data-science", "become-ai-engineer-after-10th"]
+ "related_guides": [
+  "computer-coding-courses-after-10th",
+  "ai-vs-software-vs-data-science",
+  "become-ai-engineer-after-10th"
+ ],
+ "merged_sections": [
+  {
+   "h2": "What if you want to be a Python developer?",
+   "answer": "Python developers write scripts, data tools and services in Python, and today much Python work is in data and AI, so the Python route runs through AI/ML Engineering or Data Science & AI rather than this Java-first roadmap.",
+   "html": "<p>The Software Development program teaches Java, JavaScript and TypeScript. Python is taught in <a href=\"/programs/ai-ml-engineering\">AI/ML Engineering</a> and <a href=\"/programs/data-science-ai\">Data Science &amp; AI</a>, aimed at data and AI work. Neither lists Python web frameworks such as Django or Flask, so those would be self-study.</p><p>The Python Institute's PCEP is an entry-level Python certificate with no prerequisites. It is outside our programs, and we do not prepare students for it.</p>"
+  },
+  {
+   "h2": "What does a cloud engineer do, and does this roadmap cover it?",
+   "answer": "A cloud engineer builds, deploys and runs software on platforms such as AWS and Azure, automates testing and releases, and watches cost, security and reliability; this roadmap covers the developer side of that work.",
+   "html": "<p>The cloud parts of this roadmap are AZ-900 readiness in year 1, AWS developer foundations and CI/CD and DevOps in year 2, and cloud-native engineering, performance and reliability, and AWS Developer Associate practice in year 3.</p><p>It does not prepare for administrator or architect certifications such as Azure Administrator or AWS Solutions Architect. Those can be added later on the same base.</p>"
+  }
+ ]
 }

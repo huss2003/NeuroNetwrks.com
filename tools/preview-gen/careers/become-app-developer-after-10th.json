@@ -4,23 +4,49 @@
  "keyword": "how to become an app developer after 10th",
  "searches": "",
  "program": "software-development",
- "alt_programs": ["ai-foundation", "product-ux-ai-design"],
+ "alt_programs": [
+  "ai-foundation",
+  "product-ux-ai-design"
+ ],
  "title": "How to Become an App Developer After 10th (2026)",
  "desc": "An honest plan to become an app developer after Class 10: web and full-stack app skills, where native Android and iOS fit in, projects and salary.",
- "h1": ["How to become an app developer after 10th", "an honest roadmap for web, cloud and mobile apps"],
+ "h1": [
+  "How to become an app developer after 10th",
+  "an honest roadmap for web, cloud and mobile apps"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. It uses a real 624-hour, three-year software curriculum and is clear about one thing: it builds web and full-stack apps, and native phone apps are an extra step.",
  "role_intro": "An app developer builds applications people use to get something done: booking a ticket, tracking homework, paying a bill. Some apps run in a browser, some are installed from the Play Store or App Store, and almost all of them talk to a backend and a database in the cloud.",
+ "day_to_day": {
+  "answer": "An app developer spends the day building screens and user flows, connecting them to APIs and databases, handling logins and saved data, and testing that the whole task works from the first tap to the last.",
+  "html": "<p>Work usually starts from a user task, such as booking a slot or tracking homework. You build the screens for each step and decide what the app remembers between visits. You call the backend to load and save data, and handle logins. Then you test the full flow, including what happens with no internet or a wrong password. You work with designers, backend developers and testers.</p><p>In this roadmap, JavaScript, React and TypeScript build the screens. APIs, SQL and NoSQL databases handle data, and AWS runs the backend. Installable phone apps need other tools, such as Android Studio with Kotlin, which this program does not teach.</p><p><strong>How it differs from a web developer.</strong> A web developer focuses on pages that open in a browser and look right everywhere. An app developer focuses on a task across many screens: state, saved data, logins, and often more than one platform. A responsive web app opens on a phone, but it is not the same as a Play Store or App Store app.</p>"
+ },
+ "first_project": {
+  "answer": "A realistic first project is a homework planner that runs in the browser: add a task, mark it done and keep it after a refresh, built with HTML, CSS and JavaScript in about two to three weeks.",
+  "html": "<p><strong>Week 1:</strong> draw the screens on paper: the task list, the add form and the done view. Build them in HTML and CSS so they fit a phone screen. <strong>Week 2:</strong> use JavaScript to add, tick and delete tasks, then save them in the browser's local storage so they survive a refresh. <strong>Week 3:</strong> add a due date and sort by it, then ask a friend to use it on their phone and fix what confused them. It runs in a phone's browser. It is not an installable app.</p><p>This leads to the <strong>JavaScript Interactive App</strong> and the <strong>API-Driven Web Application</strong> in year 1 of the program. If you also want to try a real Android app, Google's Android Basics with Compose is a separate course outside this program.</p>"
+ },
  "in_short": [
-  "<strong>Most apps are more than the screen on your phone.</strong> They rely on APIs, databases and cloud services behind them.",
-  "<strong>This roadmap builds web and full-stack apps</strong> with React, APIs and the cloud. It has no dedicated Android or iOS module.",
-  "<strong>Native mobile skills can be added on top.</strong> The programming base you build here is what those courses assume."
+  "<strong>An app developer builds around a task a user wants done,</strong> such as booking or tracking, across screens, saved data, logins and the backend.",
+  "<strong>This roadmap builds web and full-stack apps</strong> with React, TypeScript, APIs and the cloud. It has no native Android or iOS module.",
+  "<strong>Phone apps are an extra step on top.</strong> Take a separate Android or iOS course once your logic and backend base is strong."
  ],
- "start_answer": "Yes. You can start learning app development after Class 10 by building programming logic, interactive web apps and the backend services every app needs, then adding a native mobile platform such as Android once the basics are strong.",
+ "start_answer": "Yes, but plan in two parts: after Class 10 you can build browser-based and full-stack apps through this roadmap, then add native Android or iOS skills separately, because this program does not teach them.",
  "start_bridge": "Before choosing a course, decide which stream keeps the most doors open for a computing degree. Here is how the three common options compare.",
  "streams": [
-  ["Science with Maths (PCM)", "B.Tech, B.Sc Computer Science and BCA routes stay open, which suits app careers at product companies.", "The load is heavy. Short, regular coding sessions beat occasional long ones."],
-  ["Commerce with Computer Science or Informatics Practices", "Computer application degrees at many colleges, and a good view of the business side of apps.", "B.Tech through JEE Main needs Physics and Mathematics in Class 12. Check the subject rules first."],
-  ["Diploma in computer engineering or IT", "Early practical work and lab hours, useful for someone who likes building things.", "Moving into a degree later depends on state and college rules. Read them carefully."]
+  [
+   "Science with Maths (PCM)",
+   "B.Tech, B.Sc Computer Science and BCA routes stay open, which suits app careers at product companies.",
+   "The load is heavy. Short, regular coding sessions beat occasional long ones."
+  ],
+  [
+   "Commerce with Computer Science or Informatics Practices",
+   "Computer application degrees at many colleges, and a good view of the business side of apps.",
+   "B.Tech through JEE Main needs Physics and Mathematics in Class 12. Check the subject rules first."
+  ],
+  [
+   "Diploma in computer engineering or IT",
+   "Early practical work and lab hours, useful for someone who likes building things.",
+   "Moving into a degree later depends on state and college rules. Read them carefully."
+  ]
  ],
  "start_extra": "Many students say app developer when they mean phone apps. That is a fine goal, but the screen is only one part. The logic, data and cloud skills behind an app take the longest to learn, and they are the same for web and mobile.",
  "roadmap_answer": "The roadmap runs in three years: year 1 builds programming logic and interactive web apps, year 2 adds APIs, databases, security and cloud deployment, and year 3 builds cloud-native, full-stack applications; native Android or iOS is learned separately on top.",
@@ -32,26 +58,86 @@
  "fit_note": "Be clear about the fit. The Software Development program builds web and full-stack applications with React, APIs, databases and the cloud. It has no dedicated native Android or iOS module, so it does not teach Kotlin, Swift, Play Store or App Store publishing. If phone apps are your goal, plan to learn a native platform on top, for example through the Android Basics with Compose course from Android Developers. For an earlier, lighter start, see <a href=\"/programs/ai-foundation\">AI Foundation</a>.",
  "skills_answer": "An app developer needs programming logic, an object-oriented language, a front-end framework, API and backend skills, databases, security and cloud deployment, plus, for phone apps, a native platform such as Android with Kotlin, which this roadmap does not cover.",
  "skills": [
-  ["Programming logic and Java", "Every app is built on clear logic. Java teaches the object-oriented structure apps use.", "Year 1"],
-  ["JavaScript and React", "Builds app-like screens with state, navigation and user input.", "Year 1"],
-  ["TypeScript", "Keeps a growing app's code safer and easier to change.", "Year 2"],
-  ["Consuming and building APIs", "Apps fetch and send data through APIs all the time.", "Year 1 consuming, year 2 building"],
-  ["Databases", "Saves users, settings and content so the app remembers them.", "Year 1 SQL, year 2 NoSQL"],
-  ["Authentication and app security", "Logins and personal data must be protected.", "Year 2, deeper in year 3"],
-  ["Cloud and cloud-native design", "Runs the services behind an app and lets them grow with users.", "Year 2, deeper in year 3"],
-  ["Testing", "Catches bugs before users leave bad reviews.", "Year 2"],
-  ["Native mobile (Android with Kotlin, or iOS)", "Needed for installable phone apps. Not part of this program.", "On top, by self-study or a separate course"]
+  [
+   "Programming logic and Java",
+   "Every app is built on clear logic. Java teaches the object-oriented structure apps use.",
+   "Year 1"
+  ],
+  [
+   "JavaScript and React",
+   "Builds app-like screens with state, navigation and user input.",
+   "Year 1"
+  ],
+  [
+   "TypeScript",
+   "Keeps a growing app's code safer and easier to change.",
+   "Year 2"
+  ],
+  [
+   "Consuming and building APIs",
+   "Apps fetch and send data through APIs all the time.",
+   "Year 1 consuming, year 2 building"
+  ],
+  [
+   "Databases",
+   "Saves users, settings and content so the app remembers them.",
+   "Year 1 SQL, year 2 NoSQL"
+  ],
+  [
+   "Authentication and app security",
+   "Logins and personal data must be protected.",
+   "Year 2, deeper in year 3"
+  ],
+  [
+   "Cloud and cloud-native design",
+   "Runs the services behind an app and lets them grow with users.",
+   "Year 2, deeper in year 3"
+  ],
+  [
+   "Testing",
+   "Catches bugs before users leave bad reviews.",
+   "Year 2"
+  ],
+  [
+   "Native mobile (Android with Kotlin, or iOS)",
+   "Needed for installable phone apps. Not part of this program.",
+   "On top, by self-study or a separate course"
+  ]
  ],
  "build_answer": "You build a project every month, and for app development the most useful ones are interactive React and TypeScript apps, API-driven and secure backends, a full-stack SaaS product and a cloud-native application.",
  "projects": [
-  ["JavaScript Interactive App", "Your first app that responds to taps and clicks."],
-  ["API-Driven Web Application", "Shows the pattern almost every app uses: screens that load live data."],
-  ["React Application v1", "Teaches screens, state and navigation, ideas that carry over to mobile frameworks."],
-  ["TypeScript React Application", "A more robust app, closer to how teams build products."],
-  ["Secure REST API", "A backend with login, the kind a phone app or web app would call."],
-  ["Full-Stack SaaS Application", "A complete product with users, data and a working interface."],
-  ["Cloud-Native Application", "An app built to run and grow on the cloud from day one."],
-  ["Major Full-Stack Product v1", "A larger app that shows you can plan and ship something real."]
+  [
+   "JavaScript Interactive App",
+   "Your first app that responds to taps and clicks."
+  ],
+  [
+   "API-Driven Web Application",
+   "Shows the pattern almost every app uses: screens that load live data."
+  ],
+  [
+   "React Application v1",
+   "Teaches screens, state and navigation, ideas that carry over to mobile frameworks."
+  ],
+  [
+   "TypeScript React Application",
+   "A more robust app, closer to how teams build products."
+  ],
+  [
+   "Secure REST API",
+   "A backend with login, the kind a phone app or web app would call."
+  ],
+  [
+   "Full-Stack SaaS Application",
+   "A complete product with users, data and a working interface."
+  ],
+  [
+   "Cloud-Native Application",
+   "An app built to run and grow on the cloud from day one."
+  ],
+  [
+   "Major Full-Stack Product v1",
+   "A larger app that shows you can plan and ship something real."
+  ]
  ],
  "certs_answer": "The roadmap prepares for front-end and cloud developer certificates, which suit the backend and web side of apps; it does not prepare for any Android or iOS certificate, and each certificate is awarded by its own provider.",
  "cert_notes": {
@@ -61,25 +147,70 @@
  "cert_extra": "For Android, Google's Android Basics with Compose is a self-paced online course that teaches Kotlin and Jetpack Compose over 8 units. Its listed prerequisites are basic computer skills, basic maths skills and a computer that can run Android Studio. It is separate from this program.",
  "notfor_answer": "This program is not the right fit if you only want to build native Android or iOS apps from day one, want a guaranteed job, or are not willing to add a mobile platform through extra study later.",
  "notfor": [
-  ["You want native Android or iOS from the first month.", "This program has no dedicated native mobile module. A dedicated Android or iOS course would be more direct."],
-  ["You only care about how an app looks.", "Much of app work is data, APIs and fixing bugs behind the screen. If design is your interest, see <a href=\"/programs/product-ux-ai-design\">Product and UX design with AI</a>."],
-  ["You are not ready for extra study on top.", "Turning these skills into phone apps needs more learning outside the program."],
-  ["You want a guarantee.", "No job, salary or exam pass is promised."],
-  ["You only have a phone.", "Building apps, even phone apps, needs a laptop or desktop."]
+  [
+   "You want native Android or iOS from the first month.",
+   "This program has no dedicated native mobile module. A dedicated Android or iOS course would be more direct."
+  ],
+  [
+   "You only care about how an app looks.",
+   "Much of app work is data, APIs and fixing bugs behind the screen. If design is your interest, see <a href=\"/programs/product-ux-ai-design\">Product and UX design with AI</a>."
+  ],
+  [
+   "You are not ready for extra study on top.",
+   "Turning these skills into phone apps needs more learning outside the program."
+  ],
+  [
+   "You want a guarantee.",
+   "No job, salary or exam pass is promised."
+  ],
+  [
+   "You only have a phone.",
+   "Building apps, even phone apps, needs a laptop or desktop."
+  ]
  ],
  "salary_answer": "Indicative ranges for software and application development roles in India are about ₹4 to 8 lakh a year for freshers, ₹10 to 20 lakh at 3 to 5 years, and ₹25 to 50 lakh or more for senior developers.",
  "faqs": [
-  ["How many years does it take to become an app developer after 10th?", "Plan for about three years of steady work to build strong app foundations, such as this 624-hour roadmap, plus extra time if you want native Android or iOS skills on top. Many students also complete a degree."],
-  ["Can I become an app developer without maths?", "Yes, for most app building, which relies on logic more than advanced maths. Google's Android course lists basic maths skills as a prerequisite. A B.Tech through JEE Main still needs Physics and Mathematics in Class 12."],
-  ["Will I learn Android or iOS app development in this program?", "No. The program builds web and full-stack applications with React, APIs and the cloud. It has no dedicated native Android or iOS module, so those are learned separately on top."],
-  ["Why not start directly with Android or iOS?", "You can. But every app needs logic, data, APIs and a backend. This roadmap builds those first, and they stay useful whichever platform you choose later."],
-  ["Can a React web app work on phones?", "Yes, a responsive web app opens in a phone's browser. It is not the same as an installable Play Store or App Store app, which needs native or mobile framework skills."]
+  [
+   "How many years does it take to become an app developer after 10th?",
+   "Plan for about three years of steady work to build strong app foundations, such as this 624-hour roadmap, plus extra time if you want native Android or iOS skills on top. Many students also complete a degree."
+  ],
+  [
+   "Can I become an app developer without maths?",
+   "Yes, for most app building, which relies on logic more than advanced maths. Google's Android course lists basic maths skills as a prerequisite. A B.Tech through JEE Main still needs Physics and Mathematics in Class 12."
+  ],
+  [
+   "Will I learn Android or iOS app development in this program?",
+   "No. The program builds web and full-stack applications with React, APIs and the cloud. It has no dedicated native Android or iOS module, so those are learned separately on top."
+  ],
+  [
+   "Why not start directly with Android or iOS?",
+   "You can. But every app needs logic, data, APIs and a backend. This roadmap builds those first, and they stay useful whichever platform you choose later."
+  ],
+  [
+   "Can a React web app work on phones?",
+   "Yes, a responsive web app opens in a phone's browser. It is not the same as an installable Play Store or App Store app, which needs native or mobile framework skills."
+  ]
  ],
  "context_fact": "Nasscom's Strategic Review 2026 describes cloud-native architecture as widespread across India's $315 billion tech industry. Most apps, web or mobile, now depend on cloud services, which is why this roadmap spends time on the backend and the cloud.",
  "sources": [
-  ["Android Basics with Compose", "https://developer.android.com/courses/android-basics-compose/course", "Android Developers (Google), checked 18 October 2026"],
-  ["Meta Front-End Developer Professional Certificate", "https://www.coursera.org/professional-certificates/meta-front-end-developer", "Coursera, checked 18 October 2026"],
-  ["AWS Certified Developer – Associate", "https://aws.amazon.com/certification/certified-developer-associate/", "Amazon Web Services, checked 18 October 2026"]
+  [
+   "Android Basics with Compose",
+   "https://developer.android.com/courses/android-basics-compose/course",
+   "Android Developers (Google), checked 18 October 2026"
+  ],
+  [
+   "Meta Front-End Developer Professional Certificate",
+   "https://www.coursera.org/professional-certificates/meta-front-end-developer",
+   "Coursera, checked 18 October 2026"
+  ],
+  [
+   "AWS Certified Developer – Associate",
+   "https://aws.amazon.com/certification/certified-developer-associate/",
+   "Amazon Web Services, checked 18 October 2026"
+  ]
  ],
- "related_guides": ["become-full-stack-developer-after-10th", "computer-coding-courses-after-10th", "become-web-developer-after-10th"]
+ "related_guides": [
+  "become-web-developer-after-10th",
+  "computer-coding-courses-after-10th"
+ ]
 }

@@ -1536,3 +1536,6 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
 .sp-card > p{margin-top:var(--s3)!important}
 .sp-steps{margin-top:var(--s3)!important;padding-left:1.3em}
 .sp-steps li{font-size:.98rem!important}
+.ab-guides{list-style:none;padding:0;margin:var(--s6) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s4)}
+.ab-guides li{border:1px solid var(--blue-100);background:#fff;padding:var(--s5);line-height:1.6}
+.ab-guides b{display:block;margin-bottom:6px}

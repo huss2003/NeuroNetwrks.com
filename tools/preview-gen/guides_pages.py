@@ -140,6 +140,9 @@ GUIDES = [
     "<p>Yes, in Year 2, and only in authorised lab environments. Students cover ethical hacking foundations, web application security, network penetration testing, Active Directory security and privilege escalation, then write professional reports. The aim is to understand attacks in order to defend against them.</p>"),
    ("Which tools do students use?",
     f"<p>Students practise with {g_join(D['cybersecurity']['tools'])}.</p>"),
+   ("What does a cyber security analyst do?",
+    "<p><strong>A cyber security analyst protects an organisation by watching for attacks and responding when one happens.</strong> Most start in a security operations centre (SOC), reading alerts and logs, deciding what is real, and following a playbook to contain it, often as part of a shift team.</p>"
+    "<p>This program builds that path: SOC foundations, logs and SIEM, and endpoint security in year 1, incident response in year 2, then SOC engineering, Splunk, Microsoft Sentinel and KQL, Defender XDR, threat hunting with MITRE ATT&amp;CK, digital forensics and SC-200 preparation in year 3. Microsoft describes SC-200 as its certification for security operations analysts.</p>"),
    ("Which certifications does it prepare for?",
     f"<p>{g_join(D['cybersecurity']['certifications'])}. {NOTE_JOBS}</p>"),
   ],
@@ -324,6 +327,7 @@ SRC_DP900 = ("Microsoft Certified: Azure Data Fundamentals (DP-900)", "https://l
 SRC_GDA = ("Google Data Analytics Certificate", "https://grow.google/certificates/data-analytics/", "Google, " + CHK)
 SRC_ISC2 = ("ISC2 Certified in Cybersecurity (CC)", "https://www.isc2.org/certifications/cc", "ISC2, " + CHK)
 SRC_SECPLUS = ("CompTIA Security+", "https://www.comptia.org/en-us/certifications/security/", "CompTIA, " + CHK)
+SRC_SC200 = ("Microsoft Certified: Security Operations Analyst Associate (SC-200)", "https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/", "Microsoft Learn, " + CHK)
 SRC_PY = ("Python for beginners: getting started", "https://www.python.org/about/gettingstarted/", "Python Software Foundation, " + CHK)
 SRC_PCEP = ("PCEP: Certified Entry-Level Python Programmer", "https://pythoninstitute.org/pcep", "Python Institute, " + CHK)
 SRC_NCS = ("National Career Service", "https://www.ncs.gov.in/", "Ministry of Labour & Employment, Government of India, " + CHK)
@@ -331,7 +335,7 @@ def gl(slug, text):
     return f'<a href="/guides/{slug}">{text}</a>'
 GUIDE_EXTRA = {
  "ai-courses-after-10th": {"date": "2026-10-18", "sources": [SRC_AI901, SRC_AIF, SRC_NASSCOM], "add": {
-   2: "<p>For the full career route, read " + gl("become-ai-engineer-after-10th", "how to become an AI engineer after 10th") + ", or " + gl("become-prompt-engineer-after-10th", "how prompt engineering fits into AI work") + ".</p>",
+   2: "<p>For the full career route, read " + gl("become-ai-engineer-after-10th", "how to become an AI engineer after 10th") + ", or " + gl("become-machine-learning-engineer-after-10th", "how to become a machine learning engineer after 10th") + ".</p>",
    3: "<p>Want ideas to try at home first? See these " + gl("python-project-ideas-for-students", "Python project ideas for students") + ".</p>",
    4: "<p>Microsoft lists AI-901 as the exam for its Azure AI Fundamentals certification, with the English version updated in April 2026. AWS describes its AI Practitioner certification as a foundational exam of 65 questions in 90 minutes.</p>"}},
  "courses-after-10th": {"date": "2026-10-18", "sources": [SRC_NASSCOM, SRC_JEE], "add": {
@@ -342,9 +346,9 @@ GUIDE_EXTRA = {
    0: "<p>For the career side, read " + gl("become-software-engineer-after-10th", "how to become a software engineer after 10th") + " or " + gl("become-programmer-after-10th", "how to become a programmer after 10th") + ".</p>",
    2: "<p>In the 2025 Stack Overflow Developer Survey, JavaScript (66%), HTML/CSS (62%) and SQL (59%) were the most-used languages among respondents. All three are in Year 1 of this roadmap.</p>",
    3: "<p>Building websites first? See " + gl("become-web-developer-after-10th", "how to become a web developer after 10th") + ".</p>"}},
- "cyber-security-course-after-10th": {"date": "2026-10-18", "sources": [SRC_ISC2, SRC_SECPLUS, SRC_NASSCOM], "add": {
-   2: "<p>To see where this leads, read " + gl("become-ethical-hacker-after-10th", "how to become an ethical hacker after 10th") + " and " + gl("become-penetration-tester-after-10th", "how to become a penetration tester after 10th") + ".</p>",
-   4: "<p>ISC2 lists no work experience requirement for its Certified in Cybersecurity credential. CompTIA expects Security+ V8 on or around 17 November 2026, with more coverage of AI-related risks. Defence-focused students can read " + gl("become-cyber-security-analyst-after-10th", "how to become a cyber security analyst after 10th") + ".</p>"}},
+ "cyber-security-course-after-10th": {"date": "2026-10-18", "sources": [SRC_ISC2, SRC_SECPLUS, SRC_SC200, SRC_NASSCOM], "add": {
+   2: "<p>To see where this leads, read " + gl("become-ethical-hacker-after-10th", "how to become an ethical hacker after 10th") + " and the " + g_prog_link("cybersecurity", "Cybersecurity program") + ".</p>",
+   5: "<p>ISC2 lists no work experience requirement for its Certified in Cybersecurity credential. CompTIA expects Security+ V8 on or around 17 November 2026, with more coverage of AI-related risks.</p>"}},
  "data-science-after-10th": {"date": "2026-10-18", "sources": [SRC_GDA, SRC_DP900, SRC_SO], "add": {
    0: "<p>For the career question, read " + gl("become-data-scientist-after-10th", "how to become a data scientist after 10th") + " or " + gl("become-data-analyst-after-10th", "how to become a data analyst after 10th") + ".</p>",
    4: "<p>Google says its Data Analytics Certificate needs no prior experience, only high-school-level maths, and takes about 240 hours. Microsoft rates DP-900 as a beginner-level exam on core data concepts.</p>"}},
@@ -416,7 +420,7 @@ def guide_page(slug):
 <section class="gd-sec"><h2>Programs in this guide</h2><div class="gd-cards">{rel}</div></section>
 <section class="gd-sec gd-more"><h2>More guides</h2><ul>{others}</ul></section></article></div>{cta_panel("Questions about the right path?", "Tell us what the student enjoys. We will explain the options, fees and intake dates.")}'''
     ld = {"@type": "Article", "@id": f"{SITE}/guides/{slug}#article", "headline": g["title"], "description": g["desc"], "image": SITE + "/assets/og.png",
-          "datePublished": g.get("date", GUIDE_DATE), "dateModified": g.get("date", GUIDE_DATE), "inLanguage": "en-IN", "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID},
+          "datePublished": g.get("date", GUIDE_DATE), "dateModified": g.get("date", GUIDE_DATE), "inLanguage": "en-IN", "author": {"@id": ORG_ID}, "publisher": PUBLISHER,
           "mainEntityOfPage": f"{SITE}/guides/{slug}", "about": [{"@id": f"{SITE}/programs/{s}#course"} for s in g["progs"]]}
     return layout(f"/guides/{slug}", g["title"], body, "resources", desc=g["desc"], jsonld=ld)
 

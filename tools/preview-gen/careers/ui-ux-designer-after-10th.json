@@ -4,23 +4,49 @@
  "keyword": "how to become a UI/UX designer after 10th",
  "searches": "30 a month in India",
  "program": "product-ux-ai-design",
- "alt_programs": ["ai-foundation", "software-development"],
+ "alt_programs": [
+  "ai-foundation",
+  "software-development"
+ ],
  "title": "How to Become a UI/UX Designer After 10th (2026)",
  "desc": "How to become a UI/UX designer after Class 10: user research, wireframes, visual design and prototypes, with a yearly plan, projects and salary.",
- "h1": ["How to become a UI/UX designer after 10th", "research, screens and a real portfolio"],
+ "h1": [
+  "How to become a UI/UX designer after 10th",
+  "research, screens and a real portfolio"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. It follows a real 624-hour, three-year design curriculum, where the whole first year is about UI and UX: research, layout, wireframes and prototypes.",
  "role_intro": "A UI/UX designer makes apps and websites easy and pleasant to use. The UX part means talking to users, finding where they get stuck and planning the flow. The UI part means the screens: layout, type, colour, buttons and how they respond when tapped.",
  "in_short": [
-  "<strong>Yes, you can start after Class 10.</strong> No drawing talent or design background is assumed. Careful observation matters more.",
-  "<strong>Year 1 is fully about UI and UX:</strong> visual design, user research, information architecture, wireframes, interaction design and prototypes.",
-  "<strong>Your portfolio is your real qualification.</strong> Design employers look at case studies first, so every month ends with a piece of work you can show."
+  "<strong>A UI/UX designer decides how an app should work and look before anyone codes it.</strong> The job is research, flows, screens and testing with real users.",
+  "<strong>Year 1 of this roadmap is fully UI and UX:</strong> user research, information architecture, wireframes, interaction design, UI design and prototypes.",
+  "<strong>Paper, a pencil and patient observation are enough to begin.</strong> The program does not promise any specific design software, so judge your progress by finished case studies."
  ],
- "start_answer": "Yes. You can start learning UI/UX design right after Class 10, because the program assumes no design background and begins with visual basics and how real people use the apps on their phones.",
+ "start_answer": "Yes. You can start UI/UX design after Class 10 with paper sketches and careful observation of how people use everyday apps, because the program assumes no design background and no drawing skill.",
+ "day_to_day": {
+  "answer": "A UI/UX designer spends the day understanding users, sketching flows and screens, building clickable prototypes, testing them with real people, and agreeing changes with developers and product managers before anything is built.",
+  "html": "<p>A typical week mixes research and making. A designer may interview a few users, watch where they get stuck in an app, and sort what they learned. Then they sketch the flow, turn it into wireframes, design finished screens and link them into a clickable prototype. They test it, fix what confused people, and hand clear screens and notes to the developers who build it.</p><p>The main tools are methods more than software: interview notes, user flows, wireframes, prototypes and usability tests. Design teams also use dedicated design and prototyping software. This program's published tools list names only GitHub, so ask on enquiry which tools the classes use. GitHub is where your case studies and portfolio can live.</p><p><strong>How it differs from a product designer.</strong> A UI/UX designer usually works on specific screens and flows that a team has already decided to build. A product designer goes wider: they help choose which problem to solve, shape the whole product, keep it consistent through a design system and check with data whether it worked. In this roadmap, UI/UX is year 1, and the product side comes in years 2 and 3.</p>"
+ },
+ "first_project": {
+  "answer": "A realistic first project is a two-week paper redesign of one small task in an app you use often, based on watching three people try it, then testing your sketches with them.",
+  "html": "<p>No software is needed. Over about two weeks:</p><ul><li>Days 1 to 3: choose one task, such as paying a bill or booking a ticket in an app. Watch three family members or friends do it. Note where they pause, tap the wrong thing or ask for help.</li><li>Days 4 to 6: draw the current steps as a simple flow, and mark the three biggest problems.</li><li>Week 2: sketch a better version on paper, screen by screen, in black and white. Focus on layout, labels and order.</li><li>Week 2: ask the same people to \"tap\" through your paper screens. Note what still confuses them, and fix it.</li><li>Finish with a one-page case study: the problem, what you saw, your sketches and what changed.</li></ul><p>This is a small version of the program's <strong>UX audit of a real product</strong> and <strong>User-research study</strong>, and it is the kind of story the <strong>Complete Year-1 UX case study</strong> tells in full.</p>"
+ },
  "start_bridge": "UI/UX design is open to every stream, which is unusual in tech. The stream mostly changes which degree you take alongside it.",
  "streams": [
-  ["Humanities or Arts", "Design, psychology, communication and fine arts degrees. Psychology in particular helps with user research.", "B.Tech through JEE Main needs Physics and Mathematics, so engineering routes close."],
-  ["Science with Maths (PCM)", "B.Tech, BCA or B.Sc, which suits designers who also want to understand code.", "A heavy entrance load can squeeze design practice. Keep a small weekly habit going."],
-  ["Commerce", "BBA and business degrees, which help later with product and business decisions.", "Some design colleges run their own entrance tests. Check each college's rules early."]
+  [
+   "Humanities or Arts",
+   "Design, psychology, communication and fine arts degrees. Psychology in particular helps with user research.",
+   "B.Tech through JEE Main needs Physics and Mathematics, so engineering routes close."
+  ],
+  [
+   "Science with Maths (PCM)",
+   "B.Tech, BCA or B.Sc, which suits designers who also want to understand code.",
+   "A heavy entrance load can squeeze design practice. Keep a small weekly habit going."
+  ],
+  [
+   "Commerce",
+   "BBA and business degrees, which help later with product and business decisions.",
+   "Some design colleges run their own entrance tests. Check each college's rules early."
+  ]
  ],
  "start_extra": "Many UI/UX designers in India did not study design in school. What matters is a portfolio that shows how you think. Show the problem, the research, the options you tried and why you chose the final screen.",
  "roadmap_answer": "The roadmap gives year 1 to core UI and UX skills, year 2 to product thinking and design systems, and year 3 to advanced research, accessibility, AI interfaces and a professional portfolio.",
@@ -32,26 +58,86 @@
  "fit_note": "The program's published tools list names only GitHub, so this page does not promise training in any particular design software. Ask on enquiry which tools the classes use. The program also does not teach drawing, illustration or animation as separate skills.",
  "skills_answer": "A UI/UX designer needs visual design, user research, information architecture, wireframing, interaction design, UI layout, prototyping, accessibility and the habit of testing designs with real users before calling them finished.",
  "skills": [
-  ["Visual design basics", "Spacing, type and colour decide whether a screen feels clear or messy.", "Year 1, second month"],
-  ["User research", "Talking to and watching users shows what they really need.", "Year 1, two modules"],
-  ["Information architecture", "Organises menus and content so people find things fast.", "Year 1"],
-  ["Wireframing", "Plans a screen's structure before any colour or detail.", "Year 1"],
-  ["Interaction design", "What happens when a user taps, swipes or makes a mistake.", "Year 1"],
-  ["UI design", "Turns wireframes into finished, consistent screens.", "Year 1, two modules"],
-  ["Prototyping", "A clickable version you can test before anything is built.", "Year 1, more in year 2"],
-  ["Usability evaluation", "Checks a design against known principles and real users.", "Year 3"],
-  ["Accessibility", "Makes screens work for people with low vision or other needs.", "Year 3"]
+  [
+   "Visual design basics",
+   "Spacing, type and colour decide whether a screen feels clear or messy.",
+   "Year 1, second month"
+  ],
+  [
+   "User research",
+   "Talking to and watching users shows what they really need.",
+   "Year 1, two modules"
+  ],
+  [
+   "Information architecture",
+   "Organises menus and content so people find things fast.",
+   "Year 1"
+  ],
+  [
+   "Wireframing",
+   "Plans a screen's structure before any colour or detail.",
+   "Year 1"
+  ],
+  [
+   "Interaction design",
+   "What happens when a user taps, swipes or makes a mistake.",
+   "Year 1"
+  ],
+  [
+   "UI design",
+   "Turns wireframes into finished, consistent screens.",
+   "Year 1, two modules"
+  ],
+  [
+   "Prototyping",
+   "A clickable version you can test before anything is built.",
+   "Year 1, more in year 2"
+  ],
+  [
+   "Usability evaluation",
+   "Checks a design against known principles and real users.",
+   "Year 3"
+  ],
+  [
+   "Accessibility",
+   "Makes screens work for people with low vision or other needs.",
+   "Year 3"
+  ]
  ],
  "build_answer": "You finish one design project every month, so year 1 alone gives you twelve pieces, from recreated app screens to a complete UX case study, and three years give you 36.",
  "projects": [
-  ["Recreate 5 familiar app screens", "Copying good screens trains your eye for spacing and layout."],
-  ["UX audit of a real product", "Finding real problems in an app you already use."],
-  ["User-research study", "Your first interviews and observations with real people."],
-  ["Mobile app wireframe set", "The plan of an app before any visual polish."],
-  ["Interactive flow prototype", "A clickable flow you can put in front of users."],
-  ["Web UI kit", "A set of consistent buttons, forms and cards for a website."],
-  ["Complete Year-1 UX case study", "Your first full portfolio piece, from research to final screens."],
-  ["Accessible AI interface", "Proof that you design for everyone, including AI features."]
+  [
+   "Recreate 5 familiar app screens",
+   "Copying good screens trains your eye for spacing and layout."
+  ],
+  [
+   "UX audit of a real product",
+   "Finding real problems in an app you already use."
+  ],
+  [
+   "User-research study",
+   "Your first interviews and observations with real people."
+  ],
+  [
+   "Mobile app wireframe set",
+   "The plan of an app before any visual polish."
+  ],
+  [
+   "Interactive flow prototype",
+   "A clickable flow you can put in front of users."
+  ],
+  [
+   "Web UI kit",
+   "A set of consistent buttons, forms and cards for a website."
+  ],
+  [
+   "Complete Year-1 UX case study",
+   "Your first full portfolio piece, from research to final screens."
+  ],
+  [
+   "Accessible AI interface",
+   "Proof that you design for everyone, including AI features."
+  ]
  ],
  "certs_answer": "UI/UX certificates from Google, CalArts and IxDF can show an employer that you studied the basics properly, but each is awarded by its own provider, and design hiring still depends mostly on your portfolio.",
  "cert_notes": {
@@ -62,25 +148,82 @@
  "cert_extra": "These three sit in year 1, in the UX Foundations, UI Design and Year-1 Capstone modules. The NN/g UX Certification comes later, in year 3.",
  "notfor_answer": "This path is not for you if you want to make art for its own sake, dislike feedback on your work, or prefer working alone, because UI/UX design means designing for other people and changing your ideas when users struggle.",
  "notfor": [
-  ["You want to make art for yourself.", "UI/UX is about what users need, not personal style. Illustration or fine arts may suit you better."],
-  ["Criticism of your work upsets you.", "Designs are reviewed and tested all the time. Changing them is normal."],
-  ["You would rather not talk to strangers.", "User research means interviewing and watching real people."],
-  ["You expect a guaranteed job.", "No honest course can promise a job, salary or exam pass, and this one does not."],
-  ["You need a degree and nothing else.", "This program awards a NeuroNetworks AI Ed certificate, not a degree. Many students take it alongside school and college."]
+  [
+   "You want to make art for yourself.",
+   "UI/UX is about what users need, not personal style. Illustration or fine arts may suit you better."
+  ],
+  [
+   "Criticism of your work upsets you.",
+   "Designs are reviewed and tested all the time. Changing them is normal."
+  ],
+  [
+   "You would rather not talk to strangers.",
+   "User research means interviewing and watching real people."
+  ],
+  [
+   "You expect a guaranteed job.",
+   "No honest course can promise a job, salary or exam pass, and this one does not."
+  ],
+  [
+   "You need a degree and nothing else.",
+   "This program awards a NeuroNetworks AI Ed certificate, not a degree. Many students take it alongside school and college."
+  ]
  ],
  "salary_answer": "Indicative ranges for product and UX roles in India are about ₹4 to 8 lakh a year for freshers, ₹10 to 22 lakh at 3 to 5 years, and ₹25 to 50 lakh or more at senior level.",
  "faqs": [
-  ["How many years does it take to become a UI/UX designer after 10th?", "Core UI and UX skills take about a year in this roadmap. The full 3-year, 624-hour Product & UX / AI Design program builds a professional portfolio. Some employers also ask for a degree, so many students study it alongside Class 11, 12 and college."],
-  ["Can I become a UI/UX designer without maths?", "Yes. UI/UX design needs observation, empathy and clear thinking more than advanced maths. Mathematics matters only if you also want a B.Tech through JEE Main, which needs Physics and Mathematics in Class 12."],
-  ["Do I need to be good at drawing to become a UI/UX designer?", "No. Most UI work is layout, spacing and type, not drawing. The program starts with visual design fundamentals and assumes no design background."],
-  ["What is the difference between UI and UX design?", "UX design is how a product works for its users: the research, the flow and the problems it solves. UI design is how the screens look and respond. Most junior roles in India ask for both."],
-  ["Does the program include AI in UI/UX design?", "Yes, from year 2. Students study AI UX patterns and AI prototyping, then build an accessible AI interface and AI design systems in year 3."]
+  [
+   "How many years does it take to become a UI/UX designer after 10th?",
+   "Core UI and UX skills take about a year in this roadmap. The full 3-year, 624-hour Product & UX / AI Design program builds a professional portfolio. Some employers also ask for a degree, so many students study it alongside Class 11, 12 and college."
+  ],
+  [
+   "Can I become a UI/UX designer without maths?",
+   "Yes. UI/UX design needs observation, empathy and clear thinking more than advanced maths. Mathematics matters only if you also want a B.Tech through JEE Main, which needs Physics and Mathematics in Class 12."
+  ],
+  [
+   "Do I need to be good at drawing to become a UI/UX designer?",
+   "No. Most UI work is layout, spacing and type, not drawing. The program starts with visual design fundamentals and assumes no design background."
+  ],
+  [
+   "What is the difference between UI and UX design?",
+   "UX design is how a product works for its users: the research, the flow and the problems it solves. UI design is how the screens look and respond. Most junior roles in India ask for both."
+  ],
+  [
+   "Does the program include AI in UI/UX design?",
+   "Yes, from year 2. Students study AI UX patterns and AI prototyping, then build an accessible AI interface and AI design systems in year 3."
+  ]
  ],
  "context_fact": "Nasscom's Strategic Review 2026 describes AI moving from optional to core infrastructure in India's tech industry. As more apps add AI features, someone has to design how people use them, which is why AI interfaces are part of this roadmap.",
  "sources": [
-  ["Google UX Design Professional Certificate", "https://www.coursera.org/professional-certificates/google-ux-design", "Coursera, checked 18 October 2026"],
-  ["UI / UX Design Specialization (California Institute of the Arts)", "https://www.coursera.org/specializations/ui-ux-design", "Coursera, checked 18 October 2026"],
-  ["IxDF courses", "https://ixdf.org/courses", "Interaction Design Foundation, checked 18 October 2026"]
+  [
+   "Google UX Design Professional Certificate",
+   "https://www.coursera.org/professional-certificates/google-ux-design",
+   "Coursera, checked 18 October 2026"
+  ],
+  [
+   "UI / UX Design Specialization (California Institute of the Arts)",
+   "https://www.coursera.org/specializations/ui-ux-design",
+   "Coursera, checked 18 October 2026"
+  ],
+  [
+   "IxDF courses",
+   "https://ixdf.org/courses",
+   "Interaction Design Foundation, checked 18 October 2026"
+  ]
  ],
- "related_guides": ["become-product-designer-after-10th", "career-options-after-10th", "courses-after-10th"]
+ "related_guides": [
+  "career-options-after-10th",
+  "courses-after-10th"
+ ],
+ "merged_sections": [
+  {
+   "h2": "What does a product designer do beyond UI/UX?",
+   "answer": "A product designer owns how a whole product works, not just one screen: they help choose which problem to solve, design the full experience, keep it consistent with a design system and check with data whether it worked.",
+   "html": "<p>Many product designers start in UI/UX. In this roadmap, the product side comes in year 2 and 3: product discovery, roadmaps and metrics, two design systems modules, AI UX patterns, complex product design, and product analytics and experimentation.</p>"
+  },
+  {
+   "h2": "Can UI/UX design lead to product management?",
+   "answer": "Yes, but rarely as a first job: product managers decide what a team builds next and why, and most people move into the role after experience in design, engineering or analysis.",
+   "html": "<p>Year 2 of this program includes Product Fundamentals with Google Project Management preparation, Product Discovery, Agile and Project Planning, Roadmaps and Metrics, and two Microsoft AI Product Manager modules. That suits a student who starts in UX and grows into product. The program does not teach coding or data science.</p>"
+  }
+ ]
 }

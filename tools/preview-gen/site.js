@@ -105,7 +105,8 @@
     try { var t = document.createElement('canvas'); if (!(t.getContext('webgl2') || t.getContext('webgl'))) return; } catch (e) { return; }
     var io = new IntersectionObserver(function (es) {
       if (!es[0].isIntersecting) return; io.disconnect();
-      import('/assets/aiml3d.js?v=' + (document.documentElement.dataset.v || '1')).then(function (m) { return m.mount(box); }).catch(function () { /* poster remains */ });
+      var idle = window.requestIdleCallback || function (f) { setTimeout(f, 1200); };
+      idle(function () { import('/assets/aiml3d.js?v=' + (document.documentElement.dataset.v || '1')).then(function (m) { return m.mount(box); }).catch(function () { /* poster remains */ }); }, { timeout: 3000 });
     }, { rootMargin: '300px 0px' });
     io.observe(box);
   })();

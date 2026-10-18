@@ -4,23 +4,48 @@
  "keyword": "how to become an AI developer after 10th",
  "searches": "",
  "program": "ai-ml-engineering",
- "alt_programs": ["ai-foundation"],
+ "alt_programs": [
+  "ai-foundation"
+ ],
  "title": "How to Become an AI Developer After 10th (2026)",
  "desc": "Become an AI developer after Class 10: Python, AI APIs, RAG, agents and cloud AI services, with a year-by-year plan, projects, certificates and salary.",
- "h1": ["How to become an AI developer after 10th", "a year-by-year roadmap"],
+ "h1": [
+  "How to become an AI developer after 10th",
+  "a year-by-year roadmap"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. It shows how a real 624-hour, three-year curriculum leads to building apps that use AI, with a one-year option for younger students.",
  "role_intro": "An AI developer builds apps and tools that use AI models made by others. A typical task is connecting a language model through an API, giving it your own documents with RAG, or letting an agent call tools. The focus is the software around the model, not inventing new models.",
+ "day_to_day": {
+  "answer": "An AI developer spends the day writing application code around ready-made AI models: calling them through APIs, feeding them the right documents, giving agents tools to use, and fixing what breaks for users.",
+  "html": "<p>Typical tasks: adding a feature that sends a request to a language model and shows the reply. Setting up retrieval (RAG) so answers come from the right files. Letting an agent call functions such as a search. They handle slow or failed responses, store results, and write tests that check the answers. They work with designers, back-end developers and product owners.</p><p>Main tools: Python, Git and GitHub, cloud AI services on Azure and AWS, and Docker and Linux to run the app.</p><p><strong>How it differs from an AI engineer:</strong> an AI developer treats the model as a service to call and focuses on the app and the user. An <a href=\"/guides/become-ai-engineer-after-10th\">AI engineer</a> is also responsible for the model side: choosing it, adapting it, measuring it and monitoring it. In small teams, one person often does both.</p>"
+ },
+ "first_project": {
+  "answer": "A realistic first project is a notes helper: a Python program that finds the right passage in your own school notes for any question, which is the retrieval half of a RAG app.",
+  "html": "<p>Spend two or three weeks building it from the command line.</p><ul><li><strong>Week 1:</strong> save 10 to 15 pages of your own notes as text files. Write Python that splits them into short chunks.</li><li><strong>Week 2:</strong> write a search function that returns the three chunks sharing the most words with a question. Show the file name so you can check the source.</li><li><strong>Week 3:</strong> write 15 questions with known answers and record which ones the tool finds. If you can use an AI model API, send the question with those chunks and ask for a short answer. If not, the search-only version is still a complete project.</li></ul><p>In the program, this grows into the <strong>Document RAG assistant</strong> in year 3: an assistant that answers from your own files.</p>"
+ },
  "in_short": [
-  "<strong>This is software work with AI inside.</strong> Good coding habits matter as much as AI knowledge.",
-  "<strong>Plan for about three years after Class 10,</strong> or start earlier with the one-year AI Foundation course from Class 8.",
-  "<strong>Your portfolio is your proof.</strong> Working apps that use AI APIs, RAG and agents say more than marks."
+  "<strong>An AI developer writes the app, not the model.</strong> The work is code that connects ready-made models to users, files and tools.",
+  "<strong>You can try it before Class 10 ends.</strong> AI Foundation, open from Class 8, has a 9-hour module on Python AI APIs, agents and automation.",
+  "<strong>Coding habits count most.</strong> Small working apps on GitHub that use AI APIs, RAG and agents show more than marks."
  ],
- "start_answer": "Yes. You can start right after Class 10, and if you are younger, the one-year AI Foundation course is open from Class 8 and already covers AI APIs, RAG and agents at a beginner level.",
+ "start_answer": "Yes, you can start after Class 10, or from Class 8 with AI Foundation, because an AI developer first needs everyday coding skill and a feel for how apps talk to AI models.",
  "start_bridge": "Because AI development is mostly coding, your stream choice affects degrees more than skills. Here is the honest picture for each.",
  "streams": [
-  ["Science with Maths (PCM)", "B.Tech in computer science through JEE Main, plus BCA and B.Sc. Keeps both AI development and ML engineering open.", "Little free time in Class 11 and 12. Keep a small weekly slot for building."],
-  ["Commerce or Humanities with Computer Science", "BCA and many computer application degrees. AI app building rewards finished projects over stream.", "Without Physics and Mathematics in Class 12, B.Tech through JEE Main is not possible."],
-  ["Diploma in computer engineering", "Practical computing from day one, which suits app builders.", "Rules for moving into a degree later differ by state. Check them early."]
+  [
+   "Science with Maths (PCM)",
+   "B.Tech in computer science through JEE Main, plus BCA and B.Sc. Keeps both AI development and ML engineering open.",
+   "Little free time in Class 11 and 12. Keep a small weekly slot for building."
+  ],
+  [
+   "Commerce or Humanities with Computer Science",
+   "BCA and many computer application degrees. AI app building rewards finished projects over stream.",
+   "Without Physics and Mathematics in Class 12, B.Tech through JEE Main is not possible."
+  ],
+  [
+   "Diploma in computer engineering",
+   "Practical computing from day one, which suits app builders.",
+   "Rules for moving into a degree later differ by state. Check them early."
+  ]
  ],
  "start_extra": "Students in Class 8 or 9 can take the one-year, 104-hour <a href=\"/programs/ai-foundation\">AI Foundation</a> course, which ends with a deployed AI app. After Class 10, <a href=\"/programs/ai-ml-engineering\">AI/ML Engineering</a> goes much deeper.",
  "roadmap_answer": "Across three years, year 1 builds Python, data skills and your first Azure AI solution, year 2 builds APIs, transformers and AWS AI services, and year 3 builds RAG apps, agents, multimodal tools and cloud AI products.",
@@ -32,26 +57,86 @@
  "fit_note": "This curriculum is Python and AI focused. It does not teach native Android or iOS app development, so a mobile front end for your AI app would be extra self-study.",
  "skills_answer": "An AI developer needs strong Python, Git, working with APIs, prompt and context design, embeddings and RAG, agent and tool design, cloud AI services on Azure and AWS, testing of AI output, and responsible AI habits.",
  "skills": [
-  ["Python and the command line", "Almost every AI API and library is used from Python.", "Year 1, first months"],
-  ["Git and GitHub", "Tracks your code and shows your work to employers.", "Year 1"],
-  ["Cloud AI services on Azure and AWS", "Ready-made vision, language and generative services you build on.", "Year 1 (Azure), year 2 (AWS)"],
-  ["Building APIs", "Your app talks to models and other software through APIs.", "Year 2, ML inference API"],
-  ["Transformers and LLM basics", "Knowing how a language model works helps you predict where it fails.", "Year 2"],
-  ["Embeddings and RAG", "Lets an app answer from your own documents.", "Year 3"],
-  ["Agents and tool calling", "Lets AI complete multi-step tasks through tools and APIs.", "Year 3"],
-  ["Multimodal AI", "Apps that read images, PDFs and text together.", "Year 3"],
-  ["Testing AI output and safety", "AI answers vary. You need tests that catch wrong or unsafe ones.", "Year 3"]
+  [
+   "Python and the command line",
+   "Almost every AI API and library is used from Python.",
+   "Year 1, first months"
+  ],
+  [
+   "Git and GitHub",
+   "Tracks your code and shows your work to employers.",
+   "Year 1"
+  ],
+  [
+   "Cloud AI services on Azure and AWS",
+   "Ready-made vision, language and generative services you build on.",
+   "Year 1 (Azure), year 2 (AWS)"
+  ],
+  [
+   "Building APIs",
+   "Your app talks to models and other software through APIs.",
+   "Year 2, ML inference API"
+  ],
+  [
+   "Transformers and LLM basics",
+   "Knowing how a language model works helps you predict where it fails.",
+   "Year 2"
+  ],
+  [
+   "Embeddings and RAG",
+   "Lets an app answer from your own documents.",
+   "Year 3"
+  ],
+  [
+   "Agents and tool calling",
+   "Lets AI complete multi-step tasks through tools and APIs.",
+   "Year 3"
+  ],
+  [
+   "Multimodal AI",
+   "Apps that read images, PDFs and text together.",
+   "Year 3"
+  ],
+  [
+   "Testing AI output and safety",
+   "AI answers vary. You need tests that catch wrong or unsafe ones.",
+   "Year 3"
+  ]
  ],
  "build_answer": "You build a project every month for 36 months, and for an AI developer the standouts are apps that call AI services, answer from documents, use tools as agents and run on the cloud.",
  "projects": [
-  ["CLI utility collection", "Small Python tools that build the coding habits app work needs."],
-  ["Azure AI mini solution", "Your first app built on a ready-made cloud AI service."],
-  ["AWS AI service architecture project", "Plans how AWS AI services fit into one working app."],
-  ["Transformer text application", "A text app built on a modern language model."],
-  ["Document RAG assistant", "An assistant that answers from your own files, the most common AI app today."],
-  ["Tool-using AI agent", "An agent that calls tools to finish a task, not just chat."],
-  ["Multimodal document assistant", "Reads text and images together, like a real office document tool."],
-  ["AI safety test suite", "Tests that check your app's answers before users rely on them."]
+  [
+   "CLI utility collection",
+   "Small Python tools that build the coding habits app work needs."
+  ],
+  [
+   "Azure AI mini solution",
+   "Your first app built on a ready-made cloud AI service."
+  ],
+  [
+   "AWS AI service architecture project",
+   "Plans how AWS AI services fit into one working app."
+  ],
+  [
+   "Transformer text application",
+   "A text app built on a modern language model."
+  ],
+  [
+   "Document RAG assistant",
+   "An assistant that answers from your own files, the most common AI app today."
+  ],
+  [
+   "Tool-using AI agent",
+   "An agent that calls tools to finish a task, not just chat."
+  ],
+  [
+   "Multimodal document assistant",
+   "Reads text and images together, like a real office document tool."
+  ],
+  [
+   "AI safety test suite",
+   "Tests that check your app's answers before users rely on them."
+  ]
  ],
  "certs_answer": "Microsoft AI-901 suits AI developers best because over half of it is about building with Microsoft Foundry, and IBM AI Engineering adds RAG and LangChain, though each certificate is awarded only by its own body.",
  "cert_notes": {
@@ -61,24 +146,65 @@
  "cert_extra": "AI-901 preparation is also part of the final month of AI Foundation, so a younger student can prepare for it within one year.",
  "notfor_answer": "AI development is not for you if you dislike coding, want to research new models rather than use them, or expect a guaranteed job once you can call an AI API.",
  "notfor": [
-  ["You want a guarantee.", "No honest program promises a job, salary or exam pass. This one does not."],
-  ["You do not enjoy coding.", "Most of the work is ordinary software: APIs, data, errors and tests."],
-  ["You want to invent new models.", "That is closer to ML research. The <a href=\"/guides/become-machine-learning-engineer-after-10th\">ML engineer guide</a> fits better."],
-  ["You think prompts alone are enough.", "Employers want working, tested apps, not only clever prompts."],
-  ["You are not ready for regular practice.", "AI APIs change often. You need steady weekly time to keep up."]
+  [
+   "You want a guarantee.",
+   "No honest program promises a job, salary or exam pass. This one does not."
+  ],
+  [
+   "You do not enjoy coding.",
+   "Most of the work is ordinary software: APIs, data, errors and tests."
+  ],
+  [
+   "You want to invent new models.",
+   "That is closer to ML research. The <a href=\"/guides/become-machine-learning-engineer-after-10th\">ML engineer guide</a> fits better."
+  ],
+  [
+   "You think prompts alone are enough.",
+   "Employers want working, tested apps, not only clever prompts."
+  ],
+  [
+   "You are not ready for regular practice.",
+   "AI APIs change often. You need steady weekly time to keep up."
+  ]
  ],
  "salary_answer": "Indicative India ranges for AI/ML roles, including GenAI developer and AI solutions developer, are about ₹5 to 10 lakh a year for freshers, ₹12 to 25 lakh at 3 to 5 years, and ₹30 to 60 lakh or more for senior roles.",
  "faqs": [
-  ["How many years does it take to become an AI developer after 10th?", "Plan for about three years of steady learning, such as the 3-year, 624-hour AI/ML Engineering program. Many employers also ask for a degree, so most students build these skills alongside Class 11, 12 and college."],
-  ["Can I become an AI developer without maths?", "You need less maths than an ML engineer, because you build on existing models. Logic and basic statistics still help. Keeping maths in Class 11 and 12 keeps the B.Tech route through JEE Main open."],
-  ["What is the difference between an AI developer and an AI engineer?", "An AI developer mainly builds apps on top of AI APIs and models. An AI engineer often also trains, evaluates and runs models and designs larger AI systems. Titles vary by company."],
-  ["Can I start in Class 8 or 9?", "Yes. AI Foundation is a one-year, 104-hour course at 2 hours a week, open from Class 8 with no coding needed. It covers Python, prompt and context engineering, RAG, AI APIs and agents, and a deployed AI app."],
-  ["Which programming language should an AI developer learn first?", "Python. Both AI Foundation and AI/ML Engineering use it from the start, because most AI APIs and libraries are built for it."]
+  [
+   "How many years does it take to become an AI developer after 10th?",
+   "Plan for about three years of steady learning, such as the 3-year, 624-hour AI/ML Engineering program. Many employers also ask for a degree, so most students build these skills alongside Class 11, 12 and college."
+  ],
+  [
+   "Can I become an AI developer without maths?",
+   "You need less maths than an ML engineer, because you build on existing models. Logic and basic statistics still help. Keeping maths in Class 11 and 12 keeps the B.Tech route through JEE Main open."
+  ],
+  [
+   "What is the difference between an AI developer and an AI engineer?",
+   "An AI developer mainly builds apps on top of AI APIs and models. An AI engineer often also trains, evaluates and runs models and designs larger AI systems. Titles vary by company."
+  ],
+  [
+   "Can I start in Class 8 or 9?",
+   "Yes. AI Foundation is a one-year, 104-hour course at 2 hours a week, open from Class 8 with no coding needed. It covers Python, prompt and context engineering, RAG, AI APIs and agents, and a deployed AI app."
+  ],
+  [
+   "Which programming language should an AI developer learn first?",
+   "Python. Both AI Foundation and AI/ML Engineering use it from the start, because most AI APIs and libraries are built for it."
+  ]
  ],
  "context_fact": "Nasscom's Strategic Review 2026 says AI has moved from optional to core infrastructure across India's tech industry. More companies now need developers who can put AI inside everyday software.",
  "sources": [
-  ["Exam AI-901: Microsoft Azure AI Fundamentals", "https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/", "Microsoft Learn, page updated 5 August 2026"],
-  ["IBM AI Engineering Professional Certificate", "https://www.coursera.org/professional-certificates/ai-engineer", "Coursera, checked 18 October 2026"]
+  [
+   "Exam AI-901: Microsoft Azure AI Fundamentals",
+   "https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/",
+   "Microsoft Learn, page updated 5 August 2026"
+  ],
+  [
+   "IBM AI Engineering Professional Certificate",
+   "https://www.coursera.org/professional-certificates/ai-engineer",
+   "Coursera, checked 18 October 2026"
+  ]
  ],
- "related_guides": ["ai-projects-for-students", "become-ai-engineer-after-10th", "become-prompt-engineer-after-10th"]
+ "related_guides": [
+  "ai-projects-for-students",
+  "become-ai-engineer-after-10th"
+ ]
 }

@@ -3,11 +3,18 @@
  "keyword": "python project ideas for students",
  "searches": "",
  "program": "ai-foundation",
- "alt_programs": ["ai-ml-engineering", "data-science-ai"],
- "date": "2026-10-18", "date_txt": "18 October 2026",
+ "alt_programs": [
+  "ai-ml-engineering",
+  "data-science-ai"
+ ],
+ "date": "2026-10-18",
+ "date_txt": "18 October 2026",
  "title": "Python Project Ideas for Students (Class 8 to 12)",
  "desc": "Eight Python project ideas for school students, from a first guessing game to an AI notes assistant, with steps, skills and how to show them on GitHub.",
- "h1": ["Python project ideas for students", "from first program to AI app"],
+ "h1": [
+  "Python project ideas for students",
+  "from first program to AI app"
+ ],
  "lead": "Eight projects a school student can build, in the order skills grow. Each one says what you learn, the steps to build it, and where the same idea appears in a real course.",
  "intro": "Python is a good first language because its code reads close to plain English. The fastest way to learn it is to finish small projects, then make each one a little harder.",
  "in_short": [
@@ -16,97 +23,336 @@
   "<strong>Finish with AI:</strong> a simple predictor and a notes assistant. Put every project on GitHub with a short README."
  ],
  "sections": [
-  {"h2": "Which Python projects should a student build first?",
+  {
+   "h2": "Which Python projects should a student build first?",
    "answer": "Start with small projects that use input, loops, conditions and lists, then move to files and data, and only then to machine learning and AI, so each project uses what the last one taught.",
    "blocks": [
-    {"type": "table", "caption": "Python project ideas by level", "head": ["Project", "Level", "Main skills"], "rows": [
-     ["Number guessing game", "Beginner", "Input, loops, conditions, random numbers"],
-     ["Report-card calculator", "Beginner", "Lists, functions, averages, reading a CSV file"],
-     ["Quiz app with a question bank", "Beginner", "Dictionaries, JSON files, scoring"],
-     ["Expense tracker with charts", "Intermediate", "Pandas, cleaning data, Matplotlib charts"],
-     ["Live data fetcher", "Intermediate", "APIs, JSON, error handling"],
-     ["Exam-score predictor", "Intermediate", "scikit-learn, training and testing a model"],
-     ["Prompt test bench", "Advanced", "Calling an AI model, comparing answers fairly"],
-     ["Class-notes assistant", "Advanced", "Embeddings, retrieval, a simple AI app"]]}
-   ]},
-  {"h2": "What are good beginner Python projects for students?",
+    {
+     "type": "table",
+     "caption": "Python project ideas by level",
+     "head": [
+      "Project",
+      "Level",
+      "Main skills"
+     ],
+     "rows": [
+      [
+       "Number guessing game",
+       "Beginner",
+       "Input, loops, conditions, random numbers"
+      ],
+      [
+       "Report-card calculator",
+       "Beginner",
+       "Lists, functions, averages, reading a CSV file"
+      ],
+      [
+       "Quiz app with a question bank",
+       "Beginner",
+       "Dictionaries, JSON files, scoring"
+      ],
+      [
+       "Expense tracker with charts",
+       "Intermediate",
+       "Pandas, cleaning data, Matplotlib charts"
+      ],
+      [
+       "Live data fetcher",
+       "Intermediate",
+       "APIs, JSON, error handling"
+      ],
+      [
+       "Exam-score predictor",
+       "Intermediate",
+       "scikit-learn, training and testing a model"
+      ],
+      [
+       "Prompt test bench",
+       "Advanced",
+       "Calling an AI model, comparing answers fairly"
+      ],
+      [
+       "Class-notes assistant",
+       "Advanced",
+       "Embeddings, retrieval, a simple AI app"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "What are good beginner Python projects for students?",
    "answer": "Good beginner projects are a number guessing game, a report-card calculator and a quiz app, because each one is finished in a few sittings and teaches one core idea well.",
    "blocks": [
-    {"type": "cards", "items": [
-     {"name": "Number guessing game", "meta": ["Beginner", "Loops and conditions"], "body": "The computer picks a number and the player guesses until they get it, with hints like too high or too low.",
-      "steps": ["Pick a random number with the random module.", "Ask for a guess in a loop.", "Print a hint after each guess and count the tries.", "Add levels: easy, medium and hard ranges."],
-      "link": "The first months of <a href=\"/programs/ai-foundation\">AI Foundation</a> end with a debugging and programming challenge built on the same basics."},
-     {"name": "Report-card calculator", "meta": ["Beginner", "Lists and files"], "body": "Read students' marks from a CSV file and print totals, averages, grades and the class topper.",
-      "steps": ["Store marks in a CSV file made in a spreadsheet.", "Read it with Python's csv module.", "Write functions for total, average and grade.", "Handle a missing mark without crashing."]},
-     {"name": "Quiz app with a question bank", "meta": ["Beginner", "Dictionaries and JSON"], "body": "Questions live in a JSON file, so anyone can add new ones without touching the code.",
-      "steps": ["Write ten questions in a JSON file.", "Shuffle them and ask one at a time.", "Keep score and show the right answer when wrong.", "Save the best score to a file."]}
-    ]}
-   ]},
-  {"h2": "Which intermediate Python projects build real skills?",
+    {
+     "type": "cards",
+     "items": [
+      {
+       "name": "Number guessing game",
+       "meta": [
+        "Beginner",
+        "Loops and conditions"
+       ],
+       "body": "The computer picks a number and the player guesses until they get it, with hints like too high or too low.",
+       "steps": [
+        "Pick a random number with the random module.",
+        "Ask for a guess in a loop.",
+        "Print a hint after each guess and count the tries.",
+        "Add levels: easy, medium and hard ranges."
+       ],
+       "link": "The first months of <a href=\"/programs/ai-foundation\">AI Foundation</a> end with a debugging and programming challenge built on the same basics."
+      },
+      {
+       "name": "Report-card calculator",
+       "meta": [
+        "Beginner",
+        "Lists and files"
+       ],
+       "body": "Read students' marks from a CSV file and print totals, averages, grades and the class topper.",
+       "steps": [
+        "Store marks in a CSV file made in a spreadsheet.",
+        "Read it with Python's csv module.",
+        "Write functions for total, average and grade.",
+        "Handle a missing mark without crashing."
+       ]
+      },
+      {
+       "name": "Quiz app with a question bank",
+       "meta": [
+        "Beginner",
+        "Dictionaries and JSON"
+       ],
+       "body": "Questions live in a JSON file, so anyone can add new ones without touching the code.",
+       "steps": [
+        "Write ten questions in a JSON file.",
+        "Shuffle them and ask one at a time.",
+        "Keep score and show the right answer when wrong.",
+        "Save the best score to a file."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Which intermediate Python projects build real skills?",
    "answer": "Intermediate projects should use real data and outside services: an expense tracker that cleans data and draws charts, a fetcher that reads live data from an API, and a small model that predicts scores.",
    "blocks": [
-    {"type": "cards", "items": [
-     {"name": "Expense tracker with charts", "meta": ["Intermediate", "Pandas and Matplotlib"], "body": "Log a month of pocket-money spending, clean the messy entries and chart where the money went.",
-      "steps": ["Collect a month of spending in a CSV file.", "Load it with Pandas and fix spelling and missing values.", "Group by category and total each one.", "Draw a bar chart with Matplotlib and write one line on what it shows."],
-      "link": "AI Foundation's cleaned-CSV data mini-project, published on GitHub, practises exactly these steps."},
-     {"name": "Live data fetcher", "meta": ["Intermediate", "APIs and JSON"], "body": "Ask a free public API for live data, such as weather for your city, and print a clean summary.",
-      "steps": ["Find a free API that needs no payment.", "Request data with the requests library.", "Read the JSON reply and pick the fields you need.", "Handle errors, such as no internet or a wrong city name."]},
-     {"name": "Exam-score predictor", "meta": ["Intermediate", "scikit-learn"], "body": "Use study hours and past marks from a made-up dataset to predict a test score, then check how wrong the model is.",
-      "steps": ["Create or download a small, safe dataset.", "Split it into training and test parts.", "Train a linear regression model with scikit-learn.", "Measure the error and explain one reason it might be wrong."],
-      "link": "The ML mini-project and practical assessment in AI Foundation follow this same train, test and explain cycle."}
-    ]}
-   ]},
-  {"h2": "Which advanced Python projects show AI skills?",
+    {
+     "type": "cards",
+     "items": [
+      {
+       "name": "Expense tracker with charts",
+       "meta": [
+        "Intermediate",
+        "Pandas and Matplotlib"
+       ],
+       "body": "Log a month of pocket-money spending, clean the messy entries and chart where the money went.",
+       "steps": [
+        "Collect a month of spending in a CSV file.",
+        "Load it with Pandas and fix spelling and missing values.",
+        "Group by category and total each one.",
+        "Draw a bar chart with Matplotlib and write one line on what it shows."
+       ],
+       "link": "AI Foundation's cleaned-CSV data mini-project, published on GitHub, practises exactly these steps."
+      },
+      {
+       "name": "Live data fetcher",
+       "meta": [
+        "Intermediate",
+        "APIs and JSON"
+       ],
+       "body": "Ask a free public API for live data, such as weather for your city, and print a clean summary.",
+       "steps": [
+        "Find a free API that needs no payment.",
+        "Request data with the requests library.",
+        "Read the JSON reply and pick the fields you need.",
+        "Handle errors, such as no internet or a wrong city name."
+       ]
+      },
+      {
+       "name": "Exam-score predictor",
+       "meta": [
+        "Intermediate",
+        "scikit-learn"
+       ],
+       "body": "Use study hours and past marks from a made-up dataset to predict a test score, then check how wrong the model is.",
+       "steps": [
+        "Create or download a small, safe dataset.",
+        "Split it into training and test parts.",
+        "Train a linear regression model with scikit-learn.",
+        "Measure the error and explain one reason it might be wrong."
+       ],
+       "link": "The ML mini-project and practical assessment in AI Foundation follow this same train, test and explain cycle."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Which advanced Python projects show AI skills?",
    "answer": "Advanced student projects call an AI model from Python and check its answers, such as a prompt test bench that compares outputs, or a class-notes assistant that answers questions from your own notes.",
    "blocks": [
-    {"type": "cards", "items": [
-     {"name": "Prompt test bench", "meta": ["Advanced", "AI APIs and evaluation"], "body": "Send the same ten questions to an AI model with two different prompts and score which prompt gives better answers.",
-      "steps": ["Write ten questions with known correct answers.", "Call the model from Python with prompt A, then prompt B.", "Score each answer as right, partly right or wrong.", "Write up which prompt won and why."],
-      "link": "This is a small version of AI Foundation's prompt evaluation benchmark project."},
-     {"name": "Class-notes assistant", "meta": ["Advanced", "Embeddings and retrieval"], "body": "Load your own notes, find the parts that match a question, and let an AI model answer only from those parts.",
-      "steps": ["Split your notes into short chunks.", "Turn each chunk into an embedding.", "Find the closest chunks to a question.", "Ask the model to answer from those chunks and show which ones it used."],
-      "link": "AI Foundation builds a full RAG knowledge assistant in its context engineering month."}
-    ]},
-    {"type": "note", "html": "Never paste personal data, passwords or other people's information into an AI tool. Use your own notes or made-up data."}
-   ]},
-  {"h2": "How do you turn a Python project into a portfolio piece?",
+    {
+     "type": "cards",
+     "items": [
+      {
+       "name": "Prompt test bench",
+       "meta": [
+        "Advanced",
+        "AI APIs and evaluation"
+       ],
+       "body": "Send the same ten questions to an AI model with two different prompts and score which prompt gives better answers.",
+       "steps": [
+        "Write ten questions with known correct answers.",
+        "Call the model from Python with prompt A, then prompt B.",
+        "Score each answer as right, partly right or wrong.",
+        "Write up which prompt won and why."
+       ],
+       "link": "This is a small version of AI Foundation's prompt evaluation benchmark project."
+      },
+      {
+       "name": "Class-notes assistant",
+       "meta": [
+        "Advanced",
+        "Embeddings and retrieval"
+       ],
+       "body": "Load your own notes, find the parts that match a question, and let an AI model answer only from those parts.",
+       "steps": [
+        "Split your notes into short chunks.",
+        "Turn each chunk into an embedding.",
+        "Find the closest chunks to a question.",
+        "Ask the model to answer from those chunks and show which ones it used."
+       ],
+       "link": "AI Foundation builds a full RAG knowledge assistant in its context engineering month."
+      }
+     ]
+    },
+    {
+     "type": "note",
+     "html": "Never paste personal data, passwords or other people's information into an AI tool. Use your own notes or made-up data."
+    }
+   ]
+  },
+  {
+   "h2": "How do you turn a Python project into a portfolio piece?",
    "answer": "Put each finished project on GitHub with a short README that says what it does, how to run it, a screenshot and one thing you learned, so a teacher, college or parent can check the work in a minute.",
    "blocks": [
-    {"type": "list", "ordered": true, "items": [
-     ["Name it clearly.", "\"expense-tracker\" says more than \"project3\"."],
-     ["Write a README.", "Three parts: what it does, how to run it, and what you learned."],
-     ["Add a screenshot or chart.", "People look before they read."],
-     ["Commit as you go.", "A history of small commits shows how you worked."],
-     ["Keep it honest.", "Say which parts you wrote yourself and which came from a tutorial."]]}
-   ]},
-  {"h2": "How does a structured course use Python projects?",
+    {
+     "type": "list",
+     "ordered": true,
+     "items": [
+      [
+       "Name it clearly.",
+       "\"expense-tracker\" says more than \"project3\"."
+      ],
+      [
+       "Write a README.",
+       "Three parts: what it does, how to run it, and what you learned."
+      ],
+      [
+       "Add a screenshot or chart.",
+       "People look before they read."
+      ],
+      [
+       "Commit as you go.",
+       "A history of small commits shows how you worked."
+      ],
+      [
+       "Keep it honest.",
+       "Say which parts you wrote yourself and which came from a tutorial."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "How does a structured course use Python projects?",
    "answer": "A structured course puts these projects in order, with a lesson, homework and a check every unit, so a student does not stall after the first few easy wins.",
    "blocks": [
-    {"type": "program_roadmap", "year_focus": ["AI Foundation: from first Python program to a deployed AI app"],
-     "highlight": ["Debugging and programming challenge", "Cleaned-CSV data mini-project on GitHub", "ML mini-project and practical assessment", "Prompt evaluation benchmark project", "RAG Knowledge Assistant project", "Final capstone project and graduation"]},
-    {"type": "program_note"},
-    {"type": "talk", "h": "Want these projects with a mentor?", "p": "Ask us about AI Foundation, batch timings and fees. A person replies. Students under 18 enquire through a parent or guardian."}
-   ]},
-  {"h2": "What laptop do you need for Python projects?",
+    {
+     "type": "program_roadmap",
+     "year_focus": [
+      "AI Foundation: from first Python program to a deployed AI app"
+     ],
+     "highlight": [
+      "Debugging and programming challenge",
+      "Cleaned-CSV data mini-project on GitHub",
+      "ML mini-project and practical assessment",
+      "Prompt evaluation benchmark project",
+      "RAG Knowledge Assistant project",
+      "Final capstone project and graduation"
+     ]
+    },
+    {
+     "type": "program_note"
+    },
+    {
+     "type": "talk",
+     "h": "Want these projects with a mentor?",
+     "p": "Ask us about AI Foundation, batch timings and fees. A person replies. Students under 18 enquire through a parent or guardian."
+    }
+   ]
+  },
+  {
+   "h2": "What laptop do you need for Python projects?",
    "answer": "You need a laptop or desktop that can install Python or open a browser-based notebook; the setup below is the one recommended for the AI Foundation course.",
-   "blocks": [{"type": "program_laptop"}]},
-  {"h2": "What should parents ask before choosing a coding course?",
+   "blocks": [
+    {
+     "type": "program_laptop"
+    }
+   ]
+  },
+  {
+   "h2": "What should parents ask before choosing a coding course?",
    "answer": "Parents should ask five things of any coding course: can I see the full curriculum, what will my child build, how is learning checked, who answers questions, and what exactly is promised.",
-   "blocks": [{"type": "parents"}]}
+   "blocks": [
+    {
+     "type": "parents"
+    }
+   ]
+  }
  ],
  "faqs": [
-  ["Which Python project is best for a beginner?", "A number guessing game. It uses input, loops, conditions and random numbers, and most students finish it in one or two sittings."],
-  ["How long does a Python project take for a student?", "Beginner projects take a few sittings. Intermediate projects with data or APIs take one to two weeks of evenings. AI projects take longer, because you also test and explain the results."],
-  ["Do I need to know maths for Python projects?", "Not for the beginner and intermediate ideas here. School maths is enough. The predictor project uses averages and error, which are explained as you build it."],
-  ["Can a Class 8 student do these Python projects?", "Yes. The beginner projects need no prior coding, and the AI Foundation course that covers them is open from Class 8."],
-  ["Is there a certificate for Python?", "The Python Institute offers PCEP, an entry-level Python certificate with no prerequisites. It is separate from NeuroNetworks AI Ed, which awards its own certificate on completing AI Foundation."]
+  [
+   "Which Python project is best for a beginner?",
+   "A number guessing game. It uses input, loops, conditions and random numbers, and most students finish it in one or two sittings."
+  ],
+  [
+   "How long does a Python project take for a student?",
+   "Beginner projects take a few sittings. Intermediate projects with data or APIs take one to two weeks of evenings. AI projects take longer, because you also test and explain the results."
+  ],
+  [
+   "Do I need to know maths for Python projects?",
+   "Not for the beginner and intermediate ideas here. School maths is enough. The predictor project uses averages and error, which are explained as you build it."
+  ],
+  [
+   "Can a Class 8 student do these Python projects?",
+   "Yes. The beginner projects need no prior coding, and the AI Foundation course that covers them is open from Class 8."
+  ],
+  [
+   "Is there a certificate for Python?",
+   "The Python Institute offers PCEP, an entry-level Python certificate with no prerequisites. It is separate from NeuroNetworks AI Ed, which awards its own certificate on completing AI Foundation."
+  ]
  ],
  "sources": [
-  ["Python for beginners: getting started", "https://www.python.org/about/gettingstarted/", "Python Software Foundation, checked 18 October 2026"],
-  ["PCEP: Certified Entry-Level Python Programmer", "https://pythoninstitute.org/pcep", "Python Institute, checked 18 October 2026. PCEP-30-02 is current; PCEP-30-03 is scheduled for 31 October 2026."]
+  [
+   "Python for beginners: getting started",
+   "https://www.python.org/about/gettingstarted/",
+   "Python Software Foundation, checked 18 October 2026"
+  ],
+  [
+   "PCEP: Certified Entry-Level Python Programmer",
+   "https://pythoninstitute.org/pcep",
+   "Python Institute, checked 18 October 2026. PCEP-30-02 is current; PCEP-30-03 is scheduled for 31 October 2026."
+  ]
  ],
  "shared_sources": false,
- "related_guides": ["ai-projects-for-students", "become-python-developer-after-10th", "become-programmer-after-10th"],
+ "related_guides": [
+  "ai-projects-for-students",
+  "become-software-engineer-after-10th",
+  "become-programmer-after-10th"
+ ],
  "cta_h": "Ready to build the first project?",
  "cta_p": "Tell us the student's class and interests. We will explain AI Foundation, timings and fees."
 }

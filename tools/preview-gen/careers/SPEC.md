@@ -62,3 +62,12 @@ Program slugs: ai-foundation, ai-ml-engineering, software-development, data-scie
 
 ## Validate before finishing
 python3 /home/user/NeuroNetwrks.com/tools/preview-gen/careers/check.py <slug>.json   (must print OK)
+
+## Originality pass (Oct 2026): extra role-specific fields
+- "day_to_day": {"answer": one sentence 20-45 words, "html": 2-3 short <p> paragraphs}. Rendered as H2 "What does a/an [role] do day to day?" (first section).
+  Cover: what the work is day to day (tasks, who they work with), the main tools named for this role, and one paragraph
+  "How it differs from <closest sibling role>". No invented statistics, salaries, companies or India-specific numbers unless from a source you opened.
+- "first_project": {"answer": one sentence, "html": 1-2 <p> with a concrete, realistic first project a student can do at home in 1-3 weeks,
+  its steps, and which real program project it leads to (exact name from llms-full.txt)}. Rendered as H2 "What is a realistic first project for a future [role]?".
+- Rewrite "in_short" (3 bullets) and "start_answer" so they are specific to THIS role and not interchangeable with sibling pages.
+- Allowed HTML in html fields: <p>, <strong>, <ul><li>, links to /programs/... or /guides/... (only slugs that exist in careers/*.json, guides_pages.py or seo/).

@@ -4,23 +4,49 @@
  "keyword": "how to become AI engineer after 10th",
  "searches": "260 a month in India",
  "program": "ai-ml-engineering",
- "alt_programs": ["ai-foundation", "data-science-ai"],
+ "alt_programs": [
+  "ai-foundation",
+  "data-science-ai"
+ ],
  "title": "How to Become an AI Engineer After 10th (2026)",
  "desc": "A year-by-year plan to become an AI engineer after Class 10: Python, machine learning, generative AI, RAG and agents, projects, certificates and salary.",
- "h1": ["How to become an AI engineer after 10th", "a year-by-year roadmap"],
+ "h1": [
+  "How to become an AI engineer after 10th",
+  "a year-by-year roadmap"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. It follows a real 624-hour, three-year AI/ML curriculum, so each step is a module or project a student actually completes.",
  "role_intro": "An AI engineer builds working products on top of AI. That can mean a chatbot that answers from a company's documents, an agent that completes tasks, or a model inside an app. The job joins software skills, machine learning and good judgement about what AI should and should not do.",
+ "day_to_day": {
+  "answer": "An AI engineer spends the day making the AI part of a product work reliably: choosing or adapting a model, connecting it to data and software, testing its answers and watching it after release.",
+  "html": "<p>Typical tasks: deciding whether a ready-made model is enough or needs adapting, linking it to an organisation's data, and building the API that serves it. They write test sets, check answers for quality and safety, and track speed and running cost. They work closely with software engineers, product managers and data teams.</p><p>Main tools: Python, PyTorch, Git and GitHub, Linux, Docker, and cloud AI services on AWS and Azure. All of these appear in the AI/ML Engineering program's tool list.</p><p><strong>How it differs from a machine learning engineer:</strong> a <a href=\"/guides/become-machine-learning-engineer-after-10th\">machine learning engineer</a> mostly trains and maintains prediction models built from an organisation's own data. An AI engineer more often starts from large pretrained models and builds a full system around them, with retrieval, tools, safety checks and monitoring. The skills overlap a lot, and the same program covers both.</p>"
+ },
+ "first_project": {
+  "answer": "A realistic first project is a small message sorter: a Python tool that labels short messages with a simple model, plus a test set that shows exactly where it fails.",
+  "html": "<p>In two or three weeks at home, build a tool that sorts short messages into a few groups. Try praise, complaint and question.</p><ul><li><strong>Week 1:</strong> write or collect about 100 short messages and label each one by hand. Train a simple text classifier with scikit-learn.</li><li><strong>Week 2:</strong> turn it into a command-line tool that takes a new message and prints its label. Keep 20 tricky messages aside as a test set.</li><li><strong>Week 3:</strong> log every wrong answer with a guess at why. Change one thing, such as adding examples, and compare the test results.</li></ul><p>This is an AI system in miniature: data, model, interface and tests. In the program, the same idea grows into the <strong>End-to-end AI service</strong> project in year 2. There, data, model and API run as one service.</p>"
+ },
  "in_short": [
-  "<strong>You can start right after Class 10.</strong> The first months teach computers and Python from the basics.",
-  "<strong>Plan for about three years:</strong> Python, maths and classical ML first, then deep learning and MLOps, then generative AI, RAG, agents and a real product.",
-  "<strong>Keep maths in Class 11 and 12.</strong> Machine learning rests on statistics and algebra, and a B.Tech through JEE Main needs Mathematics."
+  "<strong>An AI engineer owns the whole AI system, not just the model.</strong> That means the data, the model choice, the service around it, the tests and the monitoring.",
+  "<strong>Plan for about three years after Class 10.</strong> In this program, year 3 is where it comes together: RAG, agents, fine-tuning, AI safety and AI system design.",
+  "<strong>Keep maths and build software habits early.</strong> Maths helps you judge a model. Git, Linux and Docker help you ship it."
  ],
- "start_answer": "Yes. You can start learning AI engineering right after Class 10. The path begins with computer basics and Python, and school-level maths is enough to begin.",
+ "start_answer": "Yes, you can start after Class 10, and a future AI engineer should begin with strong Python and school maths, because building, testing and running AI systems later depends on both.",
  "start_bridge": "Your Class 11 and 12 stream matters more for which degree stays open than for learning AI itself. Here is how each common choice plays out.",
  "streams": [
-  ["Science with Maths and Computer Science", "B.Tech in computer science or AI through JEE Main, plus B.Sc and BCA. Board maths supports ML maths directly.", "Board and entrance work is heavy. Protect a few hours a week for AI practice."],
-  ["Science with Maths and Biology (PCMB)", "Engineering and medical-side options both stay open, and AI in health is a growing area.", "Six demanding subjects. Many students find it hard to fit regular project work around them."],
-  ["Commerce or Humanities with Maths", "BCA, B.Sc and data or business degrees at many colleges. AI product and automation work values a strong portfolio.", "JEE Main needs Physics and Mathematics in Class 12, so B.Tech seats are out of reach without Physics."]
+  [
+   "Science with Maths and Computer Science",
+   "B.Tech in computer science or AI through JEE Main, plus B.Sc and BCA. Board maths supports ML maths directly.",
+   "Board and entrance work is heavy. Protect a few hours a week for AI practice."
+  ],
+  [
+   "Science with Maths and Biology (PCMB)",
+   "Engineering and medical-side options both stay open, and AI in health is a growing area.",
+   "Six demanding subjects. Many students find it hard to fit regular project work around them."
+  ],
+  [
+   "Commerce or Humanities with Maths",
+   "BCA, B.Sc and data or business degrees at many colleges. AI product and automation work values a strong portfolio.",
+   "JEE Main needs Physics and Mathematics in Class 12, so B.Tech seats are out of reach without Physics."
+  ]
  ],
  "start_extra": "Curious in Class 8 or 9? The one-year <a href=\"/programs/ai-foundation\">AI Foundation</a> course is an early taste of Python and generative AI. After Class 10, the deeper three-year path starts.",
  "roadmap_answer": "The roadmap runs over three years: year 1 builds Python, maths and classical machine learning, year 2 adds deep learning, NLP and MLOps, and year 3 builds generative AI, RAG, agents and a finished AI product.",
@@ -32,28 +58,96 @@
  "fit_note": "",
  "skills_answer": "An AI engineer needs Python, data handling, machine learning, deep learning, LLM and RAG skills, agent design, cloud deployment, testing and evaluation of AI output, and a clear sense of AI safety and responsible use.",
  "skills": [
-  ["Python", "The main language for AI work, from data scripts to model code.", "Year 1, first months"],
-  ["Maths for ML", "Statistics and algebra explain why a model behaves the way it does.", "Year 1"],
-  ["Data preparation", "Real data is messy. Clean data decides whether an AI feature works.", "Year 1"],
-  ["Machine learning and model evaluation", "Lets you choose a model and prove it is good enough.", "Year 1, deeper in year 2"],
-  ["Deep learning with PyTorch or TensorFlow", "Powers vision, language and modern generative models.", "Year 2"],
-  ["MLOps and Docker", "Turns a notebook into a service that keeps running.", "Year 2, advanced in year 3"],
-  ["LLMs, embeddings and RAG", "Makes a model answer from your own documents instead of guessing.", "Year 3"],
-  ["Agents and tool use", "Lets AI take steps such as searching, calling an API or filling a form.", "Year 3"],
-  ["Cloud AI on AWS and Azure", "Where most AI products run and scale.", "Basics in years 1 and 2, full practice in year 3"],
-  ["AI safety and responsible AI", "Catches harmful, biased or wrong output before users see it.", "Year 3"],
-  ["AI system design", "Plans how models, data, APIs and monitoring fit together.", "Year 3"]
+  [
+   "Python",
+   "The main language for AI work, from data scripts to model code.",
+   "Year 1, first months"
+  ],
+  [
+   "Maths for ML",
+   "Statistics and algebra explain why a model behaves the way it does.",
+   "Year 1"
+  ],
+  [
+   "Data preparation",
+   "Real data is messy. Clean data decides whether an AI feature works.",
+   "Year 1"
+  ],
+  [
+   "Machine learning and model evaluation",
+   "Lets you choose a model and prove it is good enough.",
+   "Year 1, deeper in year 2"
+  ],
+  [
+   "Deep learning with PyTorch or TensorFlow",
+   "Powers vision, language and modern generative models.",
+   "Year 2"
+  ],
+  [
+   "MLOps and Docker",
+   "Turns a notebook into a service that keeps running.",
+   "Year 2, advanced in year 3"
+  ],
+  [
+   "LLMs, embeddings and RAG",
+   "Makes a model answer from your own documents instead of guessing.",
+   "Year 3"
+  ],
+  [
+   "Agents and tool use",
+   "Lets AI take steps such as searching, calling an API or filling a form.",
+   "Year 3"
+  ],
+  [
+   "Cloud AI on AWS and Azure",
+   "Where most AI products run and scale.",
+   "Basics in years 1 and 2, full practice in year 3"
+  ],
+  [
+   "AI safety and responsible AI",
+   "Catches harmful, biased or wrong output before users see it.",
+   "Year 3"
+  ],
+  [
+   "AI system design",
+   "Plans how models, data, APIs and monitoring fit together.",
+   "Year 3"
+  ]
  ],
  "build_answer": "You build a project every month, 36 in total, moving from Python exercises to a full AI product, so your GitHub shows a clear line from first model to deployed generative AI system.",
  "projects": [
-  ["AI productivity + evaluation project", "Early practice in judging AI output, a habit every AI engineer needs."],
-  ["Year-1 production-style ML project", "Your first model packaged like real software, not just a notebook."],
-  ["End-to-end AI service", "Data, model and API working together as one service."],
-  ["LLM evaluation playground", "Compares how language models answer, so you choose with evidence."],
-  ["Small-model adaptation project", "Shows you can tune a smaller model for a specific task."],
-  ["AI platform architecture project", "Plans the full system around models: data, serving and monitoring."],
-  ["End-to-end AI product", "A finished product a user can try, the strongest proof of AI engineering."],
-  ["Final Professional AI/ML Capstone Project", "Three years of skills brought into one portfolio piece."]
+  [
+   "AI productivity + evaluation project",
+   "Early practice in judging AI output, a habit every AI engineer needs."
+  ],
+  [
+   "Year-1 production-style ML project",
+   "Your first model packaged like real software, not just a notebook."
+  ],
+  [
+   "End-to-end AI service",
+   "Data, model and API working together as one service."
+  ],
+  [
+   "LLM evaluation playground",
+   "Compares how language models answer, so you choose with evidence."
+  ],
+  [
+   "Small-model adaptation project",
+   "Shows you can tune a smaller model for a specific task."
+  ],
+  [
+   "AI platform architecture project",
+   "Plans the full system around models: data, serving and monitoring."
+  ],
+  [
+   "End-to-end AI product",
+   "A finished product a user can try, the strongest proof of AI engineering."
+  ],
+  [
+   "Final Professional AI/ML Capstone Project",
+   "Three years of skills brought into one portfolio piece."
+  ]
  ],
  "certs_answer": "Vendor certificates such as Microsoft AI-901, AWS AIF-C01 and IBM AI Engineering show employers specific AI knowledge, but they support a portfolio rather than replace it, and each body awards its own credential after its own assessment.",
  "cert_notes": {
@@ -64,26 +158,82 @@
  "cert_extra": "A 2026 note: Microsoft updated the English version of AI-901 on 15 April 2026. Study from the current guide on its exam page.",
  "notfor_answer": "AI engineering is not for you if you want a guaranteed job, dislike maths and statistics, or expect AI tools to do the thinking for you instead of checking their work.",
  "notfor": [
-  ["You want a guarantee.", "No honest course promises a job, salary or exam pass. This one does not."],
-  ["Maths makes you switch off.", "Statistics and algebra come up every year. You do not need to be a topper, but you must stay with them."],
-  ["You want to only use ChatGPT, not build with it.", "This path is about building and testing AI systems, not just writing prompts."],
-  ["You cannot commit three steady years.", "Plan for 4 hours of classes a week, plus practice, for 36 months."],
-  ["You only have a phone or a basic laptop.", "Training models needs a capable laptop. The recommended specification is shown on this page."],
-  ["You need a degree and nothing else.", "This program gives a NeuroNetworks AI Ed certificate, not a degree. Many students take it alongside school and college."]
+  [
+   "You want a guarantee.",
+   "No honest course promises a job, salary or exam pass. This one does not."
+  ],
+  [
+   "Maths makes you switch off.",
+   "Statistics and algebra come up every year. You do not need to be a topper, but you must stay with them."
+  ],
+  [
+   "You want to only use ChatGPT, not build with it.",
+   "This path is about building and testing AI systems, not just writing prompts."
+  ],
+  [
+   "You cannot commit three steady years.",
+   "Plan for 4 hours of classes a week, plus practice, for 36 months."
+  ],
+  [
+   "You only have a phone or a basic laptop.",
+   "Training models needs a capable laptop. The recommended specification is shown on this page."
+  ],
+  [
+   "You need a degree and nothing else.",
+   "This program gives a NeuroNetworks AI Ed certificate, not a degree. Many students take it alongside school and college."
+  ]
  ],
  "salary_answer": "Indicative ranges for AI/ML roles in India are about ₹5 to 10 lakh a year for freshers, ₹12 to 25 lakh at 3 to 5 years, and ₹30 to 60 lakh or more at senior level.",
  "faqs": [
-  ["How many years does it take to become an AI engineer after 10th?", "Plan for about three years of steady learning to build job-ready AI skills, such as the 3-year, 624-hour AI/ML Engineering program. Many employers also ask for a degree. The usual full route is Class 11 and 12, then a degree, with AI skills built alongside."],
-  ["Can I become an AI engineer without maths?", "Not really. You can use AI tools without maths, but building and evaluating models needs statistics, algebra and some calculus ideas. The program teaches maths for ML from school level, and keeping maths in Class 11 and 12 also keeps B.Tech through JEE Main open."],
-  ["What is the difference between an AI engineer and a machine learning engineer?", "The roles overlap. A machine learning engineer focuses on training, evaluating and running models. An AI engineer is broader and often builds whole products with generative AI, RAG and agents. This roadmap covers both, with year 3 leaning towards AI engineering."],
-  ["Do I need coding experience before I start?", "No. The program starts with computer and Python basics. Entry needs a Class 10 pass, basic school-level maths and comfort using a computer."],
-  ["Will this program get me a job as an AI engineer?", "No program can promise that. This one builds skills, 36 projects and a GitHub portfolio aimed at roles such as Applied AI Engineer. It does not guarantee a job, internship or salary."]
+  [
+   "How many years does it take to become an AI engineer after 10th?",
+   "Plan for about three years of steady learning to build job-ready AI skills, such as the 3-year, 624-hour AI/ML Engineering program. Many employers also ask for a degree. The usual full route is Class 11 and 12, then a degree, with AI skills built alongside."
+  ],
+  [
+   "Can I become an AI engineer without maths?",
+   "Not really. You can use AI tools without maths, but building and evaluating models needs statistics, algebra and some calculus ideas. The program teaches maths for ML from school level, and keeping maths in Class 11 and 12 also keeps B.Tech through JEE Main open."
+  ],
+  [
+   "What is the difference between an AI engineer and a machine learning engineer?",
+   "The roles overlap. A machine learning engineer focuses on training, evaluating and running models. An AI engineer is broader and often builds whole products with generative AI, RAG and agents. This roadmap covers both, with year 3 leaning towards AI engineering."
+  ],
+  [
+   "Do I need coding experience before I start?",
+   "No. The program starts with computer and Python basics. Entry needs a Class 10 pass, basic school-level maths and comfort using a computer."
+  ],
+  [
+   "Will this program get me a job as an AI engineer?",
+   "No program can promise that. This one builds skills, 36 projects and a GitHub portfolio aimed at roles such as Applied AI Engineer. It does not guarantee a job, internship or salary."
+  ]
  ],
  "context_fact": "Nasscom's Strategic Review 2026 describes AI moving from an optional extra to core infrastructure in India's $315 billion tech industry. That shift is why this roadmap ends with deployed AI products rather than isolated models.",
  "sources": [
-  ["Microsoft Certified: Azure AI Fundamentals", "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/", "Microsoft Learn, page updated 14 July 2026"],
-  ["AWS Certified AI Practitioner", "https://aws.amazon.com/certification/certified-ai-practitioner/", "Amazon Web Services, checked 18 October 2026"],
-  ["IBM AI Engineering Professional Certificate", "https://www.coursera.org/professional-certificates/ai-engineer", "Coursera, checked 18 October 2026"]
+  [
+   "Microsoft Certified: Azure AI Fundamentals",
+   "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/",
+   "Microsoft Learn, page updated 14 July 2026"
+  ],
+  [
+   "AWS Certified AI Practitioner",
+   "https://aws.amazon.com/certification/certified-ai-practitioner/",
+   "Amazon Web Services, checked 18 October 2026"
+  ],
+  [
+   "IBM AI Engineering Professional Certificate",
+   "https://www.coursera.org/professional-certificates/ai-engineer",
+   "Coursera, checked 18 October 2026"
+  ]
  ],
- "related_guides": ["ai-courses-after-10th", "become-machine-learning-engineer-after-10th", "ai-vs-software-vs-data-science"]
+ "related_guides": [
+  "ai-courses-after-10th",
+  "become-machine-learning-engineer-after-10th",
+  "ai-vs-software-vs-data-science"
+ ],
+ "merged_sections": [
+  {
+   "h2": "Where does prompt engineering fit in?",
+   "answer": "Prompt engineering, instructing AI models and testing their answers, is one skill inside AI engineer and AI developer roles; few jobs are only prompt writing, so it works best as a starting point.",
+   "html": "<p>A student can start early with <a href=\"/programs/ai-foundation\">AI Foundation</a>, open from Class 8. Its Prompt Engineering &amp; AI Evaluation module is 7 hours, followed by 8 hours on context engineering, embeddings and RAG.</p><p>For career-level depth, AI/ML Engineering covers generative AI, embeddings and RAG, agents and LLM evaluation in year 3.</p>"
+  }
+ ]
 }

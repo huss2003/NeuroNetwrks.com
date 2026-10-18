@@ -4,23 +4,49 @@
  "keyword": "how to become a web developer after 10th",
  "searches": "",
  "program": "software-development",
- "alt_programs": ["ai-foundation", "product-ux-ai-design"],
+ "alt_programs": [
+  "ai-foundation",
+  "product-ux-ai-design"
+ ],
  "title": "How to Become a Web Developer After 10th (2026)",
  "desc": "A year-by-year plan to become a web developer after Class 10: HTML, CSS, JavaScript, React, APIs, live websites, certificates, salary and streams.",
- "h1": ["How to become a web developer after 10th", "from your first page to live web apps"],
+ "h1": [
+  "How to become a web developer after 10th",
+  "from your first page to live web apps"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. Every step comes from a real 624-hour, three-year software curriculum, so you can see which month teaches which web skill.",
  "role_intro": "A web developer builds the websites and web apps people open in a browser: school portals, shop pages, booking forms and dashboards. They turn a design into working pages, make them look right on every screen, fetch live data through APIs, and put the finished site online.",
+ "day_to_day": {
+  "answer": "A web developer spends the day turning designs into working pages, checking them on different screen sizes, connecting them to live data, and fixing layout and browser problems before a site goes live.",
+  "html": "<p>Much of the day is building and checking pages. You take a design, write the HTML and CSS, then make it respond to clicks and forms with JavaScript. You open the page at phone width and laptop width, find what breaks, and fix it. You also connect pages to APIs so they show live data, and you put updates online. You work closely with designers, content writers and backend developers.</p><p>The main tools in this roadmap are HTML, CSS, JavaScript, React and TypeScript. You also use the browser's built-in developer tools, Git and GitHub, and hosting on AWS.</p><p><strong>How it differs from an app developer.</strong> A web developer's product lives at a web address and opens in any browser. The daily focus is layout, page speed, how the site reads to search engines and screen readers, and how it looks across browsers. An app developer starts from a task a user wants done. They spend more time on user flows, saved data, logins and often phone platforms.</p>"
+ },
+ "first_project": {
+  "answer": "A realistic first project is a one-page website for a school club, a family recipe collection or a local event, built with HTML and CSS and made to work at phone width, in one to two weeks.",
+  "html": "<p><strong>Days 1 to 3:</strong> write the content first, then mark it up in HTML with headings, a list, an image and a contact section. <strong>Days 4 to 8:</strong> style it with CSS, then shrink the browser window to phone width and fix every part that breaks. <strong>Days 9 to 14:</strong> add one small JavaScript feature, such as a button that shows or hides a section. Ask two people to try it on their phones, and fix what confused them. Save the code on GitHub.</p><p>This leads straight into the <strong>Personal Developer Website v1</strong> and the <strong>Responsive Portfolio Website</strong> in year 1 of the program. There, each module ends with an exam.</p>"
+ },
  "in_short": [
-  "<strong>Web development is one of the quickest places to see results.</strong> Your first page can be online within the first few months.",
-  "<strong>The core stack is HTML, CSS, JavaScript and React,</strong> then APIs, TypeScript and deployment to the cloud.",
-  "<strong>Your portfolio of live sites matters a lot.</strong> Keep a degree option open too, because many employers still ask for one."
+  "<strong>A web developer's work lives in the browser.</strong> You turn designs into pages that load quickly and work on a phone and a laptop.",
+  "<strong>Your first website comes in the sixth month of year 1,</strong> after logic, Java and Git. React follows before the year ends.",
+  "<strong>Keep every project online and on GitHub.</strong> A link that an employer or client can open shows more than a list of skills."
  ],
- "start_answer": "Yes. You can start web development right after Class 10, because a browser and a text editor are enough to build your first page, and the basics need no prior coding.",
+ "start_answer": "Yes. A browser and a free code editor are enough for your first HTML page after Class 10, and in this roadmap you build your own website in year 1 before moving to React and APIs.",
  "start_bridge": "Your Class 11 and 12 stream still matters, because it decides which degrees you can apply for later. Web skills themselves can grow in any stream.",
  "streams": [
-  ["Any stream with Computer Science or Informatics Practices", "Daily contact with code at school, and a natural fit with web projects at home.", "Not every school offers these subjects in every stream. Ask your school early."],
-  ["Science with Maths (PCM)", "Keeps B.Tech through JEE Main open, along with BCA and B.Sc Computer Science.", "Board and entrance study leave less free time. Small weekly web projects help you keep going."],
-  ["Commerce or Humanities", "BCA and other computer application degrees at many colleges. A strong live portfolio counts in any stream.", "Some BCA courses ask for Maths in Class 12, and B.Tech through JEE Main needs it. Check each college."]
+  [
+   "Any stream with Computer Science or Informatics Practices",
+   "Daily contact with code at school, and a natural fit with web projects at home.",
+   "Not every school offers these subjects in every stream. Ask your school early."
+  ],
+  [
+   "Science with Maths (PCM)",
+   "Keeps B.Tech through JEE Main open, along with BCA and B.Sc Computer Science.",
+   "Board and entrance study leave less free time. Small weekly web projects help you keep going."
+  ],
+  [
+   "Commerce or Humanities",
+   "BCA and other computer application degrees at many colleges. A strong live portfolio counts in any stream.",
+   "Some BCA courses ask for Maths in Class 12, and B.Tech through JEE Main needs it. Check each college."
+  ]
  ],
  "start_extra": "Web development rewards people who like seeing their work on screen. If you enjoy tweaking how a page looks and making buttons actually do something, you will enjoy the first year. See also our guide to <a href=\"/guides/computer-coding-courses-after-10th\">coding courses after 10th</a>.",
  "roadmap_answer": "The roadmap runs in three years: year 1 builds websites with HTML, CSS, JavaScript and React, year 2 adds TypeScript, APIs, backend and cloud hosting, and year 3 polishes a professional front-end portfolio.",
@@ -32,27 +58,91 @@
  "fit_note": "",
  "skills_answer": "A web developer needs HTML for structure, CSS for layout on every screen size, JavaScript for interaction, React and TypeScript for larger apps, API skills for live data, Git for teamwork, and deployment skills to put sites online.",
  "skills": [
-  ["HTML and web fundamentals", "The skeleton of every page. Clean structure also helps search engines and screen readers.", "Year 1"],
-  ["CSS and responsive design", "Most visitors arrive on a phone. A layout that breaks on small screens loses them.", "Year 1"],
-  ["JavaScript", "Makes pages react to clicks, forms and data without reloading.", "Year 1"],
-  ["Working with APIs", "Brings in live data such as weather, scores or products from other services.", "Year 1, deeper in year 2"],
-  ["React", "Breaks a big interface into reusable pieces, the way many web apps are built today.", "Year 1"],
-  ["TypeScript", "Catches mistakes in larger front-end code before users see them.", "Year 2"],
-  ["Git and GitHub", "Tracks every change and shows employers your work history.", "Year 1"],
-  ["Backend and databases basics", "Lets a site save logins, orders and messages, not just show pages.", "Year 1 SQL, year 2 backend"],
-  ["Deployment and cloud hosting", "A site only counts when other people can open it.", "Year 2"],
-  ["Web security basics", "Protects forms, logins and user data from common attacks.", "Year 2, deeper in year 3"]
+  [
+   "HTML and web fundamentals",
+   "The skeleton of every page. Clean structure also helps search engines and screen readers.",
+   "Year 1"
+  ],
+  [
+   "CSS and responsive design",
+   "Most visitors arrive on a phone. A layout that breaks on small screens loses them.",
+   "Year 1"
+  ],
+  [
+   "JavaScript",
+   "Makes pages react to clicks, forms and data without reloading.",
+   "Year 1"
+  ],
+  [
+   "Working with APIs",
+   "Brings in live data such as weather, scores or products from other services.",
+   "Year 1, deeper in year 2"
+  ],
+  [
+   "React",
+   "Breaks a big interface into reusable pieces, the way many web apps are built today.",
+   "Year 1"
+  ],
+  [
+   "TypeScript",
+   "Catches mistakes in larger front-end code before users see them.",
+   "Year 2"
+  ],
+  [
+   "Git and GitHub",
+   "Tracks every change and shows employers your work history.",
+   "Year 1"
+  ],
+  [
+   "Backend and databases basics",
+   "Lets a site save logins, orders and messages, not just show pages.",
+   "Year 1 SQL, year 2 backend"
+  ],
+  [
+   "Deployment and cloud hosting",
+   "A site only counts when other people can open it.",
+   "Year 2"
+  ],
+  [
+   "Web security basics",
+   "Protects forms, logins and user data from common attacks.",
+   "Year 2, deeper in year 3"
+  ]
  ],
  "build_answer": "You build a project every month, and for web development the key ones are your own website, a responsive portfolio, interactive JavaScript and React apps, an API-driven app and a site deployed on the cloud.",
  "projects": [
-  ["Personal Developer Website v1", "Your first site about yourself. It becomes the home of everything you build later."],
-  ["Responsive Portfolio Website", "Proves you can make one layout work cleanly on a phone, a tablet and a laptop."],
-  ["JavaScript Interactive App", "Shows you can make a page respond to users, not just display text."],
-  ["API-Driven Web Application", "Pulls live data from another service, which is what most real web apps do."],
-  ["React Application v1", "Your first component-based app, the style many web teams hire for."],
-  ["TypeScript React Application", "The same skills with stricter, safer code, closer to how larger teams work."],
-  ["AWS-Deployed Application", "Your app running on the internet at a real address you can share."],
-  ["Professional Front-End Portfolio Project", "A polished front end built to show employers or freelance clients."]
+  [
+   "Personal Developer Website v1",
+   "Your first site about yourself. It becomes the home of everything you build later."
+  ],
+  [
+   "Responsive Portfolio Website",
+   "Proves you can make one layout work cleanly on a phone, a tablet and a laptop."
+  ],
+  [
+   "JavaScript Interactive App",
+   "Shows you can make a page respond to users, not just display text."
+  ],
+  [
+   "API-Driven Web Application",
+   "Pulls live data from another service, which is what most real web apps do."
+  ],
+  [
+   "React Application v1",
+   "Your first component-based app, the style many web teams hire for."
+  ],
+  [
+   "TypeScript React Application",
+   "The same skills with stricter, safer code, closer to how larger teams work."
+  ],
+  [
+   "AWS-Deployed Application",
+   "Your app running on the internet at a real address you can share."
+  ],
+  [
+   "Professional Front-End Portfolio Project",
+   "A polished front end built to show employers or freelance clients."
+  ]
  ],
  "certs_answer": "For a web developer, a front-end certificate such as Meta's on Coursera can show employers a structured base, but a set of live sites on GitHub usually speaks louder, and each certificate is awarded by its own provider.",
  "cert_notes": {
@@ -62,24 +152,72 @@
  "cert_extra": "HackerRank's certification page also lists tests in CSS, JavaScript and React. They are not part of this roadmap, but a student can attempt them independently.",
  "notfor_answer": "Web development is not for you if visual detail bores you, if you want a guaranteed job, or if you dislike that tools and browsers keep changing and need regular relearning.",
  "notfor": [
-  ["Fixing small layout problems drives you mad.", "A lot of web work is getting spacing, fonts and screens exactly right."],
-  ["You want to learn once and stop.", "Web tools change often. Expect to keep reading and updating your skills."],
-  ["You want a guarantee.", "No honest course promises a job, salary or exam pass. This one does not."],
-  ["You only want to design, not code.", "If you prefer layouts and user research to code, look at <a href=\"/programs/product-ux-ai-design\">Product and UX design with AI</a> instead."],
-  ["You only have a phone.", "Building websites needs a laptop or desktop with a proper code editor."]
+  [
+   "Fixing small layout problems drives you mad.",
+   "A lot of web work is getting spacing, fonts and screens exactly right."
+  ],
+  [
+   "You want to learn once and stop.",
+   "Web tools change often. Expect to keep reading and updating your skills."
+  ],
+  [
+   "You want a guarantee.",
+   "No honest course promises a job, salary or exam pass. This one does not."
+  ],
+  [
+   "You only want to design, not code.",
+   "If you prefer layouts and user research to code, look at <a href=\"/programs/product-ux-ai-design\">Product and UX design with AI</a> instead."
+  ],
+  [
+   "You only have a phone.",
+   "Building websites needs a laptop or desktop with a proper code editor."
+  ]
  ],
  "salary_answer": "Indicative ranges for software and web development roles in India are about ₹4 to 8 lakh a year for freshers, ₹10 to 20 lakh at 3 to 5 years, and ₹25 to 50 lakh or more for senior developers.",
  "faqs": [
-  ["How many years does it take to become a web developer after 10th?", "You can build simple websites within months, but job-ready web skills take longer. This roadmap uses three years and 624 hours, so you finish with backend, cloud and a portfolio. Many students also complete a degree alongside or after it."],
-  ["Can I become a web developer without maths?", "Yes, for most front-end work. HTML, CSS and JavaScript need logic more than advanced maths. Keep in mind that B.Tech through JEE Main, and some BCA courses, ask for Maths in Class 12."],
-  ["Which should I learn first: HTML, CSS or JavaScript?", "HTML first, then CSS, then JavaScript. In this roadmap they come in that order in year 1, followed by JavaScript with APIs and then React."],
-  ["Is React enough to get a web developer job?", "React alone is rarely enough. Employers also look for JavaScript depth, responsive design, Git, working with APIs and live projects. That is why the roadmap adds TypeScript, backend basics and deployment."],
-  ["Can a web developer work as a freelancer?", "Yes, freelance web developer is one of the directions this curriculum is designed around. It is a direction, not a guarantee, and freelancing also needs client communication and a strong portfolio."]
+  [
+   "How many years does it take to become a web developer after 10th?",
+   "You can build simple websites within months, but job-ready web skills take longer. This roadmap uses three years and 624 hours, so you finish with backend, cloud and a portfolio. Many students also complete a degree alongside or after it."
+  ],
+  [
+   "Can I become a web developer without maths?",
+   "Yes, for most front-end work. HTML, CSS and JavaScript need logic more than advanced maths. Keep in mind that B.Tech through JEE Main, and some BCA courses, ask for Maths in Class 12."
+  ],
+  [
+   "Which should I learn first: HTML, CSS or JavaScript?",
+   "HTML first, then CSS, then JavaScript. In this roadmap they come in that order in year 1, followed by JavaScript with APIs and then React."
+  ],
+  [
+   "Is React enough to get a web developer job?",
+   "React alone is rarely enough. Employers also look for JavaScript depth, responsive design, Git, working with APIs and live projects. That is why the roadmap adds TypeScript, backend basics and deployment."
+  ],
+  [
+   "Can a web developer work as a freelancer?",
+   "Yes, freelance web developer is one of the directions this curriculum is designed around. It is a direction, not a guarantee, and freelancing also needs client communication and a strong portfolio."
+  ]
  ],
  "context_fact": "Nasscom's Strategic Review 2026 puts India's tech industry at $315 billion in revenue with employment near 6 million, and notes that cloud-native architecture is now widespread. That is why this web roadmap ends with sites deployed on the cloud, not only pages on your laptop.",
  "sources": [
-  ["Meta Front-End Developer Professional Certificate", "https://www.coursera.org/professional-certificates/meta-front-end-developer", "Coursera, checked 18 October 2026"],
-  ["HackerRank Skills Certification", "https://www.hackerrank.com/skills-verification", "HackerRank, checked 18 October 2026"]
+  [
+   "Meta Front-End Developer Professional Certificate",
+   "https://www.coursera.org/professional-certificates/meta-front-end-developer",
+   "Coursera, checked 18 October 2026"
+  ],
+  [
+   "HackerRank Skills Certification",
+   "https://www.hackerrank.com/skills-verification",
+   "HackerRank, checked 18 October 2026"
+  ]
  ],
- "related_guides": ["computer-coding-courses-after-10th", "become-full-stack-developer-after-10th", "become-software-engineer-after-10th"]
+ "related_guides": [
+  "computer-coding-courses-after-10th",
+  "become-software-engineer-after-10th"
+ ],
+ "merged_sections": [
+  {
+   "h2": "What is a full stack developer, and how do you get there?",
+   "answer": "A full stack developer builds every layer of a web product: the screens, the server code, the database and the setup that puts it online, and understands how those layers talk to each other.",
+   "html": "<p>Most full stack developers start as web developers and add the backend. In this roadmap that happens in year 2: Java with Spring Boot for the server, SQL and NoSQL databases, REST APIs with login and security, testing, and deployment with CI/CD.</p><p>The year-2 project that ties it together is the <strong>Full-Stack SaaS Application</strong>: front end, backend and database working as one small online product.</p>"
+  }
+ ]
 }

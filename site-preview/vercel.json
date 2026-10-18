@@ -6,6 +6,46 @@
    "source": "/faculty-and-team",
    "destination": "/about",
    "permanent": true
+  },
+  {
+   "source": "/guides/become-penetration-tester-after-10th",
+   "destination": "/guides/become-ethical-hacker-after-10th",
+   "permanent": true
+  },
+  {
+   "source": "/guides/become-cyber-security-analyst-after-10th",
+   "destination": "/guides/cyber-security-course-after-10th",
+   "permanent": true
+  },
+  {
+   "source": "/guides/become-python-developer-after-10th",
+   "destination": "/guides/become-software-engineer-after-10th",
+   "permanent": true
+  },
+  {
+   "source": "/guides/become-full-stack-developer-after-10th",
+   "destination": "/guides/become-web-developer-after-10th",
+   "permanent": true
+  },
+  {
+   "source": "/guides/become-cloud-engineer-after-10th",
+   "destination": "/guides/become-software-engineer-after-10th",
+   "permanent": true
+  },
+  {
+   "source": "/guides/become-prompt-engineer-after-10th",
+   "destination": "/guides/become-ai-engineer-after-10th",
+   "permanent": true
+  },
+  {
+   "source": "/guides/become-product-designer-after-10th",
+   "destination": "/guides/ui-ux-designer-after-10th",
+   "permanent": true
+  },
+  {
+   "source": "/guides/become-product-manager-after-10th",
+   "destination": "/guides/ui-ux-designer-after-10th",
+   "permanent": true
   }
  ],
  "headers": [
@@ -19,6 +59,18 @@
     {
      "key": "Referrer-Policy",
      "value": "strict-origin-when-cross-origin"
+    },
+    {
+     "key": "X-Frame-Options",
+     "value": "DENY"
+    },
+    {
+     "key": "Permissions-Policy",
+     "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    },
+    {
+     "key": "Content-Security-Policy-Report-Only",
+     "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'"
     }
    ]
   },

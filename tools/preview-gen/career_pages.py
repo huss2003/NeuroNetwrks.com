@@ -79,6 +79,9 @@ def c_salary_prog(c):
 def career_page(slug):
     c = CAREER_BY[slug]; s = c["program"]; d = D[s]; role = c["role"]; a = c_art(role)
     secs = []
+    # 0 role-specific: what the work is day to day (Oct 2026 originality pass)
+    if c.get("day_to_day"):
+        secs.append((f"What does {a} {role} do day to day?", f'<p class="cr-answer">{E(c["day_to_day"]["answer"])}</p>' + c["day_to_day"]["html"]))
     # 1 can you start
     rows = [[E(x), E(y), E(z)] for x, y, z in c["streams"]]
     secs.append((f"Can you start on the path to {a} {role} right after Class 10?",
@@ -101,6 +104,11 @@ def career_page(slug):
     secs.append(("What will you build on the way?",
         f'<p class="cr-answer">{E(c["build_answer"])}</p><p>These are real projects from the {E(c_prog_name(s))} roadmap, in the order a student meets them:</p><ol>{items}</ol>'
         f'<p>A parent can open the GitHub page at any time and see the work. That is often more convincing than a marksheet.</p>'))
+    if c.get("first_project"):
+        secs.append((f"What is a realistic first project for a future {role}?", f'<p class="cr-answer">{E(c["first_project"]["answer"])}</p>' + c["first_project"]["html"]))
+    # merged sections from retired low-demand role pages (Oct 2026), kept where they are genuinely unique
+    for x in c.get("merged_sections", []):
+        secs.append((x["h2"], f'<p class="cr-answer">{E(x["answer"])}</p>' + x["html"]))
     # 5 certificates
     notes = c.get("cert_notes", {})
     cl = "".join(f'<li><strong>{E(c_clean(x))}.</strong>{" " + E(notes[x]) if x in notes else ""}</li>' for x in d["certifications"])
@@ -158,7 +166,7 @@ def career_page(slug):
 <section class="gd-sec gd-more"><h2>Related guides</h2><ul>{rel_g}</ul></section></article></div>{cta_panel(f"Ready to plan the next {yrs}?" if len(d["years"]) > 1 else "Ready to start the first year?", "Tell us what the student enjoys. We will explain the program, timings and fees.")}'''
     ld = {"@type": "Article", "@id": f"{SITE}/guides/{slug}#article", "headline": c["title"], "description": c["desc"], "image": SITE + "/assets/og.png",
           "datePublished": CAREER_DATE, "dateModified": CAREER_DATE, "inLanguage": "en-IN",
-          "author": {"@type": "Organization", "name": "NeuroNetworks AI Ed team", "url": SITE + "/about"}, "publisher": {"@id": ORG_ID},
+          "author": {"@type": "Organization", "name": "NeuroNetworks AI Ed team", "url": SITE + "/about"}, "publisher": PUBLISHER,
           "mainEntityOfPage": f"{SITE}/guides/{slug}", "about": [{"@type": "Occupation", "name": role[:1].upper() + role[1:]}],
           "mentions": [{"@id": f"{SITE}/programs/{x}#course"} for x in [s] + c.get("alt_programs", [])],
           "citation": [u for _, u, _ in src if u.startswith("http")]}

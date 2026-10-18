@@ -4,23 +4,49 @@
  "keyword": "how to become ethical hacker after 10th",
  "searches": "50 a month in India",
  "program": "cybersecurity",
- "alt_programs": ["ai-foundation", "software-development"],
+ "alt_programs": [
+  "ai-foundation",
+  "software-development"
+ ],
  "title": "How to Become an Ethical Hacker After 10th (2026)",
  "desc": "How to become an ethical hacker after Class 10, legally: what to learn, authorised lab projects, CEH v13 preparation, streams, laptop and salary.",
- "h1": ["How to become an ethical hacker after 10th", "a legal, year-by-year roadmap"],
+ "h1": [
+  "How to become an ethical hacker after 10th",
+  "a legal, year-by-year roadmap"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. It is built from a real 624-hour, three-year cybersecurity curriculum, where every hacking skill is practised only in authorised lab environments.",
  "role_intro": "An ethical hacker is hired to find weaknesses in an organisation's systems before criminals do. They test only with written permission, inside an agreed scope, and then explain each problem and how to fix it. The skill is the same as an attacker's. The permission and the purpose are what make it ethical.",
  "in_short": [
-  "<strong>Yes, you can start after Class 10, but not with hacking.</strong> You start with how computers, networks and Linux work, because you cannot test what you do not understand.",
-  "<strong>Hacking is practised only in authorised labs and with written permission.</strong> Testing any system without the owner's permission is illegal in India, even out of curiosity.",
-  "<strong>Plan for about three years:</strong> foundations and defence in year 1, ethical hacking and CEH v13 preparation in year 2, security operations and cloud in year 3."
+  "<strong>An ethical hacker is paid to break in, with permission.</strong> The job is to find a weakness, prove it is real and explain how to fix it.",
+  "<strong>Practise only on your own devices or deliberately insecure training labs.</strong> Never test a real website, a school network or anyone else's account.",
+  "<strong>Hacking comes in year 2, not year 1.</strong> Networks, Linux and defence come first, then authorised testing and CEH v13 preparation."
  ],
- "start_answer": "Yes. You can start learning ethical hacking right after Class 10, as long as you begin with networking, Linux and security basics, and practise attacks only in labs you are allowed to use.",
+ "start_answer": "Yes. A Class 10 student can start on the ethical hacking path by learning networks and Linux first, then practising attacks only on their own machines or deliberately insecure training labs.",
+ "day_to_day": {
+  "answer": "An ethical hacker tests a client's systems inside a written scope, tries to prove weaknesses before attackers find them, and then writes a report that explains each finding and how to fix it.",
+  "html": "<p>A test starts with a scope document that says which systems may be tested, and when. The hacker maps what is in scope, checks logins and web pages for weaknesses, and tries to turn a small flaw into a bigger one. Every step is written down. Much of the day is reading, note-taking and checking results twice. The findings go to the client's IT team, who fix them.</p><p>The main tools in this roadmap are Linux and Bash for the testing machine, Wireshark for reading network traffic, and Burp Suite for testing web applications. Python and PowerShell help write small scripts that repeat checks. A clear report template matters just as much, because the report is what the client keeps.</p><p><strong>How it differs from a security analyst.</strong> A security analyst defends. They watch alerts and logs in tools such as Splunk or Microsoft Sentinel, investigate suspicious activity and respond to incidents. An ethical hacker attacks, but only agreed targets, for a fixed time, and then hands over a report. In this program, the attacking side fills the second half of year 2, and the defending side fills most of year 3. The <a href=\"/guides/cyber-security-course-after-10th\">cyber security course after 10th</a> guide covers the defender's path.</p>"
+ },
+ "first_project": {
+  "answer": "A realistic first project is a two-to-three-week home lab on your own laptop: set up Linux in a virtual machine, read your own network traffic, then test a deliberately insecure training app and report what you find.",
+  "html": "<p>Do this at home, only on machines you own:</p><ul><li>Week 1: install Linux in a virtual machine on your own laptop. Learn ten basic commands and write each one in a lab notebook.</li><li>Week 1: use Wireshark to capture traffic from your own laptop while you open a website. Label what you see, such as DNS lookups and HTTPS connections.</li><li>Week 2: set up OWASP Juice Shop inside your lab. OWASP publishes it as an insecure web application for security training. Solve two or three of its easiest challenges.</li><li>Week 3: write a short report for each finding: what you found, how you found it, and how a developer would fix it. Put your notes on GitHub.</li></ul><p>Never point these tools at a school network, a public website or anyone else's device. This project leads straight into the program's first two projects, <strong>Cybersecurity concept map + lab notebook + GitHub repository setup</strong> and <strong>Office Network Diagram + Wireshark Packet Analysis Report</strong>, and later into the <strong>Web Application Security Assessment</strong> in year 2.</p>"
+ },
  "start_bridge": "The real decision now is your Class 11 and 12 stream, because it decides which degrees stay open. Ethical hacking skills come from practice in any stream.",
  "streams": [
-  ["Science with Maths (PCM)", "B.Tech in computer science or a cyber security specialisation through JEE Main, plus BCA and B.Sc options.", "Board and entrance preparation is heavy. Lab practice has to fit into a fixed weekly slot."],
-  ["Commerce or Arts with Computer Science or IP", "BCA and B.Sc IT style degrees at many colleges. A portfolio of lab reports still counts fully.", "B.Tech seats through JEE Main need Physics and Mathematics in Class 12, so that route closes."],
-  ["Diploma in computer engineering or IT", "Early, hands-on work with hardware, networks and operating systems, which ethical hackers lean on daily.", "Rules for moving into a degree later differ by state and college. Check them before you choose."]
+  [
+   "Science with Maths (PCM)",
+   "B.Tech in computer science or a cyber security specialisation through JEE Main, plus BCA and B.Sc options.",
+   "Board and entrance preparation is heavy. Lab practice has to fit into a fixed weekly slot."
+  ],
+  [
+   "Commerce or Arts with Computer Science or IP",
+   "BCA and B.Sc IT style degrees at many colleges. A portfolio of lab reports still counts fully.",
+   "B.Tech seats through JEE Main need Physics and Mathematics in Class 12, so that route closes."
+  ],
+  [
+   "Diploma in computer engineering or IT",
+   "Early, hands-on work with hardware, networks and operating systems, which ethical hackers lean on daily.",
+   "Rules for moving into a degree later differ by state and college. Check them before you choose."
+  ]
  ],
  "start_extra": "A word for parents: interest in hacking at 15 is common and healthy, if it is pointed the right way. A structured course gives that interest legal labs, clear rules and a portfolio. For a wider view of the field, see our <a href=\"/guides/cyber-security-course-after-10th\">cyber security course after 10th</a> guide.",
  "roadmap_answer": "The roadmap runs in three years: year 1 builds computers, networking, Linux and defence basics, year 2 moves into authorised ethical hacking with CEH v13 preparation, and year 3 adds security operations, cloud and a job portfolio.",
@@ -32,26 +58,87 @@
  "fit_note": "This program is not a hacking-only course. Ethical hacking is the second half of year 2, and year 3 is mostly defence: SOC work, Splunk, Microsoft Sentinel, forensics and cloud security. That makes for a broader cyber security profile. If you want years of advanced offensive training only, the program does not offer that.",
  "skills_answer": "An ethical hacker needs networking, Linux and Windows knowledge, scripting, an understanding of how defenders work, web and network testing methods, clear report writing and, above all, the discipline to stay inside the permission given.",
  "skills": [
-  ["Ethics, scope and permission", "Separates an ethical hacker from a criminal. Every test needs written permission and a clear scope.", "Year 1 security principles, then in every lab"],
-  ["Networking and subnetting", "Almost every attack and defence travels over a network. You must read it fluently.", "Year 1, months 2 and 3"],
-  ["Linux and the command line", "Most security tools run on Linux, and many servers do too.", "Year 1, month 4"],
-  ["Windows administration", "Most office computers run Windows. You need to know how it is set up before you test it.", "Year 1, month 5"],
-  ["Python, Bash and PowerShell", "Lets you automate repetitive checks instead of doing them by hand.", "Year 1, month 9"],
-  ["Packet analysis with Wireshark", "Shows exactly what is happening on a network, packet by packet.", "Year 1"],
-  ["Reconnaissance and enumeration", "The careful first step of any authorised test: mapping what is in scope.", "Year 2, month 6"],
-  ["Web application testing with Burp Suite", "Websites are a common target. Burp Suite is a standard tool for testing them.", "Year 2, month 7"],
-  ["Privilege escalation", "Shows how a small weakness can become a serious one, so it can be fixed.", "Year 2, month 10"],
-  ["Writing a findings report", "The report is what the client pays for. A finding nobody understands fixes nothing.", "Year 2, month 11"]
+  [
+   "Ethics, scope and permission",
+   "Separates an ethical hacker from a criminal. Every test needs written permission and a clear scope.",
+   "Year 1 security principles, then in every lab"
+  ],
+  [
+   "Networking and subnetting",
+   "Almost every attack and defence travels over a network. You must read it fluently.",
+   "Year 1, months 2 and 3"
+  ],
+  [
+   "Linux and the command line",
+   "Most security tools run on Linux, and many servers do too.",
+   "Year 1, month 4"
+  ],
+  [
+   "Windows administration",
+   "Most office computers run Windows. You need to know how it is set up before you test it.",
+   "Year 1, month 5"
+  ],
+  [
+   "Python, Bash and PowerShell",
+   "Lets you automate repetitive checks instead of doing them by hand.",
+   "Year 1, month 9"
+  ],
+  [
+   "Packet analysis with Wireshark",
+   "Shows exactly what is happening on a network, packet by packet.",
+   "Year 1"
+  ],
+  [
+   "Reconnaissance and enumeration",
+   "The careful first step of any authorised test: mapping what is in scope.",
+   "Year 2, month 6"
+  ],
+  [
+   "Web application testing with Burp Suite",
+   "Websites are a common target. Burp Suite is a standard tool for testing them.",
+   "Year 2, month 7"
+  ],
+  [
+   "Privilege escalation",
+   "Shows how a small weakness can become a serious one, so it can be fixed.",
+   "Year 2, month 10"
+  ],
+  [
+   "Writing a findings report",
+   "The report is what the client pays for. A finding nobody understands fixes nothing.",
+   "Year 2, month 11"
+  ]
  ],
  "build_answer": "You build a project every month in an authorised lab, so after three years you have 36 projects and a GitHub record that shows legal, documented hacking work rather than claims.",
  "projects": [
-  ["Cybersecurity concept map + lab notebook + GitHub repository setup", "Starts the habit every ethical hacker needs: writing down each step you take in a lab."],
-  ["Office Network Diagram + Wireshark Packet Analysis Report", "Teaches you to see a network the way a tester first sees it."],
-  ["Linux Hardening Checklist + Bash Security Toolkit", "You learn to lock a system down before you learn to test one."],
-  ["Security Automation Toolkit v1 (Python + Bash + PowerShell)", "Your own small scripts, the first tools you understand line by line."],
-  ["Authorized Recon & Enumeration Assessment", "Your first test with a defined scope, done the legal way."],
-  ["Red-Team/Blue-Team Privilege Escalation Lab", "You attack and defend the same lab, so you see both sides of one weakness."],
-  ["Year-2 Ethical Hacking Capstone", "A full authorised exercise that pulls together a year of hacking skills."]
+  [
+   "Cybersecurity concept map + lab notebook + GitHub repository setup",
+   "Starts the habit every ethical hacker needs: writing down each step you take in a lab."
+  ],
+  [
+   "Office Network Diagram + Wireshark Packet Analysis Report",
+   "Teaches you to see a network the way a tester first sees it."
+  ],
+  [
+   "Linux Hardening Checklist + Bash Security Toolkit",
+   "You learn to lock a system down before you learn to test one."
+  ],
+  [
+   "Security Automation Toolkit v1 (Python + Bash + PowerShell)",
+   "Your own small scripts, the first tools you understand line by line."
+  ],
+  [
+   "Authorized Recon & Enumeration Assessment",
+   "Your first test with a defined scope, done the legal way."
+  ],
+  [
+   "Red-Team/Blue-Team Privilege Escalation Lab",
+   "You attack and defend the same lab, so you see both sides of one weakness."
+  ],
+  [
+   "Year-2 Ethical Hacking Capstone",
+   "A full authorised exercise that pulls together a year of hacking skills."
+  ]
  ],
  "certs_answer": "CEH v13 is the certificate most linked with ethical hacking, and the program prepares for it across year 2, but EC-Council awards it after its own exam, and passing is not guaranteed.",
  "cert_notes": {
@@ -60,26 +147,85 @@
  "cert_extra": "EC-Council describes CEH v13 as now including AI in its training, across 20 learning modules. An optional 6-hour practical exam on its cyber range leads to the CEH Master level. Before CEH, the roadmap also prepares for ISC² Certified in Cybersecurity (CC) in year 1 and CompTIA Security+ in year 2.",
  "notfor_answer": "This path is not for you if you want to hack real websites or friends' accounts, want quick results, or cannot accept that most of the work is careful reading, note-taking and report writing.",
  "notfor": [
-  ["You want to hack things you do not own.", "Testing without the owner's permission is illegal in India. This program teaches only in authorised labs, and it expects the same outside class."],
-  ["You expect it to look like the films.", "Real ethical hacking is slow and methodical. Many hours of a test find nothing, and that is normal."],
-  ["You do not want to learn the basics first.", "Year 1 is networks, Linux, Windows and defence. Skipping it makes year 2 impossible to follow."],
-  ["Writing reports sounds boring to you.", "Every test ends in a written report. Clear writing matters as much as technical skill."],
-  ["You want a guarantee.", "No honest course can promise a job, salary or CEH pass. This one does not, and it awards a NeuroNetworks AI Ed certificate, not a degree."],
-  ["You only have a phone.", "Security labs need a laptop with plenty of memory to run virtual machines."]
+  [
+   "You want to hack things you do not own.",
+   "Testing without the owner's permission is illegal in India. This program teaches only in authorised labs, and it expects the same outside class."
+  ],
+  [
+   "You expect it to look like the films.",
+   "Real ethical hacking is slow and methodical. Many hours of a test find nothing, and that is normal."
+  ],
+  [
+   "You do not want to learn the basics first.",
+   "Year 1 is networks, Linux, Windows and defence. Skipping it makes year 2 impossible to follow."
+  ],
+  [
+   "Writing reports sounds boring to you.",
+   "Every test ends in a written report. Clear writing matters as much as technical skill."
+  ],
+  [
+   "You want a guarantee.",
+   "No honest course can promise a job, salary or CEH pass. This one does not, and it awards a NeuroNetworks AI Ed certificate, not a degree."
+  ],
+  [
+   "You only have a phone.",
+   "Security labs need a laptop with plenty of memory to run virtual machines."
+  ]
  ],
  "salary_answer": "Indicative ranges for cybersecurity roles in India, including junior penetration tester or ethical hacker, are about ₹4 to 8 lakh a year for freshers, ₹8 to 20 lakh at 3 to 5 years, and ₹25 to 60 lakh or more for senior roles.",
  "faqs": [
-  ["How many years does it take to become an ethical hacker after 10th?", "Plan for about three years of steady learning, such as the 3-year, 624-hour Cybersecurity program, where ethical hacking comes in year 2 after a year of foundations. Many employers also look for a degree, so most students build these skills alongside Class 11, 12 and college."],
-  ["Can I become an ethical hacker without maths?", "Yes, for most day-to-day ethical hacking work, which relies on networking, operating systems and logic rather than advanced maths. Subnetting needs simple arithmetic, which is taught. A B.Tech through JEE Main does need Physics and Mathematics in Class 12."],
-  ["Is ethical hacking legal in India?", "Ethical hacking is legal when you have the owner's written permission and stay within the agreed scope. Accessing a computer without permission is covered by Section 43 of the IT Act, 2000, and Section 66 makes it a punishable offence when done dishonestly or fraudulently."],
-  ["Where do students practise hacking in this program?", "Only in authorised lab environments set up for the course. Students never test real websites, school networks or anyone's accounts, and the same rule applies to practice at home."],
-  ["When does CEH v13 preparation happen?", "In year 2. The second half of the year covers ethical hacking and CEH foundations, web application security, network penetration testing, Active Directory testing, and CEH domains, reporting and a capstone. EC-Council awards the certificate after its own exam."]
+  [
+   "How many years does it take to become an ethical hacker after 10th?",
+   "Plan for about three years of steady learning, such as the 3-year, 624-hour Cybersecurity program, where ethical hacking comes in year 2 after a year of foundations. Many employers also look for a degree, so most students build these skills alongside Class 11, 12 and college."
+  ],
+  [
+   "Can I become an ethical hacker without maths?",
+   "Yes, for most day-to-day ethical hacking work, which relies on networking, operating systems and logic rather than advanced maths. Subnetting needs simple arithmetic, which is taught. A B.Tech through JEE Main does need Physics and Mathematics in Class 12."
+  ],
+  [
+   "Is ethical hacking legal in India?",
+   "Ethical hacking is legal when you have the owner's written permission and stay within the agreed scope. Accessing a computer without permission is covered by Section 43 of the IT Act, 2000, and Section 66 makes it a punishable offence when done dishonestly or fraudulently."
+  ],
+  [
+   "Where do students practise hacking in this program?",
+   "Only in authorised lab environments set up for the course. Students never test real websites, school networks or anyone's accounts, and the same rule applies to practice at home."
+  ],
+  [
+   "When does CEH v13 preparation happen?",
+   "In year 2. The second half of the year covers ethical hacking and CEH foundations, web application security, network penetration testing, Active Directory testing, and CEH domains, reporting and a capstone. EC-Council awards the certificate after its own exam."
+  ]
  ],
  "context_fact": "Nasscom's Strategic Review 2026 notes cybersecurity rising in importance as AI-powered threats grow. That is one reason organisations pay people to test their own systems, legally, before attackers do.",
  "sources": [
-  ["Certified Ethical Hacker (CEH v13)", "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/", "EC-Council, checked 18 October 2026"],
-  ["Section 43, Information Technology Act, 2000", "https://indiankanoon.org/doc/39800/", "Indian Kanoon, checked 18 October 2026"],
-  ["Section 66, Information Technology Act, 2000", "https://indiankanoon.org/doc/326206/", "Indian Kanoon, checked 18 October 2026"]
+  [
+   "Certified Ethical Hacker (CEH v13)",
+   "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/",
+   "EC-Council, checked 18 October 2026"
+  ],
+  [
+   "Section 43, Information Technology Act, 2000",
+   "https://indiankanoon.org/doc/39800/",
+   "Indian Kanoon, checked 18 October 2026"
+  ],
+  [
+   "Section 66, Information Technology Act, 2000",
+   "https://indiankanoon.org/doc/326206/",
+   "Indian Kanoon, checked 18 October 2026"
+  ],
+  [
+   "OWASP Juice Shop",
+   "https://owasp.org/www-project-juice-shop/",
+   "OWASP Foundation, checked 18 October 2026"
+  ]
  ],
- "related_guides": ["cyber-security-course-after-10th", "become-penetration-tester-after-10th", "become-cyber-security-analyst-after-10th"]
+ "related_guides": [
+  "cyber-security-course-after-10th"
+ ],
+ "merged_sections": [
+  {
+   "h2": "What does a penetration tester do, and how is it different?",
+   "answer": "A penetration tester runs a formal, time-boxed security test for a client, inside a written scope, and then writes a report that ranks each finding and explains the fix.",
+   "html": "<p>Ethical hacking is the wider field. Penetration testing is one specialist job inside it, built on process and paperwork as much as skill. It is usually a later career step, after experience in IT or security operations.</p><p>In this roadmap, penetration testing fills the second half of year 2: web application testing, network testing, Active Directory testing, privilege escalation and report writing, all in authorised labs. Year 3 is mostly defence and cloud security. The program does not cover mobile app, hardware or IoT testing.</p>"
+  }
+ ]
 }

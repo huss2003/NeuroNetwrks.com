@@ -4,23 +4,49 @@
  "keyword": "how to become a data analyst after 10th",
  "searches": "",
  "program": "data-science-ai",
- "alt_programs": ["ai-foundation", "software-development"],
+ "alt_programs": [
+  "ai-foundation",
+  "software-development"
+ ],
  "title": "How to Become a Data Analyst After 10th (2026)",
  "desc": "How to become a data analyst after Class 10: SQL, statistics, dashboards and data storytelling, with a yearly plan, projects, certificates and salary.",
- "h1": ["How to become a data analyst after 10th", "SQL, dashboards and a clear plan"],
+ "h1": [
+  "How to become a data analyst after 10th",
+  "SQL, dashboards and a clear plan"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. Most analyst skills sit in year 1 of a real 624-hour data curriculum. This page shows what that year teaches and what comes after.",
  "role_intro": "A data analyst turns a company's records into answers people can act on. They write SQL to pull data, check it with statistics, build dashboards and charts, and explain in plain words what changed and why. It is often the first job in the data field.",
  "in_short": [
-  "<strong>Yes, you can start after Class 10.</strong> Analyst skills begin with spreadsheet-style thinking, SQL and basic statistics, all taught from zero.",
-  "<strong>Most core analyst skills come in year 1:</strong> SQL, statistics, Pandas, visualisation, business analytics and dashboards.",
-  "<strong>Good communicators do well here.</strong> A clear chart and a short, honest summary often matter more than a complex model."
+  "<strong>A data analyst answers \"what happened, and why?\"</strong> The daily work is SQL queries, checking numbers and explaining them in charts and short notes.",
+  "<strong>The analyst toolkit sits almost entirely in year 1:</strong> SQL, two statistics modules, Pandas, visualisation, business analytics and dashboards.",
+  "<strong>Accuracy and clear writing count as much as coding.</strong> One wrong join can mislead a team, and a plain summary is what managers act on."
  ],
- "start_answer": "Yes. You can start learning data analysis right after Class 10, because the work begins with questions, tables and simple statistics, and the first modules teach Python and SQL from the very beginning.",
+ "start_answer": "Yes. You can start after Class 10, because analyst work rests on SQL and school-level statistics, both taught from zero in year 1, and these are enough to answer real questions about real tables.",
+ "day_to_day": {
+  "answer": "A data analyst spends most days pulling data with SQL, checking it for errors, working out what changed and why, and explaining the answer through charts, dashboards and short written summaries.",
+  "html": "<p>Work usually starts with a question from sales, marketing, finance or operations, such as \"why did orders drop last week?\" The analyst writes SQL to pull the right rows, cleans gaps and duplicates, and compares periods and groups. Then they check whether a change is real or just noise. The answer goes out as a chart, a dashboard update or a short note that also states its limits.</p><p>The main tools in this roadmap are SQL, Python with Pandas and NumPy, and Jupyter notebooks, with Git and GitHub to keep work saved and shareable. Many offices also use spreadsheets and business intelligence tools. The program does not list Excel, Power BI or Tableau, so practise a spreadsheet on your own.</p><p><strong>How it differs from a data scientist.</strong> An analyst explains the past and present: what happened, where and why. A data scientist also builds machine learning models that predict what comes next, which needs more maths and coding. In this program, the analyst toolkit is year 1, and machine learning starts in year 2. The <a href=\"/guides/become-data-scientist-after-10th\">data scientist</a> page covers that longer path.</p>"
+ },
+ "first_project": {
+  "answer": "A realistic first project is a two-to-three-week study of data you collect yourself, such as your daily screen time or sleep, ending in two clear charts and a one-page summary that answers one question.",
+  "html": "<p>Pick one question you care about, such as \"on which days do I use my phone most?\" Then:</p><ul><li>Week 1 and 2: record the data every day in one simple table, or use a small public dataset instead.</li><li>Week 2: clean it. Fix missing days, wrong entries and mixed units, and write down every fix.</li><li>Week 3: work out averages and totals by day of the week, and find the highest and lowest days.</li><li>Week 3: make two charts, one showing change over time and one comparing groups.</li><li>Finish with a one-page summary: the answer, the evidence, and what the data cannot tell you.</li></ul><p>A spreadsheet is enough to start. If you have begun learning SQL or Python, redo the totals in code. This is a small version of the program's <strong>Exploratory Statistics Report</strong> and <strong>Data Storytelling Report</strong>, both in year 1.</p>"
+ },
  "start_bridge": "Data analysts come from more streams than most tech roles. Here is how each choice for Class 11 and 12 plays out.",
  "streams": [
-  ["Commerce with Mathematics", "B.Com, BBA, economics and business analytics degrees. A natural fit for sales, finance and marketing data.", "B.Tech through JEE Main needs Physics and Mathematics, so that route closes."],
-  ["Science with Maths (PCM)", "B.Tech, BCA and B.Sc in statistics or computer science. Opens analyst and later data science roles.", "A heavier study load. Analysis practice has to fit around entrance preparation."],
-  ["Humanities with Mathematics or Economics", "Economics, psychology and social science degrees, which feed policy and research analysis.", "Without any maths in Class 11 and 12, statistics feels harder. Keep Mathematics or Economics if you can."]
+  [
+   "Commerce with Mathematics",
+   "B.Com, BBA, economics and business analytics degrees. A natural fit for sales, finance and marketing data.",
+   "B.Tech through JEE Main needs Physics and Mathematics, so that route closes."
+  ],
+  [
+   "Science with Maths (PCM)",
+   "B.Tech, BCA and B.Sc in statistics or computer science. Opens analyst and later data science roles.",
+   "A heavier study load. Analysis practice has to fit around entrance preparation."
+  ],
+  [
+   "Humanities with Mathematics or Economics",
+   "Economics, psychology and social science degrees, which feed policy and research analysis.",
+   "Without any maths in Class 11 and 12, statistics feels harder. Keep Mathematics or Economics if you can."
+  ]
  ],
  "start_extra": "The stream matters less for analysts than for engineers. Employers mostly want proof that you can query data, check it and explain it. A small set of finished analysis projects shows that better than marks alone.",
  "roadmap_answer": "For a data analyst, year 1 does most of the work: Python, SQL, two statistics modules, visualisation, business analytics and dashboards, while years 2 and 3 add forecasting, data pipelines and experimentation for stronger analyst roles.",
@@ -32,26 +58,86 @@
  "fit_note": "This program serves both analysts and data scientists. Years 2 and 3 cover machine learning and AI that a pure analyst may not use daily. Its listed tools are Python, SQL, Git, GitHub, Linux, NumPy, Pandas, Jupyter and Azure. It does not list Excel, Power BI or Tableau, so practise a spreadsheet tool on your own as well.",
  "skills_answer": "A data analyst needs SQL, statistics, data cleaning, Python with Pandas, charts and dashboards, business sense, simple forecasting and, above all, the ability to tell a clear story from the numbers.",
  "skills": [
-  ["SQL", "The daily tool for pulling and joining company data.", "Year 1, its own module"],
-  ["Statistics I and II", "Averages, spread, sampling and tests: how you know a change is real.", "Year 1"],
-  ["Data cleaning with Pandas", "Real data has gaps and errors. Cleaning comes before any answer.", "Year 1"],
-  ["Data visualisation", "Picking the chart that makes the point obvious.", "Year 1"],
-  ["Dashboarding", "Gives managers a live view instead of a one-time report.", "Year 1"],
-  ["Business analytics", "Links numbers to sales, costs and customers.", "Year 1"],
-  ["Data storytelling", "Turns findings into a short, clear message people act on.", "Year 1, used every year after"],
-  ["Time series and forecasting", "Answers \"what will next month look like?\"", "Year 2"],
-  ["Experimentation", "Tests whether a change, like a new button or offer, really worked.", "Year 3"]
+  [
+   "SQL",
+   "The daily tool for pulling and joining company data.",
+   "Year 1, its own module"
+  ],
+  [
+   "Statistics I and II",
+   "Averages, spread, sampling and tests: how you know a change is real.",
+   "Year 1"
+  ],
+  [
+   "Data cleaning with Pandas",
+   "Real data has gaps and errors. Cleaning comes before any answer.",
+   "Year 1"
+  ],
+  [
+   "Data visualisation",
+   "Picking the chart that makes the point obvious.",
+   "Year 1"
+  ],
+  [
+   "Dashboarding",
+   "Gives managers a live view instead of a one-time report.",
+   "Year 1"
+  ],
+  [
+   "Business analytics",
+   "Links numbers to sales, costs and customers.",
+   "Year 1"
+  ],
+  [
+   "Data storytelling",
+   "Turns findings into a short, clear message people act on.",
+   "Year 1, used every year after"
+  ],
+  [
+   "Time series and forecasting",
+   "Answers \"what will next month look like?\"",
+   "Year 2"
+  ],
+  [
+   "Experimentation",
+   "Tests whether a change, like a new button or offer, really worked.",
+   "Year 3"
+  ]
  ],
  "build_answer": "You build one project every month, and the first twelve already form an analyst portfolio: SQL work, statistics reports, cleaned datasets, a business case, a dashboard and a capstone.",
  "projects": [
-  ["SQL Analytics Repository", "A public set of queries that proves you can work with real tables."],
-  ["Exploratory Statistics Report", "Your first written report that explains data with numbers."],
-  ["Data Cleaning Notebook Portfolio", "Shows the unglamorous skill every analyst job needs."],
-  ["Data Storytelling Report", "Practice turning a chart into a decision someone can make."],
-  ["Business Analytics Case Study", "A business question answered from start to finish."],
-  ["Analytics Dashboard", "A dashboard a manager could open each morning."],
-  ["Google-Style Analytics Capstone", "A complete case in the style of the Google Data Analytics certificate."],
-  ["Product Experimentation Case", "A test of whether a product change worked, a common analyst task."]
+  [
+   "SQL Analytics Repository",
+   "A public set of queries that proves you can work with real tables."
+  ],
+  [
+   "Exploratory Statistics Report",
+   "Your first written report that explains data with numbers."
+  ],
+  [
+   "Data Cleaning Notebook Portfolio",
+   "Shows the unglamorous skill every analyst job needs."
+  ],
+  [
+   "Data Storytelling Report",
+   "Practice turning a chart into a decision someone can make."
+  ],
+  [
+   "Business Analytics Case Study",
+   "A business question answered from start to finish."
+  ],
+  [
+   "Analytics Dashboard",
+   "A dashboard a manager could open each morning."
+  ],
+  [
+   "Google-Style Analytics Capstone",
+   "A complete case in the style of the Google Data Analytics certificate."
+  ],
+  [
+   "Product Experimentation Case",
+   "A test of whether a product change worked, a common analyst task."
+  ]
  ],
  "certs_answer": "For analysts, the Google Data Analytics certificate and Microsoft DP-900 are the most relevant in this roadmap, but each is awarded by its own body, and employers will still ask to see your analysis work.",
  "cert_notes": {
@@ -61,24 +147,66 @@
  "cert_extra": "Both the Google certificate and DP-900 are prepared for in year 1, which is why an analyst can build a credible profile early.",
  "notfor_answer": "This path is not for you if you dislike checking details, want to avoid writing and presenting, or expect analysis to be all coding, because much of the job is careful checking and clear explaining.",
  "notfor": [
-  ["Small mistakes in numbers do not bother you.", "Analysts are trusted for accuracy. One wrong join can mislead a whole team."],
-  ["You hate explaining your work.", "Reports, charts and short talks are a big part of the role."],
-  ["You want to build apps, not study data.", "The <a href=\"/programs/software-development\">Software Development program</a> fits that better."],
-  ["You expect a guaranteed job.", "No honest course can promise a job, salary or exam pass, and this one does not."],
-  ["You can only study now and then.", "Plan for 4 hours of classes a week for three years, plus practice."]
+  [
+   "Small mistakes in numbers do not bother you.",
+   "Analysts are trusted for accuracy. One wrong join can mislead a whole team."
+  ],
+  [
+   "You hate explaining your work.",
+   "Reports, charts and short talks are a big part of the role."
+  ],
+  [
+   "You want to build apps, not study data.",
+   "The <a href=\"/programs/software-development\">Software Development program</a> fits that better."
+  ],
+  [
+   "You expect a guaranteed job.",
+   "No honest course can promise a job, salary or exam pass, and this one does not."
+  ],
+  [
+   "You can only study now and then.",
+   "Plan for 4 hours of classes a week for three years, plus practice."
+  ]
  ],
  "salary_answer": "Indicative ranges for data roles in India, including analysts, are about ₹4 to 8 lakh a year for freshers, ₹10 to 22 lakh at 3 to 5 years, and ₹25 to 50 lakh or more at senior level.",
  "faqs": [
-  ["How many years does it take to become a data analyst after 10th?", "The core analyst skills come in year 1 of the 3-year, 624-hour Data Science & AI program, and the next two years build depth. Many employers also expect a degree, so most people reach an analyst job after Class 12 and a degree, with skills built alongside."],
-  ["Can I become a data analyst without maths?", "Yes, more easily than in most data roles, because analysts mainly use school-level statistics, which the program teaches in two modules. Keeping Mathematics or Economics in Class 11 and 12 still makes statistics much easier and keeps more degrees open."],
-  ["Is a data analyst the same as a data scientist?", "No. A data analyst explains what happened and why, using SQL, statistics and dashboards. A data scientist also builds machine learning models to predict what comes next. Many people start as analysts and move into data science later."],
-  ["Do I need coding to become a data analyst?", "Some, yes. SQL is essential, and Python with Pandas helps with larger or messier data. Both are taught from the beginning in year 1, so no prior coding is expected."],
-  ["Can a commerce student become a data analyst?", "Yes. Commerce with Mathematics is a strong base for business and finance analysis. What matters most is proof that you can query, clean and explain data."]
+  [
+   "How many years does it take to become a data analyst after 10th?",
+   "The core analyst skills come in year 1 of the 3-year, 624-hour Data Science & AI program, and the next two years build depth. Many employers also expect a degree, so most people reach an analyst job after Class 12 and a degree, with skills built alongside."
+  ],
+  [
+   "Can I become a data analyst without maths?",
+   "Yes, more easily than in most data roles, because analysts mainly use school-level statistics, which the program teaches in two modules. Keeping Mathematics or Economics in Class 11 and 12 still makes statistics much easier and keeps more degrees open."
+  ],
+  [
+   "Is a data analyst the same as a data scientist?",
+   "No. A data analyst explains what happened and why, using SQL, statistics and dashboards. A data scientist also builds machine learning models to predict what comes next. Many people start as analysts and move into data science later."
+  ],
+  [
+   "Do I need coding to become a data analyst?",
+   "Some, yes. SQL is essential, and Python with Pandas helps with larger or messier data. Both are taught from the beginning in year 1, so no prior coding is expected."
+  ],
+  [
+   "Can a commerce student become a data analyst?",
+   "Yes. Commerce with Mathematics is a strong base for business and finance analysis. What matters most is proof that you can query, clean and explain data."
+  ]
  ],
  "context_fact": "Nasscom's Strategic Review 2026 puts employment in India's tech industry near 6 million. Analysts who can explain data clearly are useful across that whole industry, not only in tech teams.",
  "sources": [
-  ["Google Data Analytics Professional Certificate", "https://www.coursera.org/professional-certificates/google-data-analytics", "Coursera, checked 18 October 2026"],
-  ["Microsoft Certified: Azure Data Fundamentals (DP-900)", "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/", "Microsoft Learn, page updated 21 July 2026"]
+  [
+   "Google Data Analytics Professional Certificate",
+   "https://www.coursera.org/professional-certificates/google-data-analytics",
+   "Coursera, checked 18 October 2026"
+  ],
+  [
+   "Microsoft Certified: Azure Data Fundamentals (DP-900)",
+   "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/",
+   "Microsoft Learn, page updated 21 July 2026"
+  ]
  ],
- "related_guides": ["become-data-scientist-after-10th", "data-science-after-10th", "career-options-after-10th"]
+ "related_guides": [
+  "become-data-scientist-after-10th",
+  "data-science-after-10th",
+  "career-options-after-10th"
+ ]
 }

@@ -4,23 +4,49 @@
  "keyword": "how to become a data scientist after 10th",
  "searches": "110 a month in India",
  "program": "data-science-ai",
- "alt_programs": ["ai-ml-engineering", "ai-foundation"],
+ "alt_programs": [
+  "ai-ml-engineering",
+  "ai-foundation"
+ ],
  "title": "How to Become a Data Scientist After 10th (2026)",
  "desc": "A year-by-year plan to become a data scientist after Class 10: maths and stream choices, Python, machine learning, projects, certificates and salary.",
- "h1": ["How to become a data scientist after 10th", "a year-by-year roadmap"],
+ "h1": [
+  "How to become a data scientist after 10th",
+  "a year-by-year roadmap"
+ ],
  "lead": "A plan for a Class 10 student and their parent to read together. Every step comes from a real 624-hour, three-year data science curriculum, so you can see what a student actually learns and builds each year.",
  "role_intro": "A data scientist uses data to answer hard questions and make predictions. They clean messy data, test ideas with statistics, build machine learning models, and explain what the results mean for a business. The role sits between maths, code and clear communication.",
+ "day_to_day": {
+  "answer": "A data scientist spends the day turning questions into evidence: pulling data with SQL, cleaning it in Python, testing ideas with statistics, building models where they help, and explaining results to the people who decide.",
+  "html": "<p>Typical tasks: agreeing the exact question with a team, writing SQL to pull the data, cleaning it, and exploring it with charts. They run statistical tests, build a model when a prediction is needed, and write up what they found and how sure they are. They work with business teams, analysts, data engineers and ML engineers.</p><p>Main tools: Python, SQL, Jupyter notebooks, NumPy and Pandas, Git and GitHub, and Azure for machine learning experiments.</p><p><strong>How it differs from a data analyst:</strong> a <a href=\"/guides/become-data-analyst-after-10th\">data analyst</a> mainly describes what happened, through reports and dashboards. A data scientist goes further: testing why it happened and predicting what may come next, often with machine learning. Year 1 of this program covers the analyst skills first, so many students meet both roles.</p>"
+ },
+ "first_project": {
+  "answer": "A realistic first project is a two-week personal investigation: collect your own data each day, analyse it in Python, and write a one-page answer to one clear question.",
+  "html": "<p>Pick a question you can measure yourself, such as \"Do I sleep less on days with more screen time?\"</p><ul><li><strong>Days 1 to 14:</strong> record both numbers in a spreadsheet at the same time each day.</li><li><strong>Week 3, step 1:</strong> load the file into Pandas in a Jupyter notebook. Fix missing or odd values, and note every fix.</li><li><strong>Week 3, step 2:</strong> work out averages, draw a scatter chart, and calculate the correlation.</li><li><strong>Week 3, step 3:</strong> write one page with the answer, how sure you are, and why 14 days from one person cannot prove cause.</li></ul><p>In the program, this leads to the <strong>Statistical Investigation</strong> project in year 1, where you answer a real question with evidence.</p>"
+ },
  "in_short": [
-  "<strong>Yes, you can start after Class 10.</strong> Python, SQL and statistics are taught from zero, so no coding background is needed.",
-  "<strong>Plan for about three years of skill building:</strong> data and statistics, then machine learning, then deep learning and generative AI.",
-  "<strong>Maths matters more here than in most tech roles.</strong> Keep Mathematics in Class 11 and 12 if you possibly can, because modelling rests on statistics and algebra."
+  "<strong>A data scientist starts with a question, not a model.</strong> The result is usually an answer, a chart or a forecast that helps someone decide.",
+  "<strong>SQL and statistics come first.</strong> Year 1 of the program covers Python, SQL, two statistics modules, analysis and dashboards. Machine learning starts in year 2.",
+  "<strong>Explaining results is part of the job.</strong> A finding nobody understands changes nothing, so reports and data stories are practised from year 1."
  ],
- "start_answer": "Yes. A student can start learning data science right after Class 10, because the first months teach computing, Python and basic statistics from the beginning, with no prior coding expected.",
+ "start_answer": "Yes, you can start after Class 10 with no coding background, because a future data scientist begins by learning to ask clear questions of data using Python, SQL and basic statistics.",
  "start_bridge": "Your Class 11 and 12 stream matters a lot for this role, because data science leans on maths. Here is how each path looks.",
  "streams": [
-  ["Science with Maths (PCM or PCMB)", "B.Tech through JEE Main, plus B.Sc in statistics, mathematics or computer science. The strongest base for modelling.", "A heavy load in Class 11 and 12. Keep weekly practice small but regular."],
-  ["Commerce with Mathematics", "Degrees in economics, statistics-heavy commerce and business analytics. Good for data science in finance and retail.", "B.Tech through JEE Main needs Physics and Mathematics, so that route closes."],
-  ["Commerce or Humanities without Mathematics", "Data analysis and business roles stay open, and many skills can still be learned.", "Machine learning theory gets much harder. You would need to rebuild school maths on your own."]
+  [
+   "Science with Maths (PCM or PCMB)",
+   "B.Tech through JEE Main, plus B.Sc in statistics, mathematics or computer science. The strongest base for modelling.",
+   "A heavy load in Class 11 and 12. Keep weekly practice small but regular."
+  ],
+  [
+   "Commerce with Mathematics",
+   "Degrees in economics, statistics-heavy commerce and business analytics. Good for data science in finance and retail.",
+   "B.Tech through JEE Main needs Physics and Mathematics, so that route closes."
+  ],
+  [
+   "Commerce or Humanities without Mathematics",
+   "Data analysis and business roles stay open, and many skills can still be learned.",
+   "Machine learning theory gets much harder. You would need to rebuild school maths on your own."
+  ]
  ],
  "start_extra": "If you are still deciding between a course and a career, our <a href=\"/guides/data-science-after-10th\">data science after 10th guide</a> explains the course side. This page is about the role itself: what a data scientist does and how to get there step by step.",
  "roadmap_answer": "The roadmap runs over three years: year 1 builds Python, SQL, statistics and analysis, year 2 builds machine learning and data pipelines, and year 3 adds deep learning, NLP, generative AI and a portfolio.",
@@ -32,28 +58,96 @@
  "fit_note": "This program goes further than many data science paths: it includes data engineering, MLOps and generative AI. It does not replace a mathematics degree. Students aiming at AI research roles usually also need a degree in mathematics, statistics or computer science.",
  "skills_answer": "A data scientist needs statistics, Python with NumPy and Pandas, SQL, data cleaning, machine learning, model evaluation, some data engineering, deep learning basics and the ability to explain results to people who are not technical.",
  "skills": [
-  ["Statistics and probability", "Tells you whether a pattern is real or just chance.", "Year 1, two full modules"],
-  ["Python for data", "The main language for analysis and machine learning.", "Year 1, first months"],
-  ["NumPy and Pandas", "Load, clean and reshape large tables of data quickly.", "Year 1"],
-  ["SQL", "Pull the right data out of company databases.", "Year 1"],
-  ["Exploratory data analysis", "Find the shape and problems in data before modelling.", "Year 1"],
-  ["Machine learning", "Build models that predict, classify and group.", "Year 2"],
-  ["Feature engineering and evaluation", "Decide what the model sees and measure if it truly works.", "Year 2"],
-  ["Time series forecasting", "Predict sales, demand or traffic over time.", "Year 2"],
-  ["Data pipelines and MLOps", "Move models from a notebook into a working system.", "Year 2, deeper in year 3"],
-  ["Deep learning, NLP and computer vision", "Work with text and images, not just tables.", "Year 3"],
-  ["Responsible AI", "Check models for bias and explain their limits.", "Year 3"]
+  [
+   "Statistics and probability",
+   "Tells you whether a pattern is real or just chance.",
+   "Year 1, two full modules"
+  ],
+  [
+   "Python for data",
+   "The main language for analysis and machine learning.",
+   "Year 1, first months"
+  ],
+  [
+   "NumPy and Pandas",
+   "Load, clean and reshape large tables of data quickly.",
+   "Year 1"
+  ],
+  [
+   "SQL",
+   "Pull the right data out of company databases.",
+   "Year 1"
+  ],
+  [
+   "Exploratory data analysis",
+   "Find the shape and problems in data before modelling.",
+   "Year 1"
+  ],
+  [
+   "Machine learning",
+   "Build models that predict, classify and group.",
+   "Year 2"
+  ],
+  [
+   "Feature engineering and evaluation",
+   "Decide what the model sees and measure if it truly works.",
+   "Year 2"
+  ],
+  [
+   "Time series forecasting",
+   "Predict sales, demand or traffic over time.",
+   "Year 2"
+  ],
+  [
+   "Data pipelines and MLOps",
+   "Move models from a notebook into a working system.",
+   "Year 2, deeper in year 3"
+  ],
+  [
+   "Deep learning, NLP and computer vision",
+   "Work with text and images, not just tables.",
+   "Year 3"
+  ],
+  [
+   "Responsible AI",
+   "Check models for bias and explain their limits.",
+   "Year 3"
+  ]
  ],
  "build_answer": "You build one project every month, so by the end you hold 36 projects, moving from statistics reports to working machine learning models, an ML API and a final data science capstone.",
  "projects": [
-  ["Statistical Investigation", "Your first real question answered with evidence, not guesses."],
-  ["Regression & Classification Project", "The two model types most data science work starts from."],
-  ["Model Evaluation Portfolio", "Shows you can tell a good model from one that only looks good."],
-  ["Forecasting Case Study", "Predicting the future from past data, a common business ask."],
-  ["Production ML API", "Your model answering requests from another app, not just sitting in a notebook."],
-  ["NLP Project", "A model that reads and sorts text such as reviews or messages."],
-  ["Deep Learning Project", "Neural networks on a problem that simple models cannot handle well."],
-  ["Final Data Science & AI Capstone", "One complete project from raw data to a working, explained result."]
+  [
+   "Statistical Investigation",
+   "Your first real question answered with evidence, not guesses."
+  ],
+  [
+   "Regression & Classification Project",
+   "The two model types most data science work starts from."
+  ],
+  [
+   "Model Evaluation Portfolio",
+   "Shows you can tell a good model from one that only looks good."
+  ],
+  [
+   "Forecasting Case Study",
+   "Predicting the future from past data, a common business ask."
+  ],
+  [
+   "Production ML API",
+   "Your model answering requests from another app, not just sitting in a notebook."
+  ],
+  [
+   "NLP Project",
+   "A model that reads and sorts text such as reviews or messages."
+  ],
+  [
+   "Deep Learning Project",
+   "Neural networks on a problem that simple models cannot handle well."
+  ],
+  [
+   "Final Data Science & AI Capstone",
+   "One complete project from raw data to a working, explained result."
+  ]
  ],
  "certs_answer": "Certificates such as IBM Data Science and Microsoft AI-300 can show an employer specific skills, but each one is awarded by its own body after its own assessment, and a portfolio of real models still counts most.",
  "cert_notes": {
@@ -63,24 +157,66 @@
  "cert_extra": "The roadmap also prepares for Microsoft DP-900 and the Google Data Analytics certificate in year 1, which suit the analysis side of the role.",
  "notfor_answer": "This path is not for you if you dislike maths, want instant results, or would rather build apps than question data, since much of a data scientist's day is checking whether an answer is really true.",
  "notfor": [
-  ["You avoid maths whenever you can.", "Statistics runs through all three years. You do not need to be a topper, but you must be willing to practise."],
-  ["You want quick, visible results.", "Most models fail at first. Patience with messy data is part of the work."],
-  ["You would rather build apps and websites.", "Look at the <a href=\"/programs/software-development\">Software Development program</a> instead."],
-  ["You expect a guaranteed job.", "No honest course can promise a job, salary or exam pass, and this one does not."],
-  ["You have only a phone or an old laptop.", "Deep learning in year 3 needs a capable laptop. Check the recommended specification first."]
+  [
+   "You avoid maths whenever you can.",
+   "Statistics runs through all three years. You do not need to be a topper, but you must be willing to practise."
+  ],
+  [
+   "You want quick, visible results.",
+   "Most models fail at first. Patience with messy data is part of the work."
+  ],
+  [
+   "You would rather build apps and websites.",
+   "Look at the <a href=\"/programs/software-development\">Software Development program</a> instead."
+  ],
+  [
+   "You expect a guaranteed job.",
+   "No honest course can promise a job, salary or exam pass, and this one does not."
+  ],
+  [
+   "You have only a phone or an old laptop.",
+   "Deep learning in year 3 needs a capable laptop. Check the recommended specification first."
+  ]
  ],
  "salary_answer": "Indicative ranges for data science roles in India are about ₹4 to 8 lakh a year for freshers, ₹10 to 22 lakh at 3 to 5 years, and ₹25 to 50 lakh or more for senior people.",
  "faqs": [
-  ["How many years does it take to become a data scientist after 10th?", "Plan for about three years of steady learning to build job-ready data science skills, such as the 3-year, 624-hour Data Science & AI program. Many employers also expect a degree, so the full route usually runs through Class 11 and 12 and a degree, with skills built alongside."],
-  ["Can I become a data scientist without maths?", "It is very hard. Data science rests on statistics, probability and algebra, and the program teaches statistics in two full modules. Without Mathematics in Class 11 and 12, analyst roles stay open, but you would need to relearn school maths for modelling."],
-  ["What is the difference between a data scientist and a data analyst?", "A data analyst mainly explains what happened, using SQL, statistics and dashboards. A data scientist also builds models that predict what will happen. In this roadmap, year 1 covers the analyst skills and years 2 and 3 add the data scientist skills."],
-  ["Do I need to learn deep learning to become a data scientist?", "Not for every job, since many data scientists work mostly with statistics and classic machine learning. The roadmap still covers deep learning, NLP and computer vision in year 3, because more data science work now involves text and images."],
-  ["Does the program guarantee a data science job?", "No. The program aims at job readiness through skills, monthly projects and a GitHub portfolio, but it does not guarantee a job, internship, salary or exam pass."]
+  [
+   "How many years does it take to become a data scientist after 10th?",
+   "Plan for about three years of steady learning to build job-ready data science skills, such as the 3-year, 624-hour Data Science & AI program. Many employers also expect a degree, so the full route usually runs through Class 11 and 12 and a degree, with skills built alongside."
+  ],
+  [
+   "Can I become a data scientist without maths?",
+   "It is very hard. Data science rests on statistics, probability and algebra, and the program teaches statistics in two full modules. Without Mathematics in Class 11 and 12, analyst roles stay open, but you would need to relearn school maths for modelling."
+  ],
+  [
+   "What is the difference between a data scientist and a data analyst?",
+   "A data analyst mainly explains what happened, using SQL, statistics and dashboards. A data scientist also builds models that predict what will happen. In this roadmap, year 1 covers the analyst skills and years 2 and 3 add the data scientist skills."
+  ],
+  [
+   "Do I need to learn deep learning to become a data scientist?",
+   "Not for every job, since many data scientists work mostly with statistics and classic machine learning. The roadmap still covers deep learning, NLP and computer vision in year 3, because more data science work now involves text and images."
+  ],
+  [
+   "Does the program guarantee a data science job?",
+   "No. The program aims at job readiness through skills, monthly projects and a GitHub portfolio, but it does not guarantee a job, internship, salary or exam pass."
+  ]
  ],
  "context_fact": "Nasscom's Strategic Review 2026 describes AI moving from an optional extra to core infrastructure in India's tech industry. That is why this roadmap does not stop at analysis, and carries data science through to machine learning in production and generative AI.",
  "sources": [
-  ["IBM Data Science Professional Certificate", "https://www.coursera.org/professional-certificates/ibm-data-science", "Coursera, checked 18 October 2026"],
-  ["Microsoft Certified: Machine Learning Operations Engineer Associate (AI-300)", "https://learn.microsoft.com/en-us/credentials/certifications/operationalizing-machine-learning-and-generative-ai-solutions/", "Microsoft Learn, page updated 7 October 2026"]
+  [
+   "IBM Data Science Professional Certificate",
+   "https://www.coursera.org/professional-certificates/ibm-data-science",
+   "Coursera, checked 18 October 2026"
+  ],
+  [
+   "Microsoft Certified: Machine Learning Operations Engineer Associate (AI-300)",
+   "https://learn.microsoft.com/en-us/credentials/certifications/operationalizing-machine-learning-and-generative-ai-solutions/",
+   "Microsoft Learn, page updated 7 October 2026"
+  ]
  ],
- "related_guides": ["data-science-after-10th", "become-data-analyst-after-10th", "ai-vs-software-vs-data-science"]
+ "related_guides": [
+  "data-science-after-10th",
+  "become-data-analyst-after-10th",
+  "ai-vs-software-vs-data-science"
+ ]
 }

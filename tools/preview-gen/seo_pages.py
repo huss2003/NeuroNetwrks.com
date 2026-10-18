@@ -97,7 +97,7 @@ def seo_page(slug):
 {"<section class=\"gd-sec gd-more\"><h2>Related guides</h2><ul>" + rel_g + "</ul></section>" if rel_g else ""}</article></div>{cta_panel(pg.get("cta_h", "Questions about the right path?"), pg.get("cta_p", "Tell us what the student enjoys. We will explain the program, timings and fees."))}'''
     ld = {"@type": "Article", "@id": f"{SITE}/guides/{slug}#article", "headline": pg["title"], "description": pg["desc"], "image": SITE + "/assets/og.png",
           "datePublished": pg["date"], "dateModified": pg.get("modified", pg["date"]), "inLanguage": "en-IN",
-          "author": {"@type": "Organization", "name": "NeuroNetworks AI Ed team", "url": SITE + "/about"}, "publisher": {"@id": ORG_ID},
+          "author": {"@type": "Organization", "name": "NeuroNetworks AI Ed team", "url": SITE + "/about"}, "publisher": PUBLISHER,
           "mainEntityOfPage": f"{SITE}/guides/{slug}", "mentions": [{"@id": f"{SITE}/programs/{x}#course"} for x in progs],
           "citation": [u for _, u, _ in src if u.startswith("http")]}
     if pg.get("about"): ld["about"] = pg["about"]
