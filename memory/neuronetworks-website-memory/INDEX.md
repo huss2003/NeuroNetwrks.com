@@ -39,4 +39,4 @@ specialisations after Class 10. Site collects enquiries only. Pre-launch; no stu
   Blender models in docs/3d, workflow manual, site.js/css tweaks.
 - Paused (owner's call): full redesign research (100+ sites ≥100k visits) + 6 home concepts in Claude Design.
 - Figma export: 9 desktop + 7 mobile pages done; rest via plugin the owner must run.
-- Latest work: page-wise text docx, "why choose us" trust article (Word + Claude doc).
+- Latest work (18 Oct): 20 programmatic SEO career pages live (how to become [role] after 10th); robot off (NNBOT_ON=False).

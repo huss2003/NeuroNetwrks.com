@@ -111,6 +111,7 @@
   })();
   /* ---- NN-Bot: walking robot along the bottom of the screen (owner-approved second WebGL object) ---- */
   (function () {
+    if (document.documentElement.dataset.nnbot !== 'on') return; /* robot switched off at build (NNBOT_ON in build.py) */
     var show = document.querySelector('[data-nnbot-show]');
     var off = false; try { off = localStorage.getItem('nnbot') === 'off'; } catch (e) { /* storage blocked */ }
     if (show) { show.hidden = !off; show.addEventListener('click', function () { try { localStorage.removeItem('nnbot'); } catch (e) { /* ignore */ } location.reload(); }); }

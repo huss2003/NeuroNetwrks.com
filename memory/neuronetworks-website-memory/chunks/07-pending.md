@@ -13,3 +13,8 @@
 ## Paused work (resume only when owner asks)
 - Redesign: research report (100+ sites) + 6 home concepts in Claude Design → owner picks → rebuild all pages → deploy.
 - Uncommitted repo changes (robot runtime, bundles, Blender scripts/models, workflow docs, site tweaks): not deployed.
+
+## Done 18 Oct 2026
+- 20 career roadmap pages LIVE (/guides/become-*-after-10th, ui-ux-designer-after-10th). Data: tools/preview-gen/careers/*.json (SPEC.md, check.py); template career_pages.py.
+- NN-Bot switched off via NNBOT_ON = False in build.py (set True after owner approval).
+- Next (plan Step 4-5): turn the career template into a reusable skill; check search volumes for the 15 'check' keywords; track traffic monthly.

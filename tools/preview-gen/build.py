@@ -77,7 +77,7 @@ def footer():
 <nav aria-label="Resources"><h2>Resources</h2><ul><li><a href="/guides">Guides</a></li><li><a href="/curriculum">Curriculum</a></li><li><a href="/faqs">FAQs</a></li><li><a href="/programs">Compare programs</a></li></ul></nav>
 <div><h2>Admissions and contact</h2><ul><li><a href="/admissions">Admissions</a></li><li><a href="/contact">Contact</a></li></ul><p class="small" style="margin-top:12px"><a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a></p><p class="small muted" style="margin-top:6px">[Postal address and phone: to be confirmed]</p></div>
 </div>
-<div class="ft-base"><span>© NeuroNetworks AI Ed. All rights reserved.</span><nav aria-label="Legal"><a href="/contact">Privacy Policy</a><a href="/contact">Terms of Service</a>{'<button type="button" class="ft-cookie" data-consent-open>Cookie settings</button>' if GA_ID else ''}<button type="button" class="ft-cookie" data-nnbot-show hidden>Show the robot</button></nav><span>Designed for curious minds. Built for what's next.</span></div>
+<div class="ft-base"><span>© NeuroNetworks AI Ed. All rights reserved.</span><nav aria-label="Legal"><a href="/contact">Privacy Policy</a><a href="/contact">Terms of Service</a>{'<button type="button" class="ft-cookie" data-consent-open>Cookie settings</button>' if GA_ID else ''}{'<button type="button" class="ft-cookie" data-nnbot-show hidden>Show the robot</button>' if NNBOT_ON else ''}</nav><span>Designed for curious minds. Built for what's next.</span></div>
 </div></footer>'''
 
 DESC = {
@@ -93,6 +93,7 @@ DESC = {
 }
 
 import hashlib as _h
+NNBOT_ON = False  # NN-Bot robot: switched off until the owner approves it (18 Oct 2026)
 ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.css"), "rb").read() + open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.js"), "rb").read() + b"".join(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f), "rb").read() for f in ("aiml3d.js", "nnbot.js", "ai-ml-training-pipeline.glb", "nn-bot.glb") if os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f))))).hexdigest()[:10]
 
 SITE = "https://neuronetwrks.com"
@@ -149,7 +150,7 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
     canon = SITE + ("/" if route == "/" else route)
     ld = '<script type="application/ld+json">' + json.dumps(page_graph(route, t, d, body, jsonld), ensure_ascii=False).replace("</", "<\\/") + "</script>"
     og = SITE + "/assets/og.png"
-    return f'''<!doctype html><html lang="en-IN" data-v="{ASSET_V}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    return f'''<!doctype html><html lang="en-IN" data-v="{ASSET_V}"{' data-nnbot="on"' if NNBOT_ON else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{E(t)}</title><meta name="description" content="{E(d)}"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="theme-color" content="#006DEE">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="canonical" href="{canon}">
 <meta property="og:title" content="{E(t)}"><meta property="og:description" content="{E(d)}"><meta property="og:type" content="website"><meta property="og:url" content="{canon}"><meta property="og:site_name" content="NeuroNetworks AI Ed"><meta property="og:locale" content="en_IN">

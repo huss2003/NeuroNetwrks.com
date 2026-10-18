@@ -64,7 +64,7 @@ def c_beats(c):
 
 def c_talk(h, p):
     return (f'<aside class="cr-talk" aria-label="{E(h)}"><div><h3>{E(h)}</h3><p>{E(p)}</p></div>'
-            f'<div class="cr-talk-btns"><a class="cr-btn cr-btn--w" href="/contact">Talk to us</a><a class="cr-btn cr-btn--o" href="/admissions">Apply</a></div></aside>')
+            f'<div class="cr-talk-btns"><a class="le-btn le-btn--w" href="/contact">Talk to us {ARW}</a><a class="le-btn le-btn--g" href="/admissions">Apply</a></div></aside>')
 
 def c_table(head, rows, cap):
     th = "".join(f'<th scope="col">{E(h)}</th>' for h in head)
