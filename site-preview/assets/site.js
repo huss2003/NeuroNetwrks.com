@@ -109,6 +109,20 @@
     }, { rootMargin: '300px 0px' });
     io.observe(box);
   })();
+  /* ---- NN-Bot: walking robot along the bottom of the screen (owner-approved second WebGL object) ---- */
+  (function () {
+    var show = document.querySelector('[data-nnbot-show]');
+    var off = false; try { off = localStorage.getItem('nnbot') === 'off'; } catch (e) { /* storage blocked */ }
+    if (show) { show.hidden = !off; show.addEventListener('click', function () { try { localStorage.removeItem('nnbot'); } catch (e) { /* ignore */ } location.reload(); }); }
+    document.addEventListener('nnbot:hidden', function () { if (show) show.hidden = false; });
+    if (off || rm || innerWidth < 768) return;
+    var c = navigator.connection; if ((c && c.saveData) || (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4) return;
+    try { var t = document.createElement('canvas'); if (!(t.getContext('webgl2') || t.getContext('webgl'))) return; } catch (e) { return; }
+    var v = document.documentElement.dataset.v || '1';
+    var go = function () { import('/assets/nnbot.js?v=' + v).then(function (m) { return m.mount({ glb: '/assets/nn-bot.glb?v=' + v, links: { programs: '/programs', talk: '/contact' } }); }).catch(function () { /* no robot */ }); };
+    var idle = window.requestIdleCallback || function (f) { setTimeout(f, 1500); };
+    if (document.readyState === 'complete') idle(go, { timeout: 4000 }); else addEventListener('load', function () { idle(go, { timeout: 4000 }); });
+  })();
   /* ---- Laptop: lid opens with scroll (prerendered frames) ---- */
   (function () {
     var box = $('.le-laptop[data-frames]'); if (!box || rm) return;

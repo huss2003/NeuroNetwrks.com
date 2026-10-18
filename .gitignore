@@ -32,3 +32,4 @@ test-results/
 playwright-report/
 .lighthouseci/
 *.blend1
+__pycache__/

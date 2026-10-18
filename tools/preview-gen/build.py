@@ -77,7 +77,7 @@ def footer():
 <nav aria-label="Resources"><h2>Resources</h2><ul><li><a href="/guides">Guides</a></li><li><a href="/curriculum">Curriculum</a></li><li><a href="/faqs">FAQs</a></li><li><a href="/programs">Compare programs</a></li></ul></nav>
 <div><h2>Admissions and contact</h2><ul><li><a href="/admissions">Admissions</a></li><li><a href="/contact">Contact</a></li></ul><p class="small" style="margin-top:12px"><a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a></p><p class="small muted" style="margin-top:6px">[Postal address and phone: to be confirmed]</p></div>
 </div>
-<div class="ft-base"><span>© NeuroNetworks AI Ed. All rights reserved.</span><nav aria-label="Legal"><a href="/contact">Privacy Policy</a><a href="/contact">Terms of Service</a>{'<button type="button" class="ft-cookie" data-consent-open>Cookie settings</button>' if GA_ID else ''}</nav><span>Designed for curious minds. Built for what's next.</span></div>
+<div class="ft-base"><span>© NeuroNetworks AI Ed. All rights reserved.</span><nav aria-label="Legal"><a href="/contact">Privacy Policy</a><a href="/contact">Terms of Service</a>{'<button type="button" class="ft-cookie" data-consent-open>Cookie settings</button>' if GA_ID else ''}<button type="button" class="ft-cookie" data-nnbot-show hidden>Show the robot</button></nav><span>Designed for curious minds. Built for what's next.</span></div>
 </div></footer>'''
 
 DESC = {
@@ -93,7 +93,7 @@ DESC = {
 }
 
 import hashlib as _h
-ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.css"), "rb").read() + open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.js"), "rb").read() + b"".join(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f), "rb").read() for f in ("aiml3d.js", "ai-ml-training-pipeline.glb")))).hexdigest()[:10]
+ASSET_V = _h.sha1((open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.css"), "rb").read() + open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site.js"), "rb").read() + b"".join(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f), "rb").read() for f in ("aiml3d.js", "nnbot.js", "ai-ml-training-pipeline.glb", "nn-bot.glb") if os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f))))).hexdigest()[:10]
 
 SITE = "https://neuronetwrks.com"
 # Google Analytics 4 Measurement ID (G-XXXXXXXXXX). Empty = analytics and the consent banner are off.
