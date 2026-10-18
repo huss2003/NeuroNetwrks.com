@@ -1528,3 +1528,11 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
 .cr-sources li{font-size:.95rem!important}
 @media (max-width:640px){.cr-year{grid-template-columns:1fr;gap:8px}.cr-yhead strong{display:inline;font-size:1.4rem;margin-right:8px}.cr-beats{grid-template-columns:1fr 1fr}.cr-beats li{border-bottom:1px solid var(--line)}.cr-beats li:last-child{grid-column:1/-1}}
 .gd-art .cr-talk .le-btn--w{color:var(--blue-text)}.gd-art .cr-talk .le-btn--g{color:#fff}.gd-art .cr-talk .le-btn--g:hover{color:var(--blue)}
+/* programmatic SEO engine: idea cards */
+.sp-cards{display:grid;gap:var(--s4);margin-top:var(--s5)}
+.sp-card{border:1px solid var(--blue-100);background:#fff;padding:var(--s5)}
+.sp-card h3{font-size:1.2rem;margin:0;letter-spacing:-.01em}
+.sp-card .cr-chips{margin-top:10px!important}
+.sp-card > p{margin-top:var(--s3)!important}
+.sp-steps{margin-top:var(--s3)!important;padding-left:1.3em}
+.sp-steps li{font-size:.98rem!important}

@@ -18,3 +18,4 @@
 - 20 career roadmap pages LIVE (/guides/become-*-after-10th, ui-ux-designer-after-10th). Data: tools/preview-gen/careers/*.json (SPEC.md, check.py); template career_pages.py.
 - NN-Bot switched off via NNBOT_ON = False in build.py (set True after owner approval).
 - Next (plan Step 4-5): turn the career template into a reusable skill; check search volumes for the 15 'check' keywords; track traffic monthly.
+- Programmatic SEO skill: .claude/skills/programmatic-seo-page (engine tools/preview-gen/seo_pages.py, pages seo/<pattern>/*.json, checker seo/check.py, command /seo-pages). Test page python-project-ideas-for-students built, NOT live yet.
