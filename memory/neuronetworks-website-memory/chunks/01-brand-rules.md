@@ -13,7 +13,7 @@
 | Date | Decision |
 |---|---|
 | 14 Oct | No fees on site: use enquiry button. Remove newsletter. Demo projects OK (do not label "demo"). |
-| 14 Oct | Enquiry email Hussain@neuronetwrks.com; enquiries to Google Sheet 1S0jhByc2AuBwy9iRt0ZJjHmXWJ3lCzM6UREL-xtiPdQ |
+| 14 Oct | Enquiry email Hussain@neuronetwrks.com; enquiries go to the owner's private Google Sheet (ID not stored here) |
 | 14 Oct | Allow AI training bots (GPTBot, ClaudeBot, Google-Extended, CCBot…). Guides byline = "NeuroNetworks AI Ed team". |
 | 15 Oct | Certificate on completion; AI-901 only; six program names official; Neuromind dropped; no pro offer;
 | | laptop specs = recommendations; never show certification costs; show indicative salary (not guaranteed); hide Faculty page. |
