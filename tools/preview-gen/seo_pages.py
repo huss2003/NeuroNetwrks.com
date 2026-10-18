@@ -114,6 +114,6 @@ def guides_index():
 
 for _p in SEO_BY.values():
     if _p.get("program"):
-        PROG_GUIDES[_p["program"]] = list(dict.fromkeys(PROG_GUIDES.get(_p["program"], []) + [_p["slug"]]))[:6]
+        PROG_GUIDES[_p["program"]] = list(dict.fromkeys(PROG_GUIDES.get(_p["program"], []) + [_p["slug"]]))
 GUIDE_PAGES["/guides"] = guides_index
 GUIDE_PAGES.update({f"/guides/{slug}": (lambda s=slug: seo_page(s)) for slug in SEO_BY})

@@ -177,7 +177,7 @@ for _c in CAREERS:
     PROG_GUIDES.setdefault(_c["program"], [])
 for _s, _lst in PROG_GUIDES.items():
     mine = [c["slug"] for c in CAREERS if c["program"] == _s]
-    PROG_GUIDES[_s] = list(dict.fromkeys(mine + [g for g in _lst if g in GUIDE_BY]))[:6]
+    PROG_GUIDES[_s] = list(dict.fromkeys(mine + [g for g in _lst if g in GUIDE_BY]))  # every guide about the field
 
 GUIDE_PAGES = {"/guides": guides_index, **{f"/guides/{g['slug']}": (lambda s=g["slug"]: guide_page(s)) for g in GUIDES},
                **{f"/guides/{c['slug']}": (lambda s=c["slug"]: career_page(s)) for c in CAREERS}}

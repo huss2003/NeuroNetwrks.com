@@ -310,6 +310,71 @@ GUIDES = [
            ("What should I learn first for AI?", "Python. It is the first programming language in both AI Foundation and AI/ML Engineering.")]}
 ]
 
+
+# ------------------------------------------------------------------ sources, fresh facts and in-text links (SEO pass, 18 Oct 2026)
+# Each entry: date of the content change, extra sentences/links appended to a section (by index), and the sources checked.
+CHK = "checked 18 October 2026"
+SRC_NASSCOM = ("Technology Sector in India: Strategic Review 2026", "https://nasscom.in/knowledge-center/publications/technology-sector-india-strategic-review-2026", "Nasscom, February 2026")
+SRC_JEE = ("JEE (Main) 2026 Information Bulletin", "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2025/11/202511021649722475.pdf", "National Testing Agency, November 2025")
+SRC_SO = ("Stack Overflow Developer Survey 2025: Technology", "https://survey.stackoverflow.co/2025/technology", "Stack Overflow, " + CHK)
+SRC_AI901 = ("Microsoft Certified: Azure AI Fundamentals (AI-901)", "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/", "Microsoft Learn, page updated 14 July 2026")
+SRC_AIF = ("AWS Certified AI Practitioner", "https://aws.amazon.com/certification/certified-ai-practitioner/", "Amazon Web Services, " + CHK)
+SRC_AZ900 = ("Microsoft Certified: Azure Fundamentals (AZ-900)", "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/", "Microsoft Learn, page updated 20 July 2026")
+SRC_DP900 = ("Microsoft Certified: Azure Data Fundamentals (DP-900)", "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/", "Microsoft Learn, page updated 21 July 2026")
+SRC_GDA = ("Google Data Analytics Certificate", "https://grow.google/certificates/data-analytics/", "Google, " + CHK)
+SRC_ISC2 = ("ISC2 Certified in Cybersecurity (CC)", "https://www.isc2.org/certifications/cc", "ISC2, " + CHK)
+SRC_SECPLUS = ("CompTIA Security+", "https://www.comptia.org/en-us/certifications/security/", "CompTIA, " + CHK)
+SRC_PY = ("Python for beginners: getting started", "https://www.python.org/about/gettingstarted/", "Python Software Foundation, " + CHK)
+SRC_PCEP = ("PCEP: Certified Entry-Level Python Programmer", "https://pythoninstitute.org/pcep", "Python Institute, " + CHK)
+SRC_NCS = ("National Career Service", "https://www.ncs.gov.in/", "Ministry of Labour & Employment, Government of India, " + CHK)
+def gl(slug, text):
+    return f'<a href="/guides/{slug}">{text}</a>'
+GUIDE_EXTRA = {
+ "ai-courses-after-10th": {"date": "2026-10-18", "sources": [SRC_AI901, SRC_AIF, SRC_NASSCOM], "add": {
+   2: "<p>For the full career route, read " + gl("become-ai-engineer-after-10th", "how to become an AI engineer after 10th") + ", or " + gl("become-prompt-engineer-after-10th", "how prompt engineering fits into AI work") + ".</p>",
+   3: "<p>Want ideas to try at home first? See these " + gl("python-project-ideas-for-students", "Python project ideas for students") + ".</p>",
+   4: "<p>Microsoft lists AI-901 as the exam for its Azure AI Fundamentals certification, with the English version updated in April 2026. AWS describes its AI Practitioner certification as a foundational exam of 65 questions in 90 minutes.</p>"}},
+ "courses-after-10th": {"date": "2026-10-18", "sources": [SRC_NASSCOM, SRC_JEE], "add": {
+   0: "<p>Nasscom's Strategic Review 2026 puts India's technology industry at about $315 billion in revenue, with employment near 6 million.</p>",
+   2: "<p>Each path has a career roadmap: " + gl("become-software-engineer-after-10th", "how to become a software engineer after 10th") + ", " + gl("become-data-scientist-after-10th", "how to become a data scientist after 10th") + " and " + gl("become-ethical-hacker-after-10th", "how to become an ethical hacker after 10th") + ".</p>",
+   4: "<p>If B.Tech is the plan, keep Physics and Mathematics in Class 12. The JEE Main 2026 rules require both for B.E. and B.Tech seats at the NITs.</p>"}},
+ "computer-coding-courses-after-10th": {"date": "2026-10-18", "sources": [SRC_SO, SRC_AZ900], "add": {
+   0: "<p>For the career side, read " + gl("become-software-engineer-after-10th", "how to become a software engineer after 10th") + " or " + gl("become-programmer-after-10th", "how to become a programmer after 10th") + ".</p>",
+   2: "<p>In the 2025 Stack Overflow Developer Survey, JavaScript (66%), HTML/CSS (62%) and SQL (59%) were the most-used languages among respondents. All three are in Year 1 of this roadmap.</p>",
+   3: "<p>Building websites first? See " + gl("become-web-developer-after-10th", "how to become a web developer after 10th") + ".</p>"}},
+ "cyber-security-course-after-10th": {"date": "2026-10-18", "sources": [SRC_ISC2, SRC_SECPLUS, SRC_NASSCOM], "add": {
+   2: "<p>To see where this leads, read " + gl("become-ethical-hacker-after-10th", "how to become an ethical hacker after 10th") + " and " + gl("become-penetration-tester-after-10th", "how to become a penetration tester after 10th") + ".</p>",
+   4: "<p>ISC2 lists no work experience requirement for its Certified in Cybersecurity credential. CompTIA expects Security+ V8 on or around 17 November 2026, with more coverage of AI-related risks. Defence-focused students can read " + gl("become-cyber-security-analyst-after-10th", "how to become a cyber security analyst after 10th") + ".</p>"}},
+ "data-science-after-10th": {"date": "2026-10-18", "sources": [SRC_GDA, SRC_DP900, SRC_SO], "add": {
+   0: "<p>For the career question, read " + gl("become-data-scientist-after-10th", "how to become a data scientist after 10th") + " or " + gl("become-data-analyst-after-10th", "how to become a data analyst after 10th") + ".</p>",
+   4: "<p>Google says its Data Analytics Certificate needs no prior experience, only high-school-level maths, and takes about 240 hours. Microsoft rates DP-900 as a beginner-level exam on core data concepts.</p>"}},
+ "ai-vs-software-vs-data-science": {"date": "2026-10-18", "sources": [SRC_SO, SRC_NASSCOM], "add": {
+   1: "<p>In the 2025 Stack Overflow Developer Survey, Python was the most-used language among people learning to code (72%). It is the main language in both AI/ML Engineering and Data Science &amp; AI.</p>",
+   2: "<p>Each path has a step-by-step roadmap: " + gl("become-ai-engineer-after-10th", "how to become an AI engineer after 10th") + ", " + gl("become-software-engineer-after-10th", "how to become a software engineer after 10th") + " and " + gl("become-data-scientist-after-10th", "how to become a data scientist after 10th") + ".</p>"}},
+ "ai-projects-for-students": {"date": "2026-10-18", "sources": [SRC_PY, SRC_PCEP], "add": {
+   0: "<p>Python's official site describes it as easy for beginners to use and learn. Both AI programs here start with it.</p>",
+   5: "<p>For smaller projects to try at home, see these " + gl("python-project-ideas-for-students", "Python project ideas for students") + ". To see where AI projects lead, read " + gl("become-ai-developer-after-10th", "how to become an AI developer after 10th") + ".</p>"}},
+ "career-options-after-10th": {"date": "2026-10-18", "sources": [SRC_NASSCOM, SRC_JEE, SRC_NCS], "add": {
+   1: "<p>Each path has its own roadmap, for example " + gl("become-software-engineer-after-10th", "how to become a software engineer after 10th") + ", " + gl("become-data-scientist-after-10th", "how to become a data scientist after 10th") + " and " + gl("ui-ux-designer-after-10th", "how to become a UI/UX designer after 10th") + ".</p>",
+   2: "<p>The JEE Main 2026 rules require Physics and Mathematics in Class 12 for B.E. and B.Tech seats at the NITs.</p>",
+   3: "<p>The Government of India's National Career Service portal, run by the Ministry of Labour &amp; Employment, also lists career counsellors and career information.</p>"}},
+}
+for _g in GUIDES:
+    _x = GUIDE_EXTRA.get(_g["slug"])
+    if not _x: continue
+    _g["sections"] = [(h, b + _x["add"].get(i, "")) for i, (h, b) in enumerate(_g["sections"])]
+    _g["date"], _g["sources"] = _x["date"], _x["sources"]
+
+def g_date_txt(iso):
+    import datetime as _d
+    return _d.date.fromisoformat(iso).strftime("%-d %B %Y")
+
+def g_sources(g):
+    if not g.get("sources"): return ""
+    li = "".join(f'<li><a href="{E(u)}" rel="noopener" target="_blank">{E(t)}</a>, {E(n)}</li>' for t, u, n in g["sources"])
+    return ('<section class="gd-sec" id="sources"><h2>Sources</h2><p>We checked these sources for the facts on this page. '
+            f'Program details come from our own curriculum.</p><ol class="cr-sources">{li}</ol></section>')
+
 GUIDE_BY = {g["slug"]: g for g in GUIDES}
 GUIDE_SAL = {"cyber-security-course-after-10th": ["cybersecurity"], "data-science-after-10th": ["data-science-ai"], "ui-ux-designer-after-10th": ["product-ux-ai-design"],
              "computer-coding-courses-after-10th": ["software-development"], "become-ai-engineer-after-10th": ["ai-ml-engineering"],
@@ -345,13 +410,13 @@ def guide_page(slug):
     mins = guide_minutes(secs + faq)
     hero = f'''<section class="page-hero gd-hero"><div class="wrap"><div><p class="crumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / {E(g["h1"][0].rstrip(":?"))}</p>
 <h1>{headline(E(g["h1"][0]), E(g["h1"][1]))}</h1><p class="lead">{E(g["lead"])}</p>
-<p class="gd-meta">By the NeuroNetworks AI Ed team · Updated <time datetime="{GUIDE_DATE}">{GUIDE_DATE_TXT}</time> · {mins} min read</p></div></div></section>'''
-    body = f'''{hero}<div class="wrap gd-wrap"><aside class="gd-toc" aria-label="On this page"><p>On this page</p><ol>{toc}<li><a href="#faq">FAQs</a></li></ol></aside>
-<article class="gd-art"><div class="gd-tldr"><h2>In short</h2><ul>{tldr}</ul></div>{secs}{faq}
+<p class="gd-meta">By the NeuroNetworks AI Ed team · Updated <time datetime="{g.get('date', GUIDE_DATE)}">{g_date_txt(g.get('date', GUIDE_DATE))}</time> · {mins} min read</p></div></div></section>'''
+    body = f'''{hero}<div class="wrap gd-wrap"><aside class="gd-toc" aria-label="On this page"><p>On this page</p><ol>{toc}<li><a href="#faq">FAQs</a></li>{'<li><a href="#sources">Sources</a></li>' if g.get("sources") else ""}</ol></aside>
+<article class="gd-art"><div class="gd-tldr"><h2>In short</h2><ul>{tldr}</ul></div>{secs}{faq}{g_sources(g)}
 <section class="gd-sec"><h2>Programs in this guide</h2><div class="gd-cards">{rel}</div></section>
 <section class="gd-sec gd-more"><h2>More guides</h2><ul>{others}</ul></section></article></div>{cta_panel("Questions about the right path?", "Tell us what the student enjoys. We will explain the options, fees and intake dates.")}'''
     ld = {"@type": "Article", "@id": f"{SITE}/guides/{slug}#article", "headline": g["title"], "description": g["desc"], "image": SITE + "/assets/og.png",
-          "datePublished": GUIDE_DATE, "dateModified": GUIDE_DATE, "inLanguage": "en-IN", "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID},
+          "datePublished": g.get("date", GUIDE_DATE), "dateModified": g.get("date", GUIDE_DATE), "inLanguage": "en-IN", "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID},
           "mainEntityOfPage": f"{SITE}/guides/{slug}", "about": [{"@id": f"{SITE}/programs/{s}#course"} for s in g["progs"]]}
     return layout(f"/guides/{slug}", g["title"], body, "resources", desc=g["desc"], jsonld=ld)
 

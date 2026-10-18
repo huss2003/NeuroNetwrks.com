@@ -69,7 +69,7 @@ def footer():
     pl = "".join(f'<li><a href="/programs/{p[0]}">{name_of(p)}</a></li>' for p in PROGRAMS)
     return f'''<footer class="ft"><div class="wrap">
 <div class="ft-grid">
-<div class="ft-brand"><a class="brand" href="/" aria-label="NeuroNetworks AI Ed home"><img src="/assets/mark-dark.svg" alt="" width="46" height="37"><span style="font:600 1.6rem var(--font-display);letter-spacing:-.03em">NeuroNetworks AI Ed</span></a>
+<div class="ft-brand"><a class="brand" href="/" aria-label="NeuroNetworks AI Ed home"><img src="/assets/mark-dark.svg" alt="" width="46" height="37" loading="lazy"><span style="font:600 1.6rem var(--font-display);letter-spacing:-.03em">NeuroNetworks AI Ed</span></a>
 <p>AI and technology education for a better tomorrow.</p><p class="small" style="margin-top:12px">[Social profiles appear here once verified]</p>
 </div>
 <nav aria-label="Programs"><h2>Programs</h2><ul>{pl}</ul></nav>
@@ -157,7 +157,7 @@ def layout(route, title, body, active="none", desc=None, jsonld=None):
 <meta property="og:image" content="{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="NeuroNetworks AI Ed: Learn. Develop. Create.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t)}"><meta name="twitter:description" content="{E(d)}"><meta name="twitter:image" content="{og}">
 <link rel="preload" href="/assets/f-jakarta.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">{ga_head()}{ld}</head>
+<link rel="stylesheet" href="/assets/site.css?v={ASSET_V}"><link rel="alternate" type="application/rss+xml" title="NeuroNetworks AI Ed guides" href="/guides/feed.xml">{ga_head()}{ld}</head>
 <body><a class="skip" href="#main">Skip to content</a>
 {header(active)}<main id="main">{body}</main>{footer()}<script src="/assets/site.js?v={ASSET_V}" defer></script></body></html>'''
 
@@ -216,6 +216,12 @@ print(result)</pre></div>
 
 IMG = {"found": "aif3", "aiml": "aiml3", "sw": "sw3", "ds": "ds2", "ux": "ux2", "cy": "cy2"}
 NO_DOT = {"found", "aiml", "sw", "ds", "ux", "cy"}  # AI Foundation model has no floating spheres (owner request)  # AI Foundation uses the "AI on a platform" model
+ICON_ALT = {"ai-foundation": "3D steps icon for the AI Foundation course, a first step into AI",
+            "ai-ml-engineering": "3D connected spheres icon for the AI/ML Engineering program, like nodes in a model",
+            "software-development": "3D stacked layers icon for the Software Development program, like the layers of an app",
+            "data-science-ai": "3D bar chart icon for the Data Science & AI program",
+            "product-ux-ai-design": "3D ring icon for the Product & UX / AI Design program",
+            "cybersecurity": "3D shield icon for the Cybersecurity program"}
 ICON = {"ai-foundation": "found", "ai-ml-engineering": "aiml", "software-development": "sw", "data-science-ai": "ds", "product-ux-ai-design": "ux", "cybersecurity": "cy"}
 
 def pt_art(ic):
@@ -240,12 +246,12 @@ def prog_head(level="h2"):
     return f"""<div class="pp-head"><div><p class="pp-eyebrow">Our programs</p><{level} class="pp-h"><span class="ln"><span>Choose a path.</span></span><span class="ln"><span>Build your future.</span></span></{level}></div>
 <p class="pp-lead">Six programs. A one-year AI Foundation course open from Class 8, and five three-year specialisations for students who have passed Class 10. Ask us about fees and intake dates.</p></div>"""
 
-def prog_banner(hl="h3"):
+def prog_banner(hl="h3", lazy=True):
     d = D["ai-foundation"]
     return f"""<div class="pp-banner"><div class="pp-b-body"><span class="pt-tag">Start here · 1 year</span><{hl}>AI Foundation</{hl}><p>{E(d["summary"])}</p>
 <div class="pp-b-row"><dl class="pp-b-stats"><div><dd data-count-to="104">104</dd><dt>Hours</dt></div><div><dd>Beginner</dd><dt>Level</dt></div><div><dd>1 year</dd><dt>Duration</dt></div></dl>
 <a class="pp-b-btn" href="/programs/ai-foundation">View program <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-<div class="pp-b-art" aria-hidden="true"><svg class="pp-b-grid" viewBox="0 0 600 400" preserveAspectRatio="none"><path d="M0 330 L600 210 M0 250 L600 130 M120 0 L60 400 M300 0 L250 400 M480 0 L440 400" stroke="#fff" stroke-opacity=".14" fill="none"/></svg><img class="pp-b-obj" src="/assets/i-banner-aif4.webp" alt="" width="609" height="419"></div></div>"""
+<div class="pp-b-art" aria-hidden="true"><svg class="pp-b-grid" viewBox="0 0 600 400" preserveAspectRatio="none"><path d="M0 330 L600 210 M0 250 L600 130 M120 0 L60 400 M300 0 L250 400 M480 0 L440 400" stroke="#fff" stroke-opacity=".14" fill="none"/></svg><img class="pp-b-obj" src="/assets/i-banner-aif4.webp"{' loading="lazy"' if lazy else ''} alt="3D model for the AI Foundation course: the letters AI on a small laptop lab with a gear" width="609" height="419"></div></div>"""
 
 def prog_swoosh():
     return '<svg class="pp-swoosh" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true"><path d="M1440 120 C1180 220 1100 420 1440 560" fill="none" stroke="#D9E8FF" stroke-width="90" stroke-opacity=".45"/><path d="M-40 760 C320 640 620 860 980 720" fill="none" stroke="#E6F0FF" stroke-width="70" stroke-opacity=".6"/></svg>'
@@ -294,7 +300,7 @@ def home():
 def programs_page():
     cards = "".join(program_tile(p, i, "start" if i == 0 else "three", "h2") for i, p in enumerate(PROGRAMS))
     rows = "".join(f'<tr><td data-l="Program"><a href="/programs/{p[0]}">{name_of(p)}</a></td><td data-l="Length">{p[4]}</td><td data-l="Hours">{p[3]}</td><td data-l="Level">{LV[D[p[0]]["level"]]}</td><td data-l="Entry">Class 10 pass</td><td data-l="Fees"><a class="tl" href="/contact?topic=fees">Enquire</a></td></tr>' for p in PROGRAMS)
-    body = f'''<section class="pp pp--page" id="all">{prog_swoosh()}<div class="wrap">{prog_head("h1")}{prog_banner("h2")}{prog_filters()}<div class="pp-grid">{cards}</div></div></section>
+    body = f'''<section class="pp pp--page" id="all">{prog_swoosh()}<div class="wrap">{prog_head("h1")}{prog_banner("h2", lazy=False)}{prog_filters()}<div class="pp-grid">{cards}</div></div></section>
 <section class="sec sec--tint" id="compare"><div class="wrap">{sec_head("Compare at a glance", "Different starting points.<br>Different depth.", "The same six programs, side by side. Every program is open to students who have passed Class 10. Pick by length and subject, then open the program page for modules and projects.")}
 <div class="tablewrap"><table class="cmp"><caption class="sr">Comparison of the six programs</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Level</th><th scope="col">Entry</th><th scope="col">Fee</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
 <section class="sec"><div class="wrap">{sec_head("How every month works", "The same five beats<br>in every three-year program.")}{beats()}</div></section>
@@ -377,7 +383,7 @@ def program_detail(slug):
     body += f'<section class="sec sec--tint"><div class="wrap split"><div><p class="eyebrow">Questions</p><h2>About this program.</h2></div><div>{faq_items(fq)}</div></div></section>'
     gl = "".join(f'<a class="gd-card" href="/guides/{g}"><strong>{E(GUIDE_BY[g]["title"])}</strong><span>{E(GUIDE_BY[g]["desc"])}</span></a>' for g in PROG_GUIDES[slug])
     body += f'<section class="sec"><div class="wrap">{sec_head("Guides", "Read before you decide.", "Plain answers for students and parents.")}<div class="gd-cards gd-cards--3">{gl}</div></div></section>' + cta_panel()
-    ld = {"@type": "Course", "@id": f"{SITE}/programs/{slug}#course", "name": plain, "description": d["summary"], "url": f"{SITE}/programs/{slug}", "provider": {"@id": ORG_ID}, "inLanguage": "en-IN", "educationalLevel": "Beginner" if d["level"] == "foundation" else "Beginner to advanced", "coursePrerequisites": "Class 8 and above" if slug == "ai-foundation" else "Passed Class 10", "timeRequired": f"PT{p[3]}H", "educationalCredentialAwarded": "Certificate of completion from NeuroNetworks AI Ed", "hasCourseInstance": {"@type": "CourseInstance", "courseWorkload": f"PT{p[3]}H", "inLanguage": "en-IN"}, "teaches": [m for y in yrs for m in y["modules"]][:12]}
+    ld = {"@type": "Course", "@id": f"{SITE}/programs/{slug}#course", "name": plain, "description": d["summary"], "url": f"{SITE}/programs/{slug}", "provider": {"@id": ORG_ID}, "inLanguage": "en-IN", "educationalLevel": "Beginner" if d["level"] == "foundation" else "Beginner to advanced", "coursePrerequisites": "Class 8 and above" if slug == "ai-foundation" else "Passed Class 10", "timeRequired": f"PT{p[3]}H", "educationalCredentialAwarded": "Certificate of completion from NeuroNetworks AI Ed", "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Online", "courseWorkload": f"PT{p[3]}H", "inLanguage": "en-IN"}, "teaches": [m for y in yrs for m in y["modules"]][:12]}
     return layout(f"/programs/{slug}", PROG_SEO[slug][0], body, "programs", desc=PROG_SEO[slug][1], jsonld=ld)
 
 def curriculum_page():
@@ -449,8 +455,8 @@ def learning_page():
     need = f'''<section class="le-sec" data-le-need><div class="wrap le-need-grid"><div>{le_eyebrow("All you need to start")}<h2>A laptop<br>and internet.</h2><p class="le-head-p" style="margin-top:16px">You need a computer with a browser and a stable connection for lessons, labs and course material.</p></div>
 <div><ul class="le-req">{rq}</ul><a class="le-link" href="/programs/ai-foundation">View detailed requirements {ARW}</a><p class="le-small" style="margin-top:8px">Setup for AI Foundation. Each three-year program lists its own on its program page.</p></div>
 <div class="le-laptop" aria-hidden="true" data-frames="24"><span class="le-laptop-floor"></span><img src="/assets/lap-23.webp" alt="" width="640" height="494" loading="lazy"></div></div></section>'''
-    cta = f'''<section class="le-sec" style="padding-top:0"><div class="wrap"><div class="le-cta" data-le-cta><div class="le-cta-body">{le_eyebrow("See it for yourself", True)}<h2>Want to see it in person?</h2>
-<p>Ask us about the learning experience. Delivery mode and timings: [to be confirmed].</p><div class="le-actions"><a class="le-btn le-btn--w" href="/contact">Book a visit {ARW}</a><a class="le-btn le-btn--g" href="/contact">Talk to us</a></div></div>
+    cta = f'''<section class="le-sec" style="padding-top:0"><div class="wrap"><div class="le-cta" data-le-cta><div class="le-cta-body">{le_eyebrow("See it for yourself", True)}<h2>Want to see how a class works?</h2>
+<p>Ask us about the learning experience. Classes are online. Batch timings: [to be confirmed].</p><div class="le-actions"><a class="le-btn le-btn--w" href="/contact">Book a call {ARW}</a><a class="le-btn le-btn--g" href="/contact">Talk to us</a></div></div>
 <div class="le-cta-art" aria-hidden="true"><img src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy"></div></div></div></section>'''
     return layout("/learning-experience", "Learning Experience", hero + lesson + month + lab + need + cta, "learning")
 
@@ -475,7 +481,7 @@ def projects_page():
 AVATAR = '<svg class="tm-sil" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="46" r="22" fill="#fff" fill-opacity=".85"/><path d="M18 118c4-26 22-40 42-40s38 14 42 40z" fill="#fff" fill-opacity=".85"/></svg>'
 def team_page():
     people = "".join(f'<article class="tm-card" style="--k:{i}"><div class="tm-av">{AVATAR}<span class="tm-ph">[Photo to be supplied]</span></div><div class="tm-t"><h3>[Name]</h3><p class="tm-role">[Role and subject]</p><p class="tm-bg">[Two-line background, verified credentials only]</p><span class="tm-prog">[Programs taught]</span></div></article>' for i in range(8))
-    areas = "".join(f'<a class="tm-area" href="/programs/{p[0]}" style="--k:{i}"><img src="/assets/i-{ICON[p[0]]}.webp" alt="" width="56" height="56" loading="lazy"><span><b>{name_of(p)}</b><small>{p[4]} · {p[3]} hours</small></span><span class="go">{ARW}</span></a>' for i, p in enumerate(PROGRAMS))
+    areas = "".join(f'<a class="tm-area" href="/programs/{p[0]}" style="--k:{i}"><img src="/assets/i-{ICON[p[0]]}.webp" alt="{E(ICON_ALT[p[0]])}" width="56" height="56" loading="lazy"><span><b>{name_of(p)}</b><small>{p[4]} · {p[3]} hours</small></span><span class="go">{ARW}</span></a>' for i, p in enumerate(PROGRAMS))
     orbit = "".join(f'<span class="tm-orb o{i}">{AVATAR}</span>' for i in range(5))
     hero = f"""<section class="tm-hero" data-pd><div class="wrap tm-hero-grid"><div><p class="pd-crumbs"><a href="/">Home</a> / <span>Faculty and team</span></p>{eb("Faculty and team")}<h1 class="ad-h1"><span class="ln"><span>The people</span></span><span class="ln"><span>who teach.</span></span></h1>
 <p class="ab-lead">Names, roles and credentials appear here once they are confirmed. We do not use stock photos or generated faces.</p><div class="pd-actions"><a class="le-btn le-btn--p" href="/contact">Talk to us {ARW}</a><a class="le-btn le-btn--s" href="/programs">Explore programs</a></div></div>
@@ -485,14 +491,14 @@ def team_page():
 <div class="tm-lead"><div class="tm-av tm-av--lg">{AVATAR}<span class="tm-ph">[Photo to be supplied]</span></div><div class="tm-lead-t"><span class="pd-tag">Leadership</span><h3>[Name]</h3><p class="tm-role">[Role]</p><p>[Leadership names, roles and a short note to be supplied.]</p><ul class="tm-rules">{rules}</ul></div></div></div></section>"""
     fac = f"""<section class="pd-sec pd-sec--tint" data-pd><div class="wrap"><div class="pd-head"><div>{eb("Faculty")}<h2>Instructors and mentors.</h2></div><p class="pd-p">[Faculty and mentor names and credentials to be confirmed, or this section is removed.]</p></div><div class="tm-grid">{people}</div></div></section>"""
     area = f"""<section class="pd-sec" data-pd><div class="wrap"><div class="pd-head"><div>{eb("Teaching areas")}<h2>Find the program.</h2></div><p class="pd-p">Each faculty profile will link to the programs they teach. Until then, explore the programs directly.</p></div><div class="tm-areas">{areas}</div></div></section>"""
-    cta = f"""<section class="pd-sec" style="padding-top:0" data-pd><div class="wrap"><div class="pd-cta">{eb("Your next step")}<h2>Want to meet the faculty?</h2><p>Ask us. Delivery mode and timings: [to be confirmed].</p><div class="pd-actions"><a class="le-btn le-btn--w" href="/contact">Talk to us {ARW}</a><a class="le-btn le-btn--g" href="/programs">Explore programs</a></div><img class="pd-cta-art" src="/assets/i-banner.webp" alt="" width="609" height="419" loading="lazy"></div></div></section>"""
+    cta = f"""<section class="pd-sec" style="padding-top:0" data-pd><div class="wrap"><div class="pd-cta">{eb("Your next step")}<h2>Want to meet the faculty?</h2><p>Ask us. Classes are online. Batch timings: [to be confirmed].</p><div class="pd-actions"><a class="le-btn le-btn--w" href="/contact">Talk to us {ARW}</a><a class="le-btn le-btn--g" href="/programs">Explore programs</a></div><img class="pd-cta-art" src="/assets/i-banner.webp" alt="" width="609" height="419" loading="lazy"></div></div></section>"""
     return layout("/faculty-and-team", "Faculty and Team", hero + lead + fac + area + cta, "about")
 
 def admissions_page():
     ents = {p[0]: D[p[0]]["entry"] for p in PROGRAMS}
     steps = [("chat", "Talk to us", "Ask any question about the programs. A person replies.", "[Who responds, by what channel and how fast: to be confirmed.]"), ("doc", "Apply", "Use the Apply form. Students under 18 apply through a parent or guardian.", ""), ("flow", "[What happens next]", "[Admissions steps, intake dates and batch sizes to be confirmed.]", "")]
     st = "".join(f'<li style="--k:{i}"><span class="ad-node"><b>{i+1:02d}</b></span><div class="ad-step"><span class="ic">{pi(ic,22)}</span><h3>{a}</h3><p>{b}</p>{f"<small>{c}</small>" if c else ""}</div></li>' for i, (ic, a, b, c) in enumerate(steps))
-    rows = "".join(f'<tr style="--k:{i}"><td data-l="Program"><a class="ad-prog" href="/programs/{p[0]}"><img src="/assets/i-{ICON[p[0]]}.webp" alt="" width="40" height="40" loading="lazy"><span><b>{name_of(p)}</b><small>{"Start here" if i == 0 else "Specialisation"}</small></span></a></td><td data-l="Length">{p[4]}</td><td data-l="Hours"><b class="ad-h">{p[3]}</b></td><td data-l="Entry">{E(ents[p[0]])}</td><td data-l="Fees"><a class="ad-enq" href="/contact?topic=fees">Enquire</a></td><td data-l="Next intake" class="muted">{FEE}</td></tr>' for i, p in enumerate(PROGRAMS))
+    rows = "".join(f'<tr style="--k:{i}"><td data-l="Program"><a class="ad-prog" href="/programs/{p[0]}"><img src="/assets/i-{ICON[p[0]]}.webp" alt="{E(ICON_ALT[p[0]])}" width="40" height="40" loading="lazy"><span><b>{name_of(p)}</b><small>{"Start here" if i == 0 else "Specialisation"}</small></span></a></td><td data-l="Length">{p[4]}</td><td data-l="Hours"><b class="ad-h">{p[3]}</b></td><td data-l="Entry">{E(ents[p[0]])}</td><td data-l="Fees"><a class="ad-enq" href="/contact?topic=fees">Enquire</a></td><td data-l="Next intake" class="muted">{FEE}</td></tr>' for i, p in enumerate(PROGRAMS))
     path = "".join(f'<li style="--k:{i}"><span class="d">{TICK if i < 2 else ""}</span><div><b>{a}</b><small>{b}</small></div></li>' for i, (a, b) in enumerate([("Talk to us", "Ask anything"), ("Apply", "Online form"), ("What happens next", "[To be confirmed]")]))
     hero = f"""<section class="ad-hero" data-pd><div class="wrap ad-hero-grid"><div><p class="pd-crumbs"><a href="/">Home</a> / <span>Admissions</span></p>{eb("Admissions and fees")}<h1 class="ad-h1"><span class="ln"><span>Join</span></span><span class="ln"><span>the next step.</span></span></h1>
 <p class="ab-lead">AI Foundation is open from Class 8; the three-year programs follow Class 10. Ask us about fees and intake dates.</p><div class="pd-actions"><a class="le-btn le-btn--p" href="/contact">Apply {ARW}</a><a class="le-btn le-btn--s" href="/contact">Talk to us</a></div></div>
@@ -651,6 +657,13 @@ def main():
         full += ["", "FAQs:"] + [f"- Q: {f['q']} A: {conf(f['a'])}" for f in d["faqs"] if "{{CONFIRM" not in f["a"]] + [""]
     full += ["## Notes", "- No program guarantees a job, internship, salary or exam pass. Salary figures are indicative market ranges only.", "- Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed."]
     open(OUT + "/llms-full.txt", "w").write("\n".join(full) + "\n")
+    # RSS 2.0 feed of every guide (course guides, career roadmaps and other SEO pages), newest first
+    from email.utils import format_datetime as _fd
+    import datetime as _d2
+    _items = [(g["title"], g["slug"], g["desc"], g.get("date", GUIDE_DATE)) for g in GUIDES] + [(c["title"], c["slug"], c["desc"], CAREER_DATE) for c in CAREERS] + [(p["title"], p["slug"], p["desc"], p.get("modified", p["date"])) for p in SEO_BY.values()]
+    _items.sort(key=lambda x: x[3], reverse=True)
+    _rss = "".join(f"<item><title>{E(t)}</title><link>{SITE}/guides/{sl}</link><guid isPermaLink=\"true\">{SITE}/guides/{sl}</guid><description>{E(ds)}</description><pubDate>{_fd(_d2.datetime.fromisoformat(dt + 'T09:00:00+05:30'))}</pubDate></item>" for t, sl, ds, dt in _items)
+    open(OUT + "/guides/feed.xml", "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroNetworks AI Ed guides</title><link>{SITE}/guides</link><atom:link href="{SITE}/guides/feed.xml" rel="self" type="application/rss+xml"/><description>Guides for students and parents on AI and technology courses and careers after Class 10.</description><language>en-in</language><lastBuildDate>{_fd(_d2.datetime.now(_d2.timezone.utc))}</lastBuildDate>{_rss}</channel></rss>\n')
     open(OUT + f"/{INDEXNOW_KEY}.txt", "w").write(INDEXNOW_KEY)
     open(OUT + "/vercel.json", "w").write(json.dumps({"cleanUrls": True, "trailingSlash": False, "redirects": [{"source": "/faculty-and-team", "destination": "/about", "permanent": True}], "headers": [
         {"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]},

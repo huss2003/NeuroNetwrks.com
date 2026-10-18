@@ -40,8 +40,8 @@ PI = {
 }
 def pi(k, s=20, sw=1.8): return f'<svg width="{s}" height="{s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{PI[k]}</svg>'
 TICK = '<span class="tk" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>'
-LOGO = '<img class="mk-logo" src="/assets/mark-dark.svg" alt="" width="20" height="16">'
-AFLOGO = '<img class="mk-logo mk-logo--af" src="/assets/agentflow.svg" alt="" width="20" height="20">'
+LOGO = '<img class="mk-logo" src="/assets/mark-dark.svg" alt="" width="20" height="16" loading="lazy">'
+AFLOGO = '<img class="mk-logo mk-logo--af" src="/assets/agentflow.svg" alt="AgentFlow AI logo" loading="lazy" width="20" height="20">'
 
 def eb(t): return f'<p class="pd-eb">{t}</p>'
 def chips(xs): return '<ul class="pd-chips">' + "".join(f"<li>{x}</li>" for x in xs) + "</ul>"
@@ -54,7 +54,7 @@ def bars(num=False):
 MODEL = '<dl class="mk-dl"><div><dt>Model</dt><dd>ResNet18 (pre-trained)</dd></div><div><dt>Input size</dt><dd>224 × 224</dd></div><div><dt>Classes</dt><dd>1000 (ImageNet)</dd></div></dl>'
 
 def ic_mock_hero():
-    body = f'''<div class="mk-ic"><div class="mk-col"><p class="mk-h">Upload an image</p><img class="mk-photo" src="/assets/dog.webp" alt="" width="291" height="324"><span class="mk-btn-o">Choose an image</span><small class="mk-sm">or drag and drop JPG, PNG</small></div>
+    body = f'''<div class="mk-ic"><div class="mk-col"><p class="mk-h">Upload an image</p><img class="mk-photo" loading="lazy" src="/assets/dog.webp" alt="Photo of a golden retriever used as the input image in the image classification demo" width="291" height="324"><span class="mk-btn-o">Choose an image</span><small class="mk-sm">or drag and drop JPG, PNG</small></div>
 <div class="mk-col"><p class="mk-h">Prediction results</p>{bars()}<p class="mk-h" style="margin-top:14px">Model information</p>{MODEL}</div></div>'''
     return win("Image Classification", body)
 
@@ -114,7 +114,7 @@ def skills(items, cols=1):
     return f'<ul class="pd-skills pd-skills--{cols}">' + "".join(f'<li style="--k:{i}">{TICK}<div><b>{a}</b>{f"<small>{b}</small>" if b else ""}</div></li>' for i, (a, b) in enumerate(items)) + "</ul>"
 
 def program_link(year_label, desc):
-    return f'''<a class="pd-prog" href="/programs/ai-ml-engineering"><img src="/assets/r-full.webp" alt="" width="600" height="600" loading="lazy"><div><b>AI/ML Engineering</b><span class="pd-tag pd-tag--sm">{year_label}</span><p>{desc}</p></div><span class="pd-prog-go">{ARW}</span></a>'''
+    return f'''<a class="pd-prog" href="/programs/ai-ml-engineering"><img src="/assets/r-full.webp" alt="3D spiral staircase, the NeuroNetworks symbol for learning step by step" width="600" height="600" loading="lazy"><div><b>AI/ML Engineering</b><span class="pd-tag pd-tag--sm">{year_label}</span><p>{desc}</p></div><span class="pd-prog-go">{ARW}</span></a>'''
 
 # ------------------------------------------------------------ page 1: image classification
 def page_image_classification():
@@ -122,7 +122,7 @@ def page_image_classification():
     hero = pd_hero("Image classification", "Year 2 · AI/ML Engineering", ["Image", "classification", "application"], "Build a computer vision application that classifies images using deep learning. Train a model on a dataset, evaluate its performance and create a simple web interface to try it yourself.", ["Python", "PyTorch", "Computer Vision", "Deep Learning"], art)
     side = f'<ul class="mk-nav mk-nav--side"><li class="on">{pi("target",14)} Predict</li><li>{pi("info",14)} Model info</li><li>{pi("history",14)} History</li></ul>'
     ov_mock = win("Neuronetwrks", f'''<div class="mk-ov"><div class="mk-side mk-side--narrow"><p class="mk-cap">Image Classification</p>{side}</div><div class="mk-col"><p class="mk-h">Upload an image</p><div class="mk-drop">{pi("cloud",22)}<small>Drag and drop an image here<br>or click to browse</small></div></div>
-<div class="mk-col"><img class="mk-photo mk-photo--sq" src="/assets/dog.webp" alt="" width="291" height="324"></div><div class="mk-col"><p class="mk-h">Top predictions</p>{bars(True)}<span class="mk-btn">Run prediction</span></div></div>''', cls="mk--wide")
+<div class="mk-col"><img class="mk-photo mk-photo--sq" loading="lazy" src="/assets/dog.webp" alt="Photo of a golden retriever used as the input image in the image classification demo" width="291" height="324"></div><div class="mk-col"><p class="mk-h">Top predictions</p>{bars(True)}<span class="mk-btn">Run prediction</span></div></div>''', cls="mk--wide")
     feats = tool_cards([("image", "Upload an image", "Drag and drop an image or choose a file from your device."), ("cpu", "Run a trained model", "Load a pre-trained model and run inference on your image."), ("chart", "View predictions", "See the top predicted classes with confidence scores."), ("info", "Explore model details", "Check model information, input size and the set of classes.")], "pd-feats")
     overview = f'''<section class="pd-sec" id="overview" data-pd><div class="wrap"><div class="pd-split pd-split--wide"><div>{eb("Project overview")}<h2>What you build</h2><p class="pd-p">A complete image classification application that takes an image as input, runs it through a trained deep learning model and shows the top predictions with confidence scores in a clean web interface.</p><span class="pd-rule"></span></div><div>{ov_mock}</div></div>{feats}</div></section>'''
     steps = [("data", "Prepare dataset", "Use a labelled dataset such as ImageNet, or a smaller dataset provided in the program."), ("box", "Train or load model", "Train a model or use a pre-trained model with transfer learning."), ("chart", "Evaluate predictions", "Test the model on unseen images and review the results."), ("monitor", "Deploy interface", "Build a simple web app with Streamlit to try it yourself.")]
@@ -130,7 +130,7 @@ def page_image_classification():
     st = "".join(f'<li class="pd-wstep" style="--k:{i}"><span class="n">{i+1:02d}</span><span class="ic">{pi(ic,22)}</span><b>{a}</b><small>{b}</small></li>' for i, (ic, a, b) in enumerate(steps))
     how = f'''<section class="pd-sec pd-sec--tint" data-pd><div class="wrap pd-split pd-split--wide"><div>{eb("From data to deployment")}<h2>How it works</h2><p class="pd-p">Follow a clear, end-to-end process to build the image classification application, from preparing data to deploying a simple web interface.</p><span class="pd-rule"></span></div><div class="pd-wavebox">{wave}<ol class="pd-wsteps">{st}</ol></div></div></section>'''
     tabs = "".join(f'<li{" class=\"on\"" if i == 0 else ""}>{pi(ic,15)} {t}</li>' for i, (ic, t) in enumerate([("upload", "Upload & predict"), ("chart", "Top predictions"), ("info", "Model information"), ("image", "Example images")]))
-    in_mock = win("Image Classification", f'''<div class="mk-in"><div class="mk-col"><p class="mk-h">Input image</p><img class="mk-photo" src="/assets/dog.webp" alt="" width="291" height="324"><div class="mk-row"><span class="mk-btn-o mk-btn-o--sm">{pi("image",13)} Change image</span><small class="mk-sm">golden_retriever.jpg<br>224 × 224</small></div></div>
+    in_mock = win("Image Classification", f'''<div class="mk-in"><div class="mk-col"><p class="mk-h">Input image</p><img class="mk-photo" loading="lazy" src="/assets/dog.webp" alt="Photo of a golden retriever used as the input image in the image classification demo" width="291" height="324"><div class="mk-row"><span class="mk-btn-o mk-btn-o--sm">{pi("image",13)} Change image</span><small class="mk-sm">golden_retriever.jpg<br>224 × 224</small></div></div>
 <div class="mk-col"><p class="mk-h">Prediction results</p>{bars(True)}</div></div><div class="mk-foot">{pi("cpu",18)}<div><small>Model</small><b>ResNet18 (pre-trained)</b></div><div><small>Input size</small><b>224 × 224</b></div><div><small>Number of classes</small><b>1000 (ImageNet)</b></div></div>''')
     inside = f'''<section class="pd-sec pd-sec--dark" data-pd><div class="wrap pd-inside"><div>{eb("A closer look")}<h2>Inside the application</h2><p class="pd-p">A clean and intuitive interface to upload images, view predictions and explore how the model performs.</p><span class="pd-rule"></span></div><ul class="pd-vtabs">{tabs}</ul><div>{in_mock}</div></div></section>'''
     tech = pd_sec("Tech stack", "Tools &amp; technologies", "Use industry-standard tools and libraries for computer vision and deep learning.", tool_cards([("code", "Python", "Core programming language"), ("bolt", "PyTorch", "Deep learning framework"), ("eye", "torchvision", "Vision models and datasets"), ("monitor", "Streamlit", "Build the web interface")], "pd-tools pd-tools--row"), cls="pd-sec--tint pd-sec--tight")
@@ -202,7 +202,7 @@ def ic_mock_fp():
     others = "".join(f'<li><span>{n}</span><em>{v}%</em></li>' for n, v in PRED[1:])
     body = f"""<div class="mk-fpic"><div class="mk-side"><p class="mk-cap">Image Classification</p><ul class="mk-nav"><li class="on">{pi("upload",13)} Upload</li><li>{pi("chart",13)} Results</li><li>{pi("history",13)} History</li><li>{pi("info",13)} Model Info</li></ul></div>
 <div class="mk-col"><p class="mk-h">Upload Image</p><small class="mk-sub">Upload an image to classify it using a trained deep learning model.</small><div class="mk-drop">{pi("cloud",26)}<b>Drag and drop an image here</b><small>or click to browse</small><small>PNG, JPG, JPEG up to 10MB</small></div></div>
-<div class="mk-col"><div class="mk-card"><p class="mk-h">Prediction Results</p><div class="mk-top"><img src="/assets/dog.webp" alt="" width="291" height="324"><div><span class="tt"><b>Golden Retriever</b><em>92.4%</em></span><span class="mk-topbar"><i></i></span><ul>{others}</ul></div></div></div>
+<div class="mk-col"><div class="mk-card"><p class="mk-h">Prediction Results</p><div class="mk-top"><img loading="lazy" src="/assets/dog.webp" alt="Photo of a golden retriever used as the input image in the image classification demo" width="291" height="324"><div><span class="tt"><b>Golden Retriever</b><em>92.4%</em></span><span class="mk-topbar"><i></i></span><ul>{others}</ul></div></div></div>
 <div class="mk-card"><p class="mk-h">Top Predictions</p>{bars(True)}</div></div></div>"""
     nav = '<nav class="mk-appnav"><span>Projects</span><span>Models</span><span>Datasets</span><span>About</span></nav><span class="mk-run">Run</span>'
     return f'<div class="mk mk--app"><div class="mk-bar">{LOGO}<b>NeuroNetworks</b>{nav}</div>{body}</div>'
@@ -221,7 +221,7 @@ def featured_projects():
 <div class="fp-art" aria-hidden="true"><span class="fp-orb"></span><img class="fp-glass" src="/assets/g-plates.webp" alt="" width="900" height="533" loading="lazy"><div class="fp-mock">{mocks[mk]()}</div></div></article>"""
     for i in [1, 2, 0]:
         href, tag, title, mk = FEATURED[i][0], FEATURED[i][1], FEATURED[i][2], FEATURED[i][6]
-        mark = '<img class="fp-th-mark" src="/assets/agentflow.svg" alt="" width="28" height="28">' if mk == "ag" else ""
+        mark = '<img class="fp-th-mark" src="/assets/agentflow.svg" alt="AgentFlow AI logo" loading="lazy" width="28" height="28">' if mk == "ag" else ""
         thumbs += f'<li><button type="button" class="fp-th" data-slide="{i}" aria-controls="fp-s{i}"><span class="fp-th-img" aria-hidden="true"><span class="fp-mini">{mocks[mk]()}</span>{mark}</span><span class="fp-th-t"><span class="pd-tag pd-tag--sm">{tag}</span><b>{title}</b></span><span class="fp-th-go" aria-hidden="true">{ARW}</span></button></li>'
     dots = '<span class="fp-dots">' + "".join(f'<i{" class=\"on\"" if k == 0 else ""}><b></b></i>' for k in range(3)) + '</span>'
     return f"""<section class="fp" id="featured" data-pd aria-roledescription="carousel" aria-label="Featured projects"><div class="wrap"><div class="fp-head"><div>{eb("Featured projects")}<h2><span>Build real projects.</span><span class="b">Showcase your skills.</span></h2></div><p class="fp-lead">Work on practical projects from the program roadmap and build a portfolio you can show.</p>
