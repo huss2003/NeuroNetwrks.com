@@ -567,6 +567,7 @@ def contact_page():
 # ---------------------------------------------------------------- write
 exec(open(os.path.join(HERE, 'projects_pages.py')).read())
 exec(open(os.path.join(HERE, 'guides_pages.py')).read())
+exec(open(os.path.join(HERE, 'career_pages.py')).read())
 
 def about_page():
     tags = [("Curious minds", 6, 78), ("Practical learning", 22, 44), ("Real projects", 74, 34), ("A stronger tomorrow", 60, 4)]
@@ -631,6 +632,7 @@ def main():
     lines = ["# NeuroNetworks AI Ed", "", "> Practical AI and technology education in India. One-year AI Foundation course (104 hours, open from Class 8) and five three-year specialisations for students who have passed Class 10 (624 hours each). Every three-year month ends with a project and a one-hour exam. Fees are shared on enquiry.", "", "Contact: Hussain@neuronetwrks.com", "", "## Programs"]
     for p in PROGRAMS: lines.append(f"- [{p[2]}]({SITE}/programs/{p[0]}): {p[4]}, {p[3]} hours. {D[p[0]]['summary']}")
     lines += ["", "## Key pages", f"- [Curriculum]({SITE}/curriculum): every module and project, month by month.", f"- [Learning experience]({SITE}/learning-experience): how lessons, labs, projects and exams work.", f"- [Admissions]({SITE}/admissions): eligibility, how to apply, parents and guardians.", f"- [FAQs]({SITE}/faqs): straight answers on eligibility, hours, certification and privacy.", f"- [Projects]({SITE}/projects): projects from the program roadmaps.", f"- [About]({SITE}/about)", f"- [Contact]({SITE}/contact)", "", "## Notes", "- No program guarantees a job, internship or salary.", "- Certifications are awarded by the certifying organisations, not by NeuroNetworks AI Ed."]
+    lines += ["", "## Career roadmaps (how to become [role] after 10th)"] + [f"- [{c['title']}]({SITE}/guides/{c['slug']}): {c['desc']}" for c in CAREERS]
     lines += ["", "## Guides"] + [f"- [{g['title']}]({SITE}/guides/{g['slug']}): {g['desc']}" for g in GUIDES]
     open(OUT + "/llms.txt", "w").write("\n".join(lines) + "\n")
     full = ["# NeuroNetworks AI Ed: full program reference", "", "> " + ORG["description"] + " Tagline: Learn · Develop · Create. Website: " + SITE + ". Contact: Hussain@neuronetwrks.com. Fees are shared on enquiry.", ""]

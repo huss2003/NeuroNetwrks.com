@@ -1,0 +1,83 @@
+{
+ "slug": "become-python-developer-after-10th",
+ "role": "Python developer",
+ "keyword": "how to become a python developer after 10th",
+ "searches": "",
+ "program": "ai-ml-engineering",
+ "alt_programs": ["data-science-ai", "ai-foundation"],
+ "title": "How to Become a Python Developer After 10th (2026)",
+ "desc": "Become a Python developer after Class 10: where Python is taught, the skills, a year-by-year plan, projects, certificates, laptop and salary, honestly.",
+ "h1": ["How to become a Python developer after 10th", "a year-by-year roadmap"],
+ "lead": "A plan for a Class 10 student and their parent to read together. It is honest about where Python sits in our programs, and follows a real 624-hour, three-year curriculum that uses Python from the first month.",
+ "role_intro": "A Python developer writes programs in Python: scripts that automate work, tools that process data, and services that other software calls. Today much Python work is in data and AI, where it is the main language. Other Python developers build websites with web frameworks.",
+ "in_short": [
+  "<strong>Python is a good first language.</strong> Its code reads almost like English, so beginners see results quickly.",
+  "<strong>Decide what you want to build with it.</strong> In our programs, Python is taught for AI and data work, not for web frameworks.",
+  "<strong>Plan for about three years</strong> to go from first script to services, APIs and a portfolio of Python projects."
+ ],
+ "start_answer": "Yes. Python is one of the easiest languages to start with after Class 10, and AI/ML Engineering teaches it from the first months needing only school-level maths and computer familiarity to join.",
+ "start_bridge": "Python itself does not care about your stream, but degrees do. Here is how each choice affects a Python career.",
+ "streams": [
+  ["Science with Maths and Computer Science", "B.Tech through JEE Main, plus BCA and B.Sc. Maths helps if your Python work moves into data or AI.", "A heavy load in Class 11 and 12. Short daily coding practice works better than weekend marathons."],
+  ["Any stream with Computer Science as an elective", "BCA and computer application degrees at many colleges, plus early coding practice in school.", "Elective choices differ by school and board. Without Physics and Mathematics, JEE Main is closed."],
+  ["Commerce with Maths", "Python for data, finance and analytics roles, and business or computer application degrees.", "Pure software engineering degrees may need Science. Check each college's rules."]
+ ],
+ "start_extra": "Python skills grow through finished programs, not through the stream. A student who writes a little code most days builds real fluency by the end of Class 12.",
+ "roadmap_answer": "Over three years, year 1 builds Python fundamentals, Python for AI and data tools, year 2 turns Python code into APIs and containerised services, and year 3 builds larger Python systems for AI products and a portfolio.",
+ "year_focus": [
+  "Year 1: learn Python properly, from basics to data tools and small utilities",
+  "Year 2: turn Python code into APIs, tested services and deep learning code",
+  "Year 3: build larger Python systems for AI products and polish your portfolio"
+ ],
+ "fit_note": "An honest note: our Software Development program is Java-first, with Java, JavaScript and Spring Boot. Python is taught in <a href=\"/programs/ai-ml-engineering\">AI/ML Engineering</a> and <a href=\"/programs/data-science-ai\">Data Science &amp; AI</a>, aimed at data and AI work. Neither lists Python web frameworks such as Django or Flask, so those would be self-study.",
+ "skills_answer": "A Python developer needs solid Python syntax and data structures, clean functions and modules, Git, the command line and Linux, working with files and data, NumPy and Pandas, building APIs, Docker, testing and debugging.",
+ "skills": [
+  ["Core Python", "Variables, loops, functions and collections are the base of every Python program.", "Year 1, Python Fundamentals"],
+  ["Writing clean, reusable code", "Code others can read and reuse is what separates a developer from a beginner.", "Year 1, CLI utility collection"],
+  ["Command line and Linux", "Most Python code runs on Linux servers.", "Starts in year 1 with command-line tools"],
+  ["Git and GitHub", "Tracks changes and shows your Python work to employers.", "Year 1"],
+  ["NumPy and Pandas", "The most used Python libraries for working with data.", "Year 1, Python for AI and Data Preparation"],
+  ["Building APIs in Python", "Lets other apps use your Python code over the web.", "Year 2"],
+  ["Docker", "Packages Python code so it runs the same on any machine.", "Year 2"],
+  ["PyTorch and TensorFlow", "Large Python libraries for deep learning, a major area of Python work.", "Year 2"],
+  ["Debugging and testing", "Finds and fixes errors before users meet them.", "Every year, with projects and exams"]
+ ],
+ "build_answer": "You write and finish a project every month for three years, and the most Python-heavy ones are utilities, data toolkits, APIs and containerised services that show clean, working code.",
+ "projects": [
+  ["AI concept map + Python mini exercises", "Your first Python programs, small and frequent."],
+  ["CLI utility collection", "Command-line tools that train you to write reusable Python."],
+  ["Python data-processing toolkit", "A set of functions for reading, cleaning and transforming data."],
+  ["Messy-dataset cleaning project", "Real data problems solved with Pandas, a daily Python task."],
+  ["ML inference API", "Python code served over the web for other apps to call."],
+  ["Containerized ML service", "A Python service packaged with Docker, as teams ship it."],
+  ["End-to-end AI service", "A larger Python codebase with data, model and API together."],
+  ["Portfolio with 6–10 flagship projects", "Your best Python work, organised on GitHub for employers."]
+ ],
+ "certs_answer": "The certificates in this roadmap test AI knowledge more than Python itself, so for a Python developer a strong GitHub portfolio matters most, and any external certificate is awarded only by its own body.",
+ "cert_notes": {
+  "IBM AI Engineering Professional Certificate": "An intermediate Coursera series that recommends working Python and Jupyter Notebooks first, and uses Python libraries such as PyTorch, Keras and scikit-learn."
+ },
+ "cert_extra": "Outside this roadmap, the Python Institute's PCEP (Certified Entry-Level Python Programmer) is an entry-level Python exam with no prerequisites. The program does not prepare for it. PCEP-30-03 is due for release on 31 October 2026.",
+ "notfor_answer": "This path is not for you if you mainly want to build websites with Django or Flask, want a guaranteed job, or expect to master Python in a few weeks without steady practice.",
+ "notfor": [
+  ["You want a guarantee.", "No honest program promises a job, salary or exam pass. This one does not."],
+  ["You want Python web development with Django or Flask.", "Our programs do not list these frameworks. For web and backend work, see <a href=\"/programs/software-development\">Software Development</a>, which uses Java."],
+  ["You expect to be job-ready in weeks.", "Python basics come fast, but professional code takes years of practice."],
+  ["You have no interest in data or AI.", "In our programs, Python is taught through data and AI projects."],
+  ["You only have a phone.", "Writing and running Python needs a laptop or desktop."]
+ ],
+ "salary_answer": "Python is taught in AI/ML Engineering here, whose indicative India ranges are about ₹5 to 10 lakh a year for freshers, ₹12 to 25 lakh at 3 to 5 years, and ₹30 to 60 lakh or more at senior level.",
+ "faqs": [
+  ["How many years does it take to become a Python developer after 10th?", "Python basics take a few months, but professional skill takes longer. Plan for about three years of steady work, such as the 3-year, 624-hour AI/ML Engineering program, often alongside Class 11, 12 and a degree."],
+  ["Can I become a Python developer without maths?", "Yes, for general Python programming, which needs logic more than maths. If your Python work moves into data science or machine learning, statistics and algebra become important."],
+  ["Which program teaches Python: Software Development or AI/ML Engineering?", "AI/ML Engineering and Data Science & AI teach Python. Software Development is Java-first, with JavaScript and Spring Boot. Choose based on what you want to build."],
+  ["Is Python enough to get a job?", "Usually not on its own. Employers look for Python plus an area such as data, AI or web, along with projects. No program, including this one, can guarantee a job or salary."],
+  ["Can I learn Python before Class 10?", "Yes. AI Foundation is open from Class 8 with no coding needed. Its one-year, 104-hour course teaches real Python with Pandas, NumPy and Matplotlib."]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 says AI has moved from optional to core infrastructure in India's tech industry. Python is the main language of that AI work, which is why our Python teaching sits inside the AI and data programs.",
+ "sources": [
+  ["PCEP – Certified Entry-Level Python Programmer", "https://pythoninstitute.org/pcep", "Python Institute, checked 18 October 2026"],
+  ["IBM AI Engineering Professional Certificate", "https://www.coursera.org/professional-certificates/ai-engineer", "Coursera, checked 18 October 2026"]
+ ],
+ "related_guides": ["computer-coding-courses-after-10th", "become-software-engineer-after-10th", "data-science-after-10th"]
+}

@@ -1,0 +1,83 @@
+{
+ "slug": "become-programmer-after-10th",
+ "role": "programmer",
+ "keyword": "how to become a programmer after 10th",
+ "searches": "",
+ "program": "software-development",
+ "alt_programs": ["ai-foundation", "ai-ml-engineering"],
+ "title": "How to Become a Programmer After 10th (2026)",
+ "desc": "How to become a programmer or coder after Class 10: logic, your first language, problem solving, daily practice habits, projects, certificates and salary.",
+ "h1": ["How to become a programmer after 10th", "logic first, then language, then practice"],
+ "lead": "A plan for a Class 10 student and their parent to read together, whether you call it programmer or coder. It follows a real 624-hour, three-year software curriculum that starts with logic before any language.",
+ "role_intro": "A programmer, often called a coder, turns a problem into exact instructions a computer can follow. The core skill is breaking a big task into small steps, writing them in a language such as Java, testing them and fixing what breaks. Every software, web, app or AI role is built on top of this skill.",
+ "in_short": [
+  "<strong>Programming is a thinking skill before it is a typing skill.</strong> Logic comes before any language.",
+  "<strong>Pick one first language and go deep.</strong> In this roadmap that is Java, right after programming logic.",
+  "<strong>Daily practice beats long weekend sessions.</strong> Solving small problems often is how coders improve."
+ ],
+ "start_answer": "Yes. Class 10 is a good time to start programming, because you only need logic, patience and a laptop, and the habit of solving small problems every week compounds over the following years.",
+ "start_bridge": "Programming fits every stream, but your stream decides which degree you can take later. Here is the honest comparison.",
+ "streams": [
+  ["Science with Maths (PCM)", "Keeps B.Tech through JEE Main open, plus B.Sc and BCA. Maths practice also sharpens logic.", "Entrance preparation can crowd out coding. Protect a few fixed hours each week."],
+  ["Commerce or Humanities with Computer Science", "BCA and similar degrees at many colleges. Coding at school keeps the habit alive.", "Without Maths in Class 12, B.Tech through JEE Main and some BCA courses are closed. Check each college."],
+  ["Diploma in computer engineering or IT", "Programming labs from the first year, with lots of hands-on time.", "Degree entry later depends on state and college rules. Confirm them first."]
+ ],
+ "start_extra": "If you are still unsure whether you will enjoy coding, start smaller. Try a few logic puzzles or a short course first. Our guide to <a href=\"/guides/computer-coding-courses-after-10th\">coding courses after 10th</a> compares the options.",
+ "roadmap_answer": "The roadmap runs in three years: year 1 builds programming logic, Java and object-oriented programming, year 2 builds data structures, algorithms and tested code, and year 3 applies those skills to larger systems and interview-style challenges.",
+ "year_focus": [
+  "Year 1: programming logic, your first language and clean habits",
+  "Year 2: data structures, algorithms and writing code that is tested",
+  "Year 3: bigger programs, AI-assisted coding and interview practice"
+ ],
+ "fit_note": "",
+ "skills_answer": "A programmer needs step-by-step logic, one language learned well, object-oriented thinking, data structures and algorithms, debugging and testing habits, Git, and the judgement to use AI coding tools without losing understanding of the code.",
+ "skills": [
+  ["Breaking problems into steps", "The real skill behind coding. A clear plan makes the code easy.", "Year 1, first months"],
+  ["Your first language: Java", "One language learned deeply teaches you how all languages work.", "Year 1"],
+  ["Object-oriented programming", "Organises larger programs into parts that are easy to change.", "Year 1"],
+  ["Debugging", "Every coder spends real time finding why code fails. It is a learnable skill.", "From year 1, all through"],
+  ["Git and GitHub", "Saves every version of your code and builds a public record of practice.", "Year 1"],
+  ["SQL", "Many programs need to read and write data, and SQL is how most do it.", "Year 1"],
+  ["Data structures and algorithms", "Makes code fast, and is what most coding tests and interviews check.", "Year 2"],
+  ["Testing", "Proves your program does what you think it does.", "Year 2"],
+  ["A second language: JavaScript or TypeScript", "Learning a second language shows how much carries over from the first.", "JavaScript in year 1, TypeScript in year 2"],
+  ["AI-assisted development", "AI tools can write code fast. You need to read, check and fix what they produce.", "Year 3"]
+ ],
+ "build_answer": "You build a project every month, and for a programmer the key ones are a 50-problem logic repository, Java command-line and OOP programs, two data structures repositories and a final interview challenge set.",
+ "projects": [
+  ["Personal Developer Setup + First Program Portfolio", "Your tools set up properly and your very first programs saved."],
+  ["50-Problem Programming Logic Repository", "Fifty solved problems build the daily practice habit coders need."],
+  ["Java CLI Utility Pack", "Small useful programs that run in the terminal, with no screens to hide behind."],
+  ["Java OOP Management Application", "A bigger program organised with classes and objects."],
+  ["Collaborative GitHub Project", "Teaches you to read and improve other people's code."],
+  ["DSA Repository I", "Core data structures written and tested by you."],
+  ["DSA Repository II", "Harder algorithms that build speed and confidence for coding tests."],
+  ["Developer Portfolio + Interview Challenge Set", "Your best work plus a set of interview-style problems solved."]
+ ],
+ "certs_answer": "For a programmer, problem-solving and Java certificates are the most relevant, because they test the same logic and language skills employers check in coding rounds, and each one is awarded by its own provider after its own test.",
+ "cert_notes": {
+  "HackerRank Skills Certification (SQL / Problem Solving)": "HackerRank says its certificate tests are organised around specific skills and based on recruiting data from 2000+ companies. Its list includes Problem Solving at Basic and Intermediate levels, and SQL from Basic to Advanced."
+ },
+ "cert_extra": "The roadmap also prepares for two Oracle Java certifications, Oracle Certified Foundations Associate (Java) and Oracle Certified Professional, Java SE (OCPJP). Check Oracle's own pages for current exam details.",
+ "notfor_answer": "Programming is not for you if you want quick results without practice, if being stuck on one problem for an hour feels unbearable, or if you are looking for a guaranteed job.",
+ "notfor": [
+  ["You want to learn by watching only.", "Coding is learned by typing, failing and fixing. Videos alone do not build the skill."],
+  ["Being stuck feels unbearable.", "Every programmer spends time stuck. The skill is staying calm and trying the next idea."],
+  ["You cannot practise regularly.", "Plan for 4 hours of classes a week for three years, plus your own practice."],
+  ["You want a guarantee.", "This program does not promise a job, salary or exam pass."],
+  ["You want a degree from this course.", "It awards a NeuroNetworks AI Ed certificate, not a degree. Many students take it alongside school and college."]
+ ],
+ "salary_answer": "Indicative India ranges for programming roles are about ₹4 to 8 lakh a year for freshers, ₹5 to 12 lakh at 1 to 2 years, ₹10 to 20 lakh at 3 to 5 years, and ₹25 to 50 lakh or more for seniors.",
+ "faqs": [
+  ["How many years does it take to become a programmer after 10th?", "You can write simple programs within weeks. Becoming job-ready usually takes years of practice. This roadmap uses three years and 624 hours, and many students also finish a degree."],
+  ["Can I become a programmer without maths?", "Yes. Basic programming needs logic, not advanced maths. Algorithms do use maths-style thinking, and B.Tech through JEE Main needs Physics and Mathematics in Class 12, so keeping maths helps."],
+  ["Which programming language should I learn first?", "Pick one and go deep. In this roadmap it is Java, after a month of pure programming logic, because it teaches clear structure and object-oriented thinking. JavaScript follows later in year 1."],
+  ["Is a programmer the same as a coder?", "In everyday use, yes. Both mean someone who writes and fixes code. Job titles such as developer or software engineer usually add design, testing and teamwork on top."],
+  ["How much should I practise coding each week?", "Steady practice matters more than long sessions. The program has 4 hours of classes a week, and short, regular problem solving between classes is what builds speed."]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 says AI has moved from optional to core infrastructure in India's tech industry. For new programmers, that makes understanding code more important, which is why this roadmap teaches logic first and AI-assisted coding last.",
+ "sources": [
+  ["HackerRank Skills Certification", "https://www.hackerrank.com/skills-verification", "HackerRank, checked 18 October 2026"]
+ ],
+ "related_guides": ["computer-coding-courses-after-10th", "become-software-engineer-after-10th", "courses-after-10th"]
+}

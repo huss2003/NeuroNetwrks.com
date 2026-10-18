@@ -1,0 +1,85 @@
+{
+ "slug": "become-cloud-engineer-after-10th",
+ "role": "cloud engineer",
+ "keyword": "how to become a cloud engineer after 10th",
+ "searches": "",
+ "program": "software-development",
+ "alt_programs": ["cybersecurity", "ai-foundation"],
+ "title": "How to Become a Cloud Engineer After 10th (2026)",
+ "desc": "A year-by-year plan to become a cloud engineer after Class 10: AZ-900, AWS developer skills, CI/CD, DevOps, cloud-native apps, projects and salary.",
+ "h1": ["How to become a cloud engineer after 10th", "from your first deploy to cloud-native systems"],
+ "lead": "A plan for a Class 10 student and their parent to read together. It follows the cloud thread inside a real 624-hour, three-year software curriculum, from Azure basics in year 1 to AWS deep practice in year 3.",
+ "role_intro": "A cloud engineer builds, deploys and runs software on platforms such as AWS and Azure instead of on a company's own servers. They automate how code is tested and released, keep services running when traffic jumps, and watch cost, security and reliability. It sits between software development and operations.",
+ "in_short": [
+  "<strong>Cloud engineers still need to code.</strong> Deployment, automation and cloud services all assume you can build software.",
+  "<strong>This roadmap takes a developer's route into cloud:</strong> AZ-900 readiness, AWS developer skills, CI/CD, DevOps and cloud-native design.",
+  "<strong>Cloud certificates come in levels.</strong> Fundamentals early, associate-level only after real hands-on practice."
+ ],
+ "start_answer": "Yes, but not with cloud first: after Class 10 you start with programming, Linux-style computer basics and web apps, because cloud work means deploying and automating real software, and you need software to deploy.",
+ "start_bridge": "Cloud roles often ask for a computing degree, so your stream should keep a technical degree open. Here are the options.",
+ "streams": [
+  ["Science with Maths (PCM)", "B.Tech in computer science or IT through JEE Main, the most common degree route into cloud roles.", "A demanding two years. Keep a small, regular slot for hands-on practice."],
+  ["Science or Commerce with Computer Science", "BCA and B.Sc IT routes stay open, with daily contact with computers at school.", "Without Physics and Mathematics in Class 12, B.Tech through JEE Main is closed."],
+  ["Diploma in computer engineering or IT", "Early hands-on work with systems and networks, which cloud builds on.", "Degree entry rules after a diploma vary by state and college. Check before you choose."]
+ ],
+ "start_extra": "Cloud is less visible than apps or websites, so it can sound abstract at 15. A simple test: if you enjoy making things run automatically and reliably, more than designing how they look, cloud work may suit you. Interested in protecting cloud systems? See <a href=\"/programs/cybersecurity\">Cybersecurity</a>.",
+ "roadmap_answer": "The roadmap runs in three years: year 1 builds programming, web apps and AZ-900 readiness, year 2 adds AWS developer foundations and CI/CD with DevOps, and year 3 covers cloud-native engineering, reliability and AWS Developer Associate deep practice.",
+ "year_focus": [
+  "Year 1: build software worth deploying, and learn cloud basics for AZ-900",
+  "Year 2: deploy on AWS and automate releases with CI/CD and DevOps",
+  "Year 3: design cloud-native, reliable systems and practise at associate level"
+ ],
+ "fit_note": "This roadmap follows the developer side of cloud: building, deploying and automating applications on AWS and Azure. It does not prepare for administrator or architect certifications such as Azure Administrator or AWS Solutions Architect. Those can be added later, building on the same base.",
+ "skills_answer": "A cloud engineer needs programming, Linux and Git, cloud basics across compute, networking and storage, hands-on AWS and Azure services, Docker containers, CI/CD and DevOps automation, cloud-native design, and reliability, performance and security habits.",
+ "skills": [
+  ["Programming in Java and JavaScript", "Cloud services run code. You need to write, read and fix it.", "Year 1"],
+  ["Linux and Git", "Most cloud servers run Linux, and Git drives automated releases.", "Year 1"],
+  ["Cloud concepts and Azure basics", "Compute, networking, storage, management and governance, the vocabulary of cloud.", "Year 1, with AZ-900 readiness"],
+  ["AWS developer foundations", "Building and deploying applications on AWS services.", "Year 2"],
+  ["Docker containers", "Packages an app so it runs the same everywhere.", "Year 2"],
+  ["CI/CD and DevOps", "Tests and deploys every change automatically, so teams ship safely and often.", "Year 2"],
+  ["System design and distributed systems", "Plans how services split, talk and survive failures.", "Year 3"],
+  ["Cloud-native application engineering", "Builds apps designed for the cloud from the start.", "Year 3"],
+  ["Performance, scalability and reliability", "Keeps services fast and available when traffic grows.", "Year 3"],
+  ["Application security", "Protects data and access in systems open to the internet.", "Year 3"]
+ ],
+ "build_answer": "You build a project every month, and for cloud the key ones are an AWS-deployed application, a containerised CI/CD pipeline, a distributed systems design, a cloud-native application and an AWS production engineering lab.",
+ "projects": [
+  ["AWS-Deployed Application", "Your first app running on AWS, reachable by anyone with the link."],
+  ["Containerized CI/CD Project", "Code that builds, tests and deploys itself, the heart of DevOps work."],
+  ["System Design Casebook I", "Practice planning systems before building them, a daily cloud skill."],
+  ["Distributed Systems Architecture Project", "Many services working together, as most cloud systems do."],
+  ["Cloud-Native Application", "An app designed to scale and recover on the cloud from day one."],
+  ["Performance Engineering Report", "Measures speed and limits, the evidence cloud teams act on."],
+  ["Secure Software Development Project", "Builds security into the system rather than adding it at the end."],
+  ["AWS Production Engineering Lab", "Production-style practice on AWS, close to real cloud operations."]
+ ],
+ "certs_answer": "Cloud is one of the few areas where vendor certificates are widely used to show skill; this roadmap prepares for Azure Fundamentals early and AWS Developer Associate later, each awarded by Microsoft or AWS after their own exam.",
+ "cert_notes": {
+  "Microsoft Certified: Azure Fundamentals (AZ-900)": "A beginner-level, 45-minute exam on cloud concepts, Azure architecture and services, and Azure management and governance.",
+  "AWS Certified Developer – Associate": "Validates developing, testing, deploying and debugging cloud-based applications on AWS, including CI/CD workflows. It has 65 questions in 130 minutes, and AWS recommends one or more years of hands-on experience first."
+ },
+ "cert_extra": "A timing note: AWS says registration for the updated Developer – Associate exam (DVA-C03) opens on 27 October 2026, and the last day for the current DVA-C02 is 30 November 2026. AWS suggests people with no IT experience consider AWS Certified Cloud Practitioner first; it is not part of this roadmap.",
+ "notfor_answer": "Cloud engineering is not for you if you want to avoid coding, dislike careful, step-by-step setup work, or expect a certificate alone to lead to a job, and this program guarantees no job either.",
+ "notfor": [
+  ["You want cloud without coding.", "This route treats cloud as a developer skill. You will write and deploy software throughout."],
+  ["Careful setup work bores you.", "Small mistakes in settings can take a service down. Patience and checklists matter."],
+  ["You think a certificate is enough.", "Associate-level exams expect real hands-on practice, and employers look for projects too."],
+  ["You want to focus mainly on security.", "If defending systems interests you more than building them, look at <a href=\"/programs/cybersecurity\">Cybersecurity</a>, which includes cloud security modules."],
+  ["You want a guarantee.", "No job, salary or exam pass is promised."]
+ ],
+ "salary_answer": "This program's indicative India ranges for software and cloud developer roles are about ₹4 to 8 lakh a year for freshers, ₹10 to 20 lakh at 3 to 5 years, and ₹25 to 50 lakh or more at senior level.",
+ "faqs": [
+  ["How many years does it take to become a cloud engineer after 10th?", "Plan for about three years of steady work, such as this 624-hour roadmap, because you first learn to build software and then to deploy and run it on the cloud. Many cloud roles also ask for a degree."],
+  ["Can I become a cloud engineer without maths?", "Yes, much cloud work relies on logic, systems thinking and careful setup rather than advanced maths. But B.Tech through JEE Main needs Physics and Mathematics in Class 12, and it is a common route into cloud roles."],
+  ["Should I learn AWS or Azure first?", "This roadmap starts with Azure Fundamentals readiness in year 1 for broad cloud concepts, then spends years 2 and 3 on AWS developer skills. The concepts carry across both."],
+  ["Is cloud engineering the same as DevOps?", "They overlap. DevOps focuses on how code is built, tested and released, while cloud engineering covers the platforms it runs on. This roadmap teaches CI/CD and DevOps inside its cloud thread."],
+  ["Can I take AZ-900 while still in school?", "Microsoft lists AZ-900 as a beginner-level exam. This roadmap prepares for it at the end of year 1. Passing is not guaranteed, and the exam is awarded by Microsoft, not by this program."]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 describes cloud-native architecture as widespread across India's $315 billion tech industry. That is why this roadmap treats cloud as a thread through all three years, not a single module at the end.",
+ "sources": [
+  ["Microsoft Certified: Azure Fundamentals (AZ-900)", "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/", "Microsoft Learn, page updated 20 July 2026"],
+  ["AWS Certified Developer – Associate", "https://aws.amazon.com/certification/certified-developer-associate/", "Amazon Web Services, checked 18 October 2026"]
+ ],
+ "related_guides": ["become-software-engineer-after-10th", "cyber-security-course-after-10th", "become-full-stack-developer-after-10th"]
+}

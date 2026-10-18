@@ -1,0 +1,197 @@
+{
+ "slug": "become-prompt-engineer-after-10th",
+ "role": "prompt engineer",
+ "keyword": "how to become a prompt engineer after 10th",
+ "searches": "",
+ "program": "ai-foundation",
+ "alt_programs": [
+  "ai-ml-engineering"
+ ],
+ "title": "How to Become a Prompt Engineer After 10th (2026)",
+ "desc": "An honest guide to prompt engineering after Class 10: what the work really is, the skills, a one-year 104-hour start, projects and where it leads.",
+ "h1": [
+  "How to become a prompt engineer after 10th",
+  "an honest one-year start"
+ ],
+ "lead": "A plan for a Class 10 student and their parent to read together. It starts with what prompt engineering really is today, then maps it to a real 104-hour, one-year AI course.",
+ "role_intro": "Prompt engineering is the skill of instructing AI models so they give accurate, safe and useful answers, and then testing those answers. In most companies it is one skill inside AI developer or AI engineer roles. Few jobs are only prompt writing, so it works best as a starting point.",
+ "in_short": [
+  "<strong>Prompt engineering is a skill, rarely a whole job.</strong> It sits inside AI development, AI engineering and many other roles.",
+  "<strong>One year is enough for a strong start.</strong> AI Foundation covers prompting, evaluation, context engineering, RAG and agents in 104 hours.",
+  "<strong>To make it a career, add coding.</strong> Python and AI app building turn good prompts into products."
+ ],
+ "start_answer": "Yes, and you can start even earlier: prompting needs clear thinking and good English more than maths, and AI Foundation teaches it in one year from Class 8 with no coding needed.",
+ "start_bridge": "Since prompting is a skill rather than a degree subject, any stream works. What changes is which career you can grow it into.",
+ "streams": [
+  [
+   "Humanities with English or Psychology",
+   "Strong writing and reasoning, which shows in prompt quality. Content, education and policy roles that use AI stay open.",
+   "Moving into technical AI roles later needs extra coding and some maths."
+  ],
+  [
+   "Commerce",
+   "Business, marketing and operations roles where AI is used daily. Prompting is a direct workplace skill there.",
+   "B.Tech through JEE Main needs Physics and Mathematics in Class 12, so that route closes."
+  ],
+  [
+   "Science with Maths (PCM)",
+   "Keeps every technical path open, including AI developer and AI engineer, where prompting is one part of the job.",
+   "Heavy load in Class 11 and 12. A one-year course at 2 hours a week fits better than a long one."
+  ]
+ ],
+ "start_extra": "Want a technical AI career later? The three-year <a href=\"/programs/ai-ml-engineering\">AI/ML Engineering</a> program builds on these skills with Python, machine learning, RAG and agents in depth.",
+ "roadmap_answer": "The roadmap is one year: you learn how AI works and how to use it responsibly, then Python, then prompting and evaluation, context engineering and RAG, agents, and finally a tested, deployed AI app.",
+ "year_focus": [
+  "Year 1: learn how AI models think, how to instruct and test them, and how to build a small AI app around your prompts"
+ ],
+ "fit_note": "AI Foundation is a one-year foundation, not a job-ready program. Its Prompt Engineering & AI Evaluation module is 7 hours, with 8 more on context engineering, embeddings and RAG. For deeper, career-level AI skills, continue to <a href=\"/programs/ai-ml-engineering\">AI/ML Engineering</a> after Class 10.",
+ "skills_answer": "A prompt engineer needs a clear understanding of how LLMs work, precise writing, prompting techniques, ways to evaluate AI answers, context and RAG design, basic Python for testing at scale, and a strong sense of AI safety and bias.",
+ "skills": [
+  [
+   "How modern AI and LLMs work",
+   "Explains why a model guesses, forgets or makes things up.",
+   "AI Foundations and Generative AI modules"
+  ],
+  [
+   "Clear, structured writing",
+   "A prompt is an instruction. Vague instructions give vague answers.",
+   "Practised in every module"
+  ],
+  [
+   "Prompting techniques",
+   "Examples, roles, step-by-step instructions and output formats change results a lot.",
+   "Prompt Engineering & AI Evaluation module"
+  ],
+  [
+   "Evaluating AI output",
+   "You need a fair test to know if one prompt is really better.",
+   "Prompt Engineering & AI Evaluation module"
+  ],
+  [
+   "Context engineering and RAG",
+   "Gives the model the right information instead of hoping it knows.",
+   "Context Engineering, Embeddings & RAG module"
+  ],
+  [
+   "Python basics",
+   "Lets you test hundreds of prompts automatically, not one by one.",
+   "Python Programming Fundamentals I and II"
+  ],
+  [
+   "Responsible AI and safety",
+   "Spots biased, unsafe or private output before it causes harm.",
+   "AI Tools, Safety, Ethics & Responsible AI module"
+  ],
+  [
+   "Agents and automation",
+   "Prompts increasingly drive tools and multi-step tasks.",
+   "Python AI APIs, Agents & Automation module"
+  ]
+ ],
+ "build_answer": "You build a project most months, and for prompt engineering the most useful ones test prompts fairly, ground answers in documents, drive an agent, and end in a deployed app on GitHub.",
+ "projects": [
+  [
+   "Practical AI audit",
+   "Checks where AI tools help and where they fail, the base of good prompting."
+  ],
+  [
+   "Responsible AI workshop",
+   "Builds the habit of spotting bias and unsafe output."
+  ],
+  [
+   "Small generative AI application",
+   "Your prompts working inside a real app for the first time."
+  ],
+  [
+   "Prompt evaluation benchmark project",
+   "Compares prompts with a fair test, the core skill of this role."
+  ],
+  [
+   "RAG Knowledge Assistant project",
+   "Shows that good context beats clever wording."
+  ],
+  [
+   "AI workflow and agent project",
+   "Uses prompts to drive a multi-step task with tools."
+  ],
+  [
+   "Final capstone project and graduation",
+   "A finished AI project on GitHub that shows your prompting and testing."
+  ]
+ ],
+ "certs_answer": "AI Foundation prepares you for two optional exams, Microsoft AI-901 and AWS AIF-C01, which test wider AI knowledge rather than prompting alone, and each is awarded only by Microsoft or AWS after their own exam.",
+ "cert_notes": {
+  "Microsoft Azure AI Fundamentals (AI-901)": "Aimed at people starting a career in AI solution development. It expects some Python syntax and gives 55–60% of its weight to building AI solutions with Microsoft Foundry.",
+  "AWS Certified AI Practitioner (AIF-C01)": "A foundational exam on AI, ML and generative AI for people who use AI on AWS but do not necessarily build it: 65 questions in 90 minutes."
+ },
+ "cert_extra": "Google AI Essentials, part of the AI/ML Engineering roadmap, is a beginner course needing no experience. One of its five courses is on prompting, including few-shot prompting.",
+ "notfor_answer": "Prompt engineering is not for you if you want a large, standalone job title from prompts alone, dislike testing your own work, or hope to skip coding entirely for a long-term technical career.",
+ "notfor": [
+  [
+   "You want a guarantee.",
+   "No honest course promises a job, salary or exam pass. This one does not."
+  ],
+  [
+   "You expect a big job market for prompts alone.",
+   "Most companies want prompting as part of a wider role, such as AI developer."
+  ],
+  [
+   "You do not like checking your own work.",
+   "Good prompt engineers test, measure and rewrite again and again."
+  ],
+  [
+   "You want to avoid coding forever.",
+   "For technical AI careers, Python is what turns prompts into products."
+  ],
+  [
+   "You only have a phone.",
+   "The Python labs need a laptop or desktop with a browser."
+  ]
+ ],
+ "salary_answer": "No indicative salary is published for AI Foundation, because it is a one-year foundation course; the AI/ML Engineering ranges shown here are the next step to look at for a technical AI career.",
+ "faqs": [
+  [
+   "How many years does it take to become a prompt engineer after 10th?",
+   "The prompting skill itself can be built in one year, such as the 104-hour AI Foundation course. Turning it into a career usually means more: a three-year path like AI/ML Engineering, and often a degree."
+  ],
+  [
+   "Can I become a prompt engineer without maths?",
+   "Yes, for prompting itself. It needs clear writing, logic and testing more than maths. AI Foundation needs no coding or advanced maths. Technical AI roles that use prompting do need more maths later."
+  ],
+  [
+   "Is prompt engineering a real job in India?",
+   "It is a real and useful skill. It usually sits inside roles such as AI developer, AI engineer, or content and operations work that uses AI. Standalone prompt engineer titles are less common, so plan to combine it with other skills."
+  ],
+  [
+   "Can I learn prompt engineering in Class 8 or 9?",
+   "Yes. AI Foundation is open from Class 8, with no prior coding. It runs for one year at 2 hours a week, with 10 to 15 minutes of homework after each lecture."
+  ],
+  [
+   "Is AI Foundation enough to get a job as a prompt engineer?",
+   "No. AI Foundation is a project-based foundation in AI and Python, not a job-ready program. It does not guarantee a job, internship or exam pass. Students who want depth can continue to AI/ML Engineering after Class 10."
+  ]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 describes AI as moving from optional to core infrastructure in India's tech industry. As AI spreads into daily work, the ability to instruct and check it is useful in many roles.",
+ "sources": [
+  [
+   "Google AI Essentials",
+   "https://www.coursera.org/learn/google-ai-essentials",
+   "Coursera, checked 18 October 2026"
+  ],
+  [
+   "Exam AI-901: Microsoft Azure AI Fundamentals",
+   "https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/",
+   "Microsoft Learn, page updated 5 August 2026"
+  ],
+  [
+   "AWS Certified AI Practitioner",
+   "https://aws.amazon.com/certification/certified-ai-practitioner/",
+   "Amazon Web Services, checked 18 October 2026"
+  ]
+ ],
+ "related_guides": [
+  "ai-courses-after-10th",
+  "become-ai-developer-after-10th",
+  "ai-projects-for-students"
+ ]
+}

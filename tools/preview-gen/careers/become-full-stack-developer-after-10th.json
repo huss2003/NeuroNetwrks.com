@@ -1,0 +1,87 @@
+{
+ "slug": "become-full-stack-developer-after-10th",
+ "role": "full stack developer",
+ "keyword": "how to become a full stack developer after 10th",
+ "searches": "",
+ "program": "software-development",
+ "alt_programs": ["ai-foundation", "data-science-ai"],
+ "title": "How to Become a Full Stack Developer After 10th (2026)",
+ "desc": "A year-by-year plan to become a full stack developer after Class 10: front end, backend, databases, cloud deployment, projects, certificates and salary.",
+ "h1": ["How to become a full stack developer after 10th", "front end, backend and database as one product"],
+ "lead": "A plan for a Class 10 student and their parent to read together. It follows a real 624-hour, three-year software curriculum in which the front end, backend, database and cloud are learned in order and then joined into one product.",
+ "role_intro": "A full stack developer can build every layer of a web product: the screens users see, the server code behind them, the database that stores everything, and the setup that puts it online. They may not be the deepest expert in each layer, but they understand how the layers talk to each other and can ship a complete feature on their own.",
+ "in_short": [
+  "<strong>Full stack means four layers, not one language:</strong> front end, backend, database and deployment.",
+  "<strong>Learn the layers one at a time, then join them.</strong> Trying everything at once is the most common way beginners stall.",
+  "<strong>Expect about three years of steady work</strong> before you can build and run a small online product end to end."
+ ],
+ "start_answer": "Yes, you can start after Class 10, but begin with one layer at a time: programming logic and web pages first, then databases and backend, and only then the full product with cloud deployment.",
+ "start_bridge": "Full stack work is wide, so the stream decision is mostly about which degree you want later. Here is how each option plays out.",
+ "streams": [
+  ["Science with Maths and Computer Science", "B.Tech through JEE Main, B.Sc Computer Science and BCA all stay open, and school topics overlap with your coding.", "Five demanding subjects plus coding practice. Plan your weekly hours honestly."],
+  ["Commerce with Maths", "BCA and business-plus-tech degrees. Business subjects help you understand what the products you build are for.", "B.Tech through JEE Main needs Physics and Mathematics in Class 12, so that route closes."],
+  ["Diploma in computer engineering or IT", "Practical labs and system skills early, which suits a builder's mindset.", "Lateral entry rules into a degree differ by state and college. Check them before you choose."]
+ ],
+ "start_extra": "Full stack is a big word for a simple idea: you can take an idea from a blank screen to a working site with real users. Not sure whether software, data or AI fits you best? Read <a href=\"/guides/ai-vs-software-vs-data-science\">AI vs software vs data science</a>.",
+ "roadmap_answer": "The roadmap runs in three years: year 1 covers the front end and SQL, year 2 adds the backend, NoSQL, testing, full-stack architecture and cloud deployment, and year 3 builds larger full-stack products and a portfolio.",
+ "year_focus": [
+  "Year 1: front end and relational databases, the first two layers",
+  "Year 2: backend, security, testing and joining the layers into a SaaS product",
+  "Year 3: design bigger systems and ship a production-style full-stack product"
+ ],
+ "fit_note": "",
+ "skills_answer": "A full stack developer needs a front-end framework such as React, a backend language such as Java with Spring Boot, SQL and NoSQL databases, authentication and security, testing, and the cloud and CI/CD skills to deploy and update the whole product.",
+ "skills": [
+  ["React and TypeScript (front end)", "The layer users see. TypeScript keeps big interfaces manageable.", "React in year 1, TypeScript in year 2"],
+  ["Java with Spring Boot (backend)", "Handles business rules, user requests and connections to the database.", "Java in year 1, Spring Boot in year 2"],
+  ["SQL databases", "Stores structured data such as users, orders and marks reliably.", "Year 1"],
+  ["NoSQL and data access", "Some data fits documents better than tables. You learn to pick the right store.", "Year 2"],
+  ["REST APIs", "The contract that lets the front end and backend talk to each other.", "Year 1 using APIs, year 2 building them"],
+  ["Authentication and security", "Login, permissions and protecting user data across every layer.", "Year 2, then application security in year 3"],
+  ["Testing", "With four layers, a change in one can break another. Tests catch it.", "Year 2"],
+  ["Full-stack architecture", "Decides how the layers are split, connected and grown.", "Year 2"],
+  ["Cloud deployment and CI/CD", "Gets the whole product online and ships updates without breaking it.", "Year 2"],
+  ["System design", "Plans a product that keeps working as users increase.", "Year 3"]
+ ],
+ "build_answer": "You build a project every month, and for full stack the important ones join layers: a database project, REST APIs, a hybrid data app, a full-stack SaaS application and, in year 3, a major full-stack product.",
+ "projects": [
+  ["Relational Database Project", "Teaches you to design the tables that every later layer depends on."],
+  ["Spring Boot REST API", "Your first backend that a front end can call."],
+  ["Secure REST API", "Adds login and permissions, which every real product needs."],
+  ["Hybrid Data Application", "Uses SQL and NoSQL together, a common full-stack choice."],
+  ["Full-Stack SaaS Application", "Your first complete product: front end, backend and database working as one."],
+  ["Year-2 Production SaaS Capstone", "A larger product built to production habits, with testing and deployment."],
+  ["Major Full-Stack Product v1", "A bigger, more realistic product that shows depth across every layer."],
+  ["Final Production Software Product + Complete GitHub Portfolio", "Your finished product and three years of full-stack work in one place."]
+ ],
+ "certs_answer": "Full stack covers several layers, so no single certificate proves it; front-end, SQL and cloud certificates each prove one layer, while a deployed full-stack product shows the whole, and each certificate is awarded by its own provider.",
+ "cert_notes": {
+  "Meta Front-End Developer Professional Certificate": "A beginner-level, 9-course series on Coursera covering HTML, CSS, JavaScript and React, plus topics such as Node.js and Jest unit testing. No prior experience required.",
+  "HackerRank Skills Certification (SQL / Problem Solving)": "HackerRank's skill-based certificate tests include SQL at Basic, Intermediate and Advanced levels, useful proof for the database layer.",
+  "AWS Certified Developer – Associate": "Validates developing, testing, deploying and debugging cloud-based applications on AWS, including CI/CD workflows. AWS recommends one or more years of hands-on experience first."
+ },
+ "cert_extra": "A timing note: AWS says registration for the updated Developer – Associate exam (DVA-C03) opens on 27 October 2026, and the last day to take the current DVA-C02 is 30 November 2026.",
+ "notfor_answer": "Full stack is not for you if you want to master one narrow area deeply first, dislike switching between very different kinds of problems, or are looking for a guaranteed job.",
+ "notfor": [
+  ["You want to go very deep in one thing.", "Full stack trades depth for breadth. A pure backend or front-end path may suit you better."],
+  ["Switching context tires you out.", "One day is CSS, the next is a database bug, the next is a failed deployment."],
+  ["You expect to know everything quickly.", "Four layers take time. Three years of steady practice is a realistic plan."],
+  ["You want a guarantee.", "This program does not promise a job, salary or exam pass."],
+  ["You prefer analysing data to building products.", "If charts and patterns excite you more than apps, look at <a href=\"/programs/data-science-ai\">Data Science and AI</a>."]
+ ],
+ "salary_answer": "Indicative ranges for software development roles in India, including full-stack work, are about ₹4 to 8 lakh a year for freshers, ₹10 to 20 lakh at 3 to 5 years, and ₹25 to 50 lakh or more at senior level.",
+ "faqs": [
+  ["How many years does it take to become a full stack developer after 10th?", "Plan for about three years of steady learning to cover all four layers and build complete products. This roadmap is 624 hours over three years. Many students also take a degree, so the full route often runs through Class 12 and college."],
+  ["Can I become a full stack developer without maths?", "Yes. Building web products relies on logic more than advanced maths. But B.Tech through JEE Main needs Physics and Mathematics in Class 12, and data structures use maths-style thinking, so keeping maths keeps more options open."],
+  ["Should I learn front end or backend first?", "In this roadmap, front end and SQL come first in year 1, because you see results quickly. Backend with Spring Boot comes in year 2, once you understand what the front end needs from it."],
+  ["Which stack does this roadmap use for full stack?", "React and TypeScript on the front end, Java with Spring Boot on the backend, SQL and NoSQL databases, and Docker, AWS and Azure for deployment."],
+  ["Is full stack harder than front-end or backend alone?", "It is wider rather than harder. You learn more areas, each to a working level. That is why the roadmap teaches the layers separately before joining them in a SaaS project."]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 reports India's tech industry at $315 billion in revenue and notes that cloud-native architecture is now widespread. For a full stack developer, that means deployment is part of the job, not something handed to another team.",
+ "sources": [
+  ["AWS Certified Developer – Associate", "https://aws.amazon.com/certification/certified-developer-associate/", "Amazon Web Services, checked 18 October 2026"],
+  ["Meta Front-End Developer Professional Certificate", "https://www.coursera.org/professional-certificates/meta-front-end-developer", "Coursera, checked 18 October 2026"],
+  ["HackerRank Skills Certification", "https://www.hackerrank.com/skills-verification", "HackerRank, checked 18 October 2026"]
+ ],
+ "related_guides": ["become-web-developer-after-10th", "ai-vs-software-vs-data-science", "become-software-engineer-after-10th"]
+}

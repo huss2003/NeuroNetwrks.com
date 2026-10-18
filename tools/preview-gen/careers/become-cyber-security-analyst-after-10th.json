@@ -1,0 +1,88 @@
+{
+ "slug": "become-cyber-security-analyst-after-10th",
+ "role": "cyber security analyst",
+ "keyword": "how to become a cyber security analyst after 10th",
+ "searches": "",
+ "program": "cybersecurity",
+ "alt_programs": ["ai-foundation", "data-science-ai"],
+ "title": "How to Become a Cyber Security Analyst After 10th (2026)",
+ "desc": "A year-by-year plan to become a cyber security analyst after Class 10: SOC skills, SIEM, Splunk, Sentinel, SC-200 and CySA+ preparation, salary.",
+ "h1": ["How to become a cyber security analyst after 10th", "a year-by-year roadmap into defence"],
+ "lead": "A plan for a Class 10 student and their parent to read together. It follows a real 624-hour, three-year cybersecurity curriculum, so each step is a module, lab or project on the defending side of security.",
+ "role_intro": "A cyber security analyst protects an organisation by watching for attacks and responding when one happens. Most start in a security operations centre (SOC), reading alerts and logs, deciding what is real, and following a playbook to contain it. It is detective work done on screens, often as part of a shift team.",
+ "in_short": [
+  "<strong>Yes, you can start after Class 10.</strong> No technical background is assumed. You begin with how computers and networks work.",
+  "<strong>This is a defence career.</strong> The daily work is logs, alerts, SIEM tools like Splunk and Microsoft Sentinel, and incident response, not breaking into systems.",
+  "<strong>Plan for about three years:</strong> foundations and a first SOC project in year 1, security operations and testing in year 2, then Splunk, Sentinel, threat hunting and SC-200 preparation in year 3."
+ ],
+ "start_answer": "Yes. You can start preparing for a cyber security analyst career right after Class 10, beginning with computers, networks and logs, long before you sit in a real security operations centre.",
+ "start_bridge": "Your Class 11 and 12 stream matters because it decides which degrees stay open. Analyst skills themselves come from practice, not from the stream.",
+ "streams": [
+  ["Science with Maths (PCM)", "B.Tech in computer science or IT through JEE Main, plus BCA and B.Sc options. The widest set of choices.", "A heavy study load. SOC labs and log practice need a fixed weekly slot."],
+  ["Commerce with Maths or Computer Science", "BCA, B.Sc IT and similar degrees at many colleges. Commerce also helps with risk and compliance work later.", "B.Tech through JEE Main needs Physics and Mathematics in Class 12, so that door closes."],
+  ["Any stream, with a clear plan for an IT degree", "Analyst skills are built in labs, so students from other streams can still build a strong SOC portfolio.", "College rules differ. Check each college's Class 12 subject requirements for BCA or B.Sc IT before you choose."]
+ ],
+ "start_extra": "Analyst work suits students who like puzzles, patterns and careful reading more than speed. If you are unsure whether you prefer defending or testing, compare this page with <a href=\"/guides/become-ethical-hacker-after-10th\">how to become an ethical hacker after 10th</a>.",
+ "roadmap_answer": "The roadmap runs in three years: year 1 builds foundations and ends with a SOC project, year 2 adds security operations, incident response and testing, and year 3 goes deep into SIEM, Splunk, Microsoft Sentinel, threat hunting and SC-200 preparation.",
+ "year_focus": [
+  "Year 1: learn the systems you will defend, then read your first logs and alerts",
+  "Year 2: handle incidents, manage vulnerabilities and understand how attackers think",
+  "Year 3: work like a SOC analyst with Splunk, Sentinel, threat hunting and cloud"
+ ],
+ "fit_note": "",
+ "skills_answer": "A cyber security analyst needs networking and operating system basics, log analysis, SIEM tools such as Splunk and Microsoft Sentinel, query writing in KQL, incident response, threat hunting and the ability to write a clear incident report.",
+ "skills": [
+  ["Networking basics", "Most alerts describe network traffic. You need to know what normal looks like.", "Year 1, months 2 and 3"],
+  ["Windows and Linux", "Analysts investigate both. Logs only make sense if you know the system behind them.", "Year 1, months 4 and 5"],
+  ["Logs and SIEM", "A SIEM collects logs from across an organisation. Reading it is the analyst's core task.", "Year 1, month 10, then all of year 3"],
+  ["Firewalls and IDS/IPS", "These raise many of the alerts an analyst triages, so you must know how they work.", "Year 1, month 11"],
+  ["Incident response", "When an attack is real, a calm, step-by-step response limits the damage.", "Year 2, month 4, deeper in year 3"],
+  ["Vulnerability management", "Finding and tracking weaknesses before they are used is part of daily defence.", "Year 2, month 5"],
+  ["Splunk", "A widely used SIEM for searching logs, building detections and dashboards.", "Year 3, month 2"],
+  ["Microsoft Sentinel and KQL", "Microsoft's cloud SIEM. KQL is the query language you use to search it.", "Year 3, month 3"],
+  ["Threat hunting with MITRE ATT&CK", "Looking for attackers who have not set off an alert yet, using a shared map of attack methods.", "Year 3, month 5"],
+  ["Digital forensics", "Working out exactly what happened after an incident, and keeping evidence intact.", "Year 3, month 7"]
+ ],
+ "build_answer": "You build a project every month, so after three years you have 36 projects, including SOC dashboards, investigation reports and detection packs that show an employer how you think through an alert.",
+ "projects": [
+  ["Mini SOC Dashboard + Brute-Force Investigation Report", "Your first real investigation: spotting repeated login attempts in logs and writing up what you found."],
+  ["Year-1 SOC Simulation Project + Portfolio Review", "A first taste of shift-style work, reviewed so you know what to improve."],
+  ["Enterprise Incident Response Exercise", "Practises the steps a team follows when an attack is confirmed."],
+  ["Splunk SOC Investigation Portfolio", "A set of Splunk investigations you can show in an interview."],
+  ["Microsoft Sentinel Detection Pack", "Detection rules written in KQL for Microsoft's cloud SIEM."],
+  ["Threat Hunting Report + ATT&CK Coverage Matrix", "Shows you can look for hidden attackers and map your coverage to MITRE ATT&CK."],
+  ["CySA+ Style Analyst Assessment", "An analyst-style assessment that mirrors the kind of work CySA+ is about."],
+  ["SC-200 End-to-End Security Operations Lab", "One lab covering triage, investigation and response in Microsoft's security tools."]
+ ],
+ "certs_answer": "Analyst certificates help show an employer you understand security operations, and this roadmap prepares for several in order, from ISC² CC in year 1 to CySA+ and SC-200 in year 3, each awarded by its own body.",
+ "cert_notes": {
+  "ISC² Certified in Cybersecurity (CC)": "An entry-level ISC2 certification that needs no work experience. Its five domains include security operations and incident response.",
+  "CompTIA CySA+": "Validates the ability to detect, analyse and respond to threats. CompTIA lists about 4 years in a SOC or vulnerability analyst role as recommended experience, so treat it as a later goal.",
+  "Microsoft Security Operations Analyst Associate (SC-200)": "An intermediate exam assessing how you manage a security operations environment, respond to incidents and hunt threats, using tools such as Microsoft Sentinel, Defender XDR and KQL."
+ },
+ "cert_extra": "Timing notes for 2026: CompTIA launched CySA+ V4 (CS0-004) on 23 June 2026, and says the English V3 exam retires on 22 December 2026. Microsoft says the English SC-200 exam will be updated on 21 October 2026. The roadmap also prepares for the Google Cybersecurity Professional Certificate and CompTIA Security+.",
+ "notfor_answer": "This path is not for you if you want constant excitement, dislike reading logs for long stretches, or expect to be breaking into systems rather than protecting them.",
+ "notfor": [
+  ["You want action every minute.", "Much of SOC work is patient checking of alerts that turn out to be harmless. Spotting the one that is real takes focus."],
+  ["You mainly want to hack.", "Analysts defend. The program teaches testing in year 2, but this career is about watching, investigating and responding."],
+  ["You cannot keep sensitive information private.", "Analysts see logs, emails and data they must never share or misuse. Trust is part of the job."],
+  ["You dislike writing.", "Every incident ends in a written case file. A clear report helps the whole team respond."],
+  ["Shift work worries you.", "Some SOC teams monitor around the clock in shifts, so an early role can mean odd hours. Ask each employer."],
+  ["You want a guarantee.", "No honest course can promise a job, salary or exam pass. This one does not, and it awards a NeuroNetworks AI Ed certificate, not a degree."]
+ ],
+ "salary_answer": "Indicative ranges for cybersecurity roles in India, such as SOC analyst and security analyst, are about ₹4 to 8 lakh a year for freshers, ₹8 to 20 lakh at 3 to 5 years, and ₹25 to 60 lakh or more for senior roles.",
+ "faqs": [
+  ["How many years does it take to become a cyber security analyst after 10th?", "Plan for about three years of steady learning, such as the 3-year, 624-hour Cybersecurity program, which is designed around entry-level roles like SOC Analyst L1. Many employers also ask for a degree, so most students build these skills alongside Class 11, 12 and college."],
+  ["Can I become a cyber security analyst without maths?", "Yes. Analyst work depends on logic, careful reading and pattern spotting rather than advanced maths, and subnetting arithmetic is taught from the basics. A B.Tech through JEE Main does need Physics and Mathematics in Class 12."],
+  ["What is a SOC, and is it where analysts start?", "A security operations centre is the team that monitors an organisation's systems for attacks. Entry-level analysts often start there at L1, triaging alerts. The program's year 1 ends with a SOC simulation project."],
+  ["Which is better for an analyst, Splunk or Microsoft Sentinel?", "Both are SIEM tools, and employers use each. The roadmap teaches Splunk and then Microsoft Sentinel with KQL in year 3, so you can show work in both."],
+  ["Does the program guarantee a job or a certification pass?", "No. The program aims at job readiness through labs, monthly projects and a portfolio, but it does not guarantee a job, internship, salary or exam pass. Certificates are awarded by their own bodies."]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 describes cybersecurity rising in importance as AI-powered threats grow. Defending against them is daily analyst work, which is why detection and threat hunting fill most of year 3.",
+ "sources": [
+  ["Microsoft Certified: Security Operations Analyst Associate (SC-200)", "https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/", "Microsoft Learn, last updated 28 July 2026, checked 18 October 2026"],
+  ["CompTIA CySA+ V4 (CS0-004)", "https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/", "CompTIA, checked 18 October 2026"],
+  ["ISC2 Certified in Cybersecurity (CC)", "https://www.isc2.org/certifications/cc", "ISC2, checked 18 October 2026"]
+ ],
+ "related_guides": ["cyber-security-course-after-10th", "become-ethical-hacker-after-10th", "become-penetration-tester-after-10th"]
+}

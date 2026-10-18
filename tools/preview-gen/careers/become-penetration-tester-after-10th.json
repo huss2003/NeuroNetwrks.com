@@ -1,0 +1,85 @@
+{
+ "slug": "become-penetration-tester-after-10th",
+ "role": "penetration tester",
+ "keyword": "how to become a penetration tester after 10th",
+ "searches": "",
+ "program": "cybersecurity",
+ "alt_programs": ["software-development", "ai-foundation"],
+ "title": "How to Become a Penetration Tester After 10th (2026)",
+ "desc": "A year-by-year plan to become a penetration tester after Class 10: web app, network and Active Directory testing, reports, CEH v13 prep and salary.",
+ "h1": ["How to become a penetration tester after 10th", "a roadmap to structured, authorised testing"],
+ "lead": "A plan for a Class 10 student and their parent to read together. It maps the penetration testing part of a real 624-hour, three-year cybersecurity curriculum, and is honest about what comes before it and what the program does not cover.",
+ "role_intro": "A penetration tester runs a formal, time-boxed security test for a client. The client signs off a written scope, the tester works through web applications, networks or Active Directory using a set method, and then delivers a report that ranks each finding and explains the fix. It is a specialist job inside ethical hacking, built on process and paperwork as much as skill.",
+ "in_short": [
+  "<strong>Yes, you can start after Class 10,</strong> but penetration testing sits on top of networking, Linux, Windows and defence, so those come first.",
+  "<strong>Every test is authorised in writing and limited to an agreed scope.</strong> Testing anything outside that scope, or without the owner's permission, is illegal in India.",
+  "<strong>The testing core is year 2:</strong> vulnerability assessment, web application testing, network testing, Active Directory testing and report writing, with CEH v13 preparation alongside."
+ ],
+ "start_answer": "Yes. You can start working towards penetration testing after Class 10, but expect to spend your first year on networks, operating systems and defence before you run a structured test in an authorised lab.",
+ "start_bridge": "Penetration testing is usually a second step, not a first job, so your stream choice should keep a technical degree open. Here are the realistic options.",
+ "streams": [
+  ["Science with Maths (PCM)", "B.Tech in computer science through JEE Main, which builds programming and networking depth testers use.", "Time pressure. Board and entrance work leave little room, so keep lab practice short and regular."],
+  ["Diploma in computer engineering or IT", "Practical networking and systems work early, close to what a tester probes every day.", "Moving into a degree later depends on state and college rules. Check them first."],
+  ["Commerce or Arts with Computer Science or IP", "BCA or B.Sc IT at many colleges, with a portfolio of test reports alongside.", "B.Tech through JEE Main needs Physics and Mathematics in Class 12, so that route closes."]
+ ],
+ "start_extra": "Many testers begin in a SOC or vulnerability management role and move into testing later. If you are still deciding between attack and defence, read <a href=\"/guides/become-ethical-hacker-after-10th\">how to become an ethical hacker after 10th</a> first, then come back.",
+ "roadmap_answer": "The roadmap runs in three years: year 1 builds the systems knowledge testers rely on, year 2 holds the full testing cycle from vulnerability assessment to Active Directory and reporting, and year 3 adds defence, cloud and a portfolio.",
+ "year_focus": [
+  "Year 1: learn the networks and systems you will one day test",
+  "Year 2: run structured, authorised tests and write professional reports",
+  "Year 3: learn how defenders catch testers, add cloud, and build a portfolio"
+ ],
+ "fit_note": "Be clear about scope. Penetration testing fills the second half of year 2. Year 3 is mostly defence, SOC work and cloud security, which helps a tester understand detection but is not more offensive training. The program does not cover mobile app, hardware or IoT testing, and it does not prepare for testing-specific certificates beyond CEH v13.",
+ "skills_answer": "A penetration tester needs strong networking, Windows and Linux skills, a repeatable test method, web application, network and Active Directory testing, privilege escalation, and the ability to write a report a client can act on.",
+ "skills": [
+  ["Scoping and rules of engagement", "Every test starts with written permission and limits. Working outside them is illegal.", "Year 2, in every authorised test"],
+  ["Subnetting and network design", "You cannot test a network you cannot map.", "Year 1, month 3"],
+  ["Windows and PowerShell", "Most company networks run on Windows and Active Directory.", "Year 1, months 5 and 9"],
+  ["Vulnerability assessment", "Finding and rating known weaknesses is the first layer of any test.", "Year 2, months 1 and 5"],
+  ["Web application testing", "Websites and web apps are some of the most commonly tested targets.", "Year 2, month 7"],
+  ["Network penetration testing", "Testing what an attacker inside the office network could reach.", "Year 2, month 8"],
+  ["Active Directory testing", "Active Directory controls users and access in most companies, so its attack paths matter.", "Year 2, month 9"],
+  ["Exploitation and privilege escalation", "Shows how serious a weakness really is, under controlled lab conditions.", "Year 2, month 10"],
+  ["Report writing and risk ranking", "The report is the deliverable. It must rank findings and explain fixes clearly.", "Year 2, month 11"]
+ ],
+ "build_answer": "You build a project every month, and the year 2 projects are written like real test deliverables, so you finish with professional-style reports for web, network and Active Directory testing, not just screenshots.",
+ "projects": [
+  ["Small Business Network Design + Subnetting Workbook + Troubleshooting Report", "Teaches you to read a network map, the starting point of any network test."],
+  ["Windows Security Baseline + PowerShell Audit Script", "You learn what a secure Windows setup looks like, so you can spot one that is not."],
+  ["Vulnerability Assessment Report v1", "Your first formal report: findings, ratings and fixes."],
+  ["Web Application Security Assessment", "A structured test of a web app in a lab, written up for a client."],
+  ["Internal Network Penetration Test Report", "A full internal network test with a professional-style report."],
+  ["Active Directory Attack-Path & Hardening Project", "Maps how an attacker could move through Active Directory, then shows how to close those paths."],
+  ["End-to-End Ethical Hacking Assessment", "One complete engagement, from scope to final report."],
+  ["Cloud Security Baseline Assessment", "Extends your checking skills to cloud accounts, where more systems now live."]
+ ],
+ "certs_answer": "Certificates help a junior tester get past early screening, and this roadmap prepares for CompTIA Security+ and then CEH v13 in year 2, but each is awarded by its own body after its own exam.",
+ "cert_notes": {
+  "CompTIA Security+": "CompTIA describes it as building and validating the practical skills needed for core security functions. Most testers are expected to know this ground first.",
+  "CEH v13": "EC-Council's knowledge exam is 4 hours with 125 multiple-choice questions. An optional 6-hour practical exam with 20 challenges on its cyber range leads to CEH Master, which suits hands-on testers."
+ },
+ "cert_extra": "A timing note for 2026: CompTIA says Security+ V8 is expected to launch on or around 17 November 2026, with more coverage of AI-related risks and security operations. EC-Council recommends about 2 years of IT security experience, or its official training, before CEH.",
+ "notfor_answer": "This path is not for you if you dislike paperwork and procedure, cannot stay inside agreed limits, or expect to start testing companies straight after Class 12.",
+ "notfor": [
+  ["You find rules and scope frustrating.", "A tester must stop at the agreed limits, even when an interesting target is just outside them. Crossing them is illegal in India."],
+  ["You dislike writing long reports.", "A test can take days, and the report can take almost as long. Clients judge you by it."],
+  ["You expect to start as a tester.", "Testing is often a later step, after time in IT, a SOC or vulnerability management. Patience is part of the plan."],
+  ["You give up when nothing works.", "Many tests find little for hours. Methodical persistence matters more than clever tricks."],
+  ["You need a guarantee.", "No honest course can promise a job, salary or CEH pass. This one does not, and it awards a NeuroNetworks AI Ed certificate, not a degree."]
+ ],
+ "salary_answer": "Indicative ranges for cybersecurity roles in India, including junior penetration tester, are about ₹4 to 8 lakh a year for freshers, ₹8 to 20 lakh at 3 to 5 years, and ₹25 to 60 lakh or more for senior roles.",
+ "faqs": [
+  ["How many years does it take to become a penetration tester after 10th?", "Plan for about three years of steady learning, such as the 3-year, 624-hour Cybersecurity program, where structured testing is taught in year 2. Many people then work in IT or security for a while before a testing role, and many employers also ask for a degree."],
+  ["Can I become a penetration tester without maths?", "Yes. Most testing relies on networking, operating systems and logical thinking, and the subnetting arithmetic you need is taught from scratch. A B.Tech through JEE Main does need Physics and Mathematics in Class 12."],
+  ["What is the difference between a penetration tester and an ethical hacker?", "Ethical hacker is the broad term for anyone who tests security with permission. A penetration tester does formal, scoped engagements for clients, follows a set method, and delivers a written report with ranked findings."],
+  ["What does a penetration test report contain?", "In the program's year 2 projects, a report sets out what was in scope, each weakness found, how serious it is, and how to fix it, written so a client can act on it."],
+  ["Is penetration testing legal in India?", "Yes, when the owner has given written permission and you stay inside the agreed scope. Accessing a computer without the owner's permission is covered by Section 43 of the IT Act, 2000."]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 notes cybersecurity rising in importance as AI-powered threats grow. Regular, authorised testing is one way organisations check their defences hold up.",
+ "sources": [
+  ["Certified Ethical Hacker (CEH v13)", "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/", "EC-Council, checked 18 October 2026"],
+  ["CompTIA Security+", "https://www.comptia.org/en-us/certifications/security/", "CompTIA, checked 18 October 2026"],
+  ["Section 43, Information Technology Act, 2000", "https://indiankanoon.org/doc/39800/", "Indian Kanoon, checked 18 October 2026"]
+ ],
+ "related_guides": ["cyber-security-course-after-10th", "become-ethical-hacker-after-10th", "become-cyber-security-analyst-after-10th"]
+}

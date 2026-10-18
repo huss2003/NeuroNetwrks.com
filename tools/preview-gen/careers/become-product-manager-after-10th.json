@@ -1,0 +1,83 @@
+{
+ "slug": "become-product-manager-after-10th",
+ "role": "product manager",
+ "keyword": "how to become a product manager after 10th",
+ "searches": "",
+ "program": "product-ux-ai-design",
+ "alt_programs": ["software-development", "data-science-ai"],
+ "title": "How to Become a Product Manager After 10th (2026)",
+ "desc": "An honest plan to become a product manager after Class 10. The usual route into PM, skills to build early, projects, certificates and salary.",
+ "h1": ["How to become a product manager after 10th", "an honest, long-term plan"],
+ "lead": "A plan for a Class 10 student and their parent to read together. Product management is rarely a first job. This page shows what you can build now from a real 624-hour curriculum, and how people usually move into the role.",
+ "role_intro": "A product manager decides what a product team builds next and why. They study users and the market, write requirements, set priorities and plan a roadmap. They keep designers, engineers and business teams moving in one direction. They usually do not design screens or write code themselves.",
+ "in_short": [
+  "<strong>You can start building PM skills after Class 10,</strong> but product manager is rarely a first job. Most people move into it after experience.",
+  "<strong>The usual route runs through another role first:</strong> design, engineering or analysis, then a move into product management.",
+  "<strong>Design and research make a strong starting point.</strong> They teach you to understand users, which is the heart of product work."
+ ],
+ "start_answer": "You can start learning product management skills after Class 10, but most product managers get the job title only after a few years in design, engineering or analysis, so treat this as a long-term plan.",
+ "start_bridge": "Because PM usually comes later, your stream should keep open the role you will start in. Here is how each choice affects that first step.",
+ "streams": [
+  ["Science with Maths (PCM)", "B.Tech or BCA, then a start as an engineer or analyst. A common route into technical product roles.", "The longest study path. PM skills have to fit around entrance preparation."],
+  ["Commerce with Mathematics", "BBA, B.Com or economics, then a start in analysis or business roles before moving into product.", "B.Tech through JEE Main needs Physics and Mathematics, so engineering routes close."],
+  ["Humanities or Arts", "Design, psychology or communication degrees, then a start in UX design or research.", "You will need to build comfort with metrics and data on your own."]
+ ],
+ "start_extra": "Many product managers also complete a degree, and some later study business. Design is one common route into product management. If it appeals as a first role, read our <a href=\"/guides/become-product-designer-after-10th\">product designer after 10th guide</a>.",
+ "roadmap_answer": "In this roadmap, year 1 builds UX and research skills for a first role, year 2 holds the core product modules, including Google Project Management and Microsoft AI Product Manager preparation, and year 3 adds analytics and AI product strategy.",
+ "year_focus": [
+  "Year 1: understand users through UX, research and prototypes",
+  "Year 2: learn product fundamentals, agile planning, roadmaps, metrics and AI products",
+  "Year 3: product analytics, experimentation and AI product strategy"
+ ],
+ "fit_note": "Be realistic: product manager roles are rarely a first job straight out of school or college. Most people move into PM after experience in design, engineering or analysis. This program builds the design and UX route plus product skills. It suits a student who starts in UX and grows into product. It does not teach coding or data science.",
+ "skills_answer": "A product manager needs user understanding, product discovery, clear requirements writing, prioritisation, agile planning, roadmaps, metrics, experimentation, AI product judgement and strong communication with designers, engineers and business teams.",
+ "skills": [
+  ["User research", "Every product decision should start from a real user problem.", "Year 1"],
+  ["Product fundamentals", "What a product team does and how decisions get made.", "Year 2, first module"],
+  ["Product discovery", "Testing whether a problem is worth solving before building.", "Year 2"],
+  ["Writing requirements", "Turns an idea into something a team can build.", "Year 2"],
+  ["Agile and project planning", "How teams plan work in short cycles and deliver on time.", "Year 2"],
+  ["Roadmaps and metrics", "Decides what comes next and how success is measured.", "Year 2"],
+  ["AI product management", "Deciding when AI helps a product and how to judge its quality.", "Year 2, two modules"],
+  ["Product analytics and experimentation", "Uses data to check whether a launch worked.", "Year 3"],
+  ["Product strategy", "Connects many decisions into one long-term direction.", "Year 3"]
+ ],
+ "build_answer": "You build one project every month, and the ones that matter most for future product managers are the briefs, requirements, roadmaps, launch plans and strategy cases from years 2 and 3.",
+ "projects": [
+  ["Product brief + requirements", "Your first written plan that a team could actually build from."],
+  ["Agile product simulation", "Practice running work in sprints, as most product teams do."],
+  ["Product roadmap + KPI plan", "What to build in which order, and how you will measure it."],
+  ["AI product requirements document", "Requirements for a product that uses AI, including its limits."],
+  ["AI product launch plan", "Planning how a product reaches users, not just how it is built."],
+  ["Experimentation case study", "Using a test to decide, instead of opinion."],
+  ["AI product strategy portfolio", "Shows long-term product thinking to a future employer."]
+ ],
+ "certs_answer": "The Google Project Management and Microsoft AI Product Manager certificates in year 2 can show early product interest, but each is awarded by its provider, and they cannot replace the work experience most PM roles ask for.",
+ "cert_notes": {
+  "Google Project Management Professional Certificate": "A 7-course beginner series on Coursera, including agile project management with Scrum. Note that it covers project management, which is about delivering work on time, not product management. Google says no experience or degree is required.",
+  "Microsoft AI Product Manager Professional Certificate": "A 5-course beginner series on Coursera. Its listed skills include market research, competitive analysis, product roadmaps, product strategy, user stories and generative AI."
+ },
+ "cert_extra": "Google also says its project management certificate counts towards education hours that help prepare for the Project Management Institute's CAPM certification.",
+ "notfor_answer": "This path is not for you if you want a product manager title straight after school, dislike making decisions others may disagree with, or want to spend your day making things with your own hands.",
+ "notfor": [
+  ["You want to be a PM straight after school.", "That is rare. Expect to start in design, engineering or analysis and move later."],
+  ["You avoid hard decisions.", "Product managers say no to many good ideas and explain why."],
+  ["You want to design or code all day.", "PMs mostly write, plan and talk. Look at <a href=\"/guides/ui-ux-designer-after-10th\">UI/UX design</a> or the <a href=\"/programs/software-development\">Software Development program</a>."],
+  ["You expect a guaranteed job.", "No honest course can promise a job, salary or exam pass, and this one does not."],
+  ["You dislike writing and meetings.", "Clear documents and calm discussions are most of the job."]
+ ],
+ "salary_answer": "The program's indicative ranges for product and UX roles in India are about ₹4 to 8 lakh a year for freshers, ₹10 to 22 lakh at 3 to 5 years, and ₹25 to 50 lakh or more at senior level.",
+ "faqs": [
+  ["How many years does it take to become a product manager after 10th?", "Longer than most roles. Skills can be built in about three years, such as the 3-year, 624-hour Product & UX / AI Design program. But most people become product managers only after Class 12, a degree and a few years in design, engineering or analysis."],
+  ["Can I become a product manager without maths?", "Yes. Product managers need comfort with simple metrics, percentages and charts, not advanced maths. Keeping Mathematics does keep more first roles open, such as engineering, which needs Physics and Mathematics in Class 12 for JEE Main."],
+  ["Can I get a product manager job right after college?", "Some companies hire associate product managers from college, but these roles are few. Most product managers first work as designers, engineers or analysts, then move into product."],
+  ["Is project management the same as product management?", "No. Project management is about delivering agreed work on time. Product management is about deciding what should be built and why. Good product managers use both, which is why year 2 includes Google Project Management preparation."],
+  ["Which first job leads best to product management?", "There is no single route. Design and UX research teach you about users, engineering teaches how products are built, and analysis teaches you to read data. This program follows the design and UX route."]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 describes AI moving from optional to core infrastructure in India's tech industry. That is why two year 2 modules prepare for the Microsoft AI Product Manager certificate.",
+ "sources": [
+  ["Google Project Management Professional Certificate", "https://www.coursera.org/professional-certificates/google-project-management", "Coursera, checked 18 October 2026"],
+  ["Microsoft AI Product Manager Professional Certificate", "https://www.coursera.org/professional-certificates/microsoft-ai-product-manager", "Coursera, checked 18 October 2026"]
+ ],
+ "related_guides": ["become-product-designer-after-10th", "career-options-after-10th", "ui-ux-designer-after-10th"]
+}

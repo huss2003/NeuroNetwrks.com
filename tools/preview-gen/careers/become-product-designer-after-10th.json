@@ -1,0 +1,82 @@
+{
+ "slug": "become-product-designer-after-10th",
+ "role": "product designer",
+ "keyword": "how to become a product designer after 10th",
+ "searches": "",
+ "program": "product-ux-ai-design",
+ "alt_programs": ["ai-foundation", "ai-ml-engineering"],
+ "title": "How to Become a Product Designer After 10th (2026)",
+ "desc": "Become a product designer after Class 10: product thinking, design systems and AI product design. A 3-year plan, projects and salary ranges.",
+ "h1": ["How to become a product designer after 10th", "from screens to whole products"],
+ "lead": "A plan for a Class 10 student and their parent to read together. It follows a real 624-hour, three-year curriculum. It shows how a student grows from single screens to whole products, including ones that use AI.",
+ "role_intro": "A product designer owns how a whole product works, not just how one screen looks. They help decide which problem to solve and design the full experience. They keep it consistent with a design system and check with data whether it worked.",
+ "in_short": [
+  "<strong>Yes, you can start after Class 10.</strong> The first year builds UI and UX basics, which every product designer needs first.",
+  "<strong>The difference shows in years 2 and 3:</strong> product discovery, roadmaps, metrics, design systems and AI product design.",
+  "<strong>Product designers think like owners.</strong> They ask \"should we build this?\" before \"how should it look?\""
+ ],
+ "start_answer": "Yes. You can start working towards product design right after Class 10, because the program begins with UI and UX basics and assumes no design background, then moves to whole-product thinking in year 2.",
+ "start_bridge": "Product design mixes design, business and technology, so more than one stream works. Each choice tilts your strengths in a different direction.",
+ "streams": [
+  ["Science with Maths (PCM)", "B.Tech, BCA or B.Sc. Useful for AI products, where designers work closely with engineers.", "Entrance preparation can crowd out design practice. Protect a few hours each week."],
+  ["Commerce with Mathematics", "BBA, B.Com and business degrees. Helps with metrics, pricing logic and product strategy later.", "B.Tech through JEE Main needs Physics and Mathematics, so that route closes."],
+  ["Humanities or Arts", "Design, psychology and communication degrees. Strong for research and visual craft.", "Product analytics in year 3 uses numbers. Keep some comfort with basic data."]
+ ],
+ "start_extra": "Product designer is often a step up from UI/UX designer. If you mainly want to design screens and research users, read our <a href=\"/guides/ui-ux-designer-after-10th\">UI/UX designer after 10th guide</a>. This page is for students who also want to shape what gets built.",
+ "roadmap_answer": "The roadmap builds a product designer in three steps: year 1 teaches UI and UX craft, year 2 adds product discovery, roadmaps and design systems, and year 3 adds complex products, AI design systems and experimentation.",
+ "year_focus": [
+  "Year 1: learn the UI and UX craft every product designer stands on",
+  "Year 2: think in products, systems and AI features, not single screens",
+  "Year 3: design complex and AI products end to end, then measure them"
+ ],
+ "fit_note": "The program's published tools list names only GitHub, so this page does not promise training in any particular design software. Ask on enquiry which tools the classes use. The program teaches product analytics and experimentation, but not coding, so it does not prepare you to build the product yourself.",
+ "skills_answer": "A product designer needs UX and UI craft, product discovery, problem framing, design systems, prototyping, product metrics, experimentation, AI product patterns and the confidence to explain design decisions to engineers and business teams.",
+ "skills": [
+  ["UX and UI craft", "The base skill. Without it, product ideas never become usable screens.", "Year 1"],
+  ["Product discovery", "Finds which problem is worth solving before anyone designs.", "Year 2"],
+  ["Roadmaps and metrics", "Ties design choices to goals a team can measure.", "Year 2"],
+  ["Design systems", "Shared components that keep a large product consistent.", "Year 2, two modules"],
+  ["AI UX patterns", "How people should use AI features like assistants and suggestions.", "Year 2"],
+  ["AI prototyping", "Tests an AI idea quickly before engineers build it.", "Year 2"],
+  ["Complex product design", "Designs dashboards and tools with many users and rules.", "Year 3"],
+  ["Product analytics and experimentation", "Checks with data whether a design change helped.", "Year 3"],
+  ["AI design systems", "Extends a design system to cover AI behaviour and states.", "Year 3"]
+ ],
+ "build_answer": "You finish one project every month, and for a product designer the key pieces are discovery work, two design systems, AI prototypes and end-to-end product cases that show your thinking, not just your screens.",
+ "projects": [
+  ["Research-to-insight case study", "Shows you can turn raw research into a product decision."],
+  ["Product discovery case study", "Picking the right problem, the first job of a product designer."],
+  ["Mini design system", "Your first set of reusable parts with clear rules."],
+  ["Production-style design system", "A larger system, closer to what real product teams maintain."],
+  ["AI assistant UX prototype", "Designing how people talk to and trust an AI feature."],
+  ["Enterprise product prototype", "A complex tool with many users, roles and edge cases."],
+  ["End-to-end AI product case", "One product designed from problem to tested solution."],
+  ["Flagship AI product design capstone", "Your strongest portfolio piece, built over the final stage."]
+ ],
+ "certs_answer": "For product designers, the NN/g UX Certification in year 3 is the most advanced one in this roadmap, but like every external certificate it is awarded by its provider, and a strong product portfolio still matters most.",
+ "cert_notes": {
+  "NN/g UX Certification": "Nielsen Norman Group awards it after you pass 5 of its courses and their exams. It offers specialties including Artificial Intelligence, Interaction Design, Research and Management, and the certificate does not expire."
+ },
+ "cert_extra": "The roadmap also prepares for the IxDF, Google UX and CalArts certificates in year 1. Microsoft AI Product Manager in year 2 suits designers of AI products.",
+ "notfor_answer": "This path is not for you if you only want to make screens look beautiful, avoid numbers completely, or dislike debating ideas with a team, because product designers are judged on whether the product works.",
+ "notfor": [
+  ["You only want to polish visuals.", "Product design spends as much time on problems and flows as on looks. Visual or graphic design may suit you better."],
+  ["Numbers make you uneasy.", "Metrics and experiments in years 2 and 3 decide whether a design succeeded."],
+  ["You want to build the product in code.", "This program does not teach coding. The <a href=\"/programs/software-development\">Software Development program</a> does."],
+  ["You expect a guaranteed job.", "No honest course can promise a job, salary or exam pass, and this one does not."],
+  ["You want a quick course.", "Product design builds on UI and UX first. Plan for 4 hours a week for three years."]
+ ],
+ "salary_answer": "Indicative ranges for product and UX roles in India are about ₹4 to 8 lakh a year for freshers, ₹10 to 22 lakh at 3 to 5 years, and ₹25 to 50 lakh or more for senior designers.",
+ "faqs": [
+  ["How many years does it take to become a product designer after 10th?", "Plan for about three years of skill building, such as the 3-year, 624-hour Product & UX / AI Design program. Many people start as UI/UX designers and grow into product design with experience, and some employers also ask for a degree."],
+  ["Can I become a product designer without maths?", "Yes, for the design work itself. You do need comfort with basic numbers, because product designers read metrics and run experiments. A B.Tech through JEE Main needs Physics and Mathematics in Class 12."],
+  ["What is the difference between a product designer and a UI/UX designer?", "A UI/UX designer focuses on research, flows and screens. A product designer also helps decide what to build, keeps the product consistent through design systems, and measures results. Many product designers start in UI/UX roles."],
+  ["What is AI product design?", "It is designing products that use AI, such as assistants or smart suggestions. The designer decides how users ask, how the AI answers and how users can trust or correct it. The roadmap covers it from year 2."],
+  ["Will I learn to code as a product designer?", "No. The program covers GitHub for your portfolio but does not teach programming. Product designers work closely with engineers, so understanding how products are built helps, even without coding."]
+ ],
+ "context_fact": "Nasscom's Strategic Review 2026 describes AI moving from optional to core infrastructure in India's tech industry. When AI sits inside everyday products, someone must design how people use and trust it. That is why AI product design runs through years 2 and 3.",
+ "sources": [
+  ["NN/g UX Certification", "https://www.nngroup.com/ux-certification/", "Nielsen Norman Group, checked 18 October 2026"]
+ ],
+ "related_guides": ["ui-ux-designer-after-10th", "become-product-manager-after-10th", "ai-courses-after-10th"]
+}
