@@ -1,5 +1,7 @@
 # CLAUDE.md: NeuroNetworks AI Ed website (neuronetwrks.com)
 
+> **Project memory:** say "load Neuronetworks website memory" → read `memory/neuronetworks-website-memory/INDEX.md` first (≈1.2k tokens), open chunks only as needed.
+
 Read this file at the start of every session. Rules here beat your defaults. If a rule blocks the task, say so and ask; do not silently work around it.
 
 ## What this project is
