@@ -67,7 +67,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 
 - Under each H2, first sentence answers the heading directly in 40–60 words (answer-first). Use definition lists and tables for facts.
 - FAQ blocks are visible on the page and marked up with `FAQPage` (helps AI answers; Google no longer shows FAQ rich results).
-- Entity consistency: "Neuronetworks AI Ed" everywhere (owner spelling, 19 Oct 2026); `alternateName` includes "NeuroNetworks AI Ed", "NeuroNetworks", "Neuronetworks", "neuronetwrks". AI Foundation: Class 9, 6 months, 104 h at 4 h a week.
+- Entity consistency: "Neuronetworks AI Ed" everywhere (owner spelling, 19 Oct 2026); `alternateName` includes "NeuroNetworks AI Ed", "NeuroNetworks", "Neuronetworks", "neuronetwrks". All programs open from Class 9. AI Foundation: 104 h over 52 weeks at 2 h a week (or 26 weeks at 4 h). Program 5 is "Product and UX/UI Design" (slug unchanged).
 - Allow AI search bots in `robots.txt`; training-bot policy is the owner's decision (see `docs/PLAN.md` section 8). `llms.txt` is generated at build; treat it as optional.
 - Blog posts: real named author, date, `dateModified`, TL;DR, sources, FAQ, internal links to at least 2 program pages. Future `pubDate` posts are excluded from the build until their date (daily rebuild publishes them).
 

@@ -35,10 +35,10 @@ def c_program_note(c):
     s, d = c["program"], D[c["program"]]
     link = f'<a href="/programs/{s}">{E(c_prog_name(s))} program</a>'
     if s == "ai-foundation":
-        return (f"If you want to follow this roadmap with a mentor and a project most months, the six-month {link} covers it: 104 hours, online, "
-                f"4 hours a week. It is open from Class 9, and no coding experience is needed. Students receive a Neuronetworks AI Ed certificate on completion.")
+        return (f"If you want to follow this roadmap with a mentor and a project most months, the one-year {link} covers it: 104 hours, online, "
+                f"2 hours a week (or 26 weeks at 4 hours a week). It is open from Class 9, and no coding experience is needed. Students receive a Neuronetworks AI Ed certificate on completion.")
     return (f"If you want to follow this roadmap with a mentor and a project every month, the 3-year {link} covers these three years: 624 hours, online, "
-            f"4 hours a week, with a 1-hour exam after each of the 36 monthly modules. It is open to anyone who has passed Class 10"
+            f"4 hours a week, with a 1-hour exam after each of the 36 monthly modules. It is open to anyone from Class 9 onwards"
             f"{' (' + E(c_clean(d['entry'].split(';', 1)[1].strip())) + ')' if ';' in d['entry'] else ''}. Students receive a Neuronetworks AI Ed certificate on completion.")
 
 def c_years(c):
@@ -50,14 +50,14 @@ def c_years(c):
         projs = d["projects"][i * 12:(i + 1) * 12] if len(d["years"]) > 1 else d["projects"]
         mine = [p for p in projs if p in picks] or projs[:3]
         chips = "".join(f"<li>{E(c_clean(m))}</li>" for m in y["modules"])
-        out += (f'<section class="cr-year" aria-labelledby="cy{i+1}"><p class="cr-yhead"><strong>{"Year " + str(i+1) if len(d["years"]) > 1 else "6 months"}</strong>'
+        out += (f'<section class="cr-year" aria-labelledby="cy{i+1}"><p class="cr-yhead"><strong>{"Year " + str(i+1) if len(d["years"]) > 1 else "1 year"}</strong>'
                 f'{y["hours"]} hours · {len(y["modules"])} modules</p><div><h3 id="cy{i+1}">{E(focus)}</h3><ul class="cr-chips">{chips}</ul>'
                 f'<p class="cr-builds"><b>You build:</b> {g_join([c_clean(p) for p in mine])}.</p></div></section>')
     return f'<div class="cr-road">{out}</div>'
 
 def c_beats(c):
     if c["program"] == "ai-foundation":
-        steps = [("Lecture", "1 hour"), ("Homework", "10 to 15 minutes"), ("Project", "Most modules"), ("Unit exam", "30 questions"), ("Capstone", "Final module")]
+        steps = [("Lecture", "1 hour"), ("Homework", "10 to 15 minutes"), ("Project", "Most months"), ("Unit exam", "30 questions"), ("Capstone", "Month 12")]
     else:
         steps = [("Step 1", "Theory"), ("Step 2", "Demonstration"), ("Step 3", "Hands-on lab"), ("Step 4", "A project"), ("Step 5", "A 1-hour exam")]
     return '<ol class="cr-beats" aria-label="How each month works">' + "".join(f"<li><span>{a}</span>{b}</li>" for a, b in steps) + "</ol>"
@@ -90,7 +90,7 @@ def career_page(slug):
         + f"<p>{E(JEE_LINE)}</p><p>{c['start_extra']}</p>"))
     # 2 roadmap + program + talk box
     fit = f'<p class="cr-fit"><b>What this program does not cover:</b> {c["fit_note"]}</p>' if c.get("fit_note") else ""
-    yrs = "three years" if len(d["years"]) > 1 else "six months"
+    yrs = "three years" if len(d["years"]) > 1 else "one year"
     secs.append((f"What is the {'year-by-year' if len(d['years']) > 1 else 'step-by-step'} roadmap to become {a} {role}?",
         f'<p class="cr-answer">{E(c["roadmap_answer"])}</p><p>Each {"year is 208 hours, split into 12 monthly modules. Every month follows the same five steps, so a student always knows what comes next." if len(d["years"]) > 1 else "month has weekly lectures with short homework, and every major unit ends with an exam."}</p>'
         + c_beats(c) + c_years(c) + f'<p class="cr-prog">{c_program_note(c)}</p>' + fit

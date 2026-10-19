@@ -1,14 +1,14 @@
 # Neuronetworks AI Ed: full program reference
 
-> Practical AI and technology programs for students who have passed Class 10, from a six-month AI Foundation course to three-year specialisations. Tagline: Learn · Develop · Create. Website: https://neuronetwrks.com. Contact: Hussain@neuronetwrks.com. Fees are shared on enquiry.
+> Practical AI and technology programs for students from Class 9 onwards, from a one-year AI Foundation course to three-year specialisations. Tagline: Learn · Develop · Create. Website: https://neuronetwrks.com. Contact: Hussain@neuronetwrks.com. Fees are shared on enquiry.
 
-## AI Foundation (6 months, 104 hours, 4 hours a week)
+## AI Foundation (1 year, 104 hours, 2 hours a week)
 URL: https://neuronetwrks.com/programs/ai-foundation
 
-AI Foundation is a six-month, 104-hour course open to students from Class 9, with no prior coding needed. It moves from AI basics and responsible use to real Python, data handling with Pandas, NumPy and Matplotlib, machine learning, computer vision and NLP, generative AI and LLMs, prompt and context engineering, retrieval-augmented generation (RAG), Python AI APIs and agents, and building, testing and deploying a complete AI application. The final month covers Microsoft AI-901 and AWS AIF-C01 exam preparation and a capstone project published to GitHub, without promising an exam pass.
+AI Foundation is a one-year, 104-hour course (or six months at 4 hours a week) open to students from Class 9, with no prior coding needed. It moves from AI basics and responsible use to real Python, data handling with Pandas, NumPy and Matplotlib, machine learning, computer vision and NLP, generative AI and LLMs, prompt and context engineering, retrieval-augmented generation (RAG), Python AI APIs and agents, and building, testing and deploying a complete AI application. The final month covers Microsoft AI-901 and AWS AIF-C01 exam preparation and a capstone project published to GitHub, without promising an exam pass.
 
 Entry: Class 9 and above; no prior coding, AI or cloud experience required.
-Assessment: 104 one-hour lectures, each with 10 to 15 minutes of homework. A 30-question unit exam closes every major unit, with mandatory practicals in Module 4 (Python and Pandas data cleaning) and Module 5 (an end-to-end ML practical). Both certification tracks end in a full-length mock exam, and the course closes with a capstone presentation and practical assessment.
+Assessment: 104 one-hour lectures, each with 10 to 15 minutes of homework. A 30-question unit exam closes every major unit, with mandatory practicals in Month 4 (Python and Pandas data cleaning) and Month 5 (an end-to-end ML practical). Both certification tracks end in a full-length mock exam, and the course closes with a capstone presentation and practical assessment.
 
 - Year 1 (104 hours): AI Foundations & How Modern AI Works (4 h); AI Tools, Safety, Ethics & Responsible AI (4 h); Python Programming Fundamentals I (10 h); Python Programming Fundamentals II & Data Science (8 h); Machine Learning Fundamentals with Python (10 h); Computer Vision, NLP & Multimodal AI (6 h); Generative AI, LLMs & Foundation Models (8 h); Prompt Engineering & AI Evaluation (7 h); Context Engineering, Embeddings & RAG (8 h); Python AI APIs, Agents & Automation (9 h); AI Application Development, Testing & Deployment (12 h); Cloud AI, Final Capstone & Graduation (18 h)
 
@@ -22,18 +22,18 @@ Completion: students receive a Neuronetworks AI Ed certificate on completing the
 
 FAQs:
 - Q: Who is the AI Foundation course for? A: It is open to students from Class 9 upwards, with no prior coding, AI or cloud experience. Students should be able to read simple English instructions, use a browser and manage files.
-- Q: How long is the course? A: It is 104 one-hour lectures over 26 weeks (six months), at 4 hours a week. Modules 1 to 11 are core learning (86 hours). The final module has 18 hours: 6 for Microsoft AI-901 preparation, 6 for AWS AIF-C01 preparation and 6 for the final capstone and graduation.
+- Q: How long is the course? A: It is 104 one-hour lectures over 52 weeks, at 2 hours a week. Students who study 4 hours a week can finish in 26 weeks (six months). Months 1 to 11 are core learning (86 hours). Month 12 has 18 hours: 6 for Microsoft AI-901 preparation, 6 for AWS AIF-C01 preparation and 6 for the final capstone and graduation.
 - Q: Will I be certified, and does the course guarantee a pass? A: Students receive a Neuronetworks AI Ed certificate on completing the course. It also prepares students for two optional external exams, Microsoft AI-901 and AWS AIF-C01, but does not guarantee passing; those certifications are awarded by Microsoft or AWS after their exams.
-- Q: What will I build? A: A project in almost every module: a data-cleaning mini-project, an ML mini-project, a small generative AI app, a prompt evaluation benchmark, a RAG knowledge assistant, an AI workflow or agent, a complete tested and deployed AI application, and a final capstone published to GitHub.
-- Q: Does this make me an AI/ML engineer? A: No. It is a project-based foundation in AI and Python. Students who want depth can continue to a three-year specialisation such as AI/ML Engineering after Class 10.
+- Q: What will I build? A: A project most months: a data-cleaning mini-project, an ML mini-project, a small generative AI app, a prompt evaluation benchmark, a RAG knowledge assistant, an AI workflow or agent, a complete tested and deployed AI application, and a final capstone published to GitHub.
+- Q: Does this make me an AI/ML engineer? A: No. It is a project-based foundation in AI and Python. Students who want depth can continue to a three-year specialisation such as AI/ML Engineering.
 - Q: What do I need to take part? A: A laptop or desktop with internet and a browser, able to install Python or use a browser-based notebook. A phone alone is not enough for the programming labs. Plan 10 to 15 minutes of homework after each lecture.
 
 ## AI/ML Engineering (3 years, 624 hours, 4 hours a week)
 URL: https://neuronetwrks.com/programs/ai-ml-engineering
 
-AI/ML Engineering is a three-year, 624-hour specialisation for students who have passed Class 10. It starts with computer and Python basics and builds up to machine learning, deep learning, generative AI and MLOps, with a one-hour exam after each of 36 monthly modules and a project in every month.
+AI/ML Engineering is a three-year, 624-hour specialisation for students from Class 9 onwards. It starts with computer and Python basics and builds up to machine learning, deep learning, generative AI and MLOps, with a one-hour exam after each of 36 monthly modules and a project in every month.
 
-Entry: Class 10 pass; basic school-level mathematics and computer familiarity.
+Entry: Class 9 onwards; basic school-level mathematics and computer familiarity.
 Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
 
 - Year 1 (208 hours): Computer + AI Foundations; Python Fundamentals; Python for AI; Math for ML I; Math for ML II; Data Preparation; AI Fundamentals + Google AI Essentials; ML Foundations; Model Evaluation + Azure AI; Classical ML; Unsupervised ML; Year-1 AI Capstone + AI-901
@@ -53,7 +53,7 @@ Indicative India salary (not guaranteed): Fresher ₹5–10 LPA; 1–2 years ₹
 Completion: students receive a Neuronetworks AI Ed certificate on completing the program. Laptop specifications are recommendations.
 
 FAQs:
-- Q: Who can join this program? A: Class 10 pass; basic school-level mathematics and computer familiarity. The program is designed for students entering after Class 10.
+- Q: Who can join this program? A: Class 9 onwards; basic school-level mathematics and computer familiarity. The program is open to students from Class 9 onwards.
 - Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
 - Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
 - Q: Which external certifications does the roadmap include? A: The program prepares students for five external credentials: Microsoft Azure AI Fundamentals (AI-901); AWS Certified AI Practitioner (AIF-C01); Google AI Essentials; NVIDIA DLI Fundamentals of Deep Learning; IBM AI Engineering Professional Certificate. They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
@@ -63,9 +63,9 @@ FAQs:
 ## Software Development (3 years, 624 hours, 4 hours a week)
 URL: https://neuronetwrks.com/programs/software-development
 
-The Software Development program is a three-year, 624-hour specialisation for students who have passed Class 10, with no programming knowledge assumed. It progresses from computer and programming fundamentals to professional full-stack, cloud and software-engineering capability, with a one-hour exam after each of 36 monthly modules.
+The Software Development program is a three-year, 624-hour specialisation for students from Class 9 onwards, with no programming knowledge assumed. It progresses from computer and programming fundamentals to professional full-stack, cloud and software-engineering capability, with a one-hour exam after each of 36 monthly modules.
 
-Entry: Class 10 pass; no programming knowledge assumed.
+Entry: Class 9 onwards; no programming knowledge assumed.
 Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
 
 - Year 1 (208 hours): Computer & Software Foundations; Programming Logic & Problem Solving; Java Fundamentals I; Java Fundamentals II & OOP; Git, GitHub & Software Collaboration; HTML & Web Fundamentals; CSS & Responsive Design; JavaScript Fundamentals; JavaScript Advanced & APIs; SQL & Relational Databases; Frontend Development with React; Year-1 Full Web Project & AZ-900 Readiness
@@ -85,7 +85,7 @@ Indicative India salary (not guaranteed): Fresher ₹4–8 LPA; 1–2 years ₹5
 Completion: students receive a Neuronetworks AI Ed certificate on completing the program. Laptop specifications are recommendations.
 
 FAQs:
-- Q: Who can join this program? A: Class 10 pass; no programming knowledge assumed. The program is designed for students entering after Class 10.
+- Q: Who can join this program? A: Class 9 onwards; no programming knowledge assumed. The program is open to students from Class 9 onwards.
 - Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
 - Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
 - Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: Microsoft Certified: Azure Fundamentals (AZ-900); Oracle Certified Foundations Associate (Java); HackerRank Skills Certification (SQL / Problem Solving); Meta Front-End Developer Professional Certificate; Oracle Certified Professional, Java SE (OCPJP); AWS Certified Developer – Associate. They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
@@ -95,9 +95,9 @@ FAQs:
 ## Data Science & AI (3 years, 624 hours, 4 hours a week)
 URL: https://neuronetwrks.com/programs/data-science-ai
 
-The Data Science & AI program is a three-year, 624-hour specialisation for Class 10 pass students who are absolute beginners. It progresses from computing, Python, SQL and statistics into analytics, machine learning, data engineering, deep learning, generative AI and MLOps, with a one-hour exam after every monthly module.
+The Data Science & AI program is a three-year, 624-hour specialisation for students from Class 9 onwards who are absolute beginners. It progresses from computing, Python, SQL and statistics into analytics, machine learning, data engineering, deep learning, generative AI and MLOps, with a one-hour exam after every monthly module.
 
-Entry: Class 10 pass; absolute beginners welcome.
+Entry: Class 9 onwards; absolute beginners welcome.
 Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
 
 - Year 1 (208 hours): Computer, Data & Python Foundations; Python Programming for Data; SQL Fundamentals; Statistics I; Statistics II; NumPy & Pandas; Data Visualization; Exploratory Data Analysis; Business Analytics; Dashboarding; Google Data Analytics Preparation; Year-1 Capstone & DP-900
@@ -117,19 +117,19 @@ Indicative India salary (not guaranteed): Fresher ₹4–8 LPA; 1–2 years ₹5
 Completion: students receive a Neuronetworks AI Ed certificate on completing the program. Laptop specifications are recommendations.
 
 FAQs:
-- Q: Who can join this program? A: Class 10 pass; absolute beginners welcome. The program is designed for students entering after Class 10.
+- Q: Who can join this program? A: Class 9 onwards; absolute beginners welcome. The program is open to students from Class 9 onwards.
 - Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
 - Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
 - Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: Microsoft Certified: Azure Data Fundamentals (DP-900); HackerRank Python & SQL Certificates; Google Data Analytics Professional Certificate; IBM Data Science Professional Certificate; Microsoft AI-300 (Machine Learning Operations Engineer Associate), the current replacement for the retired DP-100; IBM Data Engineering Professional Certificate. They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
 - Q: What laptop do students need? A: Recommended laptop specifications (recommendations, not entry requirements): CPU: Intel Core i7 / Ryzen 7 or equivalent; RAM: 32 GB; Storage: 1 TB NVMe SSD; GPU: NVIDIA RTX 4060/5060, 8 GB VRAM+; Display: 14–16" Full HD/2K IPS.
 - Q: What kinds of roles does this program prepare students for? A: The curriculum lists entry-level roles such as Junior Data Analyst, Data Analyst, BI Analyst / Junior BI Developer, Junior Data Scientist. Fit depends on the student's portfolio and on each employer's requirements.
 
-## Product & UX / AI Design (3 years, 624 hours, 4 hours a week)
+## Product and UX/UI Design (3 years, 624 hours, 4 hours a week)
 URL: https://neuronetwrks.com/programs/product-ux-ai-design
 
-The Product & UX / AI Design program is a three-year, 624-hour specialisation for students who have passed Class 10. It begins with visual and UX fundamentals, moves through product thinking and project management, and ends with AI-assisted product design, research, design systems, prototyping and a professional portfolio.
+The Product and UX/UI Design program is a three-year, 624-hour specialisation for students from Class 9 onwards. It begins with visual and UX fundamentals, moves through product thinking and project management, and ends with AI-assisted product design, research, design systems, prototyping and a professional portfolio.
 
-Entry: Class 10 pass; no design background assumed.
+Entry: Class 9 onwards; no design background assumed.
 Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
 
 - Year 1 (208 hours): Design + Computer Foundations; Visual Design Fundamentals; UX Foundations + IxDF; User Research I; User Research II; Information Architecture; Wireframing; Interaction Design; UI Design I + CalArts; UI Design II; Prototyping; Year-1 UX Capstone + Google UX
@@ -149,7 +149,7 @@ Indicative India salary (not guaranteed): Fresher ₹4–8 LPA; 1–2 years ₹6
 Completion: students receive a Neuronetworks AI Ed certificate on completing the program. Laptop specifications are recommendations.
 
 FAQs:
-- Q: Who can join this program? A: Class 10 pass; no design background assumed. The program is designed for students entering after Class 10.
+- Q: Who can join this program? A: Class 9 onwards; no design background assumed. The program is open to students from Class 9 onwards.
 - Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
 - Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
 - Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: IxDF UX Certification; Google UX Design Professional Certificate; CalArts UI/UX Design Specialization; Google Project Management Professional Certificate; Microsoft AI Product Manager Professional Certificate; NN/g UX Certification. They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.
@@ -159,9 +159,9 @@ FAQs:
 ## Cybersecurity (3 years, 624 hours, 4 hours a week)
 URL: https://neuronetwrks.com/programs/cybersecurity
 
-The Cybersecurity program is a three-year, 624-hour specialisation for students who have passed Class 10, with no technical background assumed. It moves from computers and networking to Linux, security operations and ethical hacking, practised in authorised lab environments, with a one-hour exam after each of 36 monthly modules.
+The Cybersecurity program is a three-year, 624-hour specialisation for students from Class 9 onwards, with no technical background assumed. It moves from computers and networking to Linux, security operations and ethical hacking, practised in authorised lab environments, with a one-hour exam after each of 36 monthly modules.
 
-Entry: Class 10 pass; no technical background assumed.
+Entry: Class 9 onwards; no technical background assumed.
 Assessment: One 1-hour exam after each of the 36 monthly modules (theory plus practical where appropriate). Exam time is included in the 624 hours.
 
 - Year 1 (208 hours): Computer & Cybersecurity Foundations; Networking Fundamentals I; Networking Fundamentals II & Subnetting; Linux Fundamentals; Windows & System Administration Fundamentals; Cybersecurity Fundamentals & Security Principles; Identity, Access Control & Cryptography; Security Operations Foundations + ISC2 CC Readiness; Python, Bash & PowerShell for Security; Logs, SIEM & Security Monitoring + Google Certificate; Network Defense: Firewalls, IDS/IPS & Secure Networking; Endpoint Security & Year-1 SOC Project
@@ -181,7 +181,7 @@ Indicative India salary (not guaranteed): Fresher ₹4–8 LPA; 1–2 years ₹5
 Completion: students receive a Neuronetworks AI Ed certificate on completing the program. Laptop specifications are recommendations.
 
 FAQs:
-- Q: Who can join this program? A: Class 10 pass; no technical background assumed. The program is designed for students entering after Class 10.
+- Q: Who can join this program? A: Class 9 onwards; no technical background assumed. The program is open to students from Class 9 onwards.
 - Q: How many hours is the program, and how is it structured? A: It is 624 hours over three years (36 months): 4 hours a week for 52 weeks a year, or 208 hours a year. Each monthly module ends with a one-hour exam, and exam time is counted inside the 624 hours.
 - Q: Does the program guarantee a job or internship? A: No. The curriculum aims at job readiness through skills, hands-on practice, a GitHub record and a portfolio, but it does not guarantee an internship, employment or salary.
 - Q: Which external certifications does the roadmap include? A: The roadmap lists six external certifications: ISC² Certified in Cybersecurity (CC); Google Cybersecurity Professional Certificate; CompTIA Security+; CEH v13; CompTIA CySA+; Microsoft Security Operations Analyst Associate (SC-200). They are awarded by the certifying organisations, not by this program, and passing an external exam is not guaranteed.

@@ -1,170 +1,170 @@
 {
 "/": [
-"30f33106a0838420",
+"81c130b855501edd",
 "2026-10-19"
 ],
 "/about": [
-"c78dffd85699fda7",
+"b76a446390b9f8aa",
 "2026-10-19"
 ],
 "/admissions": [
-"feb09c3f95f68cc0",
+"0c1acb2634ecda18",
 "2026-10-19"
 ],
 "/contact": [
-"c8bb8acf09eb830f",
+"45ba74787591cf8b",
 "2026-10-19"
 ],
 "/curriculum": [
-"95d09aee45f0580a",
+"3dc45c47f427a2ae",
 "2026-10-19"
 ],
 "/faqs": [
-"7bd141bab9193342",
+"4e520acf5a0d3b90",
 "2026-10-19"
 ],
 "/guides": [
-"0be535a7b97f3f36",
+"3bc7145d29c07609",
 "2026-10-19"
 ],
 "/guides/ai-courses-after-10th": [
-"fbc797fb177285b9",
+"4680077670b78038",
 "2026-10-19"
 ],
 "/guides/ai-projects-for-students": [
-"de9fd4003c583bca",
+"4dbae938dd3839e7",
 "2026-10-19"
 ],
 "/guides/ai-vs-software-vs-data-science": [
-"ff44dd9ed92e8a4e",
+"bd97c12fe9e56054",
 "2026-10-19"
 ],
 "/guides/become-ai-developer-after-10th": [
-"50e501f978a9d840",
+"db4197277387f730",
 "2026-10-19"
 ],
 "/guides/become-ai-engineer-after-10th": [
-"99d1ca704277ec1a",
+"a7444649b1314e42",
 "2026-10-19"
 ],
 "/guides/become-app-developer-after-10th": [
-"db98d9def82288ed",
+"64ed280c2bc6d30c",
 "2026-10-19"
 ],
 "/guides/become-data-analyst-after-10th": [
-"383a4344662b924a",
+"5a9e48f4923198d1",
 "2026-10-19"
 ],
 "/guides/become-data-scientist-after-10th": [
-"ea060895517118ad",
+"09f883d5c4786604",
 "2026-10-19"
 ],
 "/guides/become-ethical-hacker-after-10th": [
-"de5839e3cbe96561",
+"bee4f8791e8bfafc",
 "2026-10-19"
 ],
 "/guides/become-game-developer-after-10th": [
-"0aa61fbe981764f6",
+"4f3c6349d45a79ad",
 "2026-10-19"
 ],
 "/guides/become-machine-learning-engineer-after-10th": [
-"c57d840b4706c632",
+"a17b3ecb8a46cca8",
 "2026-10-19"
 ],
 "/guides/become-programmer-after-10th": [
-"6073bedefa8443b0",
+"a5252e75541f3899",
 "2026-10-19"
 ],
 "/guides/become-software-engineer-after-10th": [
-"3243f953118e6e98",
+"8692f34f84321565",
 "2026-10-19"
 ],
 "/guides/become-web-developer-after-10th": [
-"73f3af561c5144ac",
+"73248d0e1604473c",
 "2026-10-19"
 ],
 "/guides/career-options-after-10th": [
-"1be3dd4e5a49d324",
+"7a5cdebf93445bbd",
 "2026-10-19"
 ],
 "/guides/computer-coding-courses-after-10th": [
-"6481e7df4b682cb9",
+"7348fdada3fcace6",
 "2026-10-19"
 ],
 "/guides/courses-after-10th": [
-"bb5a07d08e293b92",
+"27b01e3d255af113",
 "2026-10-19"
 ],
 "/guides/cyber-security-course-after-10th": [
-"18be473c0dc25af4",
+"8f8bc282130fe123",
 "2026-10-19"
 ],
 "/guides/data-science-after-10th": [
-"8fdf8326ded628fc",
+"5bae70c6268c29ac",
 "2026-10-19"
 ],
 "/guides/python-project-ideas-for-students": [
-"ef8569872b161abf",
+"034922c3eca8c59d",
 "2026-10-19"
 ],
 "/guides/ui-ux-designer-after-10th": [
-"d20ef7c016dae5ec",
+"73bd23c63e17082a",
 "2026-10-19"
 ],
 "/learning-experience": [
-"3a7ba79131e88615",
+"01aa6d716ebd17da",
 "2026-10-19"
 ],
 "/privacy": [
-"f444d75d9c2419b2",
+"2d492bfac7c00e32",
 "2026-10-19"
 ],
 "/programs": [
-"751e2662d42dbabf",
+"84d0c4a13d5fb7e6",
 "2026-10-19"
 ],
 "/programs/ai-foundation": [
-"9e995814f84e6f9d",
+"e4f714be77ee25e5",
 "2026-10-19"
 ],
 "/programs/ai-ml-engineering": [
-"1ab51bf6d8ed24cb",
+"5c42b026ed34f45a",
 "2026-10-19"
 ],
 "/programs/cybersecurity": [
-"fce09d0eea75bc25",
+"d3a33164f48c3d6b",
 "2026-10-19"
 ],
 "/programs/data-science-ai": [
-"1f91ec9ca2a21a80",
+"efa07688d55d8008",
 "2026-10-19"
 ],
 "/programs/product-ux-ai-design": [
-"58524aacc383796f",
+"3753b7291bd05e7f",
 "2026-10-19"
 ],
 "/programs/software-development": [
-"267f8337f1bd5426",
+"eb22d3466c62623d",
 "2026-10-19"
 ],
 "/projects": [
-"1d0868f4d14c69f3",
+"28e4da5ed0961ffe",
 "2026-10-19"
 ],
 "/projects/agentflow-ai": [
-"de70cb4f16180963",
+"a2dca8ffe84f3a94",
 "2026-10-19"
 ],
 "/projects/document-rag-assistant": [
-"dea3ad5e74585103",
+"97b3ecc76689251c",
 "2026-10-19"
 ],
 "/projects/image-classification": [
-"8065deffc197a291",
+"66324a2cba21ceaa",
 "2026-10-19"
 ],
 "/terms": [
-"4da64cd9297f4cf3",
+"6ab57c78ff99369b",
 "2026-10-19"
 ]
 }

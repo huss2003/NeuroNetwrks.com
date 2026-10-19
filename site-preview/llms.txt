@@ -1,15 +1,15 @@
 # Neuronetworks AI Ed
 
-> Practical AI and technology education in India. Six-month AI Foundation course (104 hours, open from Class 9) and five three-year specialisations for students who have passed Class 10 (624 hours each). Every three-year month ends with a project and a one-hour exam. Fees are shared on enquiry.
+> Practical AI and technology education in India. One-year AI Foundation course (104 hours, open from Class 9) and five three-year specialisations for students from Class 9 onwards (624 hours each). Every three-year month ends with a project and a one-hour exam. Fees are shared on enquiry.
 
 Contact: Hussain@neuronetwrks.com
 
 ## Programs
-- [AI Foundation](https://neuronetwrks.com/programs/ai-foundation): 6 months, 104 hours. A beginner course from AI literacy to Python, data, machine learning, generative AI, RAG and AI agents, ending with a deployed AI application and a capstone.
+- [AI Foundation](https://neuronetwrks.com/programs/ai-foundation): 1 year, 104 hours. A beginner course from AI literacy to Python, data, machine learning, generative AI, RAG and AI agents, ending with a deployed AI application and a capstone.
 - [AI/ML Engineering](https://neuronetwrks.com/programs/ai-ml-engineering): 3 years, 624 hours. From Python basics to machine learning, deep learning, generative AI and MLOps, with a portfolio of projects.
 - [Software Development](https://neuronetwrks.com/programs/software-development): 3 years, 624 hours. From programming logic to full-stack, cloud and software engineering, with a high volume of hands-on projects.
 - [Data Science & AI](https://neuronetwrks.com/programs/data-science-ai): 3 years, 624 hours. From Python and SQL to analytics, machine learning, data engineering and generative AI, with a project portfolio.
-- [Product & UX / AI Design](https://neuronetwrks.com/programs/product-ux-ai-design): 3 years, 624 hours. From visual and UX fundamentals to product thinking, AI-assisted design, prototyping and a professional portfolio.
+- [Product and UX/UI Design](https://neuronetwrks.com/programs/product-ux-ai-design): 3 years, 624 hours. From visual and UX fundamentals to product thinking, AI-assisted design, prototyping and a professional portfolio.
 - [Cybersecurity](https://neuronetwrks.com/programs/cybersecurity): 3 years, 624 hours. From computer and networking basics to security operations and ethical hacking, practised in authorised labs.
 
 ## Key pages
@@ -43,7 +43,7 @@ Contact: Hussain@neuronetwrks.com
 - [Python Project Ideas for Students (Class 8 to 12)](https://neuronetwrks.com/guides/python-project-ideas-for-students): Eight Python project ideas for school students, from a first guessing game to an AI notes assistant, with steps, skills and how to show them on GitHub.
 
 ## Guides
-- [AI courses after 10th: eligibility, duration, projects](https://neuronetwrks.com/guides/ai-courses-after-10th): What an AI course after Class 10 covers, how many hours it takes, what students build, and how to choose between a 6-month and a 3-year path.
+- [AI courses after 10th: eligibility, duration, projects](https://neuronetwrks.com/guides/ai-courses-after-10th): What an AI course after Class 10 covers, how many hours it takes, what students build, and how to choose between a 1-year and a 3-year path.
 - [Courses after 10th: 6 technology paths compared](https://neuronetwrks.com/guides/courses-after-10th): Compare six technology courses after Class 10: AI, AI/ML, coding, data science, UI/UX design and cyber security, by hours, skills and projects.
 - [Computer and coding courses after 10th: which to choose](https://neuronetwrks.com/guides/computer-coding-courses-after-10th): What a coding course after Class 10 teaches: Java, JavaScript, React, databases and cloud over 3 years and 624 hours, with a project every month.
 - [Cyber security course after 10th: what you study](https://neuronetwrks.com/guides/cyber-security-course-after-10th): A cyber security course after Class 10, explained: networking, Linux, SOC work, ethical hacking in authorised labs, cloud security and 6 certifications.
