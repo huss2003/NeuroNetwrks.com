@@ -18,7 +18,7 @@ def og_image(route, title):
     im = _Img.new("RGB", (W, H), "white"); d = _Draw.Draw(im)
     logo = _Img.open(os.path.join(HERE, "assets", "logo-512.png")).convert("RGBA").resize((76, 76), _Img.LANCZOS)
     im.paste(logo, (72, 64), logo)
-    d.text((166, 84), "NeuroNetworks AI Ed", font=_og_font(34, 700), fill="#0B1B33")
+    d.text((166, 84), "Neuronetworks AI Ed", font=_og_font(34, 700), fill="#0B1B33")
     words, lines, size = title.split(), [], 72
     while True:  # wrap to at most 4 lines, shrinking the type if needed
         f = _og_font(size, 800); lines, cur = [], ""

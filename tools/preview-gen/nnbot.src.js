@@ -19,7 +19,7 @@ export async function mount({ glb, links }) {
   const root = document.createElement('div');
   root.className = 'nnbot';
   root.innerHTML = `<canvas class="nnbot-cv" aria-hidden="true"></canvas>
-<button type="button" class="nnbot-hit" aria-label="NN-Bot, the NeuroNetworks robot. Press to say hello." aria-expanded="false" aria-controls="nnbot-bubble"></button>
+<button type="button" class="nnbot-hit" aria-label="NN-Bot, the Neuronetworks robot. Press to say hello." aria-expanded="false" aria-controls="nnbot-bubble"></button>
 <div class="nnbot-bubble" id="nnbot-bubble" role="dialog" aria-label="NN-Bot" hidden><p>Hi! I'm NN-Bot. Where to next?</p>
 <a href="${links.programs}">Explore programs</a><a href="${links.talk}">Talk to us</a></div>
 <button type="button" class="nnbot-hide" aria-label="Hide the robot">×</button>`;

@@ -35,21 +35,21 @@ NOTE_JOBS = "No program guarantees a job, internship, salary or exam pass. Certi
 GUIDES = [
  {"slug": "ai-courses-after-10th", "title": "AI courses after 10th: eligibility, duration, projects",
   "h1": ("AI courses after 10th:", "eligibility, duration and projects"),
-  "desc": "What an AI course after Class 10 covers, how many hours it takes, what students build, and how to choose between a 1-year and a 3-year path.",
+  "desc": "What an AI course after Class 10 covers, how many hours it takes, what students build, and how to choose between a 6-month and a 3-year path.",
   "lead": "Yes, a student who has just passed Class 10 can start learning AI properly. Here is what a real course covers, how long it takes and how to pick the right length.",
   "tldr": ["A beginner AI course after Class 10 should start with AI literacy and Python, then move to data, machine learning and generative AI.",
-           "NeuroNetworks AI Ed offers a 1-year, 104-hour AI Foundation course and a 3-year, 624-hour AI/ML Engineering program.",
+           "Neuronetworks AI Ed offers a 6-month, 104-hour AI Foundation course and a 3-year, 624-hour AI/ML Engineering program.",
            "No prior coding is needed for AI Foundation. Choose the 3-year path if you want depth: deep learning, MLOps and a portfolio of projects."],
   "progs": ["ai-foundation", "ai-ml-engineering"],
   "sections": [
    ("Can you learn AI after Class 10?",
     f"<p>Yes. Learning AI after Class 10 is realistic if the course starts from zero. Students need basic school mathematics and computer familiarity, not prior coding. A good course teaches what AI is, then Python, data handling and machine learning step by step, with a project at each stage so understanding is tested by building, not just reading.</p>"
-    f"<p>The {g_prog_link('ai-foundation')} course is open from Class 8 and assumes no coding, AI or cloud experience. The {g_prog_link('ai-ml-engineering')} program asks for Class 10 with basic school-level mathematics.</p>"),
+    f"<p>The {g_prog_link('ai-foundation')} course is open from Class 9 and assumes no coding, AI or cloud experience. The {g_prog_link('ai-ml-engineering')} program asks for Class 10 with basic school-level mathematics.</p>"),
    ("What does an AI course after 10th cover?",
     "<p>A complete beginner AI course covers six areas: how modern AI works, responsible use of AI tools, Python programming, working with data, machine learning, and generative AI with large language models. Better courses add computer vision, natural language processing and a first retrieval-augmented generation (RAG) prototype.</p>"
     "<p>The AI Foundation course is 104 one-hour lectures in this order:</p>" + "<ol>" + "".join(f"<li>{E(m)}</li>" for m in D["ai-foundation"]["years"][0]["modules"]) + "</ol>"),
-   ("How long does it take: 1 year or 3 years?",
-    "<p>It depends on the goal. One year at two hours a week (104 hours) is enough to understand AI, write Python, train a simple model and build a small generative AI app. Three years at four hours a week (624 hours) is the depth needed for machine learning engineering: deep learning, transformers, MLOps, cloud AI and a professional portfolio.</p>"
+   ("How long does it take: 6 months or 3 years?",
+    "<p>It depends on the goal. Six months at four hours a week (104 hours) is enough to understand AI, write Python, train a simple model and build a small generative AI app. Three years at four hours a week (624 hours) is the depth needed for machine learning engineering: deep learning, transformers, MLOps, cloud AI and a professional portfolio.</p>"
     + g_facts(["ai-foundation", "ai-ml-engineering"])),
    ("What will a student build?",
     "<p>Students should finish every stage with something they made. In AI Foundation that includes "
@@ -60,14 +60,14 @@ GUIDES = [
    ("How to choose the right AI course",
     g_list(["<strong>Check the hours, not just the months.</strong> Total guided hours tell you how much is really taught.",
             "<strong>Ask what is built each month.</strong> A project list is the clearest sign of practical learning.",
-            "<strong>Look for regular assessment.</strong> At NeuroNetworks AI Ed, three-year programs have a one-hour exam after each of 36 monthly modules.",
+            "<strong>Look for regular assessment.</strong> At Neuronetworks AI Ed, three-year programs have a one-hour exam after each of 36 monthly modules.",
             "<strong>Make sure Python is taught from the start.</strong> Almost all AI work uses it.",
             "<strong>Be wary of promises.</strong> No honest course can guarantee a job or an exam result."])),
   ],
   "faqs": [("Is AI difficult to learn after 10th?", "It is manageable when taught in order. AI Foundation starts with AI literacy and Python basics and needs no prior coding. Each one-hour lecture builds on the last, and a short unit exam closes each major unit."),
            ("Do I need maths to learn AI after 10th?", "School-level mathematics is enough to start. The AI/ML Engineering program teaches the mathematics needed for machine learning itself, in two modules called Math for ML I and II."),
            ("What laptop is needed for an AI course?", "For the full AI/ML Engineering roadmap, the recommended setup is an Intel i5 or Ryzen 5 processor or better, 16 GB RAM (32 GB recommended) and a 512 GB SSD. A dedicated NVIDIA GPU helps for deep learning but is not needed at the start."),
-           ("Do students get a certificate?", "Yes. Students who complete AI Foundation or AI/ML Engineering receive a NeuroNetworks AI Ed certificate. External certifications such as Microsoft AI-901 are separate and awarded by Microsoft or AWS after their exams."),
+           ("Do students get a certificate?", "Yes. Students who complete AI Foundation or AI/ML Engineering receive a Neuronetworks AI Ed certificate. External certifications such as Microsoft AI-901 are separate and awarded by Microsoft or AWS after their exams."),
            ("How much does the course cost?", 'Fees are shared on enquiry. <a href="/contact?topic=fees">Ask us about fees</a>.')]},
 
  {"slug": "courses-after-10th", "title": "Courses after 10th: 6 technology paths compared",
@@ -75,12 +75,12 @@ GUIDES = [
   "desc": "Compare six technology courses after Class 10: AI, AI/ML, coding, data science, UI/UX design and cyber security, by hours, skills and projects.",
   "lead": "Six technology paths are open to students straight after Class 10. This guide compares them side by side so a student and parent can choose together.",
   "tldr": ["Technology courses after Class 10 include AI, machine learning, software development, data science, UI/UX design and cybersecurity.",
-           "At NeuroNetworks AI Ed, AI Foundation is a 1-year, 104-hour start; the other five are 3-year, 624-hour specialisations.",
+           "At Neuronetworks AI Ed, AI Foundation is a 6-month, 104-hour start; the other five are 3-year, 624-hour specialisations.",
            "Choose by what the student enjoys doing: building apps, finding patterns in data, designing screens or defending systems."],
   "progs": [p[0] for p in PROGRAMS],
   "sections": [
    ("Which technology courses can you do after 10th?",
-    "<p>After Class 10, a student can begin six technology tracks: a one-year AI foundation course, or a three-year specialisation in AI/ML engineering, software development, data science and AI, product and UX design with AI, or cybersecurity. The five specialisations accept Class 10 pass students and AI Foundation is open from Class 8; all assume little or no technical background.</p>" + g_facts([p[0] for p in PROGRAMS])),
+    "<p>After Class 10, a student can begin six technology tracks: a six-month AI foundation course, or a three-year specialisation in AI/ML engineering, software development, data science and AI, product and UX design with AI, or cybersecurity. The five specialisations accept Class 10 pass students and AI Foundation is open from Class 9; all assume little or no technical background.</p>" + g_facts([p[0] for p in PROGRAMS])),
    ("What does each path teach?",
     "<dl class=\"gd-dl\">" + "".join(f"<dt>{g_prog_link(p[0])}</dt><dd>{E(D[p[0]]['summary'])}</dd>" for p in PROGRAMS) + "</dl>"),
    ("Which path suits which student?",
@@ -93,10 +93,10 @@ GUIDES = [
     "<p>Each three-year specialisation runs for 36 months at four hours a week. Every month is one module, ends with a project and closes with a one-hour exam. Exam time is included in the 624 hours. Year 1 builds foundations, Year 2 builds depth, and Year 3 focuses on advanced topics, a capstone and a professional portfolio.</p>"
     '<p>See every module month by month on the <a href="/curriculum">curriculum page</a>.</p>'),
    ("Can you study this alongside Class 11 and 12?",
-    "<p>The pace is designed to sit beside school: two hours a week for AI Foundation and four hours a week for the three-year programs. Families should still plan around board exam periods; ask us about batch timings when you enquire.</p>"),
+    "<p>The pace is designed to sit beside school: four hours a week for both AI Foundation and the three-year programs. Families should still plan around board exam periods; ask us about batch timings when you enquire.</p>"),
   ],
-  "faqs": [("Which is the best technology course after 10th?", "There is no single best course. The right one matches what the student enjoys. If unsure, the 1-year AI Foundation course is a low-commitment way to try programming, data and AI before choosing a three-year specialisation."),
-           ("Are these diploma or certificate courses?", "They are certificate programs. Students who complete a program receive a NeuroNetworks AI Ed certificate. External certifications from Microsoft, AWS, Google and others are separate, optional, and awarded by those organisations after their own exams."),
+  "faqs": [("Which is the best technology course after 10th?", "There is no single best course. The right one matches what the student enjoys. If unsure, the 6-month AI Foundation course is a low-commitment way to try programming, data and AI before choosing a three-year specialisation."),
+           ("Are these diploma or certificate courses?", "They are certificate programs. Students who complete a program receive a Neuronetworks AI Ed certificate. External certifications from Microsoft, AWS, Google and others are separate, optional, and awarded by those organisations after their own exams."),
            ("Do these courses guarantee a job?", NOTE_JOBS)]},
 
  {"slug": "computer-coding-courses-after-10th", "title": "Computer and coding courses after 10th: which to choose",
@@ -128,7 +128,7 @@ GUIDES = [
   "desc": "A cyber security course after Class 10, explained: networking, Linux, SOC work, ethical hacking in authorised labs, cloud security and 6 certifications.",
   "lead": "Cybersecurity after Class 10 starts with how computers and networks work, not hacking. Here is the full path, from first networks to security operations.",
   "tldr": ["A real cybersecurity course begins with computers, networking, Linux and Windows before moving to defence and testing.",
-           "The NeuroNetworks AI Ed Cybersecurity program is 3 years and 624 hours, with no technical background assumed.",
+           "The Neuronetworks AI Ed Cybersecurity program is 3 years and 624 hours, with no technical background assumed.",
            "Ethical hacking is taught only in authorised lab environments, alongside SOC monitoring, incident response and cloud security."],
   "progs": ["cybersecurity", "software-development"],
   "sections": [
@@ -204,7 +204,7 @@ GUIDES = [
   "lead": "Three tech paths sound similar but lead to different daily work. This guide is written for parents deciding with their child after Class 10.",
   "tldr": ["AI/ML engineering builds AI systems; software development builds applications; data science answers questions with data.",
            "All three are 3 years, 624 hours, 4 hours a week, with a project and a one-hour exam every month.",
-           "Not sure yet? The 1-year AI Foundation course lets a student try Python, data and AI first."],
+           "Not sure yet? The 6-month AI Foundation course lets a student try Python, data and AI first."],
   "progs": ["ai-ml-engineering", "software-development", "data-science-ai", "ai-foundation"],
   "sections": [
    ("What is the difference in one line each?",
@@ -219,7 +219,7 @@ GUIDES = [
     g_list(["If your child enjoys <strong>building and fixing things</strong> on a computer, software development fits.",
             "If they ask <strong>how ChatGPT or face unlock works</strong>, AI/ML engineering fits.",
             "If they like <strong>charts, sports statistics or spotting patterns</strong>, data science fits.",
-            "If you cannot tell yet, " + g_prog_link("ai-foundation") + " (1 year, 2 hours a week) is a sensible first step."])),
+            "If you cannot tell yet, " + g_prog_link("ai-foundation") + " (6 months, 4 hours a week) is a sensible first step."])),
    ("What should parents check before enrolling?",
     g_list(["The total guided hours and weekly time commitment.",
             "What is built and assessed each month.",
@@ -251,7 +251,7 @@ GUIDES = [
    ("AgentFlow AI: a tool-using agent",
     '<p>Also in Year 3, students build an AI agent that plans tasks, calls tools such as web search, code execution and file operations, and verifies its results safely. <a href="/projects/agentflow-ai">See AgentFlow AI</a>.</p>'),
    ("Can beginners do AI projects?",
-    "<p>Yes, at the right scale. The 1-year " + g_prog_link("ai-foundation") + " course includes " + g_join(D["ai-foundation"]["projects"][:8]).lower() + ".</p>"),
+    "<p>Yes, at the right scale. The 6-month " + g_prog_link("ai-foundation") + " course includes " + g_join(D["ai-foundation"]["projects"][:8]).lower() + ".</p>"),
   ],
   "faqs": [("What is a good first AI project for a student?", "A small machine learning project on a clean CSV dataset, such as predicting a number or a category, is a good start. AI Foundation includes an ML mini-project of this kind."),
            ("Do students need a GPU for these projects?", "Not at first. Integrated graphics are enough for basic ML. An NVIDIA RTX 4060 8 GB or better is recommended for the full AI/ML roadmap, mainly for deep learning."),
@@ -262,13 +262,13 @@ GUIDES = [
   "lead": "Feeling unsure after Class 10 is normal. This guide maps the technology career paths, what each involves day to day and how a student can start building skills now.",
   "tldr": ["Technology careers after 10th fall into five families: AI/ML, software, data, product and UX design, and cyber security.",
            "Students can start building real skills alongside Class 11 and 12, at two to four hours a week.",
-           "Start broad if unsure: a 1-year AI Foundation course covers Python, data and AI before a student commits."],
+           "Start broad if unsure: a 6-month AI Foundation course covers Python, data and AI before a student commits."],
   "progs": ["ai-foundation", "ai-ml-engineering", "software-development", "cybersecurity"],
   "sections": [
    ("What are the main technology career options after 10th?",
     "<p>The main technology career families open to a student after Class 10 are AI and machine learning, software development, data science, product and UX design, and cyber security. Each needs different strengths: building, analysing, designing or protecting. Students can begin skills training for any of them now, alongside school, and choose a stream or degree later with more confidence.</p>"),
    ("What roles does each path lead towards?",
-    "<p>These are the roles each NeuroNetworks AI Ed curriculum is designed around. They are entry-level roles a student can work towards over several years, not promises.</p>"
+    "<p>These are the roles each Neuronetworks AI Ed curriculum is designed around. They are entry-level roles a student can work towards over several years, not promises.</p>"
     '<dl class="gd-dl">' + "".join(f"<dt>{g_prog_link(s)}</dt><dd>{g_join(D[s]['careerRoles'], 5)}.</dd>" for s in ["ai-ml-engineering", "software-development", "data-science-ai", "product-ux-ai-design", "cybersecurity"]) + "</dl>"
     f"<p>{NOTE_JOBS}</p>"),
    ("Which stream should I take in Class 11 for a tech career?",
@@ -277,7 +277,7 @@ GUIDES = [
     g_list(["List what you enjoy: building, puzzles, numbers, drawing or helping people.",
             "Try a small project in each area before committing: a Python program, a data chart, a screen design.",
             "Talk it through with a parent and someone working in the field.",
-            "If you want a structured start, " + g_prog_link("ai-foundation") + " takes one year at two hours a week and touches programming, data and AI.",
+            "If you want a structured start, " + g_prog_link("ai-foundation") + " takes six months at four hours a week and touches programming, data and AI.",
             'Read <a href="/guides/courses-after-10th">the six paths compared</a> to see hours, tools and projects side by side.'])),
   ],
   "faqs": [("Which career is best after 10th?", "The best career is one that matches the student's strengths and interests. Technology paths reward steady practice and a portfolio of projects more than early talent."),
@@ -306,7 +306,7 @@ GUIDES = [
    ("Step 5: Generative AI, agents and a portfolio",
     '<p>Year 3 covers generative AI, embeddings and RAG, agents, fine-tuning, AI safety, cloud AI engineering and system design, ending with a portfolio of 6 to 10 flagship projects and a final capstone. Examples are the <a href="/projects/document-rag-assistant">document RAG assistant</a> and <a href="/projects/agentflow-ai">AgentFlow AI</a>.</p>'),
    ("Not ready for 3 years?",
-    "<p>The 1-year " + g_prog_link("ai-foundation") + " course (104 hours, 2 hours a week) covers Python, data, machine learning, generative AI, RAG and AI agents, ending with a deployed AI application and a capstone, and is a good test of interest first.</p>"),
+    "<p>The 6-month " + g_prog_link("ai-foundation") + " course (104 hours, 4 hours a week) covers Python, data, machine learning, generative AI, RAG and AI agents, ending with a deployed AI application and a capstone, and is a good test of interest first.</p>"),
   ],
   "faqs": [("How many years does it take to become an AI engineer after 10th?", "The AI/ML Engineering program takes three years at four hours a week (624 hours). Many students also pursue a degree; skills and a project portfolio are built alongside."),
            ("Is maths compulsory for AI engineering?", "Yes, to a working level. The program teaches the needed maths in two dedicated modules, starting from school-level mathematics."),
@@ -414,7 +414,7 @@ def guide_page(slug):
     mins = guide_minutes(secs + faq)
     hero = f'''<section class="page-hero gd-hero"><div class="wrap"><div><p class="crumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / {E(g["h1"][0].rstrip(":?"))}</p>
 <h1>{headline(E(g["h1"][0]), E(g["h1"][1]))}</h1><p class="lead">{E(g["lead"])}</p>
-<p class="gd-meta">By the NeuroNetworks AI Ed team · Updated <time datetime="{g.get('date', GUIDE_DATE)}">{g_date_txt(g.get('date', GUIDE_DATE))}</time> · {mins} min read</p></div></div></section>'''
+<p class="gd-meta">By the Neuronetworks AI Ed team · Updated <time datetime="{g.get('date', GUIDE_DATE)}">{g_date_txt(g.get('date', GUIDE_DATE))}</time> · {mins} min read</p></div></div></section>'''
     body = f'''{hero}<div class="wrap gd-wrap"><aside class="gd-toc" aria-label="On this page"><p>On this page</p><ol>{toc}<li><a href="#faq">FAQs</a></li>{'<li><a href="#sources">Sources</a></li>' if g.get("sources") else ""}</ol></aside>
 <article class="gd-art"><div class="gd-tldr"><h2>In short</h2><ul>{tldr}</ul></div>{secs}{faq}{g_sources(g)}
 <section class="gd-sec"><h2>Programs in this guide</h2><div class="gd-cards">{rel}</div></section>

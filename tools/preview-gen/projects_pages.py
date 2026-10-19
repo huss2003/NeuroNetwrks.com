@@ -40,7 +40,7 @@ PI = {
 }
 def pi(k, s=20, sw=1.8): return f'<svg width="{s}" height="{s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{PI[k]}</svg>'
 TICK = '<span class="tk" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>'
-LOGO = '<img class="mk-logo" src="/assets/mark-dark.svg" alt="" width="20" height="16" loading="lazy">'
+LOGO = '<img class="mk-logo" src="/assets/mark.webp" alt="" aria-hidden="true" width="20" height="16" loading="lazy">'
 AFLOGO = '<img class="mk-logo mk-logo--af" src="/assets/agentflow.svg" alt="AgentFlow AI logo" loading="lazy" width="20" height="20">'
 
 def eb(t): return f'<p class="pd-eb">{t}</p>'
@@ -114,7 +114,7 @@ def skills(items, cols=1):
     return f'<ul class="pd-skills pd-skills--{cols}">' + "".join(f'<li style="--k:{i}">{TICK}<div><b>{a}</b>{f"<small>{b}</small>" if b else ""}</div></li>' for i, (a, b) in enumerate(items)) + "</ul>"
 
 def program_link(year_label, desc):
-    return f'''<a class="pd-prog" href="/programs/ai-ml-engineering"><img src="/assets/r-full.webp" alt="3D spiral staircase, the NeuroNetworks symbol for learning step by step" width="600" height="600" loading="lazy"><div><b>AI/ML Engineering</b><span class="pd-tag pd-tag--sm">{year_label}</span><p>{desc}</p></div><span class="pd-prog-go">{ARW}</span></a>'''
+    return f'''<a class="pd-prog" href="/programs/ai-ml-engineering"><img src="/assets/r-full.webp" alt="3D spiral staircase, the Neuronetworks symbol for learning step by step" width="600" height="600" loading="lazy"><div><b>AI/ML Engineering</b><span class="pd-tag pd-tag--sm">{year_label}</span><p>{desc}</p></div><span class="pd-prog-go">{ARW}</span></a>'''
 
 # ------------------------------------------------------------ page 1: image classification
 def page_image_classification():
@@ -205,7 +205,7 @@ def ic_mock_fp():
 <div class="mk-col"><div class="mk-card"><p class="mk-h">Prediction Results</p><div class="mk-top"><img loading="lazy" src="/assets/dog.webp" alt="Photo of a golden retriever used as the input image in the image classification demo" width="291" height="324"><div><span class="tt"><b>Golden Retriever</b><em>92.4%</em></span><span class="mk-topbar"><i></i></span><ul>{others}</ul></div></div></div>
 <div class="mk-card"><p class="mk-h">Top Predictions</p>{bars(True)}</div></div></div>"""
     nav = '<nav class="mk-appnav"><span>Projects</span><span>Models</span><span>Datasets</span><span>About</span></nav><span class="mk-run">Run</span>'
-    return f'<div class="mk mk--app"><div class="mk-bar">{LOGO}<b>NeuroNetworks</b>{nav}</div>{body}</div>'
+    return f'<div class="mk mk--app"><div class="mk-bar">{LOGO}<b>Neuronetworks</b>{nav}</div>{body}</div>'
 
 FEATURED = [
  ("/projects/image-classification", "Year 2 · AI/ML", "Image classification application", "A deep learning model to classify images into different categories with a simple and intuitive web interface.", ["Python", "PyTorch", "Computer Vision", "Streamlit"], [("image", "Upload images", "Drag and drop or browse files"), ("spark", "AI prediction", "Get instant results"), ("chart", "Confidence scores", "See top predictions")], "ic"),

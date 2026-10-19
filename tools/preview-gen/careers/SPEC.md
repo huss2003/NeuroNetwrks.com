@@ -17,7 +17,7 @@ The reference example is `become-software-engineer-after-10th.json`. Match its f
   entry Class 10 pass. AI Foundation: 1 year, 104 hours, 2 hours a week, open from Class 8, no coding needed.
 - Classes are online. Batch timings: "shared on enquiry". Under-18s enquire/apply through a parent or guardian.
 - Every month: theory, demonstration, hands-on lab, a project, then the exam (3-year programs).
-- Students receive a NeuroNetworks AI Ed certificate on completion (a certificate, NOT a degree).
+- Students receive a Neuronetworks AI Ed certificate on completion (a certificate, NOT a degree).
 - External certifications: preparation only, awarded by the certifying bodies, passing not guaranteed, NEVER mention their costs.
 - Salary: only the program's indicative India ranges (fresher, 3–5 years, senior) from llms-full.txt, always "indicative, not a promise".
 - No job, internship, salary or exam-pass guarantee. No student numbers, success rates, testimonials, ratings, placements, partners, faculty names.

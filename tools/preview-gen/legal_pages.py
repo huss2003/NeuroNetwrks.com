@@ -10,7 +10,7 @@ def legal_body(sections):
 
 def privacy_page():
     S = [
-     ("Who we are", "<p>NeuroNetworks AI Ed teaches AI and technology programs online to students in India. This page explains what personal information this website collects and how we use it. "
+     ("Who we are", "<p>Neuronetworks AI Ed teaches AI and technology programs online to students in India. This page explains what personal information this website collects and how we use it. "
       'For any question, write to <a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a>.</p>'),
      ("What we collect when you enquire", "<p>The enquiry form asks for a name, an email address and the program you are interested in, plus anything you choose to write in your message. "
       "When you press send, the form opens your own email app with these details filled in. Nothing is sent until you send that email yourself.</p>"
@@ -31,7 +31,7 @@ def privacy_page():
     hero = page_hero("Privacy", "Privacy policy.", "Plain and short.", f"What this website collects, why, and how to ask us to delete it. Last updated {LEGAL_DATE_TXT}.")
     body = hero + legal_body(S) + cta_panel("Questions about your data?", "Write to Hussain@neuronetwrks.com. A person replies.")
     return layout("/privacy", "Privacy policy: how we handle your enquiry data", body, "none",
-                  desc="How NeuroNetworks AI Ed handles enquiry details, cookies and Google Analytics, students under 18, and how to ask for your data to be deleted.")
+                  desc="How Neuronetworks AI Ed handles enquiry details, cookies and Google Analytics, students under 18, and how to ask for your data to be deleted.")
 
 def terms_page():
     S = [
@@ -41,16 +41,16 @@ def terms_page():
       "Fees, intake dates and batch timings are shared on enquiry and confirmed in writing when you apply.</p>"),
      ("No guarantee of jobs, salaries or exam passes", "<p>Our programs teach skills and help students build a portfolio. No program guarantees a job, internship, salary or exam pass. "
       "Salary figures on this site are indicative market ranges, not promises. Pay depends on the employer, city, role and skills.</p>"),
-     ("Certificates", "<p>Students who complete a program receive a NeuroNetworks AI Ed certificate. External certifications, such as those from Microsoft, AWS, Google, CompTIA or ISC2, "
+     ("Certificates", "<p>Students who complete a program receive a Neuronetworks AI Ed certificate. External certifications, such as those from Microsoft, AWS, Google, CompTIA or ISC2, "
       "are awarded by those organisations after their own exams. Our programs prepare students for them, and passing is not guaranteed.</p>"),
      ("Links to other websites", "<p>Our guides link to official pages run by other organisations. We do not control those sites and are not responsible for their content.</p>"),
-     ("Using our content", "<p>The text, images and designs on this site belong to NeuroNetworks AI Ed. You may share links to our pages. Please do not copy our content for commercial use without asking us.</p>"),
+     ("Using our content", "<p>The text, images and designs on this site belong to Neuronetworks AI Ed. You may share links to our pages. Please do not copy our content for commercial use without asking us.</p>"),
      ("Students under 18", "<p>Students under 18 enquire and apply through a parent or guardian.</p>"),
      ("Changes to these terms", f"<p>We may update these terms. The date below shows the latest version. Last updated {LEGAL_DATE_TXT}.</p>"),
     ]
     hero = page_hero("Terms", "Terms of use.", "In plain words.", f"The rules for using this website, what our information covers and what we do not promise. Last updated {LEGAL_DATE_TXT}.")
     body = hero + legal_body(S) + cta_panel("Questions about these terms?", "Write to Hussain@neuronetwrks.com. A person replies.")
-    return layout("/terms", "Terms of use for the NeuroNetworks AI Ed website", body, "none",
+    return layout("/terms", "Terms of use for the Neuronetworks AI Ed website", body, "none",
                   desc="The terms for using neuronetwrks.com: how program information is kept current, no job or salary guarantees, certificates, links and content use.")
 
 CRUMB["privacy"] = "Privacy policy"; CRUMB["terms"] = "Terms of use"

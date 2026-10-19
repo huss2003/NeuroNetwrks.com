@@ -1,170 +1,170 @@
 {
 "/": [
-"b279907df7e11369",
+"30f33106a0838420",
 "2026-10-19"
 ],
 "/about": [
-"44532de26e3f4e75",
-"2026-10-18"
+"c78dffd85699fda7",
+"2026-10-19"
 ],
 "/admissions": [
-"0f392aa3e6b3c6a5",
+"feb09c3f95f68cc0",
 "2026-10-19"
 ],
 "/contact": [
-"f4d8250a85db9d3a",
-"2026-10-18"
+"c8bb8acf09eb830f",
+"2026-10-19"
 ],
 "/curriculum": [
-"30c6676a8320c473",
-"2026-10-18"
+"95d09aee45f0580a",
+"2026-10-19"
 ],
 "/faqs": [
-"9f5216943399487a",
+"7bd141bab9193342",
 "2026-10-19"
 ],
 "/guides": [
-"95db70b00bb46d3c",
-"2026-10-18"
+"0be535a7b97f3f36",
+"2026-10-19"
 ],
 "/guides/ai-courses-after-10th": [
-"2385246185d0bdaa",
-"2026-10-18"
+"fbc797fb177285b9",
+"2026-10-19"
 ],
 "/guides/ai-projects-for-students": [
-"9c153503ba0077d1",
-"2026-10-18"
+"de9fd4003c583bca",
+"2026-10-19"
 ],
 "/guides/ai-vs-software-vs-data-science": [
-"91189fa687bcfd5b",
-"2026-10-18"
+"ff44dd9ed92e8a4e",
+"2026-10-19"
 ],
 "/guides/become-ai-developer-after-10th": [
-"d6180ba34019b948",
-"2026-10-18"
+"50e501f978a9d840",
+"2026-10-19"
 ],
 "/guides/become-ai-engineer-after-10th": [
-"5f565c1bcf3d5cb7",
-"2026-10-18"
+"99d1ca704277ec1a",
+"2026-10-19"
 ],
 "/guides/become-app-developer-after-10th": [
-"d0b51196aab30443",
-"2026-10-18"
+"db98d9def82288ed",
+"2026-10-19"
 ],
 "/guides/become-data-analyst-after-10th": [
-"f72d0e42835365f5",
-"2026-10-18"
+"383a4344662b924a",
+"2026-10-19"
 ],
 "/guides/become-data-scientist-after-10th": [
-"2d1e0c124a21faff",
-"2026-10-18"
+"ea060895517118ad",
+"2026-10-19"
 ],
 "/guides/become-ethical-hacker-after-10th": [
-"f147911ef591b54d",
-"2026-10-18"
+"de5839e3cbe96561",
+"2026-10-19"
 ],
 "/guides/become-game-developer-after-10th": [
-"7b635b16862525a5",
-"2026-10-18"
+"0aa61fbe981764f6",
+"2026-10-19"
 ],
 "/guides/become-machine-learning-engineer-after-10th": [
-"682d4443b50c8c20",
-"2026-10-18"
+"c57d840b4706c632",
+"2026-10-19"
 ],
 "/guides/become-programmer-after-10th": [
-"a85d3a1eab2dc517",
-"2026-10-18"
+"6073bedefa8443b0",
+"2026-10-19"
 ],
 "/guides/become-software-engineer-after-10th": [
-"4799b37b7603d179",
-"2026-10-18"
+"3243f953118e6e98",
+"2026-10-19"
 ],
 "/guides/become-web-developer-after-10th": [
-"01b7c6794e86adfc",
-"2026-10-18"
+"73f3af561c5144ac",
+"2026-10-19"
 ],
 "/guides/career-options-after-10th": [
-"40adc9427bbf6f99",
-"2026-10-18"
+"1be3dd4e5a49d324",
+"2026-10-19"
 ],
 "/guides/computer-coding-courses-after-10th": [
-"8488331fb862d687",
-"2026-10-18"
+"6481e7df4b682cb9",
+"2026-10-19"
 ],
 "/guides/courses-after-10th": [
-"770167ba667dc272",
-"2026-10-18"
+"bb5a07d08e293b92",
+"2026-10-19"
 ],
 "/guides/cyber-security-course-after-10th": [
-"80ff32aab95cb470",
-"2026-10-18"
+"18be473c0dc25af4",
+"2026-10-19"
 ],
 "/guides/data-science-after-10th": [
-"ec567beb793fd48e",
-"2026-10-18"
+"8fdf8326ded628fc",
+"2026-10-19"
 ],
 "/guides/python-project-ideas-for-students": [
-"29b98847e86ec52f",
-"2026-10-18"
+"ef8569872b161abf",
+"2026-10-19"
 ],
 "/guides/ui-ux-designer-after-10th": [
-"09ba8a05b9f12419",
-"2026-10-18"
+"d20ef7c016dae5ec",
+"2026-10-19"
 ],
 "/learning-experience": [
-"ddcadd1711ed9210",
+"3a7ba79131e88615",
 "2026-10-19"
 ],
 "/privacy": [
-"163759da2acb4652",
+"f444d75d9c2419b2",
 "2026-10-19"
 ],
 "/programs": [
-"98fcbeff6cb66f8b",
-"2026-10-18"
+"751e2662d42dbabf",
+"2026-10-19"
 ],
 "/programs/ai-foundation": [
-"e7a1cd835fbc448c",
-"2026-10-18"
+"9e995814f84e6f9d",
+"2026-10-19"
 ],
 "/programs/ai-ml-engineering": [
-"79829bc4e0897b03",
-"2026-10-18"
+"1ab51bf6d8ed24cb",
+"2026-10-19"
 ],
 "/programs/cybersecurity": [
-"912baab9a4a8d485",
-"2026-10-18"
+"fce09d0eea75bc25",
+"2026-10-19"
 ],
 "/programs/data-science-ai": [
-"8402711dd01b9b68",
-"2026-10-18"
+"1f91ec9ca2a21a80",
+"2026-10-19"
 ],
 "/programs/product-ux-ai-design": [
-"755b13382a30eee3",
-"2026-10-18"
+"58524aacc383796f",
+"2026-10-19"
 ],
 "/programs/software-development": [
-"9ca60a4d1e5b6d6d",
-"2026-10-18"
+"267f8337f1bd5426",
+"2026-10-19"
 ],
 "/projects": [
-"0ae6136aedb674a5",
-"2026-10-18"
+"1d0868f4d14c69f3",
+"2026-10-19"
 ],
 "/projects/agentflow-ai": [
-"ac8cab3c51e0865e",
-"2026-10-18"
+"de70cb4f16180963",
+"2026-10-19"
 ],
 "/projects/document-rag-assistant": [
-"c5bdbae0821669d9",
-"2026-10-18"
+"dea3ad5e74585103",
+"2026-10-19"
 ],
 "/projects/image-classification": [
-"fbf1f9dd48a2388c",
-"2026-10-18"
+"8065deffc197a291",
+"2026-10-19"
 ],
 "/terms": [
-"7481007a0da17c17",
+"4da64cd9297f4cf3",
 "2026-10-19"
 ]
 }

@@ -20,7 +20,7 @@ SHARED_SOURCES = [
 JEE_LINE = ("For the NITs and other institutes that fill B.E. and B.Tech seats through JEE Main, the 2026 rules ask for Physics, Mathematics, a language, "
             "one of Chemistry, Biotechnology, Biology or a technical vocational subject, and one more subject in Class 12. State colleges can set their own rules.")
 SAL_SHORT = ("Indicative market ranges, not a promise. Pay depends on employer, city, role and skills, and for some employers, a degree. "
-             "NeuroNetworks AI Ed does not guarantee a job, internship or salary.")
+             "Neuronetworks AI Ed does not guarantee a job, internship or salary.")
 
 def c_clean(s):  # program data keeps em dashes from the source documents; the guides never show them
     return s.replace(" — ", ": ").replace("—", ", ")
@@ -35,11 +35,11 @@ def c_program_note(c):
     s, d = c["program"], D[c["program"]]
     link = f'<a href="/programs/{s}">{E(c_prog_name(s))} program</a>'
     if s == "ai-foundation":
-        return (f"If you want to follow this roadmap with a mentor and a project most months, the one-year {link} covers it: 104 hours, online, "
-                f"2 hours a week. It is open from Class 8, and no coding experience is needed. Students receive a NeuroNetworks AI Ed certificate on completion.")
+        return (f"If you want to follow this roadmap with a mentor and a project most months, the six-month {link} covers it: 104 hours, online, "
+                f"4 hours a week. It is open from Class 9, and no coding experience is needed. Students receive a Neuronetworks AI Ed certificate on completion.")
     return (f"If you want to follow this roadmap with a mentor and a project every month, the 3-year {link} covers these three years: 624 hours, online, "
             f"4 hours a week, with a 1-hour exam after each of the 36 monthly modules. It is open to anyone who has passed Class 10"
-            f"{' (' + E(c_clean(d['entry'].split(';', 1)[1].strip())) + ')' if ';' in d['entry'] else ''}. Students receive a NeuroNetworks AI Ed certificate on completion.")
+            f"{' (' + E(c_clean(d['entry'].split(';', 1)[1].strip())) + ')' if ';' in d['entry'] else ''}. Students receive a Neuronetworks AI Ed certificate on completion.")
 
 def c_years(c):
     d = D[c["program"]]
@@ -50,14 +50,14 @@ def c_years(c):
         projs = d["projects"][i * 12:(i + 1) * 12] if len(d["years"]) > 1 else d["projects"]
         mine = [p for p in projs if p in picks] or projs[:3]
         chips = "".join(f"<li>{E(c_clean(m))}</li>" for m in y["modules"])
-        out += (f'<section class="cr-year" aria-labelledby="cy{i+1}"><p class="cr-yhead"><strong>{"Year " + str(i+1) if len(d["years"]) > 1 else "1 year"}</strong>'
+        out += (f'<section class="cr-year" aria-labelledby="cy{i+1}"><p class="cr-yhead"><strong>{"Year " + str(i+1) if len(d["years"]) > 1 else "6 months"}</strong>'
                 f'{y["hours"]} hours · {len(y["modules"])} modules</p><div><h3 id="cy{i+1}">{E(focus)}</h3><ul class="cr-chips">{chips}</ul>'
                 f'<p class="cr-builds"><b>You build:</b> {g_join([c_clean(p) for p in mine])}.</p></div></section>')
     return f'<div class="cr-road">{out}</div>'
 
 def c_beats(c):
     if c["program"] == "ai-foundation":
-        steps = [("Lecture", "1 hour"), ("Homework", "10 to 15 minutes"), ("Project", "Most months"), ("Unit exam", "30 questions"), ("Capstone", "Month 12")]
+        steps = [("Lecture", "1 hour"), ("Homework", "10 to 15 minutes"), ("Project", "Most modules"), ("Unit exam", "30 questions"), ("Capstone", "Final module")]
     else:
         steps = [("Step 1", "Theory"), ("Step 2", "Demonstration"), ("Step 3", "Hands-on lab"), ("Step 4", "A project"), ("Step 5", "A 1-hour exam")]
     return '<ol class="cr-beats" aria-label="How each month works">' + "".join(f"<li><span>{a}</span>{b}</li>" for a, b in steps) + "</ol>"
@@ -90,7 +90,7 @@ def career_page(slug):
         + f"<p>{E(JEE_LINE)}</p><p>{c['start_extra']}</p>"))
     # 2 roadmap + program + talk box
     fit = f'<p class="cr-fit"><b>What this program does not cover:</b> {c["fit_note"]}</p>' if c.get("fit_note") else ""
-    yrs = "three years" if len(d["years"]) > 1 else "one year"
+    yrs = "three years" if len(d["years"]) > 1 else "six months"
     secs.append((f"What is the {'year-by-year' if len(d['years']) > 1 else 'step-by-step'} roadmap to become {a} {role}?",
         f'<p class="cr-answer">{E(c["roadmap_answer"])}</p><p>Each {"year is 208 hours, split into 12 monthly modules. Every month follows the same five steps, so a student always knows what comes next." if len(d["years"]) > 1 else "month has weekly lectures with short homework, and every major unit ends with an exam."}</p>'
         + c_beats(c) + c_years(c) + f'<p class="cr-prog">{c_program_note(c)}</p>' + fit
@@ -145,7 +145,7 @@ def career_page(slug):
     # faq
     faq = f'<section class="gd-sec" id="faq"><h2>Frequently asked questions</h2><div class="faq gd-faq">{faq_items([(E(q), "<p>" + E(x) + "</p>") for q, x in c["faqs"]], first_open=False)}</div></section>'
     # sources
-    src = [(t, u, n) for t, u, n in c["sources"]] + SHARED_SOURCES + [(f"{c_prog_name(s)} program roadmap", f"{SITE}/programs/{s}", "NeuroNetworks AI Ed. Modules, projects, hours, certifications and laptop recommendations.")]
+    src = [(t, u, n) for t, u, n in c["sources"]] + SHARED_SOURCES + [(f"{c_prog_name(s)} program roadmap", f"{SITE}/programs/{s}", "Neuronetworks AI Ed. Modules, projects, hours, certifications and laptop recommendations.")]
     srcs = "".join(f'<li><a href="{E(u)}" rel="noopener">{E(t)}</a>, {E(n)}</li>' for t, u, n in src)
     sources = f'<section class="gd-sec" id="sources"><h2>Sources</h2><p>Checked on {CAREER_DATE_TXT}.</p><ul class="cr-sources">{srcs}</ul></section>'
     # assemble
@@ -159,14 +159,14 @@ def career_page(slug):
     mins = guide_minutes(body_secs + faq)
     hero = f'''<section class="page-hero gd-hero"><div class="wrap"><div><p class="crumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / {E(c["h1"][0])}</p>
 <h1>{headline(E(c["h1"][0]), E(c["h1"][1]))}</h1><p class="lead">{E(c["lead"])}</p>
-<p class="gd-meta">By the NeuroNetworks AI Ed team · Updated <time datetime="{CAREER_DATE}">{CAREER_DATE_TXT}</time> · {mins} min read</p></div></div></section>'''
+<p class="gd-meta">By the Neuronetworks AI Ed team · Updated <time datetime="{CAREER_DATE}">{CAREER_DATE_TXT}</time> · {mins} min read</p></div></div></section>'''
     body = f'''{hero}<div class="wrap gd-wrap"><aside class="gd-toc" aria-label="On this page"><p>On this page</p><ol>{toc}<li><a href="#faq">FAQs</a></li><li><a href="#sources">Sources</a></li></ol></aside>
 <article class="gd-art"><div class="gd-tldr"><h2>In short</h2><ul>{tldr}</ul></div><p class="cr-intro">{E(c["role_intro"])}</p>{body_secs}{faq}{sources}
 <section class="gd-sec"><h2>Programs in this guide</h2><div class="gd-cards">{rel_p}</div></section>
 <section class="gd-sec gd-more"><h2>Related guides</h2><ul>{rel_g}</ul></section></article></div>{cta_panel(f"Ready to plan the next {yrs}?" if len(d["years"]) > 1 else "Ready to start the first year?", "Tell us what the student enjoys. We will explain the program, timings and fees.")}'''
     ld = {"@type": "Article", "@id": f"{SITE}/guides/{slug}#article", "headline": c["title"], "description": c["desc"], "image": SITE + "/assets/og.png",
           "datePublished": CAREER_DATE, "dateModified": CAREER_DATE, "inLanguage": "en-IN",
-          "author": {"@type": "Organization", "name": "NeuroNetworks AI Ed team", "url": SITE + "/about"}, "publisher": PUBLISHER,
+          "author": {"@type": "Organization", "name": "Neuronetworks AI Ed team", "url": SITE + "/about"}, "publisher": PUBLISHER,
           "mainEntityOfPage": f"{SITE}/guides/{slug}", "about": [{"@type": "Occupation", "name": role[:1].upper() + role[1:]}],
           "mentions": [{"@id": f"{SITE}/programs/{x}#course"} for x in [s] + c.get("alt_programs", [])],
           "citation": [u for _, u, _ in src if u.startswith("http")]}

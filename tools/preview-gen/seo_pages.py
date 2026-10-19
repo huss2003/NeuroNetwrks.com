@@ -78,7 +78,7 @@ def seo_page(slug):
     secs = [(x["h2"], f'<p class="cr-answer">{E(x["answer"])}</p>' + "".join(s_block(b, pg) for b in x.get("blocks", []))) for x in pg["sections"]]
     faq = f'<section class="gd-sec" id="faq"><h2>Frequently asked questions</h2><div class="faq gd-faq">{faq_items([(E(q), "<p>" + E(a) + "</p>") for q, a in pg["faqs"]], first_open=False)}</div></section>'
     src = [tuple(x) for x in pg["sources"]] + (SHARED_SOURCES if pg.get("shared_sources", True) else []) + (
-        [(f"{c_prog_name(s)} program roadmap", f"{SITE}/programs/{s}", "NeuroNetworks AI Ed. Modules, projects, hours, certifications and laptop recommendations.")] if s else [])
+        [(f"{c_prog_name(s)} program roadmap", f"{SITE}/programs/{s}", "Neuronetworks AI Ed. Modules, projects, hours, certifications and laptop recommendations.")] if s else [])
     srcs = "".join(f'<li><a href="{E(u)}" rel="noopener">{E(t)}</a>, {E(n)}</li>' for t, u, n in src)
     sources = f'<section class="gd-sec" id="sources"><h2>Sources</h2><p>Checked on {E(pg["date_txt"])}.</p><ul class="cr-sources">{srcs}</ul></section>'
     body_secs = "".join(f'<section class="gd-sec" id="s{i+1}"><h2>{E(h)}</h2>{b}</section>' for i, (h, b) in enumerate(secs))
@@ -90,14 +90,14 @@ def seo_page(slug):
     mins = guide_minutes(body_secs + faq)
     hero = f'''<section class="page-hero gd-hero"><div class="wrap"><div><p class="crumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / {E(pg["h1"][0])}</p>
 <h1>{headline(E(pg["h1"][0]), E(pg["h1"][1]))}</h1><p class="lead">{E(pg["lead"])}</p>
-<p class="gd-meta">By the NeuroNetworks AI Ed team · Updated <time datetime="{pg["date"]}">{E(pg["date_txt"])}</time> · {mins} min read</p></div></div></section>'''
+<p class="gd-meta">By the Neuronetworks AI Ed team · Updated <time datetime="{pg["date"]}">{E(pg["date_txt"])}</time> · {mins} min read</p></div></div></section>'''
     body = f'''{hero}<div class="wrap gd-wrap"><aside class="gd-toc" aria-label="On this page"><p>On this page</p><ol>{toc}<li><a href="#faq">FAQs</a></li><li><a href="#sources">Sources</a></li></ol></aside>
 <article class="gd-art"><div class="gd-tldr"><h2>In short</h2><ul>{tldr}</ul></div>{"<p class=\"cr-intro\">" + E(pg["intro"]) + "</p>" if pg.get("intro") else ""}{body_secs}{faq}{sources}
 {"<section class=\"gd-sec\"><h2>Programs in this guide</h2><div class=\"gd-cards\">" + rel_p + "</div></section>" if rel_p else ""}
 {"<section class=\"gd-sec gd-more\"><h2>Related guides</h2><ul>" + rel_g + "</ul></section>" if rel_g else ""}</article></div>{cta_panel(pg.get("cta_h", "Questions about the right path?"), pg.get("cta_p", "Tell us what the student enjoys. We will explain the program, timings and fees."))}'''
     ld = {"@type": "Article", "@id": f"{SITE}/guides/{slug}#article", "headline": pg["title"], "description": pg["desc"], "image": SITE + "/assets/og.png",
           "datePublished": pg["date"], "dateModified": pg.get("modified", pg["date"]), "inLanguage": "en-IN",
-          "author": {"@type": "Organization", "name": "NeuroNetworks AI Ed team", "url": SITE + "/about"}, "publisher": PUBLISHER,
+          "author": {"@type": "Organization", "name": "Neuronetworks AI Ed team", "url": SITE + "/about"}, "publisher": PUBLISHER,
           "mainEntityOfPage": f"{SITE}/guides/{slug}", "mentions": [{"@id": f"{SITE}/programs/{x}#course"} for x in progs],
           "citation": [u for _, u, _ in src if u.startswith("http")]}
     if pg.get("about"): ld["about"] = pg["about"]

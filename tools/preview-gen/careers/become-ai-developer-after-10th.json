@@ -13,7 +13,7 @@
   "How to become an AI developer after 10th",
   "a year-by-year roadmap"
  ],
- "lead": "A plan for a Class 10 student and their parent to read together. It shows how a real 624-hour, three-year curriculum leads to building apps that use AI, with a one-year option for younger students.",
+ "lead": "A plan for a Class 10 student and their parent to read together. It shows how a real 624-hour, three-year curriculum leads to building apps that use AI, with a six-month option for younger students.",
  "role_intro": "An AI developer builds apps and tools that use AI models made by others. A typical task is connecting a language model through an API, giving it your own documents with RAG, or letting an agent call tools. The focus is the software around the model, not inventing new models.",
  "day_to_day": {
   "answer": "An AI developer spends the day writing application code around ready-made AI models: calling them through APIs, feeding them the right documents, giving agents tools to use, and fixing what breaks for users.",
@@ -25,10 +25,10 @@
  },
  "in_short": [
   "<strong>An AI developer writes the app, not the model.</strong> The work is code that connects ready-made models to users, files and tools.",
-  "<strong>You can try it before Class 10 ends.</strong> AI Foundation, open from Class 8, has a 9-hour module on Python AI APIs, agents and automation.",
+  "<strong>You can try it before Class 10 ends.</strong> AI Foundation, open from Class 9, has a 9-hour module on Python AI APIs, agents and automation.",
   "<strong>Coding habits count most.</strong> Small working apps on GitHub that use AI APIs, RAG and agents show more than marks."
  ],
- "start_answer": "Yes, you can start after Class 10, or from Class 8 with AI Foundation, because an AI developer first needs everyday coding skill and a feel for how apps talk to AI models.",
+ "start_answer": "Yes, you can start after Class 10, or from Class 9 with AI Foundation, because an AI developer first needs everyday coding skill and a feel for how apps talk to AI models.",
  "start_bridge": "Because AI development is mostly coding, your stream choice affects degrees more than skills. Here is the honest picture for each.",
  "streams": [
   [
@@ -47,7 +47,7 @@
    "Rules for moving into a degree later differ by state. Check them early."
   ]
  ],
- "start_extra": "Students in Class 8 or 9 can take the one-year, 104-hour <a href=\"/programs/ai-foundation\">AI Foundation</a> course, which ends with a deployed AI app. After Class 10, <a href=\"/programs/ai-ml-engineering\">AI/ML Engineering</a> goes much deeper.",
+ "start_extra": "Students in Class 9 can take the six-month, 104-hour <a href=\"/programs/ai-foundation\">AI Foundation</a> course, which ends with a deployed AI app. After Class 10, <a href=\"/programs/ai-ml-engineering\">AI/ML Engineering</a> goes much deeper.",
  "roadmap_answer": "Across three years, year 1 builds Python, data skills and your first Azure AI solution, year 2 builds APIs, transformers and AWS AI services, and year 3 builds RAG apps, agents, multimodal tools and cloud AI products.",
  "year_focus": [
   "Year 1: write solid Python and call your first cloud AI services",
@@ -143,7 +143,7 @@
   "Microsoft Azure AI Fundamentals (AI-901)": "Weighted 40–45% on AI concepts and 55–60% on implementing AI solutions with Microsoft Foundry. Microsoft says some Python syntax knowledge is needed.",
   "IBM AI Engineering Professional Certificate": "Includes a course on AI agents using RAG and LangChain, and a final project building generative AI applications with RAG and LangChain."
  },
- "cert_extra": "AI-901 preparation is also part of the final month of AI Foundation, so a younger student can prepare for it within one year.",
+ "cert_extra": "AI-901 preparation is also part of the final module of AI Foundation, so a younger student can prepare for it within six months.",
  "notfor_answer": "AI development is not for you if you dislike coding, want to research new models rather than use them, or expect a guaranteed job once you can call an AI API.",
  "notfor": [
   [
@@ -182,8 +182,8 @@
    "An AI developer mainly builds apps on top of AI APIs and models. An AI engineer often also trains, evaluates and runs models and designs larger AI systems. Titles vary by company."
   ],
   [
-   "Can I start in Class 8 or 9?",
-   "Yes. AI Foundation is a one-year, 104-hour course at 2 hours a week, open from Class 8 with no coding needed. It covers Python, prompt and context engineering, RAG, AI APIs and agents, and a deployed AI app."
+   "Can I start in Class 9?",
+   "Yes. AI Foundation is a six-month, 104-hour course at 4 hours a week, open from Class 9 with no coding needed. It covers Python, prompt and context engineering, RAG, AI APIs and agents, and a deployed AI app."
   ],
   [
    "Which programming language should an AI developer learn first?",

@@ -6,7 +6,7 @@ Read this file at the start of every session. Rules here beat your defaults. If 
 
 ## What this project is
 
-Marketing website for **NeuroNetworks AI Ed**, an Indian AI education brand (tagline: **Learn · Develop · Create**, never reworded). Goal: enquiries and applications, investor impression, brand awareness, and top organic/AI-search visibility. Pre-launch. India first. English only (`lang="en-IN"`).
+Marketing website for **Neuronetworks AI Ed** (legal name: Neuronetworks AI Ed Private Limited), an Indian AI education brand (tagline: **Learn · Develop · Create**, never reworded). Goal: enquiries and applications, investor impression, brand awareness, and top organic/AI-search visibility. Pre-launch. India first. English only (`lang="en-IN"`).
 The site only collects enquiries (Google Sheet + email). No login, no payments, no chatbot, **no prices anywhere**. The Neuromind Practical Lab IDE is a separate product: link or teaser only.
 The owner is not a developer. Explain decisions in plain language, keep changes small, and never ask the owner to edit code.
 
@@ -67,7 +67,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 
 - Under each H2, first sentence answers the heading directly in 40–60 words (answer-first). Use definition lists and tables for facts.
 - FAQ blocks are visible on the page and marked up with `FAQPage` (helps AI answers; Google no longer shows FAQ rich results).
-- Entity consistency: "NeuroNetworks AI Ed" everywhere; `alternateName` includes "NeuroNetworks", "Neuronetworks", "neuronetwrks".
+- Entity consistency: "Neuronetworks AI Ed" everywhere (owner spelling, 19 Oct 2026); `alternateName` includes "NeuroNetworks AI Ed", "NeuroNetworks", "Neuronetworks", "neuronetwrks". AI Foundation: Class 9, 6 months, 104 h at 4 h a week.
 - Allow AI search bots in `robots.txt`; training-bot policy is the owner's decision (see `docs/PLAN.md` section 8). `llms.txt` is generated at build; treat it as optional.
 - Blog posts: real named author, date, `dateModified`, TL;DR, sources, FAQ, internal links to at least 2 program pages. Future `pubDate` posts are excluded from the build until their date (daily rebuild publishes them).
 

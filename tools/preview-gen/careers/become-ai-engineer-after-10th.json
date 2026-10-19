@@ -48,7 +48,7 @@
    "JEE Main needs Physics and Mathematics in Class 12, so B.Tech seats are out of reach without Physics."
   ]
  ],
- "start_extra": "Curious in Class 8 or 9? The one-year <a href=\"/programs/ai-foundation\">AI Foundation</a> course is an early taste of Python and generative AI. After Class 10, the deeper three-year path starts.",
+ "start_extra": "Curious in Class 9? The six-month <a href=\"/programs/ai-foundation\">AI Foundation</a> course is an early taste of Python and generative AI. After Class 10, the deeper three-year path starts.",
  "roadmap_answer": "The roadmap runs over three years: year 1 builds Python, maths and classical machine learning, year 2 adds deep learning, NLP and MLOps, and year 3 builds generative AI, RAG, agents and a finished AI product.",
  "year_focus": [
   "Year 1: learn Python, the maths behind ML, and your first working models",
@@ -180,7 +180,7 @@
   ],
   [
    "You need a degree and nothing else.",
-   "This program gives a NeuroNetworks AI Ed certificate, not a degree. Many students take it alongside school and college."
+   "This program gives a Neuronetworks AI Ed certificate, not a degree. Many students take it alongside school and college."
   ]
  ],
  "salary_answer": "Indicative ranges for AI/ML roles in India are about ₹5 to 10 lakh a year for freshers, ₹12 to 25 lakh at 3 to 5 years, and ₹30 to 60 lakh or more at senior level.",
@@ -233,7 +233,7 @@
   {
    "h2": "Where does prompt engineering fit in?",
    "answer": "Prompt engineering, instructing AI models and testing their answers, is one skill inside AI engineer and AI developer roles; few jobs are only prompt writing, so it works best as a starting point.",
-   "html": "<p>A student can start early with <a href=\"/programs/ai-foundation\">AI Foundation</a>, open from Class 8. Its Prompt Engineering &amp; AI Evaluation module is 7 hours, followed by 8 hours on context engineering, embeddings and RAG.</p><p>For career-level depth, AI/ML Engineering covers generative AI, embeddings and RAG, agents and LLM evaluation in year 3.</p>"
+   "html": "<p>A student can start early with <a href=\"/programs/ai-foundation\">AI Foundation</a>, open from Class 9. Its Prompt Engineering &amp; AI Evaluation module is 7 hours, followed by 8 hours on context engineering, embeddings and RAG.</p><p>For career-level depth, AI/ML Engineering covers generative AI, embeddings and RAG, agents and LLM evaluation in year 3.</p>"
   }
  ]
 }
