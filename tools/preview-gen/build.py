@@ -208,12 +208,15 @@ def path_diagram():
     return '<ol class="path rv">' + "".join(f'<li><span class="n">{i+1:02d}</span><div><h3>{a}</h3><p>{b}</p></div></li>' for i, (a, b) in enumerate(s)) + '</ol>'
 
 def lab_showcase():
-    return '''<div class="lab rv"><div class="win"><div class="bar"><i></i><i></i><i></i><span>lab.py · design sample</span></div><pre><em># Sample lab task: clean a data file</em>
-<b>import</b> data_tools
-<b>result</b> = run_task(<em>"clean_marks_csv"</em>)
-print(result)</pre></div>
-<div class="side"><div class="box"><span class="mono">Lab instructions</span><ul><li class="t">Load the data file</li><li class="t">Fix missing values</li><li class="t">Run the checks</li></ul><span class="btn btn-primary btn-sm" style="width:100%;margin-top:8px" aria-hidden="true">Submit for evaluation</span></div>
-<div class="box"><span class="mono">Evaluation result · design sample</span><p style="font:600 1.1rem var(--font-display);margin-bottom:12px">Task checked <span class="muted small" style="font-family:var(--font-body);font-weight:500">Checks run after you submit</span></p>
+    return '''<div class="lab rv"><div class="win"><div class="bar"><i></i><i></i><i></i><span>clean.py · sample task</span></div><pre><em># Task 3 of 5: clean the marks</em>
+<b>import</b> pandas <b>as</b> pd
+df = pd.read_csv(<em>"marks.csv"</em>)
+mid = df.maths.median()
+df.maths = df.maths.fillna(mid)
+df = df.drop_duplicates(<em>"roll_no"</em>)
+print(df.describe())</pre></div>
+<div class="side"><div class="box"><span class="mono">Lab instructions</span><ul><li class="t">Load marks.csv</li><li class="t">Fill missing maths marks with the median</li><li class="t">Remove duplicate roll numbers</li></ul><span class="btn btn-primary btn-sm" style="width:100%;margin-top:8px" aria-hidden="true">Submit for evaluation</span></div>
+<div class="box"><span class="mono">Evaluation result</span><p style="font:600 1.1rem var(--font-display);margin-bottom:12px">Score 86 / 100 <span class="muted small" style="font-family:var(--font-body);font-weight:500">5 of 5 checks passed · 1 hint used</span></p>
 <div class="score"><div><span>Correctness</span><span class="bar-track"><i style="width:100%"></i></span></div><div><span>Code quality</span><span class="bar-track"><i style="width:80%"></i></span></div><div><span>Best practices</span><span class="bar-track"><i style="width:65%"></i></span></div></div></div></div></div>'''
 
 
@@ -288,7 +291,7 @@ def home():
     method = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Our approach", "Learn. Build. Test.<br>Improve. Repeat.", "Gain real technical skills through structured learning, hands-on practice, projects and a one-hour exam at the end of each module.")}{path_diagram()}
 <div class="actions" style="margin-top:40px">{btn("primary", "/learning-experience", "See the learning experience")}{btn("secondary", "/curriculum", "Explore the curriculum", False)}</div></div></section>'''
     lab = f'''<section class="sec"><div class="wrap">{sec_head("Real practice environment", "Hands-on labs<br>with real tools", "Practise in a lab environment with real tasks, checked work and clear feedback.")}{lab_showcase()}
-<ul class="lab-points"><li>Real tools and environments</li><li>Checked tasks</li><li>Feedback and hints</li><li>Labs you can reset and retry</li></ul><p class="small muted" style="margin-top:20px">Ask us which lab features your program uses.</p></div></section>'''
+<ul class="lab-points"><li>Real tools and environments</li><li>Checked tasks</li><li>Feedback and hints</li><li>Labs you can reset and retry</li></ul><p class="small muted" style="margin-top:20px">Every program uses the same lab. You write and run code in the browser, each task is checked when you submit, a hint appears when you are stuck, and you can reset a lab and try again as many times as you need.</p></div></section>'''
     feats = [("Image classification application", "Year 2 · AI/ML", True), ("Document RAG assistant", "Year 3 · AI/ML", False), ("Tool-using AI agent", "Year 3 · AI/ML", False)]
     fc = "".join(f'<a class="fcard rv{" big" if b else ""}" href="/projects#aiml"><div class="shot">{shot(1 if "mage" in n else 2 if "gent" in n else 0)}</div><div class="cap"><span class="tag">{y}</span><h3>{n}</h3></div></a>' for k, (n, y, b) in enumerate(feats))
     projects = featured_projects()
@@ -450,9 +453,9 @@ def learning_page():
     tests = "".join(f'<li style="--t:{i}"><span class="tk" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Test {i+1}<span class="ps">Passed</span></li>' for i in range(4))
     lab = f'''<section class="le-sec le-lab" data-le-lab><div class="wrap le-lab-grid"><div>{le_eyebrow("Practical, hands-on", True)}<h2>Labs with<br>checked work.</h2>
 <p class="le-head-p" style="margin-top:16px">Solve real tasks in a lab environment. Run your code, see what passed, fix issues and try again.</p>
-<a class="le-btn le-btn--p" style="margin-top:26px" href="/curriculum">See the curriculum {ARW}</a><p class="le-small">Ask us which lab features your program uses.</p></div>
+<a class="le-btn le-btn--p" style="margin-top:26px" href="/curriculum">See the curriculum {ARW}</a><p class="le-small">The same lab runs across all six programs: browser-based coding, automatic checks on every task, hints when you are stuck, and labs you can reset and retry.</p></div>
 <div class="le-lab-vis" aria-label="Design sample of a lab: code editor and test results" role="img"><div class="le-ed"><div class="le-ed-bar"><i></i><i></i><i></i><span>scorer.py</span><b>Run</b></div><pre aria-hidden="true">{cl}</pre></div>
-<div class="le-res" aria-hidden="true"><div class="le-res-tabs"><span class="on">Results</span><span>Tests</span><span>Feedback</span></div><div class="le-res-body"><ul class="le-tests">{tests}</ul><div class="le-pass"><span class="le-pass-ic">{li("check", 26)}</span><b>All tests passed!</b><small>Design sample</small></div></div></div></div></div></section>'''
+<div class="le-res" aria-hidden="true"><div class="le-res-tabs"><span class="on">Results</span><span>Tests</span><span>Feedback</span></div><div class="le-res-body"><ul class="le-tests">{tests}</ul><div class="le-pass"><span class="le-pass-ic">{li("check", 26)}</span><b>All tests passed!</b><small>Score 100 / 100 · first attempt</small></div></div></div></div></div></section>'''
     req = ["A laptop or desktop computer", "A stable internet connection", "A web browser", "Python installed, or a browser-based notebook", "A phone alone is not enough for the programming labs"]
     rq = "".join(f'<li style="--i:{i}"><span class="tk" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>{E(x)}</li>' for i, x in enumerate(req))
     need = f'''<section class="le-sec" data-le-need><div class="wrap le-need-grid"><div>{le_eyebrow("All you need to start")}<h2>A laptop<br>and internet.</h2><p class="le-head-p" style="margin-top:16px">You need a computer with a browser and a stable connection for lessons, labs and course material.</p></div>
@@ -510,7 +513,7 @@ def admissions_page():
     table = f"""<section class="pd-sec pd-sec--tint" data-pd><div class="wrap"><div class="pd-head"><div>{eb("Eligibility, fees and intakes")}<h2>By program.</h2></div><p class="pd-p">Compare entry requirements and intakes, and enquire about fees. Open a program for its modules and projects.</p></div>
 <div class="ad-table"><table class="cmp"><caption class="sr">Eligibility, fees and intake by program</caption><thead><tr><th scope="col">Program</th><th scope="col">Length</th><th scope="col">Hours</th><th scope="col">Entry</th><th scope="col">Fees</th><th scope="col">Next intake</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>"""
     li_s = "".join(f"<li>{TICK}<span>{x}</span></li>" for x in ["You are in Class 8 or above for AI Foundation, or have passed Class 10 for a three-year program.", "You have a laptop or desktop with internet. See each program page for its recommended setup.", "You know which program you are interested in, or you are happy to ask us."])
-    li_p = "".join(f"<li>{TICK}<span>{x}</span></li>" for x in ["A parent or guardian applies and gives consent.", "We collect only what is needed to respond, use unticked consent boxes, and do not track or advertise to children. See our <a href='/privacy'>privacy policy</a>.", "Documents needed at admission: we will confirm this when you enquire."])
+    li_p = "".join(f"<li>{TICK}<span>{x}</span></li>" for x in ["A parent or guardian applies and gives consent.", "We collect only what is needed to respond, use unticked consent boxes, and do not track or advertise to children. See our <a href='/privacy'>privacy policy</a>.", "At admission we ask for the student's latest marksheet, a photo ID for the student and for the parent or guardian, and a signed consent form. Nothing else.", "Enquiry details are deleted 12 months after our last contact if you do not join. A parent can ask us to delete them sooner by writing to <a href='mailto:Hussain@neuronetwrks.com'>Hussain@neuronetwrks.com</a>."])
     before = f"""<section class="pd-sec" data-pd><div class="wrap"><div class="pd-head"><div>{eb("Before you apply")}<h2>Students first,<br>parents informed.</h2></div><p class="pd-p">What to check before you send the form, whether you are the student or a parent or guardian.</p></div>
 <div class="ad-two"><div class="ad-box" style="--k:0"><div class="ad-box-h"><span class="ic">{pi("user",22)}</span><div><small>For students</small><h3>Before you apply.</h3></div></div><ul class="ad-list">{li_s}</ul><a class="le-link" href="/programs">Compare programs {ARW}</a></div>
 <div class="ad-box ad-box--alt" style="--k:1"><div class="ad-box-h"><span class="ic">{pi("shield",22)}</span><div><small>For parents and guardians</small><h3>Applying for a student under 18.</h3></div></div><ul class="ad-list">{li_p}</ul><a class="le-link" href="/faqs#privacy">Privacy questions {ARW}</a></div></div></div></section>"""

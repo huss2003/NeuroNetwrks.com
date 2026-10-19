@@ -1,7 +1,7 @@
 # Privacy policy and terms of use. exec'd from build.py (shares its namespace).
-# Written only from what the site really does (checked against site.js on 18 Oct 2026). DRAFT: the owner must review before deploy.
+# Written from what the site really does (checked against site.js on 18 Oct 2026). Interim wording chosen 19 Oct 2026; the owner plans to review it in 5-6 months.
 
-LEGAL_DATE, LEGAL_DATE_TXT = "2026-10-18", "18 October 2026"
+LEGAL_DATE, LEGAL_DATE_TXT = "2026-10-19", "19 October 2026"
 
 def legal_body(sections):
     secs = "".join(f'<section class="gd-sec" id="l{i+1}"><h2>{E(h)}</h2>{b}</section>' for i, (h, b) in enumerate(sections))
@@ -14,15 +14,18 @@ def privacy_page():
       'For any question, write to <a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a>.</p>'),
      ("What we collect when you enquire", "<p>The enquiry form asks for a name, an email address and the program you are interested in, plus anything you choose to write in your message. "
       "When you press send, the form opens your own email app with these details filled in. Nothing is sent until you send that email yourself.</p>"
-      "<p>We keep enquiries in our email and in a private Google Sheet that only our team can open. We use them only to reply to you and to follow up about the program you asked about.</p>"),
+      "<p>Your enquiry arrives in our email inbox, and we note it in a private enquiry tracker that only our team can open. We use it only to reply to you and to follow up about the program you asked about.</p><p>If you join, we also ask for the student's latest marksheet, a photo ID for the student and for the parent or guardian, and a signed consent form.</p>"),
      ("Students under 18", "<p>Students under 18 enquire and apply through a parent or guardian, who gives consent. We ask only for what we need to reply. "
       "We do not run advertising aimed at children and do not use tracking for advertising.</p>"),
      ("Cookies and Google Analytics", "<p>We use Google Analytics 4 to see which pages help visitors. It loads only after you choose <strong>Allow analytics</strong> in the cookie banner. "
       "If you do not allow it, Google Analytics does not load. Your choice is saved in your browser so we do not ask again, and you can change it at any time with <strong>Cookie settings</strong> in the footer.</p>"
       "<p>We do not use advertising cookies, remarketing or ad pixels, and we do not sell personal information.</p>"),
      ("Who can see your information", "<p>Only our team. We use Google services to store enquiries and, if you allow it, to measure page visits. We do not share enquiry details with anyone else unless the law requires it.</p>"),
-     ("How long we keep it, and deletion", "<p>We keep enquiry details only as long as we need them to reply and follow up. You can ask us at any time to see, correct or delete what we hold about you, "
-      'by writing to <a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a>. A parent or guardian can ask on behalf of a student under 18.</p>'),
+     ("How long we keep it, and deletion", "<ul><li><strong>Enquiries:</strong> if you do not join, we delete your details 12 months after our last contact.</li>"
+      "<li><strong>Student records:</strong> kept for the length of the program plus two years, so certificates can be verified, then deleted.</li>"
+      "<li><strong>Your requests:</strong> you can ask us at any time to see, correct or delete what we hold about you, and we act on it within 30 days. A parent or guardian can ask on behalf of a student under 18.</li></ul>"),
+     ("Grievance contact", '<p>If you have a concern about how we handle personal data, write to our grievance contact, Hussain, at <a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a>. '
+      "We acknowledge every message within 7 working days and aim to resolve it within 30 days. This follows the Digital Personal Data Protection Act, 2023.</p>"),
      ("Changes to this policy", f"<p>If we change how we handle personal information, we will update this page and its date. Last updated {LEGAL_DATE_TXT}.</p>"),
     ]
     hero = page_hero("Privacy", "Privacy policy.", "Plain and short.", f"What this website collects, why, and how to ask us to delete it. Last updated {LEGAL_DATE_TXT}.")
