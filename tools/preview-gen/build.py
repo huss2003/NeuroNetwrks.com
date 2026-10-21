@@ -113,7 +113,7 @@ ORG_ID = SITE + "/#organization"
 PUBLISHER = {"@type": "Organization", "@id": ORG_ID, "name": "Neuronetworks AI Ed", "logo": {"@type": "ImageObject", "url": SITE + "/assets/logo-512.png", "width": 512, "height": 512}}
 # Official profiles (LinkedIn, Instagram, YouTube, Google Business Profile). Add each URL once it exists.
 SAME_AS = []
-ORG = {"@type": "EducationalOrganization", "@id": ORG_ID, "name": "Neuronetworks AI Ed", "legalName": "Neuronetworks AI Ed Private Limited", "founder": {"@type": "Person", "@id": SITE + "/about#jair-dsouza", "name": "Jair Dsouza"}, "alternateName": ["NeuroNetworks AI Ed", "Neuronetworks", "NeuroNetworks", "neuronetwrks"], "url": SITE + "/", "logo": SITE + "/assets/logo-512.png", "email": "Hussain@neuronetwrks.com", "description": "Practical AI and technology programs: a six-month AI Foundation course from Class 9 and three-year specialisations from Class 11.", "areaServed": {"@type": "Country", "name": "India"}, "slogan": "Learn · Develop · Create", "knowsAbout": ["Artificial intelligence", "Machine learning", "Generative AI", "Software development", "Data science", "UI/UX design", "Cyber security", "Python programming"], "sameAs": SAME_AS}
+ORG = {"@type": "EducationalOrganization", "@id": ORG_ID, "name": "Neuronetworks AI Ed", "legalName": "Neuronetworks AI Ed Private Limited", "alternateName": ["NeuroNetworks AI Ed", "Neuronetworks", "NeuroNetworks", "neuronetwrks"], "url": SITE + "/", "logo": SITE + "/assets/logo-512.png", "email": "Hussain@neuronetwrks.com", "description": "Practical AI and technology programs: a six-month AI Foundation course from Class 9 and three-year specialisations from Class 11.", "areaServed": {"@type": "Country", "name": "India"}, "slogan": "Learn · Develop · Create", "knowsAbout": ["Artificial intelligence", "Machine learning", "Generative AI", "Software development", "Data science", "UI/UX design", "Cyber security", "Python programming"], "sameAs": SAME_AS}
 if not SAME_AS: ORG.pop("sameAs")
 ORG["hasOfferCatalog"] = {"@type": "OfferCatalog", "name": "AI and technology programs from Class 9", "itemListElement": [{"@type": "Offer", "itemOffered": {"@id": f"{SITE}/programs/{p[0]}#course"}} for p in PROGRAMS]}
 CRUMB = {"programs": "Programs", "projects": "Projects", "about": "About", "admissions": "Admissions", "faqs": "FAQs", "contact": "Contact", "curriculum": "Curriculum", "learning-experience": "Learning Experience", "faculty-and-team": "Faculty and team"}
@@ -590,6 +590,8 @@ exec(open(os.path.join(HERE, 'seo_pages.py')).read())
 exec(open(os.path.join(HERE, 'legal_pages.py')).read())
 exec(open(os.path.join(HERE, 'og_images.py')).read())
 
+FOUNDER_ON = False  # founder section (Jair Dsouza) hidden by owner, 21 Oct 2026; set True to show it again
+
 def about_page():
     tags = [("Curious minds", 6, 78), ("Practical learning", 22, 44), ("Real projects", 74, 34), ("A stronger tomorrow", 60, 4)]
     tg = "".join(f'<span class="ab-tag" style="left:{x}%;top:{y}%;--k:{i}"><i></i>{t}</span>' for i, (t, x, y) in enumerate(tags))
@@ -642,7 +644,7 @@ def about_page():
 <li><b>Outside facts are sourced.</b> Every guide lists the official pages we checked, such as certification bodies, the National Testing Agency and Nasscom, with the date we checked them.</li>
 <li><b>We review before publishing.</b> Each guide is checked against the program data and our rules: no invented numbers, no fees, and no promise of jobs, salaries or exam passes.</li>
 <li><b>We update them.</b> Each guide shows the date it was last updated. If a fact changes, we correct the page.</li></ul></div></section>'''
-    return layout("/about", "About Neuronetworks AI Ed: online AI courses for students", hero + manifesto + story + founder + mvv + principles + env + bigger + guides_box + cta, "about", jsonld={"@type": "Person", "@id": SITE + "/about#jair-dsouza", "name": "Jair Dsouza", "jobTitle": "Founder & CEO", "image": SITE + "/assets/founder-jair-dsouza.webp", "worksFor": {"@id": ORG_ID}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Kuwait University"}, {"@type": "CollegeOrUniversity", "name": "Rutgers University"}]})
+    return layout("/about", "About Neuronetworks AI Ed: online AI courses for students", hero + manifesto + story + (founder if FOUNDER_ON else "") + mvv + principles + env + bigger + guides_box + cta, "about", jsonld=None if not FOUNDER_ON else {"@type": "Person", "@id": SITE + "/about#jair-dsouza", "name": "Jair Dsouza", "jobTitle": "Founder & CEO", "image": SITE + "/assets/founder-jair-dsouza.webp", "worksFor": {"@id": ORG_ID}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Kuwait University"}, {"@type": "CollegeOrUniversity", "name": "Rutgers University"}]})
 
 
 def link_projects(html):
@@ -658,6 +660,7 @@ def main():
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT + "/assets")
     for f in os.listdir(HERE + "/assets"):
+        if not FOUNDER_ON and (f.startswith("co-") or f.startswith("founder-")): continue  # hidden founder section assets
         shutil.copy(os.path.join(HERE, "assets", f), OUT + "/assets/" + f)
     shutil.move(OUT + "/assets/favicon.svg", OUT + "/favicon.svg")
     shutil.copy(HERE + "/site.css", OUT + "/assets/site.css"); shutil.copy(HERE + "/site.js", OUT + "/assets/site.js")
