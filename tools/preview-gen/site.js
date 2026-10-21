@@ -339,6 +339,7 @@
   function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
   function ev(name, p) { if (loaded) gtag('event', name, p || {}); }
+  window.nnEv = ev;
   function load() {
     if (loaded) return; loaded = true;
     gtag('consent', 'update', { analytics_storage: 'granted' });
@@ -376,4 +377,62 @@
     if (sent || !loaded) return;
     var h = document.documentElement; if ((h.scrollTop + innerHeight) / h.scrollHeight >= 0.75) { sent = true; ev('scroll_75'); }
   }, { passive: true });
+})();
+
+/* Home AI Lab: 30-second prompt challenge (deterministic, no AI call). GA4 events go through nnEv, which only sends after analytics consent. */
+(function () {
+  var root = document.querySelector('[data-aic]'); if (!root) return;
+  root.classList.add('aic-on');
+  var CID = root.dataset.aic, CORRECT = root.dataset.aicCorrect;
+  var form = root.querySelector('.aic-form'), btn = root.querySelector('.aic-submit'), fb = root.querySelector('.aic-fb');
+  var retry = root.querySelector('.aic-retry'), tpl = root.querySelector('.aic-tpl'), opts = root.querySelectorAll('.aic-opt');
+  var attempt = 0, started = false, done = false, t0 = 0, completed = 'not_started';
+  var sid = Math.random().toString(36).slice(2, 10);
+  var vp = innerWidth < 768 ? 'mobile' : innerWidth < 1024 ? 'tablet' : 'desktop';
+  function ev(n, p) { try { p = p || {}; p.challenge_id = CID; if (window.nnEv) window.nnEv(n, p); } catch (e) {} }
+  function bucket(s) { return s < 10 ? '0-10' : s < 30 ? '10-30' : s < 60 ? '30-60' : '60+'; }
+  try {
+    if ('IntersectionObserver' in window) {
+      var seen = false, timer = null, io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (seen) return;
+          if (e.intersectionRatio >= 0.5) timer = setTimeout(function () { seen = true; io.disconnect(); ev('homepage_ai_challenge_view', { page_path: location.pathname, placement: 'home_ai_lab', viewport_class: vp }); }, 1000);
+          else if (timer) { clearTimeout(timer); timer = null; }
+        });
+      }, { threshold: [0, 0.5] });
+      io.observe(root.querySelector('.aic-card'));
+    }
+    form.addEventListener('change', function (e) {
+      if (done || e.target.name !== 'aic') return;
+      btn.disabled = false;
+      if (!started) { started = true; t0 = Date.now(); completed = 'started'; ev('homepage_ai_challenge_start', { session_id: sid, placement: 'home_ai_lab' }); }
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var sel = form.querySelector('input[name="aic"]:checked'); if (!sel || done) return;
+      done = true; attempt += 1; btn.disabled = true;
+      var ok = sel.value === CORRECT;
+      ev('homepage_ai_challenge_answer_submit', { selected_option_id: sel.value, attempt_number: attempt });
+      opts.forEach(function (o) {
+        var inp = o.querySelector('input'); inp.disabled = true;
+        o.querySelector('.aic-why').hidden = !(o.dataset.opt === CORRECT || inp.checked);
+        if (o.dataset.opt === CORRECT) o.classList.add('is-correct'); else if (inp.checked) o.classList.add('is-wrong');
+      });
+      form.classList.add('is-done');
+      fb.innerHTML = tpl.querySelector('[data-r="' + (ok ? 'correct' : 'incorrect') + '"]').innerHTML + tpl.querySelector('[data-r="common"]').innerHTML;
+      retry.hidden = false; btn.hidden = true;
+      completed = ok ? 'correct' : 'incorrect';
+      ev('homepage_ai_challenge_result', { is_correct: ok, attempt_number: attempt, elapsed_seconds_bucket: bucket((Date.now() - t0) / 1000) });
+    });
+    retry.addEventListener('click', function () {
+      ev('homepage_ai_challenge_retry', { attempt_number: attempt });
+      done = false; form.reset(); form.classList.remove('is-done'); fb.innerHTML = '';
+      opts.forEach(function (o) { o.classList.remove('is-correct', 'is-wrong'); o.querySelector('input').disabled = false; o.querySelector('.aic-why').hidden = true; });
+      btn.hidden = false; btn.disabled = true; retry.hidden = true; t0 = Date.now();
+      form.querySelector('input[name="aic"]').focus();
+    });
+    root.querySelectorAll('[data-aic-cta]').forEach(function (a) {
+      a.addEventListener('click', function () { ev('homepage_ai_challenge_cta_click', { cta_id: a.dataset.aicCta, destination_path: a.getAttribute('href'), completion_state: completed }); });
+    });
+  } catch (err) { ev('homepage_ai_challenge_error', { error_code: String(err && err.name || 'error'), component_version: '1.0' }); }
 })();

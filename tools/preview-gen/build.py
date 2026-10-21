@@ -295,8 +295,7 @@ def home():
     programs = f'''<section class="pp" id="programs">{prog_swoosh()}<div class="wrap">{prog_head("h2")}{prog_banner()}<div class="pp-grid">{tiles}</div><div class="actions" style="margin-top:36px">{btn("secondary", "/programs", "Compare all six programs")}</div></div></section>'''
     method = f'''<section class="sec sec--tint"><div class="wrap">{sec_head("Our approach", "Learn. Build. Test.<br>Improve. Repeat.", "Gain real technical skills through structured learning, hands-on practice, projects and a one-hour exam at the end of each module.")}{path_diagram()}
 <div class="actions" style="margin-top:40px">{btn("primary", "/learning-experience", "See the learning experience")}{btn("secondary", "/curriculum", "Explore the curriculum", False)}</div></div></section>'''
-    lab = f'''<section class="sec"><div class="wrap">{sec_head("Real practice environment", "Hands-on labs<br>with real tools", "Practise in a lab environment with real tasks, checked work and clear feedback.")}{lab_showcase()}
-<ul class="lab-points"><li>Real tools and environments</li><li>Checked tasks</li><li>Feedback and hints</li><li>Labs you can reset and retry</li></ul><p class="small muted" style="margin-top:20px">Every program uses the same lab. You write and run code in the browser, each task is checked when you submit, a hint appears when you are stuck, and you can reset a lab and try again as many times as you need.</p></div></section>'''
+    lab = ai_lab_section()
     feats = [("Image classification application", "Year 2 · AI/ML", True), ("Document RAG assistant", "Year 3 · AI/ML", False), ("Tool-using AI agent", "Year 3 · AI/ML", False)]
     fc = "".join(f'<a class="fcard rv{" big" if b else ""}" href="/projects#aiml"><div class="shot">{shot(1 if "mage" in n else 2 if "gent" in n else 0)}</div><div class="cap"><span class="tag">{y}</span><h3>{n}</h3></div></a>' for k, (n, y, b) in enumerate(feats))
     projects = featured_projects()
@@ -588,6 +587,7 @@ exec(open(os.path.join(HERE, 'guides_pages.py')).read())
 exec(open(os.path.join(HERE, 'career_pages.py')).read())
 exec(open(os.path.join(HERE, 'seo_pages.py')).read())
 exec(open(os.path.join(HERE, 'legal_pages.py')).read())
+exec(open(os.path.join(HERE, 'ai_lab.py')).read())
 exec(open(os.path.join(HERE, 'og_images.py')).read())
 
 FOUNDER_ON = False  # founder section (Jair Dsouza) hidden by owner, 21 Oct 2026; set True to show it again
