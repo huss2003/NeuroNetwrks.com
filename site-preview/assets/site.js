@@ -379,60 +379,161 @@
   }, { passive: true });
 })();
 
-/* Home AI Lab: 30-second prompt challenge (deterministic, no AI call). GA4 events go through nnEv, which only sends after analytics consent. */
+/* Home AI Challenge Lab: five challenges with instant rubric feedback (runs in the browser; no AI call, nothing stored or sent).
+   Content and rubrics come from #ail-data (tools/preview-gen/ai_lab.py). GA4 events go through nnEv, which only sends after consent. */
 (function () {
-  var root = document.querySelector('[data-aic]'); if (!root) return;
-  root.classList.add('aic-on');
-  var CID = root.dataset.aic, CORRECT = root.dataset.aicCorrect;
-  var form = root.querySelector('.aic-form'), btn = root.querySelector('.aic-submit'), fb = root.querySelector('.aic-fb');
-  var retry = root.querySelector('.aic-retry'), tpl = root.querySelector('.aic-tpl'), opts = root.querySelectorAll('.aic-opt');
-  var attempt = 0, started = false, done = false, t0 = 0, completed = 'not_started';
-  var sid = Math.random().toString(36).slice(2, 10);
-  var vp = innerWidth < 768 ? 'mobile' : innerWidth < 1024 ? 'tablet' : 'desktop';
-  function ev(n, p) { try { p = p || {}; p.challenge_id = CID; if (window.nnEv) window.nnEv(n, p); } catch (e) {} }
-  function bucket(s) { return s < 10 ? '0-10' : s < 30 ? '10-30' : s < 60 ? '30-60' : '60+'; }
-  try {
-    if ('IntersectionObserver' in window) {
-      var seen = false, timer = null, io = new IntersectionObserver(function (es) {
-        es.forEach(function (e) {
-          if (seen) return;
-          if (e.intersectionRatio >= 0.5) timer = setTimeout(function () { seen = true; io.disconnect(); ev('homepage_ai_challenge_view', { page_path: location.pathname, placement: 'home_ai_lab', viewport_class: vp }); }, 1000);
-          else if (timer) { clearTimeout(timer); timer = null; }
-        });
-      }, { threshold: [0, 0.5] });
-      io.observe(root.querySelector('.aic-card'));
-    }
-    form.addEventListener('change', function (e) {
-      if (done || e.target.name !== 'aic') return;
-      btn.disabled = false;
-      if (!started) { started = true; t0 = Date.now(); completed = 'started'; ev('homepage_ai_challenge_start', { session_id: sid, placement: 'home_ai_lab' }); }
+  var root = document.querySelector('[data-ail]'); if (!root) return;
+  var dataEl = document.getElementById('ail-data'); if (!dataEl) return;
+  root.classList.add('ail-on');
+  var D = JSON.parse(dataEl.textContent).c;
+  var dev = innerWidth < 768 ? 'mobile' : innerWidth < 1024 ? 'tablet' : 'desktop';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function ev(n, p) { try { p = p || {}; p.device_category = dev; p.evaluation_method = 'rubric'; if (window.nnEv) window.nnEv(n, p); } catch (e) {} }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var tabs = [].slice.call(root.querySelectorAll('[data-ail-tab]')), panels = {}, st = {}, tried = {};
+  tabs.forEach(function (t) { var id = t.dataset.ailTab; panels[id] = root.querySelector('[data-ail-panel="' + id + '"]'); st[id] = { attempt: 0, started: false, busy: false }; });
+  var active = tabs[0].dataset.ailTab;
+  function show(id, focus) {
+    tabs.forEach(function (t) { var on = t.dataset.ailTab === id; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; panels[t.dataset.ailTab].hidden = !on; if (on && focus) t.focus(); });
+    if (!reduce) { var p = panels[id]; p.classList.remove('ail-in'); void p.offsetWidth; p.classList.add('ail-in'); }
+    active = id;
+  }
+  show(active);
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { var id = t.dataset.ailTab; if (id !== active) { show(id); ev('ai_lab_field_selected', { challenge_id: id }); } });
+    t.addEventListener('keydown', function (e) {
+      var k = e.key, j = null;
+      if (k === 'ArrowRight' || k === 'ArrowDown') j = (i + 1) % tabs.length; else if (k === 'ArrowLeft' || k === 'ArrowUp') j = (i - 1 + tabs.length) % tabs.length;
+      else if (k === 'Home') j = 0; else if (k === 'End') j = tabs.length - 1;
+      if (j === null) return; e.preventDefault(); var id = tabs[j].dataset.ailTab; show(id, true); ev('ai_lab_field_selected', { challenge_id: id });
     });
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var sel = form.querySelector('input[name="aic"]:checked'); if (!sel || done) return;
-      done = true; attempt += 1; btn.disabled = true;
-      var ok = sel.value === CORRECT;
-      ev('homepage_ai_challenge_answer_submit', { selected_option_id: sel.value, attempt_number: attempt });
-      opts.forEach(function (o) {
-        var inp = o.querySelector('input'); inp.disabled = true;
-        o.querySelector('.aic-why').hidden = !(o.dataset.opt === CORRECT || inp.checked);
-        if (o.dataset.opt === CORRECT) o.classList.add('is-correct'); else if (inp.checked) o.classList.add('is-wrong');
+  });
+  if ('IntersectionObserver' in window) {
+    var seen = false, timer = null, io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (seen) return;
+        if (e.intersectionRatio >= 0.3) timer = setTimeout(function () { seen = true; io.disconnect(); ev('ai_lab_challenge_section_view', { placement: 'home_ai_lab', page_path: location.pathname }); }, 1000);
+        else if (timer) { clearTimeout(timer); timer = null; }
       });
-      form.classList.add('is-done');
-      fb.innerHTML = tpl.querySelector('[data-r="' + (ok ? 'correct' : 'incorrect') + '"]').innerHTML + tpl.querySelector('[data-r="common"]').innerHTML;
-      retry.hidden = false; btn.hidden = true;
-      completed = ok ? 'correct' : 'incorrect';
-      ev('homepage_ai_challenge_result', { is_correct: ok, attempt_number: attempt, elapsed_seconds_bucket: bucket((Date.now() - t0) / 1000) });
+    }, { threshold: [0, 0.3] });
+    io.observe(root.querySelector('.ail-lab'));
+  }
+  function markTried(id) {
+    if (tried[id]) return; tried[id] = true;
+    var n = Object.keys(tried).length; root.querySelector('[data-ail-tried]').textContent = n;
+    var d = root.querySelector('[data-ail-dot="' + id + '"]'); d.classList.add('is-done'); d.querySelector('[data-ail-dot-s]').textContent = 'tried';
+    root.querySelector('[data-ail-tab="' + id + '"]').classList.add('is-done');
+  }
+  function checked(p, name) { return [].slice.call(p.querySelectorAll('input[name="' + name + '"]:checked')).map(function (x) { return x.value; }); }
+  function rubric(cfg, text) { var f = [], m = []; cfg.criteria.forEach(function (c) { (text && new RegExp(c.re, 'i').test(text) ? f : m).push(c); }); return { f: f, m: m }; }
+  // Python: flag a row when an earlier row matches on every chosen field
+  function dupFlags(cfg, chosen) {
+    var idx = { txn: 0, cust: 1, amt: 2, time: 3 }, seenK = {};
+    return cfg.rows.map(function (r) { var k = chosen.map(function (c) { return r[idx[c]]; }).join('|'); var dup = !!seenK[k]; seenK[k] = 1; return dup; });
+  }
+  function liveRule(p, cfg) {
+    var chosen = checked(p, 'fields'), flags = chosen.length ? dupFlags(cfg, chosen) : cfg.rows.map(function () { return false; });
+    var names = [];
+    p.querySelectorAll('tr[data-row]').forEach(function (tr) { var i = +tr.dataset.row, on = flags[i]; tr.classList.toggle('is-flag', on); tr.querySelector('.ail-flag').textContent = on ? 'Flagged' : ''; if (on) names.push(cfg.rows[i][0] + ' (row ' + (i + 1) + ')'); });
+    p.querySelector('[data-ail-live]').textContent = !chosen.length ? 'Choose fields to see which rows your rule flags.' : names.length ? 'Your rule flags ' + names.length + ' row' + (names.length > 1 ? 's' : '') + ': ' + names.join(', ') + '.' : 'Your rule flags no rows.';
+    return flags;
+  }
+  function drawPipe(p) {
+    var ol = p.querySelector('[data-ail-pipe]'), items = [].slice.call(p.querySelectorAll('input[name="comps"]:checked'));
+    ol.innerHTML = items.length ? items.map(function (x) { var bad = x.value === 'memory' || x.value === 'finetune'; return '<li' + (bad ? ' class="is-warn"' : '') + '>' + esc(x.dataset.label) + (bad ? '<span class="sr"> (risky choice)</span>' : '') + '</li>'; }).join('') : '<li class="ail-pipe-empty">Pick components to draw your pipeline.</li>';
+  }
+  function evaluate(id, cfg, p, text) {
+    var r = rubric(cfg, text), good = r.f.map(function (c) { return c.good; }), gaps = [], warn = [], tests = null, checks = cfg.criteria.map(function (c) { return { label: c.label, ok: r.f.indexOf(c) > -1 }; });
+    var tip = r.m.length ? r.m[0].tip : null;
+    if (id === 'python') {
+      var chosen = checked(p, 'fields'), flags = liveRule(p, cfg), pass = 0;
+      tests = cfg.tests.map(function (t) { var ok = flags[t[0]] === t[1]; if (ok) pass++; return { label: t[2], ok: ok }; });
+      var all = pass === tests.length;
+      checks.unshift({ label: 'Rule passes the tests', ok: all });
+      if (all) {
+        good.unshift('Your rule passes all four tests: it catches both duplicate imports and keeps both real repeat purchases.');
+        if (chosen.indexOf('txn') < 0) warn.push('It passes these eight rows without using the transaction ID, but on real data two different purchases can share a customer, amount or timestamp. The transaction ID is the field that identifies a single purchase.');
+      } else {
+        var keepFail = tests.filter(function (t, i) { return !t.ok && !cfg.tests[i][1]; }), catchFail = tests.filter(function (t, i) { return !t.ok && cfg.tests[i][1]; });
+        if (keepFail.length) warn.push('Your rule would delete real purchases: it fails "' + keepFail.map(function (t) { return t.label; }).join('" and "') + '". Customer and amount alone can\'t tell a repeat purchase from a duplicate.');
+        if (!catchFail.length) good.unshift('Your rule catches both duplicate imports.');
+        if (catchFail.length) warn.push('Your rule misses duplicate imports: it fails "' + catchFail.map(function (t) { return t.label; }).join('" and "') + '".');
+        tip = 'Try a rule built on the transaction ID, then run the tests again.';
+      }
+    } else if (id === 'ml') {
+      var ms = checked(p, 'metrics'), useful = ms.filter(function (m) { return m !== 'accuracy'; });
+      var mname = { recall: 'recall', precision: 'precision', f1: 'F1-score' };
+      checks.unshift({ label: 'Better metrics chosen', ok: useful.length > 0 });
+      if (useful.length) good.unshift('You chose ' + useful.map(function (m) { return mname[m]; }).join(' and ') + ', which measure' + (useful.length > 1 ? '' : 's') + ' what accuracy hides.');
+      else warn.push(ms.length ? 'Accuracy alone can\'t reveal this failure. Add recall and precision.' : 'You didn\'t choose any measure to report. Recall and precision show what accuracy hides.');
+      if (useful.indexOf('recall') < 0) warn.push('From the table, recall is 40 / 200 = 20%: the model catches only one fraud in five. That number is the headline here.');
+    } else if (id === 'rag') {
+      var comps = checked(p, 'comps'), need = cfg.components.filter(function (c) { return c[2] && comps.indexOf(c[0]) < 0; }), risky = cfg.components.filter(function (c) { return !c[2] && comps.indexOf(c[0]) > -1; });
+      checks.unshift({ label: 'Pipeline complete', ok: !need.length && !risky.length });
+      var have = cfg.components.filter(function (c) { return c[2] && comps.indexOf(c[0]) > -1; });
+      if (!need.length) good.unshift('Your pipeline includes all eight essential components.');
+      else if (have.length) good.unshift('You included ' + have.slice(0, 3).map(function (c) { return c[1].toLowerCase(); }).join(', ') + (have.length > 3 ? ' and ' + (have.length - 3) + ' more' : '') + ', which ' + (have.length > 1 ? 'are' : 'is') + ' part of a solid retrieval pipeline.');
+      else if (comps.length) gaps.push('Your pipeline is missing: ' + need.map(function (c) { return c[1]; }).join(', ') + '.');
+      else gaps.push('You haven\'t chosen any components yet.');
+      risky.forEach(function (c) { warn.push(c[0] === 'memory' ? 'Answering from the model\'s memory when search finds nothing is exactly how assistants make things up. Use a "not found" rule instead.' : 'Fine-tuning instead of retrieval can\'t cite sources, can\'t respect per-user permissions, and goes stale when documents change.'); });
+      if (need.some(function (c) { return c[0] === 'acl'; })) tip = 'Add the permission filter: it must run before the language model sees any passage.';
+      else if (need.some(function (c) { return c[0] === 'abstain'; })) tip = 'Add a "not found" rule so the assistant admits when evidence is weak.';
+    }
+    r.m.forEach(function (c) { gaps.push(c.gap); });
+    var level = (!warn.length && gaps.length <= 1) ? 'strong' : (good.length ? 'partial' : 'starting');
+    return { good: good, gaps: warn.concat(gaps), checks: checks, tests: tests, insight: cfg.insight, tip: tip || ('Stretch: ' + cfg.stretch), level: level };
+  }
+  function render(fb, r, attempt) {
+    var good = r.good.length ? r.good.slice(0, 2).map(esc).join(' ') : 'You\'ve made a start, but your answer doesn\'t yet include any of the key ideas on our checklist. The hint above is a good place to begin.';
+    var gaps = r.gaps.length ? r.gaps.slice(0, 2).map(esc).join(' ') : 'Nothing major from our checklist. Well done.';
+    var tests = r.tests ? '<div class="ail-testres"><p class="ail-fb-k">Test results</p><ul>' + r.tests.map(function (t) { return '<li class="' + (t.ok ? 'is-pass' : 'is-fail') + '"><span class="ail-tr">' + (t.ok ? 'Pass' : 'Fail') + '</span>' + esc(t.label) + '</li>'; }).join('') + '</ul></div>' : '';
+    var checks = '<ul class="ail-checks" aria-label="Checklist">' + r.checks.map(function (c) { return '<li class="' + (c.ok ? 'is-ok' : '') + '"><span aria-hidden="true">' + (c.ok ? '&#10003;' : '&#9675;') + '</span>' + esc(c.label) + '<span class="sr">' + (c.ok ? ': covered' : ': not yet') + '</span></li>'; }).join('') + '</ul>';
+    fb.innerHTML = '<div class="ail-fb-in"><p class="ail-fb-tag">Instant checklist feedback · attempt ' + attempt + '</p>' + tests + checks +
+      '<div class="ail-fb-grid"><div class="ail-fb-b ail-fb-b--good"><h5>What you did well</h5><p>' + good + '</p></div>' +
+      '<div class="ail-fb-b ail-fb-b--gap"><h5>What is missing</h5><p>' + gaps + '</p></div>' +
+      '<div class="ail-fb-b ail-fb-b--ins"><h5>Expert insight</h5><p>' + esc(r.insight) + '</p></div>' +
+      '<div class="ail-fb-b ail-fb-b--next"><h5>Improve your approach</h5><p>' + esc(r.tip) + '</p></div></div>' +
+      '<button type="button" class="ail-btn ail-btn--ghost" data-ail-retry>Edit and try again</button></div>';
+  }
+  Object.keys(panels).forEach(function (id) {
+    var p = panels[id], f = p.querySelector('[data-ail-form]'), ta = p.querySelector('textarea'), cnt = p.querySelector('[data-ail-count]');
+    var hb = p.querySelector('[data-ail-hintbtn]'), hint = p.querySelector('[data-ail-hint]'), err = p.querySelector('[data-ail-err]'), fb = p.querySelector('[data-ail-fb]'), sub = p.querySelector('[data-ail-submit]'), s = st[id], cfg = D[id];
+    function onEdit() {
+      if (!s.started) { s.started = true; ev('ai_lab_challenge_started', { challenge_id: id }); }
+      if (ta) cnt.textContent = ta.value.length; err.textContent = '';
+      if (id === 'python') liveRule(p, cfg); if (id === 'rag') drawPipe(p);
+    }
+    f.addEventListener('input', onEdit); f.addEventListener('change', onEdit);
+    hb.addEventListener('click', function () { var open = hint.hidden; hint.hidden = !open; hb.setAttribute('aria-expanded', open ? 'true' : 'false'); hb.textContent = open ? 'Hide hint' : 'Show a hint'; if (open) ev('ai_lab_hint_requested', { challenge_id: id }); });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault(); if (s.busy) return;
+      var text = ta ? ta.value.trim() : '', msg = '';
+      if (id === 'python' && !checked(p, 'fields').length) msg = 'Choose at least one field for your rule.';
+      else if ((id === 'prompt' || id === 'safety') && text.length < 20) msg = 'Write at least a sentence or two (20 or more characters) so the feedback can be useful.';
+      else if (id === 'ml' && text.length < 20 && !checked(p, 'metrics').length) msg = 'Choose a measure or write a sentence or two about why the model is failing.';
+      else if (id === 'rag' && text.length < 20 && !checked(p, 'comps').length) msg = 'Pick some components or write how you would test the assistant.';
+      if (msg) { err.textContent = msg; (ta && id !== 'python' ? ta : f.querySelector('input')).focus(); return; }
+      s.busy = true; sub.disabled = true; sub.textContent = 'Analysing...'; fb.setAttribute('aria-busy', 'true');
+      s.attempt += 1; ev('ai_lab_answer_submitted', { challenge_id: id, attempt_number: s.attempt });
+      setTimeout(function () {
+        try {
+          var r = evaluate(id, cfg, p, text); render(fb, r, s.attempt);
+          ev('ai_lab_feedback_shown', { challenge_id: id, attempt_number: s.attempt, completion_state: r.level }); markTried(id);
+        } catch (x) {
+          fb.innerHTML = '<p class="ail-fb-err">Something went wrong while checking your answer. Your work is still here, so please try again.</p>';
+          ev('ai_lab_evaluation_error', { challenge_id: id, error_code: String(x && x.name || 'error') });
+        }
+        fb.removeAttribute('aria-busy'); s.busy = false; sub.disabled = false; sub.textContent = 'Analyse again';
+        var rect = fb.getBoundingClientRect(); if (rect.top > innerHeight - 80 || rect.top < 0) fb.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      }, reduce ? 0 : 350);
     });
-    retry.addEventListener('click', function () {
-      ev('homepage_ai_challenge_retry', { attempt_number: attempt });
-      done = false; form.reset(); form.classList.remove('is-done'); fb.innerHTML = '';
-      opts.forEach(function (o) { o.classList.remove('is-correct', 'is-wrong'); o.querySelector('input').disabled = false; o.querySelector('.aic-why').hidden = true; });
-      btn.hidden = false; btn.disabled = true; retry.hidden = true; t0 = Date.now();
-      form.querySelector('input[name="aic"]').focus();
+    fb.addEventListener('click', function (e) {
+      if (!e.target.closest('[data-ail-retry]')) return;
+      ev('ai_lab_retry', { challenge_id: id, attempt_number: s.attempt });
+      var tgt = ta || f.querySelector('input'); tgt.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); tgt.focus({ preventScroll: true });
     });
-    root.querySelectorAll('[data-aic-cta]').forEach(function (a) {
-      a.addEventListener('click', function () { ev('homepage_ai_challenge_cta_click', { cta_id: a.dataset.aicCta, destination_path: a.getAttribute('href'), completion_state: completed }); });
-    });
-  } catch (err) { ev('homepage_ai_challenge_error', { error_code: String(err && err.name || 'error'), component_version: '1.0' }); }
+  });
+  root.querySelectorAll('[data-ail-cta]').forEach(function (a) {
+    a.addEventListener('click', function () { ev('ai_lab_cta_clicked', { cta_id: a.dataset.ailCta, destination_path: a.getAttribute('href'), completion_state: Object.keys(tried).length + '_of_5' }); });
+  });
 })();
