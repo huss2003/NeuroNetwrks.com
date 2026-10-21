@@ -70,7 +70,7 @@ def footer():
     return f'''<footer class="ft"><div class="wrap">
 <div class="ft-grid">
 <div class="ft-brand"><a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="153" height="120" loading="lazy"><span class="brand-t brand-t--ft"><span>Neuronetworks</span><span>AI Ed</span></span></a>
-<p>AI and technology education for a better tomorrow.</p>{SOCIAL_HTML}
+<p>AI / Super Intelligence and technology education for a better tomorrow.</p>{SOCIAL_HTML}
 </div>
 <nav aria-label="Programs"><h2>Programs</h2><ul>{pl}</ul></nav>
 <nav aria-label="Company"><h2>Company</h2><ul><li><a href="/about">About</a></li><li><a href="/learning-experience">Learning Experience</a></li><li><a href="/projects">Projects</a></li></ul></nav>

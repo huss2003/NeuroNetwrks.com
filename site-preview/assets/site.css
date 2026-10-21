@@ -1546,6 +1546,6 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
 .hd .brand img{height:76px;width:auto}
 .brand .brand-t{display:inline-flex;flex-direction:column;align-items:center;font:600 1.12rem/1.05 var(--font-display);letter-spacing:-.02em}
 .brand .brand-t span{font:inherit;letter-spacing:inherit}
-.ft-brand .brand{gap:16px}.ft-brand .brand img{height:120px;width:auto}.brand-t--ft{font-size:1.2rem!important}
+.ft-brand .brand{display:inline-flex;flex-direction:column;align-items:center;gap:10px}.ft-brand .brand img{height:120px;width:auto}.brand-t--ft{font-size:1.35rem!important}
 .ft-brand p{margin-top:var(--s4)}
 @media (max-width:480px){.hd .brand img{height:56px}.brand .brand-t{font-size:1rem}.ft-brand .brand img{height:96px}}
