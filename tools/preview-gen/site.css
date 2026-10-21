@@ -244,7 +244,7 @@ textarea.inp{padding:14px 16px;min-height:130px;resize:vertical}
 .radio:has(input:checked){border-color:var(--blue);background:var(--blue-50);box-shadow:inset 4px 0 0 var(--blue)}.radio:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:2px}
 .radio input{width:20px;height:20px;accent-color:var(--blue)}
 .notice{border-left:4px solid var(--blue);background:var(--blue-50);padding:14px 18px;font-size:.9375rem}
-.consent{display:flex;gap:14px;align-items:flex-start;font-size:.9375rem;font-weight:500}.consent input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--blue)}
+.agree{display:flex;gap:14px;align-items:flex-start;font-size:.9375rem;font-weight:500}.agree input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--blue)}
 .err-sum{border:2px solid var(--ink);padding:16px 20px;background:#fff}.err-sum ul{margin-top:6px;list-style:disc;padding-left:20px}.err-sum a{color:var(--ink);font-weight:700}
 .contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);align-items:start}
 .contact-aside dl{display:grid;gap:var(--s5)}.contact-aside dt{font:500 .75rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--blue-900)}.contact-aside dd{font-weight:700;margin-top:2px}
@@ -1299,7 +1299,7 @@ html.js .fq-hero:not(.in) .ad-h1 .ln>span{transform:translateY(105%)}
 .ct-form .field label,.ct-form .field .lbl{font-size:.9rem}
 .ct-form #send{border-radius:12px;min-height:54px;padding:0 28px;background:linear-gradient(180deg,#1A7DF5,#0063E6);box-shadow:0 14px 28px -12px rgba(0,99,230,.7)}
 .ct-form #send:hover{transform:translateY(-2px)}
-.ct-form .consent{padding:14px 16px;border-radius:12px;background:#FAFCFF;border:1px solid #E3EBF7}
+.ct-form .agree{padding:14px 16px;border-radius:12px;background:#FAFCFF;border:1px solid #E3EBF7}
 .ct-links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .ct-links a{position:relative;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;padding:20px 52px 20px 20px;background:#fff;border:1px solid #DFE8F6;border-radius:16px;text-decoration:none;color:var(--ink);box-shadow:0 20px 40px -34px rgba(10,42,102,.55);transition:transform .3s var(--ease),border-color .3s}
 .ct-links a:hover{transform:translateY(-4px);border-color:#BFD6FB}
