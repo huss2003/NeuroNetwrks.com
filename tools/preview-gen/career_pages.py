@@ -94,7 +94,7 @@ def career_page(slug):
     secs.append((f"What is the {'year-by-year' if len(d['years']) > 1 else 'step-by-step'} roadmap to become {a} {role}?",
         f'<p class="cr-answer">{E(c["roadmap_answer"])}</p><p>Each {"year is 208 hours, split into 12 monthly modules. Every month follows the same five steps, so a student always knows what comes next." if len(d["years"]) > 1 else "month has weekly lectures with short homework, and every major unit ends with an exam."}</p>'
         + c_beats(c) + c_years(c) + f'<p class="cr-prog">{c_program_note(c)}</p>' + fit
-        + c_talk(f"Not sure if this roadmap fits?", f"Ask us about the modules, batch timings and fees. A person replies. Students under 18 enquire through a parent or guardian.")))
+        + c_talk(f"Not sure if this roadmap fits?", f"Ask us about the modules, batch timings and fees. A specialist responds. Students under 18 enquire through a parent or guardian.")))
     # 3 skills
     secs.append((f"Which skills does {a} {role} need?",
         f'<p class="cr-answer">{E(c["skills_answer"])}</p><p>{E(c["context_fact"])}</p>'

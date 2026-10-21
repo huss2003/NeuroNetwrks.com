@@ -29,7 +29,7 @@ def privacy_page():
      ("Changes to this policy", f"<p>If we change how we handle personal information, we will update this page and its date. Last updated {LEGAL_DATE_TXT}.</p>"),
     ]
     hero = page_hero("Privacy", "Privacy policy.", "Plain and short.", f"What this website collects, why, and how to ask us to delete it. Last updated {LEGAL_DATE_TXT}.")
-    body = hero + legal_body(S) + cta_panel("Questions about your data?", "Write to Enquire@neuronetwrks.com. A person replies.")
+    body = hero + legal_body(S) + cta_panel("Questions about your data?", "Write to Enquire@neuronetwrks.com. A specialist responds.")
     return layout("/privacy", "Privacy policy: how we handle your enquiry data", body, "none",
                   desc="How Neuronetworks AI Ed handles enquiry details, cookies and Google Analytics, students under 18, and how to ask for your data to be deleted.")
 
@@ -49,7 +49,7 @@ def terms_page():
      ("Changes to these terms", f"<p>We may update these terms. The date below shows the latest version. Last updated {LEGAL_DATE_TXT}.</p>"),
     ]
     hero = page_hero("Terms", "Terms of use.", "In plain words.", f"The rules for using this website, what our information covers and what we do not promise. Last updated {LEGAL_DATE_TXT}.")
-    body = hero + legal_body(S) + cta_panel("Questions about these terms?", "Write to Enquire@neuronetwrks.com. A person replies.")
+    body = hero + legal_body(S) + cta_panel("Questions about these terms?", "Write to Enquire@neuronetwrks.com. A specialist responds.")
     return layout("/terms", "Terms of use for the Neuronetworks AI Ed website", body, "none",
                   desc="The terms for using neuronetwrks.com: how program information is kept current, no job or salary guarantees, certificates, links and content use.")
 

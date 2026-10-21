@@ -49,7 +49,7 @@ def s_block(b, page):
     if t == "program_note":
         return f'<p class="cr-prog">{c_program_note({"program": s})}</p>'
     if t == "talk":
-        return c_talk(b.get("h", "Not sure which path fits?"), b.get("p", "Ask us about the modules, batch timings and fees. A person replies. Students under 18 enquire through a parent or guardian."))
+        return c_talk(b.get("h", "Not sure which path fits?"), b.get("p", "Ask us about the modules, batch timings and fees. A specialist responds. Students under 18 enquire through a parent or guardian."))
     if t == "program_certs":
         notes = b.get("notes", {})
         cl = "".join(f'<li><strong>{E(c_clean(x))}.</strong>{" " + E(notes[x]) if x in notes else ""}</li>' for x in D[s]["certifications"])
