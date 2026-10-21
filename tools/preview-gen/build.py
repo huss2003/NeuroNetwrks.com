@@ -59,7 +59,7 @@ def icon(kind):
 def header(active):
     links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if a == active else ""}>{t}</a>' for a, h, t in ROUTES)
     return f'''<header class="hd"><div class="wrap">
-<a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="82" height="64"><span class="brand-t"><span>Neuronetworks</span><span>AI Ed</span></span></a>
+<a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="97" height="76"><span class="brand-t"><span>Neuronetworks</span><span>AI Ed</span></span></a>
 <nav class="nav" id="nav" aria-label="Primary">{links}<a class="nav-cta" href="/contact">Start Learning</a></nav>
 <div class="hd-actions"><a class="hd-search" href="/faqs" aria-label="Search the FAQs">{icon("search")}</a><a class="btn btn-primary btn-sm" href="/contact">Start Learning <i aria-hidden="true">→</i></a>
 <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button></div>
@@ -69,13 +69,13 @@ def footer():
     pl = "".join(f'<li><a href="/programs/{p[0]}">{name_of(p)}</a></li>' for p in PROGRAMS)
     return f'''<footer class="ft"><div class="wrap">
 <div class="ft-grid">
-<div class="ft-brand"><a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="92" height="72" loading="lazy"><span class="brand-t brand-t--ft"><span>Neuronetworks</span><span>AI Ed</span></span></a>
+<div class="ft-brand"><a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="153" height="120" loading="lazy"><span class="brand-t brand-t--ft"><span>Neuronetworks</span><span>AI Ed</span></span></a>
 <p>AI and technology education for a better tomorrow.</p>{SOCIAL_HTML}
 </div>
 <nav aria-label="Programs"><h2>Programs</h2><ul>{pl}</ul></nav>
 <nav aria-label="Company"><h2>Company</h2><ul><li><a href="/about">About</a></li><li><a href="/learning-experience">Learning Experience</a></li><li><a href="/projects">Projects</a></li></ul></nav>
 <nav aria-label="Resources"><h2>Resources</h2><ul><li><a href="/guides">Guides</a></li><li><a href="/curriculum">Curriculum</a></li><li><a href="/faqs">FAQs</a></li><li><a href="/programs">Compare programs</a></li></ul></nav>
-<div><h2>Admissions and contact</h2><ul><li><a href="/admissions">Admissions</a></li><li><a href="/contact">Contact</a></li></ul><p class="small" style="margin-top:12px"><a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a></p><p class="small muted" style="margin-top:6px">Online classes · India · <a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a></p></div>
+<div><h2>Admissions and contact</h2><ul><li><a href="/admissions">Admissions</a></li><li><a href="/contact">Contact</a></li></ul><p class="small" style="margin-top:16px"><a href="mailto:Hussain@neuronetwrks.com">Hussain@neuronetwrks.com</a></p><p class="small muted" style="margin-top:6px">Online classes · India</p></div>
 </div>
 <div class="ft-base"><span>© Neuronetworks AI Ed Private Limited. All rights reserved.</span><nav aria-label="Legal"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a>{'<button type="button" class="ft-cookie" data-consent-open>Cookie settings</button>' if GA_ID else ''}{'<button type="button" class="ft-cookie" data-nnbot-show hidden>Show the robot</button>' if NNBOT_ON else ''}</nav><span>Designed for curious minds. Built for what's next.</span></div>
 </div></footer>'''
