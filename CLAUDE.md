@@ -42,7 +42,7 @@ Astro 7 (static output) · Tailwind CSS v4 (`@tailwindcss/vite`, tokens in `@the
 1. **Static by default.** Every page is prerendered. Only `/api/*` may run on demand.
 2. **No invented facts.** No made-up stats, testimonials, faculty, ratings, partner logos, outcomes, fees, or accreditation. Use text from `docs/source/` or write `{{CONFIRM: ...}}` and log it in `docs/open-questions.md`. A build step fails if `{{CONFIRM` appears in `dist/`.
 3. **No prices.** CTAs are "Apply" and "Talk to us" only.
-4. **Images** only through `astro:assets` (`<Image>`/`<Picture>`), always with `width`, `height`, meaningful `alt`. The LCP image uses `loading="eager"` and `fetchpriority="high"`. Never use AI-generated faces or stock "glowing brain / robot hand" art.
+4. **Images** only through `astro:assets` (`<Image>`/`<Picture>`), always with `width`, `height`, meaningful `alt`. The LCP image uses `loading="eager"` and `fetchpriority="high"`. Never use AI-generated faces or stock "glowing brain / robot hand" art. Owner exception (21 Oct 2026): the human-hand/robot-hand image (`hero-bg.webp`) is approved as the home hero background only.
 5. **JS budget.** Home page ≤ 100 KB JS (gzip) before interaction. Decorative islands use `client:visible` or `client:idle`, never `client:load`. WebGL loads by dynamic `import()` after intersection, with a static poster fallback for reduced motion, `saveData`, ≤4 cores, or ≤4 GB memory.
 6. **LCP element is real HTML text or an optimised image.** Never a canvas, never hidden by an animation waiting to start.
 7. **Motion must respect `prefers-reduced-motion`** (use `gsap.matchMedia`). Content is fully readable and visible with JS disabled.

@@ -274,7 +274,8 @@ def home_guides():
             f'<div class="gd-cards gd-cards--3">{cards}</div><div class="actions" style="margin-top:28px">{btn("secondary", "/guides", "All guides")}</div></div></section>')
 
 def home():
-    hero = f'''<section class="hero"><div class="wrap hero-grid"><div>
+    hero = f'''<section class="hero hero--bg"><div class="wrap hero-grid"><div>
+<picture class="hero-banner"><source media="(min-width:901px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><img src="/assets/hero-bg-640.webp" alt="A human hand and a robot hand reaching towards each other, surrounded by icons for learning, ideas, teamwork, tools and growth" width="640" height="357" fetchpriority="high"></picture>
 <p class="eyebrow">AI/Super Intelligence and related technology education</p>
 <h1 class="display"><span class="ln"><span style="animation-delay:.2s">Build your skills</span></span><span class="ln"><span style="animation-delay:.3s">to shape the</span></span><span class="ln"><span style="animation-delay:.4s;color:var(--blue)">Future</span></span></h1>
 <div class="lead fade hero-lead"><p>Employment-oriented, practical, project-based programs, with a portfolio of every real-world industry project you solve.</p>

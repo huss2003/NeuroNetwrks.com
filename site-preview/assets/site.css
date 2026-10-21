@@ -1551,3 +1551,6 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
 .ft-brand p{margin-top:var(--s4)}
 @media (max-width:480px){.hd .brand img{height:56px}.brand .brand-t{font-size:1rem}.ft-brand .brand img{height:96px}}
 .pp-lead{max-width:50ch}.pp-list{margin-top:10px;padding-left:1.1em;list-style:disc}.pp-list li{margin-top:4px}.pp-list a{color:var(--ink,#0B1B33);font-weight:600;text-decoration:none}.pp-list a:hover{color:var(--blue);text-decoration:underline}
+.hero--bg{background:linear-gradient(90deg,rgba(246,249,253,.97) 0,rgba(246,249,253,.93) 34%,rgba(246,249,253,.55) 52%,rgba(246,249,253,.12) 68%,rgba(246,249,253,0) 80%),url(/assets/hero-bg.webp) right center/cover no-repeat}
+.hero-banner{display:none}
+@media (max-width:900px){.hero--bg{background:linear-gradient(180deg,var(--blue-50) 0,var(--soft) 100%)}.hero-banner{display:block;margin-bottom:24px}.hero-banner img{display:block;width:100%;height:auto;border-radius:16px}}
