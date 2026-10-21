@@ -1549,3 +1549,4 @@ html.js [data-pd]:not(.in) .tm-card,html.js [data-pd]:not(.in) .tm-area,html.js 
 .ft-brand .brand{display:inline-flex;flex-direction:column;align-items:center;gap:10px}.ft-brand .brand img{height:120px;width:auto}.brand-t--ft{font-size:1.35rem!important}
 .ft-brand p{margin-top:var(--s4)}
 @media (max-width:480px){.hd .brand img{height:56px}.brand .brand-t{font-size:1rem}.ft-brand .brand img{height:96px}}
+.pp-lead{max-width:50ch}.pp-list{margin-top:10px;padding-left:1.1em;list-style:disc}.pp-list li{margin-top:4px}.pp-list a{color:var(--ink,#0B1B33);font-weight:600;text-decoration:none}.pp-list a:hover{color:var(--blue);text-decoration:underline}

@@ -75,7 +75,7 @@ def aiml_modules(n=6):
 def rag_mock_hero():
     body = f'''<div class="mk-rag">{rag_side()}<div class="mk-main"><div class="mk-file">{pi("doc",18)}<div><b>Admissions_Guide.pdf</b><small>PDF · 24 pages</small></div></div>
 <p class="mk-q">What are the eligibility criteria for the AI/ML Engineering program?</p>
-<div class="mk-a"><span class="mk-bot">{pi("spark",16)}</span><p class="mk-type">Based on the provided document, the AI/ML Engineering program is open to students from Class 9 onwards, with basic school-level mathematics and computer familiarity. <span class="mk-cite">[1] [2] [3]</span></p></div>
+<div class="mk-a"><span class="mk-bot">{pi("spark",16)}</span><p class="mk-type">Based on the provided document, the AI/ML Engineering program is open to students from Class 11 onwards, with basic school-level mathematics and computer familiarity. <span class="mk-cite">[1] [2] [3]</span></p></div>
 {rag_sources([("Admissions_Guide.pdf", "Page 4 · Eligibility criteria"), ("Program_Structure.pdf", "Page 2 · Overview"), ("FAQs.pdf", "Page 1 · General requirements")])}
 <div class="mk-input">Ask a question about your documents… <span>{pi("upload",14,2.2)}</span></div></div></div>'''
     return win("Document RAG Assistant", body, '<span class="mk-demo">Illustrative demo data <i></i></span>')
