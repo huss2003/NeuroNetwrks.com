@@ -248,9 +248,10 @@ def program_tile(p, i, cat=None, hl="h3"):
 <dl class="pt-stats"><div><dd class="n">{p[3]}</dd><dt>Hours</dt></div><div><dd>{LV[d["level"]]}</dd><dt>Level</dt></div><div><dd>{p[4]}</dd><dt>Duration</dt></div></dl>
 <span class="pt-go" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>"""
 
+PP_LEAD = '<div class="pp-lead"><p>6 Courses – 1 Foundation course &amp; 5 specialisation courses. No previous experience required.</p><ul class="pp-list"><li><a href="/programs/ai-foundation">AI Foundation</a>: 26 weeks (6 months @ 4 hours a week)</li><li><a href="/programs/ai-ml-engineering">AI/ML Engineering</a>: 3 years (4 hours a week)</li><li><a href="/programs/data-science-ai">Data Science &amp; AI</a>: 3 years (4 hours a week)</li><li><a href="/programs/product-ux-ai-design">Product and UX/UI Design</a>: 3 years (4 hours a week)</li><li><a href="/programs/cybersecurity">Cybersecurity</a>: 3 years (4 hours a week)</li><li><a href="/programs/software-development">Software Development</a>: 3 years (4 hours a week)</li></ul></div>'
 def prog_head(level="h2"):
     return f"""<div class="pp-head"><div><p class="pp-eyebrow">Our programs</p><{level} class="pp-h"><span class="ln"><span>Choose a path.</span></span><span class="ln"><span>Build your future.</span></span></{level}></div>
-<div class="pp-lead"><p>6 Courses – 1 Foundation course &amp; 5 specialisation courses. No previous experience required.</p><ul class="pp-list"><li><a href="/programs/ai-foundation">AI Foundation</a>: 26 weeks (6 months @ 4 hours a week)</li><li><a href="/programs/ai-ml-engineering">AI/ML Engineering</a>: 3 years (4 hours a week)</li><li><a href="/programs/data-science-ai">Data Science &amp; AI</a>: 3 years (4 hours a week)</li><li><a href="/programs/product-ux-ai-design">Product and UX/UI Design</a>: 3 years (4 hours a week)</li><li><a href="/programs/cybersecurity">Cybersecurity</a>: 3 years (4 hours a week)</li><li><a href="/programs/software-development">Software Development</a>: 3 years (4 hours a week)</li></ul></div></div>"""
+{PP_LEAD if level == "h1" else ""}</div>"""
 
 def prog_banner(hl="h3", lazy=True):
     d = D["ai-foundation"]
