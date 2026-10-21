@@ -1,6 +1,6 @@
 # Neuronetworks AI Ed: full program reference
 
-> Practical AI and technology programs for students from Class 11 onwards, from a six-month AI Foundation course to three-year specialisations. Tagline: Learn · Develop · Create. Website: https://neuronetwrks.com. Contact: Hussain@neuronetwrks.com. Fees are shared on enquiry.
+> Practical AI and technology programs: a six-month AI Foundation course from Class 9 and three-year specialisations from Class 11. Tagline: Learn · Develop · Create. Website: https://neuronetwrks.com. Contact: Hussain@neuronetwrks.com. Fees are shared on enquiry.
 
 ## AI Foundation (6 months, 104 hours, 4 hours a week)
 URL: https://neuronetwrks.com/programs/ai-foundation
