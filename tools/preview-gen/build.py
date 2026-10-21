@@ -59,7 +59,7 @@ def icon(kind):
 def header(active):
     links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if a == active else ""}>{t}</a>' for a, h, t in ROUTES)
     return f'''<header class="hd"><div class="wrap">
-<a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="41" height="32"><span>Neuronetworks AI Ed</span></a>
+<a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="82" height="64"><span class="brand-t"><span>Neuronetworks</span><span>AI Ed</span></span></a>
 <nav class="nav" id="nav" aria-label="Primary">{links}<a class="nav-cta" href="/contact">Start Learning</a></nav>
 <div class="hd-actions"><a class="hd-search" href="/faqs" aria-label="Search the FAQs">{icon("search")}</a><a class="btn btn-primary btn-sm" href="/contact">Start Learning <i aria-hidden="true">→</i></a>
 <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button></div>
@@ -69,7 +69,7 @@ def footer():
     pl = "".join(f'<li><a href="/programs/{p[0]}">{name_of(p)}</a></li>' for p in PROGRAMS)
     return f'''<footer class="ft"><div class="wrap">
 <div class="ft-grid">
-<div class="ft-brand"><a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="47" height="37" loading="lazy"><span style="font:600 1.6rem var(--font-display);letter-spacing:-.03em">Neuronetworks AI Ed</span></a>
+<div class="ft-brand"><a class="brand" href="/" aria-label="Neuronetworks AI Ed home"><img src="/assets/mark.webp" alt="" aria-hidden="true" width="92" height="72" loading="lazy"><span class="brand-t brand-t--ft"><span>Neuronetworks</span><span>AI Ed</span></span></a>
 <p>AI and technology education for a better tomorrow.</p>{SOCIAL_HTML}
 </div>
 <nav aria-label="Programs"><h2>Programs</h2><ul>{pl}</ul></nav>
