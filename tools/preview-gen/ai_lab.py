@@ -236,7 +236,7 @@ def ai_lab_section():
 <p class="ail-line">Learn the concept. Try the challenge. Understand the result. Improve your approach.</p></div>
 </div>
 <ul class="ail-cards">{cl}</ul>
-<div class="ail-promo"><span class="ail-promo-ic" aria-hidden="true">{ail_icon("tutor", 30)}</span><div><p class="ail-promo-h">India's first personalised tutoring software</p><p class="ail-promo-s"><span class="ail-promo-pill">Free access</span>Get free access to it with your certification.</p></div></div>
+<div class="ail-promo"><span class="ail-promo-ic" aria-hidden="true">{ail_icon("tutor", 30)}</span><div><p class="ail-promo-h">India's first personalised tutoring software</p><p class="ail-promo-s"><span class="ail-promo-pill">Free access</span>Get free access to it with your course.</p></div></div>
 <div class="ail-lab"><div class="ail-head"><div><p class="ail-label">Interactive lab preview · No sign-up required</p>
 <h3 class="ail-title">Can you think like an AI engineer?</h3><p class="ail-sub">Five real-world AI problems. Pick one and try it.</p></div>
 <div class="ail-prog"><p><span data-ail-tried>0</span> of 5 tried</p><ol class="ail-dots">{dots}</ol></div></div>
