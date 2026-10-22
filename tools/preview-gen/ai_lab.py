@@ -226,7 +226,6 @@ def ai_lab_section():
              ("check", "Instant feedback", "Clear feedback on every answer you give."),
              ("target", "Independent challenges", "Solve real problems on your own.")]
     cl = "".join(f'<li><span class="ail-ic">{ail_icon(k)}</span><h3>{t}</h3><p>{d}</p></li>' for k, t, d in cards)
-    loop = "".join(f"<li>{x}</li>" for x in ["Learn", "Try", "Get feedback", "Improve"])
     tabs = "".join(f'''<button type="button" role="tab" class="ail-tab" id="ail-t-{c["id"]}" aria-controls="ail-p-{c["id"]}" aria-selected="{"true" if i == 0 else "false"}" tabindex="{0 if i == 0 else -1}" data-ail-tab="{c["id"]}"><span class="ail-tab-ic">{ail_icon(c["icon"], 20)}</span><span class="ail-tab-t">{E(c["tile"])}</span><span class="ail-tab-d">{E(c["short"])}</span><span class="ail-tab-done" aria-hidden="true"></span></button>''' for i, c in enumerate(AIL))
     panels = "".join(_ail_panel(c, i) for i, c in enumerate(AIL))
     data = json.dumps({"v": AIL_VERSION, "c": {c["id"]: {k: c[k] for k in ("criteria", "insight", "stretch", "tests", "components", "rows", "fields", "metrics") if k in c} for c in AIL}}, ensure_ascii=False).replace("</", "<\\/")
@@ -235,9 +234,7 @@ def ai_lab_section():
 <div class="ail-top"><div><p class="eyebrow">The Neuronetworks difference</p><h2 class="ail-h2">Most courses teach AI. We help you build with it.</h2>
 <p class="ail-lead">Don't stop at watching lessons. Experiment with AI, solve practical challenges, learn from mistakes, and put your knowledge to work.</p>
 <p class="ail-line">Learn the concept. Try the challenge. Understand the result. Improve your approach.</p></div>
-<div class="ail-intro"><p class="eyebrow">Inside the Neuronetworks AI Lab</p><h3>Your learning shouldn't end when the video does.</h3>
-<p>Step into a practical learning environment where you can work through guided exercises, tackle independent challenges, test your ideas, and learn from feedback.</p>
-<ol class="ail-loop" aria-label="The learning loop">{loop}</ol></div></div>
+</div>
 <ul class="ail-cards">{cl}</ul>
 <div class="ail-lab"><div class="ail-head"><div><p class="ail-label">Interactive lab preview · No sign-up required</p><p class="ail-name">The Neuronetworks AI Challenge Lab</p>
 <h3 class="ail-title">Can you think like an AI engineer?</h3><p class="ail-sub">Five fields. Real-world problems. Your chance to solve them.</p>

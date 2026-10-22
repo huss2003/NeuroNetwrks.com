@@ -305,7 +305,7 @@ def home():
           ("What does it cost?", "<p>We share fees when you enquire, so you get the details for the program you choose. Use the Enquire about fees button and a specialist will respond.</p><p><a class=\"tl\" href=\"/contact?topic=fees\">Enquire about fees <i aria-hidden=\"true\">→</i></a></p>")]
     faq = f'''<section class="sec"><div class="wrap split"><div><p class="eyebrow">Frequently asked questions</p><h2>Got questions?<br>We've got answers.</h2><p class="lead" style="margin-top:16px">Find answers about our programs, learning format and admissions.</p><div class="actions" style="margin-top:28px">{btn("secondary", "/faqs", "All questions", True)}</div></div><div>{faq_items(fq)}</div></div></section>'''
     ld = None
-    return layout("/", "Neuronetworks AI Ed: AI & tech courses after 10th in India", hero + programs + method + lab + projects + home_guides() + faq + cta_panel(), "none", jsonld=ld)
+    return layout("/", "Neuronetworks AI Ed: AI & tech courses after 10th in India", hero + lab + programs + method + projects + home_guides() + faq + cta_panel(), "none", jsonld=ld)
 
 def programs_page():
     cards = "".join(program_tile(p, i, "start" if i == 0 else "three", "h2") for i, p in enumerate(PROGRAMS))
