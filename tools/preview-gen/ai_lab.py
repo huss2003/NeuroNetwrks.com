@@ -236,11 +236,10 @@ def ai_lab_section():
 <p class="ail-line">Learn the concept. Try the challenge. Understand the result. Improve your approach.</p></div>
 </div>
 <ul class="ail-cards">{cl}</ul>
-<div class="ail-lab"><div class="ail-head"><div><p class="ail-label">Interactive lab preview · No sign-up required</p><p class="ail-name">The Neuronetworks AI Challenge Lab</p>
-<h3 class="ail-title">Can you think like an AI engineer?</h3><p class="ail-sub">Five fields. Real-world problems. Your chance to solve them.</p>
-<p class="ail-copy">Step into the world of AI problem-solving. Design prompts, investigate model failures, debug logic, secure AI systems, and build intelligent applications. Choose a challenge, develop your approach, and discover what it takes to solve it.</p></div>
-<div class="ail-meta"><ol class="ail-steps" aria-label="How it works"><li>Choose a challenge</li><li>Solve the problem</li><li>Get feedback</li><li>Discover what's possible</li></ol>
-<div class="ail-prog"><p><span data-ail-tried>0</span> of 5 challenges tried</p><ol class="ail-dots">{dots}</ol></div></div></div>
+<div class="ail-promo"><span class="ail-promo-ic" aria-hidden="true">{ail_icon("tutor", 30)}</span><div><p class="ail-promo-h">India's first personalised tutoring software</p><p class="ail-promo-s"><span class="ail-promo-pill">Free access</span>Get free access to it with your certification.</p></div></div>
+<div class="ail-lab"><div class="ail-head"><div><p class="ail-label">Interactive lab preview · No sign-up required</p>
+<h3 class="ail-title">Can you think like an AI engineer?</h3><p class="ail-sub">Five real-world AI problems. Pick one and try it.</p></div>
+<div class="ail-prog"><p><span data-ail-tried>0</span> of 5 tried</p><ol class="ail-dots">{dots}</ol></div></div>
 <div class="ail-tabs" role="tablist" aria-label="Choose a challenge">{tabs}</div>
 <div class="ail-panels">{panels}</div>
 <p class="ail-method">Feedback comes instantly from an expert-written checklist for each challenge, run in your browser. It is not an AI model, and your answers are not stored or sent anywhere.</p>
